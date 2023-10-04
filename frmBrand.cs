@@ -64,8 +64,7 @@ namespace OOP_System
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            //this.Dispose();
-            this.Close();
+            this.Dispose();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -83,13 +82,18 @@ namespace OOP_System
                     MessageBox.Show("Brand has been successfully updated.");
                     Clear();
                     frmlist.LoadRecords();
-                    this.Close();
+                    this.Dispose();
                 }
 
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtBrand.Text = "";
         }
     }
 }

@@ -33,12 +33,32 @@ namespace OOP_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //Clear();
+            txtCategory.Text = "";
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if(MessageBox.Show("Are you want to update this category?","Update Category",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    cn.Open();
+                    string query = "UPDATE tblcategory SET category = @category WHERE id LIKE '" + lblID.Text + "'";
+                    cm = new SqlCommand(query, cn);
+                    cm.Parameters.AddWithValue("@category", txtCategory.Text);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Record has been successfully updated");
+                    flist.LoadCategory();
+                    this.Dispose();
+                }
 
+            }catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void Clear()
@@ -85,7 +105,7 @@ namespace OOP_System
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void frmCategory_Load(object sender, EventArgs e)
