@@ -115,5 +115,30 @@ namespace OOP_System
             frm.LoadCategory();
             frm.Show();
         }
+
+        private void button3_Click_2(object sender, EventArgs e)
+        {
+            frmProductList frm = new frmProductList();
+            frm.TopLevel = false;
+            panel4.Controls.Add(frm);
+            frm.BringToFront();
+            frm.LoadRecords();
+            frm.Show();
+        }
+
+        private void btnStockIn_Click(object sender, EventArgs e)
+        {
+            frmStockIn frm = new frmStockIn();
+            frm.TopLevel = false;
+            panel4.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            frmPOS frm = new frmPOS();
+            frm.ShowDialog();
+        }
     }
 }
