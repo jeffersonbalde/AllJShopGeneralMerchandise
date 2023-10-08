@@ -13,16 +13,17 @@ namespace OOP_System
 {
     public partial class frmLookUp : Form
     {
-
+        frmPOS f;
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
 
-        public frmLookUp()
+        public frmLookUp(frmPOS frm)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+            f = frm;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -42,7 +43,14 @@ namespace OOP_System
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
 
+            if(colName == "Select")
+            {
+                frmQty frm = new frmQty(f);
+                frm.ProductDetails(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), Double.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()), f.lblTransno.Text);
+                frm.ShowDialog();
+            }
         }
 
         public void LoadRecords()

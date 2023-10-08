@@ -59,6 +59,16 @@ namespace OOP_System
 
         }
 
+        public void GetCartTotal()
+        {
+            double sales = Double.Parse(lblTotal.Text);
+            double discount = 0;
+            double vat = sales * dbcon.GetVal();
+            double vatable = sales - vat;
+            lblVat.Text = vat.ToString("#,##0.00");
+            lblVatable.Text = vatable.ToString("#,##0.00");
+        }
+
         private void GetTransNo()
         {
             try
@@ -137,6 +147,7 @@ namespace OOP_System
             {
                 dataGridView1.Rows.Clear();
                 int i = 0;
+                double total = 0;
                 cn.Open();
                 string query = "SELECT c.id, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblcart AS c INNER JOIN tblproduct AS p ON c.pcode = p.pcode WHERE transno LIKE '" + lblTransno.Text + "'";
                 cm = new SqlCommand(query, cn);
@@ -145,10 +156,13 @@ namespace OOP_System
                 while (dr.Read())
                 {
                     i++;
-                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString());
+                    total += Double.Parse(dr["total"].ToString());
+                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
                 }
                 dr.Close();
                 cn.Close();
+                lblTotal.Text = total.ToString("#,##0.00");
+                GetCartTotal();
 
             }catch(Exception ex)
             {
@@ -159,7 +173,21 @@ namespace OOP_System
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
 
+            if(colName == "Delete")
+            {
+                if(MessageBox.Show("Remove this item?", "ALL J GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    cn.Open();
+                    string query = "DELETE FROM tblcart WHERE id LIKE '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'";
+                    cm = new SqlCommand(query, cn);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Item has been removed", "ALL J GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadCart();
+                }
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -169,7 +197,7 @@ namespace OOP_System
                 return;
             }
 
-            frmLookUp frm = new frmLookUp();
+            frmLookUp frm = new frmLookUp(this);
             frm.LoadRecords();
             frm.ShowDialog();
         }
