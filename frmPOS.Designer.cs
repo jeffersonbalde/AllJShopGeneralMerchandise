@@ -49,7 +49,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblDisplayTotal = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
@@ -84,9 +84,6 @@
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.btnChangePass = new System.Windows.Forms.Button();
             this.btnSale = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -96,6 +93,7 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -110,10 +108,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(227)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.panel8);
             this.panel2.Controls.Add(this.button11);
-            this.panel2.Controls.Add(this.button10);
-            this.panel2.Controls.Add(this.button9);
-            this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.btnChangePass);
             this.panel2.Controls.Add(this.btnSale);
             this.panel2.Controls.Add(this.button5);
@@ -267,7 +263,7 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.label8);
+            this.panel6.Controls.Add(this.lblDisplayTotal);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
@@ -318,19 +314,20 @@
             this.dataGridView1.Size = new System.Drawing.Size(701, 623);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // label8
+            // lblDisplayTotal
             // 
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(159)))), ((int)(((byte)(255)))));
-            this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(444, 132);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "0.00";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.lblDisplayTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDisplayTotal.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDisplayTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(159)))), ((int)(((byte)(255)))));
+            this.lblDisplayTotal.Location = new System.Drawing.Point(0, 0);
+            this.lblDisplayTotal.Name = "lblDisplayTotal";
+            this.lblDisplayTotal.Size = new System.Drawing.Size(444, 132);
+            this.lblDisplayTotal.TabIndex = 0;
+            this.lblDisplayTotal.Text = "0.00";
+            this.lblDisplayTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDisplayTotal.Click += new System.EventHandler(this.label8_Click);
             // 
             // panel7
             // 
@@ -550,9 +547,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(6, 14);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 20);
+            this.label9.Size = new System.Drawing.Size(122, 20);
             this.label9.TabIndex = 0;
-            this.label9.Text = "SUB TOTAL";
+            this.label9.Text = "SALES TOTAL";
             // 
             // lblTotal
             // 
@@ -766,7 +763,7 @@
             this.button11.ForeColor = System.Drawing.Color.Black;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(0, 686);
+            this.button11.Location = new System.Drawing.Point(0, 530);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(266, 52);
             this.button11.TabIndex = 15;
@@ -774,72 +771,6 @@
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button11.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.Transparent;
-            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
-            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.Black;
-            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(0, 634);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(266, 52);
-            this.button10.TabIndex = 14;
-            this.button10.Text = "  [ F10 ] ADD USER";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button10.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.Transparent;
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.Black;
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(0, 582);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(266, 52);
-            this.button9.TabIndex = 13;
-            this.button9.Text = "  [ F9 ] MANAGEMENT";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(0, 530);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(266, 52);
-            this.button8.TabIndex = 12;
-            this.button8.Text = "  [ F8 ] PRINT RECEIPT";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button8.UseVisualStyleBackColor = false;
             // 
             // btnChangePass
             // 
@@ -950,6 +881,7 @@
             this.btnDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDiscount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDiscount.UseVisualStyleBackColor = false;
+            this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
             // 
             // btnSearch
             // 
@@ -1031,6 +963,14 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // panel8
+            // 
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 588);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(266, 173);
+            this.panel8.TabIndex = 16;
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -1080,11 +1020,8 @@
         public System.Windows.Forms.Button btnDiscount;
         public System.Windows.Forms.Button button5;
         public System.Windows.Forms.Button btnSale;
-        public System.Windows.Forms.Button button8;
         public System.Windows.Forms.Button btnChangePass;
         public System.Windows.Forms.Button button11;
-        public System.Windows.Forms.Button button10;
-        public System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel4;
@@ -1092,7 +1029,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblDisplayTotal;
         public System.Windows.Forms.Button button12;
         public System.Windows.Forms.Button button15;
         public System.Windows.Forms.Button button14;
@@ -1127,5 +1064,6 @@
         public System.Windows.Forms.Label lblTotal;
         public System.Windows.Forms.Label lblVatable;
         public System.Windows.Forms.Label lblVat;
+        private System.Windows.Forms.Panel panel8;
     }
 }

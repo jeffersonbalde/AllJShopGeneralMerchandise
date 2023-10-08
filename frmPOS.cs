@@ -14,6 +14,8 @@ namespace OOP_System
     public partial class frmPOS : Form
     {
 
+        String id;
+        String price;
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr; 
@@ -61,12 +63,14 @@ namespace OOP_System
 
         public void GetCartTotal()
         {
+            double discount = Double.Parse(lblDiscount.Text);
             double sales = Double.Parse(lblTotal.Text);
-            double discount = 0;
             double vat = sales * dbcon.GetVal();
             double vatable = sales - vat;
+
             lblVat.Text = vat.ToString("#,##0.00");
             lblVatable.Text = vatable.ToString("#,##0.00");
+            lblDisplayTotal.Text = sales.ToString("#,##0.00");
         }
 
         private void GetTransNo()
@@ -148,6 +152,7 @@ namespace OOP_System
                 dataGridView1.Rows.Clear();
                 int i = 0;
                 double total = 0;
+                double discount = 0;
                 cn.Open();
                 string query = "SELECT c.id, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblcart AS c INNER JOIN tblproduct AS p ON c.pcode = p.pcode WHERE transno LIKE '" + lblTransno.Text + "'";
                 cm = new SqlCommand(query, cn);
@@ -157,11 +162,13 @@ namespace OOP_System
                 {
                     i++;
                     total += Double.Parse(dr["total"].ToString());
+                    discount += Double.Parse(dr["disc"].ToString());
                     dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
                 }
-                dr.Close();
+                dr.Close(); 
                 cn.Close();
                 lblTotal.Text = total.ToString("#,##0.00");
+                lblDiscount.Text = discount.ToString("#,##0.00");
                 GetCartTotal();
 
             }catch(Exception ex)
@@ -200,6 +207,26 @@ namespace OOP_System
             frmLookUp frm = new frmLookUp(this);
             frm.LoadRecords();
             frm.ShowDialog();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            int i = dataGridView1.CurrentRow.Index;
+            id = dataGridView1[1, i].Value.ToString();
+            price = dataGridView1[3, i].Value.ToString();   
+        }
+
+        private void btnDiscount_Click(object sender, EventArgs e)
+        {
+            frmDiscount frm = new frmDiscount(this);
+            frm.lblID.Text = id;
+            frm.txtPrice.Text = price;
+            frm.ShowDialog();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
