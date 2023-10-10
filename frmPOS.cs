@@ -149,11 +149,13 @@ namespace OOP_System
         {
             try
             {
+                Boolean hasrecord = false;
                 dataGridView1.Rows.Clear();
                 int i = 0;
                 double total = 0;
                 double discount = 0;
                 cn.Open();
+                //pcode
                 string query = "SELECT c.id, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblcart AS c INNER JOIN tblproduct AS p ON c.pcode = p.pcode WHERE transno LIKE '" + lblTransno.Text + "'";
                 cm = new SqlCommand(query, cn);
                 dr = cm.ExecuteReader();
@@ -164,12 +166,22 @@ namespace OOP_System
                     total += Double.Parse(dr["total"].ToString());
                     discount += Double.Parse(dr["disc"].ToString());
                     dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
+                    hasrecord = true;
                 }
                 dr.Close(); 
                 cn.Close();
                 lblTotal.Text = total.ToString("#,##0.00");
                 lblDiscount.Text = discount.ToString("#,##0.00");
                 GetCartTotal();
+                if(hasrecord == true)
+                {
+                    btnPayment.Enabled = true;
+                    btnDiscount.Enabled = true;
+                }else
+                {
+                    btnPayment.Enabled = false;
+                    btnDiscount.Enabled = false; 
+                }
 
             }catch(Exception ex)
             {
@@ -281,6 +293,13 @@ namespace OOP_System
         private void lblTime_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            frmSettle frm = new frmSettle(this);
+            frm.txtSale.Text = lblDisplayTotal.Text;
+            frm.ShowDialog();
         }
     }
 }
