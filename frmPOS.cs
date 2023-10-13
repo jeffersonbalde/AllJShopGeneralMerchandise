@@ -21,12 +21,15 @@ namespace OOP_System
         SqlDataReader dr; 
         DBConnection dbcon = new DBConnection();
 
-        public frmPOS()
+        frmSecurity f;
+
+        public frmPOS(frmSecurity frm)
         {
             InitializeComponent();
             lblDate.Text = DateTime.Now.ToLongDateString();
             cn = new SqlConnection(dbcon.MyConnection());
             this.KeyPreview = true;
+            f = frm;
         }
 
         private void frmPOS_Load(object sender, EventArgs e)
@@ -310,6 +313,11 @@ namespace OOP_System
         {
             frmSoldItems frm = new frmSoldItems();
             frm.ShowDialog();
+        }
+
+        private void lblUser_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

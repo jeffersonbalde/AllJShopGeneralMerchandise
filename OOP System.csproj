@@ -167,6 +167,12 @@
     <Compile Include="frmSearchProductStockin.Designer.cs">
       <DependentUpon>frmSearchProductStockin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSecurity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSecurity.Designer.cs">
+      <DependentUpon>frmSecurity.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSettle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearchProductStockin.resx">
       <DependentUpon>frmSearchProductStockin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSecurity.resx">
+      <DependentUpon>frmSecurity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSettle.resx">
       <DependentUpon>frmSettle.cs</DependentUpon>

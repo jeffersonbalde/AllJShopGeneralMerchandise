@@ -22,7 +22,7 @@ namespace OOP_System
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             //cn.Open();
-            MessageBox.Show("Connected");
+            //MessageBox.Show("Connected");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -137,8 +137,8 @@ namespace OOP_System
 
         private void button10_Click(object sender, EventArgs e)
         {
-            frmPOS frm = new frmPOS();
-            frm.ShowDialog();
+            //frmPOS frm = new frmPOS(this);
+            //frm.ShowDialog();
         }
 
         private void button11_Click(object sender, EventArgs e)
