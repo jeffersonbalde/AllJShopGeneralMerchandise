@@ -140,5 +140,14 @@ namespace OOP_System
             frmPOS frm = new frmPOS();
             frm.ShowDialog();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            frmUserAccount frm = new frmUserAccount();
+            frm.TopLevel = false;
+            panel4.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
+        }
     }
 }

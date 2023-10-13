@@ -174,5 +174,20 @@ namespace OOP_System
         {
             LoadStockInHistory();
         }
+
+        private void date1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void date2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

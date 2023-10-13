@@ -73,7 +73,7 @@ namespace OOP_System
             lblDisplayTotal.Text = sales.ToString("#,##0.00");
         }
 
-        private void GetTransNo()
+        public void GetTransNo()
         {
             try
             {
@@ -155,8 +155,7 @@ namespace OOP_System
                 double total = 0;
                 double discount = 0;
                 cn.Open();
-                //pcode
-                string query = "SELECT c.id, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblcart AS c INNER JOIN tblproduct AS p ON c.pcode = p.pcode WHERE transno LIKE '" + lblTransno.Text + "'";
+                string query = "SELECT c.id, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblcart AS c INNER JOIN tblproduct AS p ON c.pcode = p.pcode WHERE transno LIKE '" + lblTransno.Text + "' AND status LIKE 'Pending'";
                 cm = new SqlCommand(query, cn);
                 dr = cm.ExecuteReader();
 
@@ -165,7 +164,7 @@ namespace OOP_System
                     i++;
                     total += Double.Parse(dr["total"].ToString());
                     discount += Double.Parse(dr["disc"].ToString());
-                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
+                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
                     hasrecord = true;
                 }
                 dr.Close(); 
@@ -225,7 +224,7 @@ namespace OOP_System
         {
             int i = dataGridView1.CurrentRow.Index;
             id = dataGridView1[1, i].Value.ToString();
-            price = dataGridView1[3, i].Value.ToString();   
+            price = dataGridView1[4, i].Value.ToString();   
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
@@ -248,7 +247,7 @@ namespace OOP_System
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-                        string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
 
             if(colName == "Delete")
             {
@@ -299,6 +298,17 @@ namespace OOP_System
         {
             frmSettle frm = new frmSettle(this);
             frm.txtSale.Text = lblDisplayTotal.Text;
+            frm.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnSale_Click(object sender, EventArgs e)
+        {
+            frmSoldItems frm = new frmSoldItems();
             frm.ShowDialog();
         }
     }
