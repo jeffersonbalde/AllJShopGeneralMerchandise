@@ -288,7 +288,7 @@ namespace OOP_System
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTime.Text = DateTime.Now.ToString("hh:MM:ss tt");
+            lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
             lblDate1.Text = DateTime.Now.ToLongDateString();
         }
 
@@ -316,6 +316,11 @@ namespace OOP_System
         }
 
         private void lblUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
         {
 
         }

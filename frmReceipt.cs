@@ -21,7 +21,7 @@ namespace OOP_System
         SqlDataReader dr;
 
         string store = "ALL J SHOP GENERAL MERCHANDISE";
-        string address = "Pagadian City";
+        string address = "Duterte Sagun St, Gatas Dist, Pagadian City";
 
         frmPOS f;
 
@@ -66,6 +66,7 @@ namespace OOP_System
                 ReportParameter pStore = new ReportParameter("pStore", store);
                 ReportParameter pAddress = new ReportParameter("pAddress", address);
                 ReportParameter pTransaction = new ReportParameter("pTransaction", "Invoice #: " + f.lblTransno.Text);
+                ReportParameter pCashier = new ReportParameter("pCashier", f.lblUser.Text);
 
                 reportViewer1.LocalReport.SetParameters(pVatable);
                 reportViewer1.LocalReport.SetParameters(pVat);
@@ -76,6 +77,7 @@ namespace OOP_System
                 reportViewer1.LocalReport.SetParameters(pStore);
                 reportViewer1.LocalReport.SetParameters(pAddress);
                 reportViewer1.LocalReport.SetParameters(pTransaction);
+                reportViewer1.LocalReport.SetParameters(pCashier);
 
                 rptDataSource = new ReportDataSource("DataSet1", ds.Tables["dtSold"]);
                 reportViewer1.LocalReport.DataSources.Add(rptDataSource);

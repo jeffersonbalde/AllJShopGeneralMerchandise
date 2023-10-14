@@ -40,6 +40,7 @@
             this.txtQty.Size = new System.Drawing.Size(282, 87);
             this.txtQty.TabIndex = 0;
             this.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQty.TextChanged += new System.EventHandler(this.txtQty_TextChanged);
             this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             // 
             // frmQty

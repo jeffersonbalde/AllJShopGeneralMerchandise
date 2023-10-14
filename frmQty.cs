@@ -46,24 +46,81 @@ namespace OOP_System
 
         private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if((e.KeyChar == 13) && (txtQty.Text != String.Empty))
+            try
             {
-                cn.Open();
-                string query = "INSERT INTO tblcart (transno, pcode, price, qty, sdate)VALUES(@transno, @pcode, @price, @qty, @sdate)";
-                cm = new SqlCommand(query, cn);
-                cm.Parameters.AddWithValue("@transno", transno);
-                cm.Parameters.AddWithValue("@pcode", pcode);        
-                cm.Parameters.AddWithValue("@price", price);
-                cm.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
-                cm.Parameters.AddWithValue("@sdate", DateTime.Now);
-                cm.ExecuteNonQuery();
-                cn.Close();
+                if((e.KeyChar == 13) && (txtQty.Text != String.Empty))
+                {
 
-                fpos.txtSearch.Clear();
-                fpos.txtSearch.Focus();
-                fpos.LoadCart();
-                this.Dispose();
+                    bool found = false;
+                    string pcode1 = "";
+                    string transno1 = "";
+
+                    cn.Open();
+                    string query1 = "SELECT pcode, transno FROM tblCart WHERE pcode = @pcode AND transno = @transno";
+                    cm = new SqlCommand(query1, cn);
+                    cm.Parameters.AddWithValue("@pcode", pcode);
+                    cm.Parameters.AddWithValue("@transno", fpos.lblTransno.Text);
+                    dr = cm.ExecuteReader();
+                    dr.Read();
+
+                    if (dr.HasRows)
+                    {
+                        found = true;
+                        pcode1 = dr["pcode"].ToString();
+                        transno1 = dr["transno"].ToString();
+                    }
+                    dr.Close();
+                    cn.Close();
+
+                    if (found)
+                    {
+                        cn.Open();
+                        string query = "UPDATE tblCart SET qty = (qty + " + int.Parse(txtQty.Text) + ") WHERE pcode = @pcode AND transno = @transno";
+                        cm = new SqlCommand(query, cn);
+                        cm.Parameters.AddWithValue("@pcode", pcode1);
+                        cm.Parameters.AddWithValue("@transno", transno1);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        fpos.txtSearch.Clear();
+                        fpos.txtSearch.Focus();
+                        fpos.LoadCart();
+                        this.Dispose();
+
+                    }
+                    else
+                    {
+                        cn.Open();
+                        string query = "INSERT INTO tblcart (transno, pcode, price, qty, sdate, cashier)VALUES(@transno, @pcode, @price, @qty, @sdate, @cashier)";
+                        cm = new SqlCommand(query, cn);
+                        cm.Parameters.AddWithValue("@transno", transno);
+                        cm.Parameters.AddWithValue("@pcode", pcode);
+                        cm.Parameters.AddWithValue("@price", price);
+                        cm.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
+                        cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                        cm.Parameters.AddWithValue("@cashier", fpos.lblUser.Text);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        fpos.txtSearch.Clear();
+                        fpos.txtSearch.Focus();
+                        fpos.LoadCart();
+                        this.Dispose();
+                    }
+
+                }
+    
             }
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtQty_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

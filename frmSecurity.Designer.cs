@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSecurity));
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -47,9 +47,9 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(31, -5);
+            this.pictureBox2.Location = new System.Drawing.Point(22, -15);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1087, 325);
+            this.pictureBox2.Size = new System.Drawing.Size(1087, 359);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
@@ -67,6 +67,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(476, 378);
             this.panel2.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
+            this.label2.Location = new System.Drawing.Point(35, 142);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 25);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Password";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
+            this.label1.Location = new System.Drawing.Point(35, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 25);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Username";
             // 
             // txtPass
             // 
@@ -118,28 +140,6 @@
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.label1.Location = new System.Drawing.Point(35, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 25);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Username";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.label2.Location = new System.Drawing.Point(35, 142);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 25);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Password";
             // 
             // metroTextBox2
             // 
