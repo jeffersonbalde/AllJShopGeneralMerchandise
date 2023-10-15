@@ -26,6 +26,23 @@ namespace OOP_System
             dt1.Value = DateTime.Now;
             dt2.Value = DateTime.Now;
             LoadRecord();
+            LoadCashier();
+        }
+
+        public void LoadCashier()
+        {
+            cboCashier.Items.Clear();
+            cboCashier.Items.Add("All Cashier");
+            cn.Open();
+            string query = "SELECT name from tblUser WHERE role = 'Cashier'";
+            cm = new SqlCommand(query, cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                cboCashier.Items.Add(dr["name"].ToString());
+            }
+            dr.Close();
+            cn.Close();
         }
 
         public void LoadRecord()
@@ -36,8 +53,15 @@ namespace OOP_System
                 double _total = 0;
                 dataGridView1.Rows.Clear();
                 cn.Open();
-                string query = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "'";
-                cm = new SqlCommand(query, cn);
+                if(cboCashier.Text == "All Cashier")
+                {
+                    string query1 = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "'";
+                    cm = new SqlCommand(query1, cn);
+                }else
+                {
+                    string query = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + cboCashier.Text + "'";
+                    cm = new SqlCommand(query, cn);
+                }
                 dr = cm.ExecuteReader();
 
                 while (dr.Read())
@@ -111,6 +135,16 @@ namespace OOP_System
             frmReportSold frm = new frmReportSold(this);
             frm.LoadReport();
             frm.ShowDialog();
+        }
+
+        private void cboCashier_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboCashier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadRecord();
         }
     }
 }

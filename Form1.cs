@@ -149,5 +149,11 @@ namespace OOP_System
             frm.BringToFront();
             frm.Show();
         }
+
+        private void btnSalesHistory_Click(object sender, EventArgs e)
+        {
+            frmSoldItems frm = new frmSoldItems();
+            frm.ShowDialog();
+        }
     }
 }

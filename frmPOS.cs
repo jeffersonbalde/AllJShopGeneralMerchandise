@@ -49,6 +49,12 @@ namespace OOP_System
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(dataGridView1.Rows.Count > 0)
+            {
+                MessageBox.Show("You have pending items in your current transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             GetTransNo();
             txtSearch.Enabled = true;
             txtSearch.Focus();
@@ -269,6 +275,7 @@ namespace OOP_System
 
         private void dataGridView12_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;
 
             if (colName == "Delete")
@@ -312,6 +319,10 @@ namespace OOP_System
         private void btnSale_Click(object sender, EventArgs e)
         {
             frmSoldItems frm = new frmSoldItems();
+            frm.dt1.Enabled = false;
+            frm.dt2.Enabled = false;
+            frm.cboCashier.Enabled = false;
+            frm.cboCashier.Text = lblUser.Text;
             frm.ShowDialog();
         }
 
@@ -321,6 +332,28 @@ namespace OOP_System
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.Rows.Count > 0)
+            {
+                MessageBox.Show("You have pending items in your current transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }else
+            {
+                if (MessageBox.Show("Are you sure you want to log out and close the application?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.Dispose();
+                    frmSecurity frm = new frmSecurity();
+                    frm.ShowDialog();
+                }
+            }
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
         }

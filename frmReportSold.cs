@@ -59,10 +59,25 @@ namespace OOP_System
                 SqlDataAdapter da = new SqlDataAdapter();
 
                 cn.Open();
-                string query = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + f.dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + f.dt2.Value.ToString("yyyy-MM-dd") + "'";
-                da.SelectCommand = new SqlCommand(query, cn);
+                if(f.cboCashier.Text == "All Cashier")
+                {
+                    string query1 = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + f.dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + f.dt2.Value.ToString("yyyy-MM-dd") + "'";
+                    da.SelectCommand = new SqlCommand(query1, cn);
+                }else
+                {
+                    string query = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + f.dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + f.dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + f.cboCashier.Text + "'";
+                    da.SelectCommand = new SqlCommand(query, cn);
+                }
                 da.Fill(ds.Tables["dtSoldReport"]);
                 cn.Close();
+
+                ReportParameter pDate = new ReportParameter("pDate", "Date From: " + f.dt1.Value.ToShortDateString() + " To: " + f.dt2.Value.ToShortDateString());
+                ReportParameter pCashier = new ReportParameter("pCashier", "Cashier: " + f.cboCashier.Text);
+                ReportParameter pHeader = new ReportParameter("pHeader", "SALES REPORT");
+
+                reportViewer1.LocalReport.SetParameters(pDate);
+                reportViewer1.LocalReport.SetParameters(pCashier);
+                reportViewer1.LocalReport.SetParameters(pHeader);
 
                 rptDS = new ReportDataSource("DataSet1", ds.Tables["dtSoldReport"]);
                 reportViewer1.LocalReport.DataSources.Add(rptDS);

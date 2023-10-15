@@ -218,6 +218,7 @@
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // btnChangePass
             // 
@@ -554,6 +555,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1178, 132);
             this.panel4.TabIndex = 5;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // panel6
             // 
