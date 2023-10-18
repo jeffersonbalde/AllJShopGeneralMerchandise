@@ -11,7 +11,7 @@ namespace OOP_System
     {
 
         SqlConnection cn = new SqlConnection();
-        SqlCommand cm = new SqlCommand();
+        SqlCommand cm = new SqlCommand(); 
         SqlDataReader dr;
 
         public string MyConnection()
