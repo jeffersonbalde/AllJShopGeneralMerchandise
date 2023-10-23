@@ -107,5 +107,20 @@ namespace OOP_System
         {
             this.Dispose();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmProduct frm = new frmProduct(this);
+            frm.btnSave.Enabled = true;
+            frm.btnUpdate.Enabled = false;
+            frm.LoadBrand();
+            frm.LoadCategory();
+            frm.ShowDialog();
+        }
     }
 }

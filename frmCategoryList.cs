@@ -84,5 +84,18 @@ namespace OOP_System
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmCategory frm = new frmCategory(this);
+            frm.btnSave.Enabled = true;
+            frm.btnUpdate.Enabled = false;
+            frm.ShowDialog();
+        }
     }
 }

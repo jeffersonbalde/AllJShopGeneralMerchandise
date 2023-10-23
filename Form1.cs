@@ -48,6 +48,8 @@ namespace OOP_System
         private void button1_Click(object sender, EventArgs e)
         {
             this.Dispose();
+            frmSecurity frm = new frmSecurity();
+            frm.ShowDialog();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -153,7 +155,10 @@ namespace OOP_System
         private void btnSalesHistory_Click(object sender, EventArgs e)
         {
             frmSoldItems frm = new frmSoldItems();
-            frm.ShowDialog();
+            frm.TopLevel = false;
+            panel4.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
         }
     }
 }

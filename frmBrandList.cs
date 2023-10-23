@@ -95,5 +95,22 @@ namespace OOP_System
         {
             this.Dispose();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmBrand frm = new frmBrand(this);
+            frm.btnUpdate.Enabled = false;
+            frm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
