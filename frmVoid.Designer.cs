@@ -83,6 +83,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmVoid";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmVoid_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

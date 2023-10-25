@@ -171,7 +171,7 @@
             this.button10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(9, 644);
+            this.button10.Location = new System.Drawing.Point(14, 625);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(249, 55);
             this.button10.TabIndex = 10;
@@ -189,7 +189,7 @@
             this.button11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(9, 584);
+            this.button11.Location = new System.Drawing.Point(14, 565);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(249, 55);
             this.button11.TabIndex = 9;
@@ -207,7 +207,7 @@
             this.btnSalesHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btnSalesHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnSalesHistory.Image")));
             this.btnSalesHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalesHistory.Location = new System.Drawing.Point(9, 523);
+            this.btnSalesHistory.Location = new System.Drawing.Point(14, 504);
             this.btnSalesHistory.Name = "btnSalesHistory";
             this.btnSalesHistory.Size = new System.Drawing.Size(249, 55);
             this.btnSalesHistory.TabIndex = 8;
@@ -225,7 +225,7 @@
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(9, 463);
+            this.button6.Location = new System.Drawing.Point(14, 444);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(249, 55);
             this.button6.TabIndex = 7;
@@ -242,7 +242,7 @@
             this.btnBrand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btnBrand.Image = ((System.Drawing.Image)(resources.GetObject("btnBrand.Image")));
             this.btnBrand.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBrand.Location = new System.Drawing.Point(9, 403);
+            this.btnBrand.Location = new System.Drawing.Point(14, 384);
             this.btnBrand.Name = "btnBrand";
             this.btnBrand.Size = new System.Drawing.Size(249, 55);
             this.btnBrand.TabIndex = 6;
@@ -260,7 +260,7 @@
             this.btnCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btnCategory.Image = ((System.Drawing.Image)(resources.GetObject("btnCategory.Image")));
             this.btnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategory.Location = new System.Drawing.Point(9, 342);
+            this.btnCategory.Location = new System.Drawing.Point(14, 323);
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Size = new System.Drawing.Size(249, 55);
             this.btnCategory.TabIndex = 5;
@@ -278,7 +278,7 @@
             this.button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(9, 282);
+            this.button9.Location = new System.Drawing.Point(14, 263);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(249, 55);
             this.button9.TabIndex = 4;
@@ -295,7 +295,7 @@
             this.btnStockIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btnStockIn.Image = ((System.Drawing.Image)(resources.GetObject("btnStockIn.Image")));
             this.btnStockIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStockIn.Location = new System.Drawing.Point(9, 222);
+            this.btnStockIn.Location = new System.Drawing.Point(14, 203);
             this.btnStockIn.Name = "btnStockIn";
             this.btnStockIn.Size = new System.Drawing.Size(249, 55);
             this.btnStockIn.TabIndex = 3;
@@ -313,7 +313,7 @@
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(9, 162);
+            this.button5.Location = new System.Drawing.Point(14, 143);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(249, 55);
             this.button5.TabIndex = 2;
@@ -330,7 +330,7 @@
             this.btnProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btnProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnProduct.Image")));
             this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.Location = new System.Drawing.Point(9, 101);
+            this.btnProduct.Location = new System.Drawing.Point(14, 82);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(249, 55);
             this.btnProduct.TabIndex = 1;
@@ -348,7 +348,7 @@
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(9, 41);
+            this.button2.Location = new System.Drawing.Point(14, 22);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(249, 55);
             this.button2.TabIndex = 0;

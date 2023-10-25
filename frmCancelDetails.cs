@@ -21,5 +21,10 @@ namespace OOP_System
         {
             this.Dispose();
         }
+
+        private void frmCancelDetails_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -97,5 +97,10 @@ namespace OOP_System
             frm.btnUpdate.Enabled = false;
             frm.ShowDialog();
         }
+
+        private void frmCategoryList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

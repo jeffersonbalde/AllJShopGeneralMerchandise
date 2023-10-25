@@ -79,5 +79,10 @@ namespace OOP_System
         {
             this.Dispose();
         }
+
+        private void frmLookUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

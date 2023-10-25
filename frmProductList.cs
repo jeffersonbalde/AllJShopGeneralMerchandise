@@ -122,5 +122,10 @@ namespace OOP_System
             frm.LoadCategory();
             frm.ShowDialog();
         }
+
+        private void frmProductList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
