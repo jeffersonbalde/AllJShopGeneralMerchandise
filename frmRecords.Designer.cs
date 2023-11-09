@@ -97,14 +97,12 @@
             // 
             // metroTabControl1
             // 
-            this.metroTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTabControl1.Controls.Add(this.tabPage1);
-            this.metroTabControl1.Location = new System.Drawing.Point(12, 56);
+            this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroTabControl1.Location = new System.Drawing.Point(0, 48);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(1045, 537);
+            this.metroTabControl1.Size = new System.Drawing.Size(1074, 555);
             this.metroTabControl1.TabIndex = 4;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -114,7 +112,7 @@
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1037, 495);
+            this.tabPage1.Size = new System.Drawing.Size(1066, 513);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TOP SELLING";
             // 
@@ -128,7 +126,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1037, 64);
+            this.panel2.Size = new System.Drawing.Size(1066, 64);
             this.panel2.TabIndex = 0;
             // 
             // panel3
@@ -138,7 +136,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 64);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1037, 431);
+            this.panel3.Size = new System.Drawing.Size(1066, 449);
             this.panel3.TabIndex = 1;
             // 
             // dataGridView1
@@ -183,7 +181,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1037, 431);
+            this.dataGridView1.Size = new System.Drawing.Size(1066, 449);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
