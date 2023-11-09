@@ -160,5 +160,14 @@ namespace OOP_System
             frm.BringToFront();
             frm.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            frmRecords frm = new frmRecords();
+            frm.TopLevel = false;
+            panel4.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
+        }
     }
 }
