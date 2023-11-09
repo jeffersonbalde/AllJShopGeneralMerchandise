@@ -92,16 +92,17 @@ namespace OOP_System
             try
             {
                 cn.Open();
-                string query1 = "INSERT INTO tblcancel (transno, pcode, price, qty, sdate, voidby, cancelledby, reason) VALUES (@transno, @pcode, @price, @qty, @sdate, @voidby, @cancelledby, @reason)";
+                string query1 = "INSERT INTO tblcancel (transno, pcode, price, qty, sdate, voidby, cancelledby, reason, action) VALUES (@transno, @pcode, @price, @qty, @sdate, @voidby, @cancelledby, @reason, @action)";
                 cm = new SqlCommand(query1, cn);
-                cm.Parameters.AddWithValue("transno", f.txtTransnoNo.Text);
-                cm.Parameters.AddWithValue("pcode", f.txtPCode.Text);
-                cm.Parameters.AddWithValue("price", double.Parse(f.txtPrice.Text));
-                cm.Parameters.AddWithValue("qty", int.Parse(f.txtCancelQty.Text));
-                cm.Parameters.AddWithValue("sdate", DateTime.Now);
-                cm.Parameters.AddWithValue("voidby", user);
-                cm.Parameters.AddWithValue("cancelledby", f.txtCancel.Text);
-                cm.Parameters.AddWithValue("reason", f.txtReason.Text);
+                cm.Parameters.AddWithValue("@transno", f.txtTransnoNo.Text);
+                cm.Parameters.AddWithValue("@pcode", f.txtPCode.Text);
+                cm.Parameters.AddWithValue("@price", double.Parse(f.txtPrice.Text));
+                cm.Parameters.AddWithValue("@qty", int.Parse(f.txtCancelQty.Text));
+                cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                cm.Parameters.AddWithValue("@voidby", user);
+                cm.Parameters.AddWithValue("@cancelledby", f.txtCancel.Text);
+                cm.Parameters.AddWithValue("@reason", f.txtReason.Text);
+                cm.Parameters.AddWithValue("@action", f.cboAction.Text);
                 cm.ExecuteNonQuery();
                 cn.Close();
 
