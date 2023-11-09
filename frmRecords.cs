@@ -41,7 +41,7 @@ namespace OOP_System
             {
                 int i = 0;
                 cn.Open();
-                string query = "SELECT pcode, pdesc, qty FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold'";
+                string query = "SELECT pcode, pdesc, SUM(qty) AS qty FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc";
                 cm = new SqlCommand(query, cn);
                 dr = cm.ExecuteReader();
 
