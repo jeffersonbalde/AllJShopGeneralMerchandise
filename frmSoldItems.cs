@@ -19,6 +19,8 @@ namespace OOP_System
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
 
+        public string suser;
+
         public frmSoldItems()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace OOP_System
         {
             cboCashier.Items.Clear();
             cboCashier.Items.Add("All Cashier");
-            cn.Open();
+            cn.Open();  
             string query = "SELECT name from tblUser WHERE role = 'Cashier'";
             cm = new SqlCommand(query, cn);
             dr = cm.ExecuteReader();
@@ -87,7 +89,24 @@ namespace OOP_System
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
 
+            if(colName == "colCancel")
+            {
+                frmCancelDetails f = new frmCancelDetails(this);
+                f.txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                f.txtTransnoNo.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                f.txtPCode.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                f.txtDescription.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                f.txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                f.txtQty.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                f.txtDiscount.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                f.txtTotal.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+
+                f.txtCancel.Text = suser;
+                    
+                f.ShowDialog(); 
+            }
         }
 
         private void frmSoldItems_Load(object sender, EventArgs e)

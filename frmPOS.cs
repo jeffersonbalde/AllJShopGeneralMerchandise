@@ -319,6 +319,7 @@ namespace OOP_System
         private void btnSale_Click(object sender, EventArgs e)
         {
             frmSoldItems frm = new frmSoldItems();
+            frm.suser = lblUser.Text;
             frm.dt1.Enabled = false;
             frm.dt2.Enabled = false;
             frm.cboCashier.Enabled = false;
