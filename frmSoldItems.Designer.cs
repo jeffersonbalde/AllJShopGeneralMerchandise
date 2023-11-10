@@ -40,6 +40,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.cboCashier = new System.Windows.Forms.ComboBox();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.dt2 = new System.Windows.Forms.DateTimePicker();
+            this.dt1 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,13 +57,6 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCancel = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.cboCashier = new System.Windows.Forms.ComboBox();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.dt2 = new System.Windows.Forms.DateTimePicker();
-            this.dt1 = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel5.SuspendLayout();
@@ -156,6 +156,89 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.cboCashier);
+            this.panel5.Controls.Add(this.lblTotal);
+            this.panel5.Controls.Add(this.btnPrint);
+            this.panel5.Controls.Add(this.dt2);
+            this.panel5.Controls.Add(this.dt1);
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 43);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1131, 45);
+            this.panel5.TabIndex = 4;
+            // 
+            // cboCashier
+            // 
+            this.cboCashier.FormattingEnabled = true;
+            this.cboCashier.Location = new System.Drawing.Point(602, 6);
+            this.cboCashier.Name = "cboCashier";
+            this.cboCashier.Size = new System.Drawing.Size(177, 31);
+            this.cboCashier.TabIndex = 6;
+            this.cboCashier.SelectedIndexChanged += new System.EventHandler(this.cboCashier_SelectedIndexChanged);
+            this.cboCashier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboCashier_KeyPress);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(157)))), ((int)(((byte)(247)))));
+            this.lblTotal.Location = new System.Drawing.Point(961, 0);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(170, 45);
+            this.lblTotal.TabIndex = 5;
+            this.lblTotal.Text = "0.00";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTotal.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(157)))), ((int)(((byte)(247)))));
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(788, 6);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(177, 30);
+            this.btnPrint.TabIndex = 4;
+            this.btnPrint.Text = "PRINT SALES";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // dt2
+            // 
+            this.dt2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt2.Location = new System.Drawing.Point(418, 7);
+            this.dt2.Name = "dt2";
+            this.dt2.Size = new System.Drawing.Size(177, 30);
+            this.dt2.TabIndex = 2;
+            this.dt2.ValueChanged += new System.EventHandler(this.dt2_ValueChanged);
+            // 
+            // dt1
+            // 
+            this.dt1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt1.Location = new System.Drawing.Point(235, 7);
+            this.dt1.Name = "dt1";
+            this.dt1.Size = new System.Drawing.Size(177, 30);
+            this.dt1.TabIndex = 1;
+            this.dt1.ValueChanged += new System.EventHandler(this.dt1_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(4, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(230, 23);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "FILTER BY DATE  (FROM - TO)";
+            // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -244,89 +327,6 @@
             this.colCancel.Name = "colCancel";
             this.colCancel.Width = 6;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.cboCashier);
-            this.panel5.Controls.Add(this.lblTotal);
-            this.panel5.Controls.Add(this.btnPrint);
-            this.panel5.Controls.Add(this.dt2);
-            this.panel5.Controls.Add(this.dt1);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 43);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1131, 45);
-            this.panel5.TabIndex = 4;
-            // 
-            // cboCashier
-            // 
-            this.cboCashier.FormattingEnabled = true;
-            this.cboCashier.Location = new System.Drawing.Point(602, 6);
-            this.cboCashier.Name = "cboCashier";
-            this.cboCashier.Size = new System.Drawing.Size(177, 31);
-            this.cboCashier.TabIndex = 6;
-            this.cboCashier.SelectedIndexChanged += new System.EventHandler(this.cboCashier_SelectedIndexChanged);
-            this.cboCashier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboCashier_KeyPress);
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(157)))), ((int)(((byte)(247)))));
-            this.lblTotal.Location = new System.Drawing.Point(961, 0);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(170, 45);
-            this.lblTotal.TabIndex = 5;
-            this.lblTotal.Text = "0.00";
-            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblTotal.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(157)))), ((int)(((byte)(247)))));
-            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrint.FlatAppearance.BorderSize = 0;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(788, 6);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(177, 30);
-            this.btnPrint.TabIndex = 4;
-            this.btnPrint.Text = "PRINT SALES";
-            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // dt2
-            // 
-            this.dt2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt2.Location = new System.Drawing.Point(418, 7);
-            this.dt2.Name = "dt2";
-            this.dt2.Size = new System.Drawing.Size(177, 30);
-            this.dt2.TabIndex = 2;
-            this.dt2.ValueChanged += new System.EventHandler(this.dt2_ValueChanged);
-            // 
-            // dt1
-            // 
-            this.dt1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt1.Location = new System.Drawing.Point(235, 7);
-            this.dt1.Name = "dt1";
-            this.dt1.Size = new System.Drawing.Size(177, 30);
-            this.dt1.TabIndex = 1;
-            this.dt1.ValueChanged += new System.EventHandler(this.dt1_ValueChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(230, 23);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "FILTER BY DATE  (FROM - TO)";
-            // 
             // frmSoldItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -363,6 +363,7 @@
         public System.Windows.Forms.DateTimePicker dt2;
         public System.Windows.Forms.DateTimePicker dt1;
         public System.Windows.Forms.ComboBox cboCashier;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -373,6 +374,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewImageColumn colCancel;
-        private System.Windows.Forms.Button button2;
     }
 }

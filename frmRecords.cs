@@ -39,6 +39,8 @@ namespace OOP_System
         {
             try
             {
+                dataGridView1.Rows.Clear();
+
                 int i = 0;
                 cn.Open();
                 //Top 10 products only
@@ -58,6 +60,7 @@ namespace OOP_System
 
             }catch(Exception ex)
             {
+                cn.Close();
                 MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -66,6 +69,47 @@ namespace OOP_System
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadRecord();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView2.Rows.Clear();
+
+                int i = 0;
+                cn.Open();
+                //string query = "SELECT c.pcode, p.pdesc, c.price, SUM(c.qty) AS tot_qty, SUM(c.disc) AS tot_disc, SUM(c.total) AS total FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt3.Value.ToString("yyyy-MM-dd") + "' AND '" + dt4.Value.ToString("yyyy-MM-dd") + "' GROUP BY c.pcode, p.pdesc c.price";
+                string query1 = "SELECT c.pcode, p.pdesc, c.price, SUM(c.qty) AS tot_qty, SUM(c.disc) AS tot_disc, SUM(c.total) AS total FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt3.Value.ToString("yyyy-MM-dd") + "' AND '" + dt4.Value.ToString("yyyy-MM-dd") + "' GROUP BY c.pcode, p.pdesc, c.price";
+                cm = new SqlCommand(query1, cn);
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    i++;
+                    dataGridView2.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), Double.Parse(dr["price"].ToString()).ToString("#,##0.00"), dr["tot_qty"].ToString(), dr["tot_disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
+                }
+
+                dr.Close();
+                cn.Close();
+
+                cn.Open();
+                string query2 = "SELECT ISNULL(SUM(total),0) FROM tblcart WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt3.Value.ToString("yyyy-MM-dd") + "' AND '" + dt4.Value.ToString("yyyy-MM-dd") + "'";
+                cm = new SqlCommand(query2, cn);
+                lblTotal.Text = Double.Parse(cm.ExecuteScalar().ToString()).ToString("#,##0.00");
+                cn.Close();
+
+            }
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
