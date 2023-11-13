@@ -105,14 +105,15 @@ namespace OOP_System
                     cn.Close();
 
                     cn.Open();
-                    string query2 = "INSERT INTO tblProduct (pcode, barcode, pdesc, bid, cid, price) VALUES(@pcode, @barcode, @pdesc, @bid, @cid, @price)";
+                    string query2 = "INSERT INTO tblProduct (pcode, barcode, pdesc, bid, cid, price, reorder) VALUES(@pcode, @barcode, @pdesc, @bid, @cid, @price, @reorder)";
                     cm = new SqlCommand(query2, cn);
                     cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
                     cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
                     cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
                     cm.Parameters.AddWithValue("@bid", bid);
                     cm.Parameters.AddWithValue("@cid", cid);
-                    cm.Parameters.AddWithValue("@price", txtPrice.Text);
+                    cm.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
+                    cm.Parameters.AddWithValue("@reorder", int.Parse(txtReorder.Text));
                     cm.ExecuteNonQuery();
                     cn.Close();
 
@@ -183,14 +184,15 @@ namespace OOP_System
                     cn.Close();
 
                     cn.Open();
-                    string query2 = "UPDATE tblProduct SET barcode = @barcode, pdesc=@pdesc, bid=@bid, cid=@cid, price=@price WHERE pcode LIKE @pcode";
+                    string query2 = "UPDATE tblProduct SET barcode = @barcode, pdesc=@pdesc, bid=@bid, cid=@cid, price=@price, reorder=@reorder WHERE pcode LIKE @pcode";
                     cm = new SqlCommand(query2, cn);
                     cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
                     cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
                     cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
                     cm.Parameters.AddWithValue("@bid", bid);
                     cm.Parameters.AddWithValue("@cid", cid);
-                    cm.Parameters.AddWithValue("@price", txtPrice.Text);
+                    cm.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
+                    cm.Parameters.AddWithValue("@reorder", int.Parse(txtReorder.Text));
                     cm.ExecuteNonQuery();
                     cn.Close();
 

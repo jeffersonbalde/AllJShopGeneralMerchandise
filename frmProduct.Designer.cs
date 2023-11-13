@@ -47,6 +47,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtReorder = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -160,7 +162,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(428, 407);
+            this.button1.Location = new System.Drawing.Point(428, 457);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 44);
             this.button1.TabIndex = 17;
@@ -176,7 +178,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(299, 407);
+            this.btnUpdate.Location = new System.Drawing.Point(299, 457);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(105, 44);
             this.btnUpdate.TabIndex = 16;
@@ -192,7 +194,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(169, 407);
+            this.btnSave.Location = new System.Drawing.Point(169, 457);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(105, 44);
             this.btnSave.TabIndex = 15;
@@ -256,13 +258,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "PRODUCT LIST";
             // 
+            // txtReorder
+            // 
+            this.txtReorder.Location = new System.Drawing.Point(169, 398);
+            this.txtReorder.Name = "txtReorder";
+            this.txtReorder.Size = new System.Drawing.Size(385, 30);
+            this.txtReorder.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
+            this.label8.Location = new System.Drawing.Point(32, 400);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(128, 28);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Restock Level";
+            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(601, 518);
+            this.ClientSize = new System.Drawing.Size(601, 557);
             this.ControlBox = false;
+            this.Controls.Add(this.txtReorder);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBarcode);
             this.Controls.Add(this.label7);
@@ -311,5 +333,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtReorder;
+        private System.Windows.Forms.Label label8;
     }
 }
