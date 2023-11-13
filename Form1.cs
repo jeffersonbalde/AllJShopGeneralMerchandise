@@ -166,6 +166,7 @@ namespace OOP_System
             frmRecords frm = new frmRecords();
             frm.TopLevel = false;
             frm.LoadCriticalItems();
+            frm.LoadInventory();
             panel4.Controls.Add(frm);
             frm.BringToFront();
             frm.Show();
