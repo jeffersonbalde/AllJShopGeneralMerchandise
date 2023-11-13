@@ -106,10 +106,41 @@ namespace OOP_System
                 MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+         
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        public void LoadCriticalItems()
+        {
+            try
+            {
+
+                dataGridView3.Rows.Clear();
+                int i = 0;
+                cn.Open();
+                string query3 = "SELECT * FROM vwCriticalItems";
+                cm = new SqlCommand(query3, cn);
+                dr = cm.ExecuteReader();
+                while(dr.Read())
+                {
+                    i++;
+                    dataGridView3.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString());
+                }
+                cn.Close();
+
+            }
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
