@@ -174,5 +174,12 @@ namespace OOP_System
                 MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmInventoryReport frm = new frmInventoryReport();
+            frm.LoadReport();
+            frm.ShowDialog();
+        }
     }
 }
