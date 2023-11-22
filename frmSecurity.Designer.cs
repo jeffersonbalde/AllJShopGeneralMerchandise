@@ -43,23 +43,18 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(22, -15);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1087, 359);
+            this.pictureBox2.Size = new System.Drawing.Size(1130, 359);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
@@ -68,9 +63,11 @@
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnLogin);
             this.panel2.Location = new System.Drawing.Point(335, 255);
+            this.panel2.MaximumSize = new System.Drawing.Size(476, 378);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(476, 378);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label2
             // 
@@ -101,6 +98,7 @@
             this.txtPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Location = new System.Drawing.Point(35, 173);
             this.txtPass.Margin = new System.Windows.Forms.Padding(10);
+            this.txtPass.MaximumSize = new System.Drawing.Size(404, 34);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(404, 34);
             this.txtPass.TabIndex = 16;
@@ -114,6 +112,7 @@
             this.txtUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.Location = new System.Drawing.Point(35, 87);
             this.txtUser.Margin = new System.Windows.Forms.Padding(10);
+            this.txtUser.MaximumSize = new System.Drawing.Size(404, 34);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(404, 34);
             this.txtUser.TabIndex = 15;
@@ -130,6 +129,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(157)))), ((int)(((byte)(247)))));
             this.btnCancel.Location = new System.Drawing.Point(35, 283);
+            this.btnCancel.MaximumSize = new System.Drawing.Size(404, 44);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(404, 44);
             this.btnCancel.TabIndex = 14;
@@ -149,6 +149,7 @@
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(35, 233);
+            this.btnLogin.MaximumSize = new System.Drawing.Size(404, 44);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(404, 44);
             this.btnLogin.TabIndex = 13;

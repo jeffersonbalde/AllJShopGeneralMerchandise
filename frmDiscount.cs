@@ -26,6 +26,7 @@ namespace OOP_System
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             f = frm;
+            this.KeyPreview = true;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -79,6 +80,14 @@ namespace OOP_System
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void frmDiscount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }    
         }
     }
 }

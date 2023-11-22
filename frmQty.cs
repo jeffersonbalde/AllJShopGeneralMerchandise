@@ -24,6 +24,7 @@ namespace OOP_System
         private String pcode;
         private double price;
         private String transno;
+        private int qty;
 
         public frmQty(frmPOS frmpos)
         {
@@ -37,11 +38,12 @@ namespace OOP_System
 
         }
 
-        public void ProductDetails(String pcode, double price, String transno)
+        public void ProductDetails(String pcode, double price, String transno, int qty)
         {
             this.pcode = pcode;
             this.price = price;
             this.transno = transno;
+            this.qty = qty;
         }
 
         private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
@@ -55,8 +57,10 @@ namespace OOP_System
                     string pcode1 = "";
                     string transno1 = "";
 
+                    int cart_qty = 0;
+
                     cn.Open();
-                    string query1 = "SELECT pcode, transno FROM tblCart WHERE pcode = @pcode AND transno = @transno";
+                    string query1 = "SELECT * FROM tblCart WHERE pcode = @pcode AND transno = @transno";
                     cm = new SqlCommand(query1, cn);
                     cm.Parameters.AddWithValue("@pcode", pcode);
                     cm.Parameters.AddWithValue("@transno", fpos.lblTransno.Text);
@@ -68,12 +72,20 @@ namespace OOP_System
                         found = true;
                         pcode1 = dr["pcode"].ToString();
                         transno1 = dr["transno"].ToString();
+                        cart_qty = int.Parse(dr["qty"].ToString());
                     }
                     dr.Close();
                     cn.Close();
 
                     if (found)
                     {
+
+                        if (qty < (int.Parse(txtQty.Text) + cart_qty))
+                        {
+                            MessageBox.Show("Insufficient remaing stock, Remaing item is " + qty, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
                         cn.Open();
                         string query = "UPDATE tblCart SET qty = (qty + " + int.Parse(txtQty.Text) + ") WHERE pcode = @pcode AND transno = @transno";
                         cm = new SqlCommand(query, cn);
@@ -90,6 +102,13 @@ namespace OOP_System
                     }
                     else
                     {
+
+                        if (qty < int.Parse(txtQty.Text))
+                        {
+                            MessageBox.Show("Insufficient remaing stock, Remaing item is " + qty, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
                         cn.Open();
                         string query = "INSERT INTO tblcart (transno, pcode, price, qty, sdate, cashier)VALUES(@transno, @pcode, @price, @qty, @sdate, @cashier)";
                         cm = new SqlCommand(query, cn);

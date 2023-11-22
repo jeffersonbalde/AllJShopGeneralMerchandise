@@ -75,7 +75,7 @@ namespace OOP_System
                     if(int.Parse(txtQty.Text ) >= int.Parse(txtCancelQty.Text))
                     {
                         frmVoid f = new frmVoid(this);
-                        f.ShowDialog();
+                        f.ShowDialog(); 
                     }
                     else
                     {

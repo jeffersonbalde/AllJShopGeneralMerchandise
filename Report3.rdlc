@@ -1020,7 +1020,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>INVENTORY REPORT</Value>
+                  <Value>STOCK INVENTORY</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>

@@ -23,6 +23,8 @@ namespace OOP_System
 
         frmSecurity f;
 
+        int qty;
+
         public frmPOS(frmSecurity frm)
         {
             InitializeComponent();
@@ -134,8 +136,9 @@ namespace OOP_System
                      
                     if (dr.HasRows)
                     {
+                        qty = int.Parse(dr["qty"].ToString());
                         frmQty frm = new frmQty(this);
-                        frm.ProductDetails(dr["pcode"].ToString(), double.Parse(dr["price"].ToString()), lblTransno.Text);
+                        frm.ProductDetails(dr["pcode"].ToString(), double.Parse(dr["price"].ToString()), lblTransno.Text, qty);
                         dr.Close();
                         cn.Close();
                         frm.ShowDialog();
@@ -367,6 +370,42 @@ namespace OOP_System
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+            
+        private void frmPOS_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                button1_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F2)
+            {
+                btnSearch_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F3)
+            {
+                btnDiscount_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F4)
+            {
+                btnPayment_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F5)
+            {
+                //todo
+            }
+            else if (e.KeyCode == Keys.F6)
+            {
+                btnSale_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F7)
+            {
+                //todo
+            }
+            else if (e.KeyCode == Keys.F8)
+            {
+                button11_Click(sender, e);
+            }
         }
     }
 }

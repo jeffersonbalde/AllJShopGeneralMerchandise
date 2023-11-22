@@ -48,6 +48,7 @@ namespace OOP_System
             {
 
                 reportViewer1.LocalReport.ReportPath = Application.StartupPath + @"\Reports\Report3.rdlc";
+                reportViewer1.LocalReport.DataSources.Clear();
 
                 DataSet1 ds = new DataSet1();
                 SqlDataAdapter da = new SqlDataAdapter();

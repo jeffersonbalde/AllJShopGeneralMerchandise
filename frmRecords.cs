@@ -114,7 +114,7 @@ namespace OOP_System
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         public void LoadCriticalItems()

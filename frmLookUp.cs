@@ -24,7 +24,8 @@ namespace OOP_System
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             f = frm;
-        }
+            this.KeyPreview = true;
+        }   
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -48,7 +49,7 @@ namespace OOP_System
             if(colName == "Select")
             {
                 frmQty frm = new frmQty(f);
-                frm.ProductDetails(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), Double.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()), f.lblTransno.Text);
+                frm.ProductDetails(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), Double.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()), f.lblTransno.Text, int.Parse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString()));
                 frm.ShowDialog();
             }
         }
@@ -83,6 +84,14 @@ namespace OOP_System
         private void frmLookUp_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmLookUp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
         }
     }
 }
