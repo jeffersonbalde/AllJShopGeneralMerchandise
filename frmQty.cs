@@ -105,7 +105,7 @@ namespace OOP_System
 
                         if (qty < int.Parse(txtQty.Text))
                         {
-                            MessageBox.Show("Insufficient remaing stock, Remaing item is " + qty, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Insufficient remaing stock, Remaining item is " + qty, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
 

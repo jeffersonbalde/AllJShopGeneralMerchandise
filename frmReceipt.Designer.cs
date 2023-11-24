@@ -56,6 +56,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PRINT PREVIEW";
             this.Load += new System.EventHandler(this.frmReceipt_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmReceipt_KeyDown);
             this.ResumeLayout(false);
 
         }

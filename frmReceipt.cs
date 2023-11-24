@@ -30,6 +30,7 @@ namespace OOP_System
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             f = frm;
+            this.KeyPreview = true;
         }
 
         private void frmReceipt_Load(object sender, EventArgs e)
@@ -106,6 +107,14 @@ namespace OOP_System
         private void reportViewer1_Load_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmReceipt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
         }
     }
 }

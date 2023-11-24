@@ -128,6 +128,11 @@ namespace OOP_System
                 if(txtSearch.Text == String.Empty) { return; }
                 else
                 {
+
+                    String _pcode;
+                    double _price;
+                    int _qty;
+
                     cn.Open();
                     string query = "SELECT * FROM tblproduct WHERE barcode LIKE '" + txtSearch.Text + "'";
                     cm = new SqlCommand(query, cn);
@@ -137,11 +142,20 @@ namespace OOP_System
                     if (dr.HasRows)
                     {
                         qty = int.Parse(dr["qty"].ToString());
-                        frmQty frm = new frmQty(this);
-                        frm.ProductDetails(dr["pcode"].ToString(), double.Parse(dr["price"].ToString()), lblTransno.Text, qty);
+                        //frmQty frm = new frmQty(this);
+                        //frm.ProductDetails(dr["pcode"].ToString(), double.Parse(dr["price"].ToString()), lblTransno.Text, qty);
+
+                        _pcode = dr["pcode"].ToString();
+                        _price = double.Parse(dr["price"].ToString());
+                        _qty = int.Parse(txtQty.Text);
+
                         dr.Close();
                         cn.Close();
-                        frm.ShowDialog();
+
+                        //frm.ShowDialog();
+
+                        AddToCart(_pcode, _price, _qty);
+
                     } else
                     {
                         dr.Close();
@@ -153,6 +167,82 @@ namespace OOP_System
             {
                 cn.Close();
                 MessageBox.Show(ex.Message, "ALL J GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void AddToCart(String _pcode, double _price, int _qty)
+        {
+
+            String id = "";
+            bool found = false;
+            int cart_qty = 0;
+
+            cn.Open();
+            string query1 = "SELECT * FROM tblCart WHERE pcode = @pcode AND transno = @transno";
+            cm = new SqlCommand(query1, cn);
+            cm.Parameters.AddWithValue("@pcode", _pcode);
+            cm.Parameters.AddWithValue("@transno", lblTransno.Text);
+            dr = cm.ExecuteReader();
+            dr.Read();
+
+            if (dr.HasRows)
+            {
+                found = true;
+                id = dr["id"].ToString();
+                cart_qty = int.Parse(dr["qty"].ToString());
+            }
+            else
+            {
+                found = false;
+            }
+            dr.Close();
+            cn.Close();
+
+            if (found)
+            {
+
+                if (qty < (int.Parse(txtQty.Text) + cart_qty))
+                {
+                    MessageBox.Show("Insufficient remaing stock, Remaing item is " + qty, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                cn.Open();
+                string query = "UPDATE tblCart SET qty = (qty + " + _qty  + ") WHERE id = '" + id + "'";
+                cm = new SqlCommand(query, cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+
+                txtSearch.SelectionStart = 0;
+                txtSearch.SelectionLength = txtSearch.Text.Length;
+                LoadCart();
+
+            }
+            else
+            {
+
+                if (qty < int.Parse(txtQty.Text))
+                {
+                    MessageBox.Show("Insufficient remaing stock, Remaing item is " + qty, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                cn.Open();
+                string query = "INSERT INTO tblcart (transno, pcode, price, qty, sdate, cashier)VALUES(@transno, @pcode, @price, @qty, @sdate, @cashier)";
+                cm = new SqlCommand(query, cn);
+                cm.Parameters.AddWithValue("@transno", lblTransno.Text);
+                cm.Parameters.AddWithValue("@pcode", _pcode);
+                cm.Parameters.AddWithValue("@price", _price);
+                cm.Parameters.AddWithValue("@qty", _qty);
+                cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                cm.Parameters.AddWithValue("@cashier", lblUser.Text);
+                cm.ExecuteNonQuery();
+                cn.Close();
+
+                txtSearch.SelectionStart = 0;
+                txtSearch.SelectionLength = txtSearch.Text.Length;
+                LoadCart();
             }
 
         }
@@ -176,7 +266,7 @@ namespace OOP_System
                     i++;
                     total += Double.Parse(dr["total"].ToString());
                     discount += Double.Parse(dr["disc"].ToString());
-                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
+                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"), "[ + ]", "[ - ]");
                     hasrecord = true;
                 }
                 dr.Close(); 
@@ -294,6 +384,58 @@ namespace OOP_System
                     LoadCart();
                 }
             }
+            else if (colName == "colAdd")
+            {
+                int i = 0;
+                cn.Open();
+                string query = "SELECT sum(qty) AS qty FROM tblproduct WHERE pcode LIKE '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "' GROUP BY pcode";
+                cm = new SqlCommand(query, cn);
+                i = int.Parse(cm.ExecuteScalar().ToString());
+                cn.Close();
+
+                if (int.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString()) < i)
+                {
+
+                    cn.Open();
+                    string query1 = "UPDATE tblCart SET qty  = qty + " + int.Parse(txtQty.Text) + " WHERE transno LIKE '" + lblTransno.Text + "' AND pcode LIKE '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'";
+                    cm = new SqlCommand(query1, cn);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+
+                    LoadCart();
+                }
+                else
+                {
+                    MessageBox.Show("Insufficient remaing stock, Remaining item is " + i + " ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else if(colName == "colRemove")
+            {
+                int i = 0;
+                cn.Open();
+                string query = "SELECT sum(qty) AS qty FROM tblCart WHERE pcode LIKE '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "' AND transno LIKE '" + lblTransno.Text + "' GROUP BY transno, pcode";
+                cm = new SqlCommand(query, cn);
+                i = int.Parse(cm.ExecuteScalar().ToString());
+                cn.Close();
+
+                if (i > 1)
+                {
+
+                    cn.Open();
+                    string query1 = "UPDATE tblCart SET qty  = qty - " + int.Parse(txtQty.Text) + " WHERE transno LIKE '" + lblTransno.Text + "' AND pcode LIKE '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'";
+                    cm = new SqlCommand(query1, cn);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+
+                    LoadCart();
+                }
+                else
+                {
+                    MessageBox.Show("Insufficient item, Remaining item is " + i + " ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -312,6 +454,7 @@ namespace OOP_System
             frmSettle frm = new frmSettle(this);
             frm.txtSale.Text = lblDisplayTotal.Text;
             frm.ShowDialog();
+            frm.txtCash.Focus();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -400,12 +543,23 @@ namespace OOP_System
             }
             else if (e.KeyCode == Keys.F7)
             {
-                //todo
+                btnChangePass_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F8)
             {
                 button11_Click(sender, e);
             }
+            else if (e.KeyCode == Keys.F9)
+            {
+                txtSearch.SelectionStart = 0;
+                txtSearch.SelectionLength = txtSearch.Text.Length;
+            }
+        }
+
+        private void btnChangePass_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frm = new frmChangePassword();
+            frm.ShowDialog();
         }
     }
 }

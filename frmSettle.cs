@@ -154,7 +154,7 @@ namespace OOP_System
 
         private void frmSettle_Load(object sender, EventArgs e)
         {
-
+            txtCash.Focus();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -172,6 +172,10 @@ namespace OOP_System
             if (e.KeyCode == Keys.Escape)
             {
                 this.Dispose();
+            }
+            else if(e.KeyCode == Keys.Enter)
+            {
+                btnEnter_Click(sender, e);
             }
         }
     }

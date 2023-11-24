@@ -279,6 +279,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmLookUp_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLookUp_KeyDown);
+            //this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmLookUp_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
