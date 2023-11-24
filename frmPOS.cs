@@ -558,7 +558,7 @@ namespace OOP_System
 
         private void btnChangePass_Click(object sender, EventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword();
+            frmChangePassword frm = new frmChangePassword(this);
             frm.ShowDialog();
         }
     }

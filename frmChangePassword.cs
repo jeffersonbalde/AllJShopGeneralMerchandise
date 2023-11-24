@@ -18,10 +18,13 @@ namespace OOP_System
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
 
-        public frmChangePassword()
+        frmPOS f;
+
+        public frmChangePassword(frmPOS frm)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+            f = frm;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,6 +42,33 @@ namespace OOP_System
             try
             {
 
+                string _oldpass = dbcon.GetPassword(f.lblUser.Text);
+
+                if(_oldpass != txtOld.Text)
+                {
+                    MessageBox.Show("Old password did not matched, Please try again", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (txtNew.Text != txtConfirm.Text)
+                {
+                    MessageBox.Show("Please make sure your password match", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if(MessageBox.Show("Are you sure you want to change your password?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        cn.Open();
+                        string query = "UPDATE tbluser SET password = @password WHERE name = @name";
+                        cm = new SqlCommand(query, cn);
+                        cm.Parameters.AddWithValue("@password", txtNew.Text);
+                        cm.Parameters.AddWithValue("@name", f.lblUser.Text);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        MessageBox.Show("Password Changed!", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Dispose();
+                    }
+                }
+
             }
             catch(Exception ex)
             {
@@ -48,6 +78,11 @@ namespace OOP_System
         }
 
         private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmChangePassword_Load(object sender, EventArgs e)
         {
 
         }

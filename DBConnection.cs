@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,28 @@ namespace OOP_System
             dr.Close();
             cn.Close();
             return vat;
+        }
+
+        public string GetPassword(string user)
+        {
+            string password = "";
+
+            cn.ConnectionString = MyConnection();
+            cn.Open();
+            string query = "SELECT * FROM tblUser WHERE name = @name";
+            cm = new SqlCommand(query, cn);
+            cm.Parameters.AddWithValue("@name", user);
+            dr = cm.ExecuteReader();
+            dr.Read();
+
+            if(dr.HasRows)
+            {
+                password = dr["password"].ToString();
+            }
+            dr.Close();
+            cn.Close();
+
+            return password;
         }
     }
 }

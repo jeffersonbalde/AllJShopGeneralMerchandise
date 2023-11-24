@@ -34,10 +34,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtPass = new System.Windows.Forms.TextBox();
-            this.txtUser = new System.Windows.Forms.TextBox();
+            this.txtNew = new System.Windows.Forms.TextBox();
+            this.txtOld = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtConfirm = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -103,30 +103,30 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Old Password";
             // 
-            // txtPass
+            // txtNew
             // 
-            this.txtPass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtNew.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(95, 198);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(10);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(510, 34);
-            this.txtPass.TabIndex = 25;
-            this.txtPass.UseSystemPasswordChar = true;
-            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
+            this.txtNew.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNew.Location = new System.Drawing.Point(95, 198);
+            this.txtNew.Margin = new System.Windows.Forms.Padding(10);
+            this.txtNew.Name = "txtNew";
+            this.txtNew.Size = new System.Drawing.Size(510, 34);
+            this.txtNew.TabIndex = 25;
+            this.txtNew.UseSystemPasswordChar = true;
+            this.txtNew.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
-            // txtUser
+            // txtOld
             // 
-            this.txtUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtOld.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Location = new System.Drawing.Point(95, 112);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(10);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(510, 34);
-            this.txtUser.TabIndex = 24;
+            this.txtOld.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOld.Location = new System.Drawing.Point(95, 112);
+            this.txtOld.Margin = new System.Windows.Forms.Padding(10);
+            this.txtOld.Name = "txtOld";
+            this.txtOld.Size = new System.Drawing.Size(510, 34);
+            this.txtOld.TabIndex = 24;
             // 
             // label4
             // 
@@ -139,17 +139,17 @@
             this.label4.TabIndex = 29;
             this.label4.Text = "Confirm New Password";
             // 
-            // textBox1
+            // txtConfirm
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(95, 291);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(510, 34);
-            this.textBox1.TabIndex = 28;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.txtConfirm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirm.Location = new System.Drawing.Point(95, 291);
+            this.txtConfirm.Margin = new System.Windows.Forms.Padding(10);
+            this.txtConfirm.Name = "txtConfirm";
+            this.txtConfirm.Size = new System.Drawing.Size(510, 34);
+            this.txtConfirm.TabIndex = 28;
+            this.txtConfirm.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
@@ -179,16 +179,17 @@
             this.ControlBox = false;
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtConfirm);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPass);
-            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.txtNew);
+            this.Controls.Add(this.txtOld);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmChangePassword_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -203,10 +204,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.TextBox txtNew;
+        private System.Windows.Forms.TextBox txtOld;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtConfirm;
         public System.Windows.Forms.Button btnLogin;
     }
 }
