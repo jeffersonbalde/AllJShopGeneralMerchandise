@@ -278,10 +278,12 @@ namespace OOP_System
                 {
                     btnPayment.Enabled = true;
                     btnDiscount.Enabled = true;
+                    btnCancel.Enabled = true;
                 }else
                 {
                     btnPayment.Enabled = false;
-                    btnDiscount.Enabled = false; 
+                    btnDiscount.Enabled = false;
+                    btnCancel.Enabled = false;
                 }
 
             }catch(Exception ex)
@@ -535,7 +537,7 @@ namespace OOP_System
             }
             else if (e.KeyCode == Keys.F5)
             {
-                //todo
+                btnCancel_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F6)
             {
@@ -560,6 +562,20 @@ namespace OOP_System
         {
             frmChangePassword frm = new frmChangePassword(this);
             frm.ShowDialog();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you want to clear items? ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                cn.Open();
+                string query = "DELETE FROM tblcart WHERE transno LIKE '" + lblTransno.Text + "'";
+                cm = new SqlCommand(query, cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("Items Removed!", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadCart();
+            }
         }
     }
 }
