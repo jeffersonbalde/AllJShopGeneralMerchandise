@@ -42,7 +42,7 @@ namespace OOP_System
 
         private void reportViewer1_Load(object sender, EventArgs e)
         {
-
+             
         }
 
         public void LoadReport()
@@ -61,11 +61,11 @@ namespace OOP_System
                 cn.Open();
                 if(f.cboCashier.Text == "All Cashier")
                 {
-                    string query1 = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + f.dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + f.dt2.Value.ToString("yyyy-MM-dd") + "'";
+                    string query1 = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc AS discount, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + f.dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + f.dt2.Value.ToString("yyyy-MM-dd") + "'";
                     da.SelectCommand = new SqlCommand(query1, cn);
                 }else
                 {
-                    string query = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + f.dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + f.dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + f.cboCashier.Text + "'";
+                    string query = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc AS discount, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + f.dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + f.dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + f.cboCashier.Text + "'";
                     da.SelectCommand = new SqlCommand(query, cn);
                 }
                 da.Fill(ds.Tables["dtSoldReport"]);
