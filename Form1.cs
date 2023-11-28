@@ -47,9 +47,12 @@ namespace OOP_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            frmSecurity frm = new frmSecurity();
-            frm.ShowDialog();
+            if (MessageBox.Show("Are you sure you want to close the application? ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Hide();
+                frmSecurity frm = new frmSecurity();
+                frm.ShowDialog();
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)

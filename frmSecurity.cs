@@ -37,10 +37,10 @@ namespace OOP_System
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //txtUser.Clear();
-            //txtPass.Clear();
-
-            this.Dispose();
+            if (MessageBox.Show("Are you sure you want to close the application? ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
