@@ -170,6 +170,8 @@ namespace OOP_System
             frm.TopLevel = false;
             frm.LoadCriticalItems();
             frm.LoadInventory();
+            frm.VoidItems();
+            frm.LoadStockInHistory();
             panel4.Controls.Add(frm);
             frm.BringToFront();
             frm.Show();

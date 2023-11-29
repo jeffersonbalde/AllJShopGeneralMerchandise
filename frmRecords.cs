@@ -66,6 +66,34 @@ namespace OOP_System
 
         }
 
+        public void VoidItems()
+        {
+            try
+            {
+
+                int i = 0;
+                dataGridView5.Rows.Clear();
+                cn.Open();
+                string query = "SELECT * FROM vwcancelledorder WHERE sdate BETWEEN '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "' AND '" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    i++;
+                    dataGridView5.Rows.Add(i, dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["total"].ToString(), dr["sdate"].ToString(), dr["cancelledby"].ToString(), dr["reason"].ToString(), dr["action"].ToString());
+                }
+                dr.Close();
+                cn.Close();
+
+            }
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadRecord();
@@ -180,6 +208,54 @@ namespace OOP_System
             frmInventoryReport frm = new frmInventoryReport();
             frm.LoadReport();
             frm.ShowDialog();
+        }
+
+        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            VoidItems();
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tabPage6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void LoadStockInHistory()
+        {
+            int i = 0;
+            dataGridView6.Rows.Clear();
+            cn.Open();
+            //string query = "SELECT * FROM vwStockin WHERE cast(sdate as date) between '" + date1.Value.ToShortDateString() + "' and '" + date2.Value.ToShortDateString() + "' and status LIKE 'Done'";
+            cm = new SqlCommand("Select * from vwStockin where cast(sdate as date) between '" + date1.Value.ToString("yyyy-MM-dd") + "' and '" + date2.Value.ToString("yyyy-MM-dd") + "' and status like 'Done'", cn);
+            //cm = new SqlCommand(query, cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridView6.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), DateTime.Parse(dr[5].ToString()).ToShortDateString(), dr[6].ToString());
+            }
+            dr.Close();
+            cn.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LoadStockInHistory();
+        }
+
+        private void dataGridView6_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
