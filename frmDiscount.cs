@@ -49,6 +49,7 @@ namespace OOP_System
             }catch(Exception ex)
             {
                 txtAmount.Text = "0.00";
+                MessageBox.Show(ex.Message);
             }
         }
 

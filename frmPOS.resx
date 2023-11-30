@@ -457,16 +457,6 @@
         x/aFR9CdK1Cl37iDkb9JKRMpdBRTChHcaQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnChangePass.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAP1JREFUSEvtldENwjAMBTsCIzACI7EZbACbMAIjMAL4oE+yIkdJXPqB6ElPahLH
-        jl2nnTb+kovpOevExNrcTArI81chg7tp/x59UDD0YGLmYMI2nTUbvXNKSQA/hwhSrqWC+tKNikMMQxmj
-        jHrkX8EQviN7tahzKY13RsZH084EPJdVYDyEOtM7kQhQwlxkSw9QoSbRZimCbCNbqUm0SVIpSyJbqcnZ
-        VLsSvSXlPeJjqIHIJmoIBWWd59ImdQdF5lpcTSm4vJHDlsiY7+owtavRo1RZaR454NSUNzoEa94WMU6h
-        jq39npDAhgOlg9XwWXKY1fHlW/Sh3vhFpukFsijbNSrqXgEAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="btnSale.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -569,17 +559,6 @@
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACIAAAAgCAYAAAB3j6rJAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAS1JREFUWEftlNEJwjAQhh2oC3SBdoB2ARfoAl3ABewCXaALdAE7g4hIQUSKFOyL
-        SOSPSY2hSu4U8SEfBMql9D5yfzoTf4IXsfEiNl7ExovYkESufS8ubSvXK/T+u3emIIng45swFOsgEIc8
-        V9UH2MceVlcUquoGeTSnshybDU2jqne2USTr2zhWFXdYGdmlqWy4SxJVEaKvqlHwXNeq6g5LZFitxqY4
-        IYxEn8bUyFxgiYDjYiEbIzP7LJPPGAk1pBq2CG4QGuuTwcJ4uLBFQLdcPol8AlvEzIVe1CtrwhZBKNEc
-        49HPyMtPM2JeVTwjL/pH187n6i0aZBEZUjWSV/8RTmjJImZA7THgNFDH6UCYAkkEjbXEVDDNffxnKLDD
-        +m28iI0XsfEiNl7kGSFumnd5p3CYuJwAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="dataGridViewImageColumn1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -590,4 +569,7 @@
         kuzu7xTFHXhkBR3OvWSHAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>26</value>
+  </metadata>
 </root>

@@ -30,7 +30,7 @@ namespace OOP_System
             string colName = dataGridView2.Columns[e.ColumnIndex].Name;
             if(colName == "colDelete")
             {
-                if(MessageBox.Show("Remove this item", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if(MessageBox.Show("Remove this item", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     string query = "DELETE FROM tblstockin WHERE id = '" + dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString() +  "'";
@@ -129,7 +129,7 @@ namespace OOP_System
 
                 if(dataGridView2.Rows.Count > 0)
                 {
-                    if(MessageBox.Show("Are you sure you want to save this records?", "SAVE RECORDS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if(MessageBox.Show("Are you sure you want to save this records?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         for (int i = 0; i < dataGridView2.Rows.Count; i++)
                         {
@@ -156,7 +156,7 @@ namespace OOP_System
             }catch(Exception ex)
             {
                 cn.Close();
-                MessageBox.Show(ex.Message, "Save Product", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }   
         }
 

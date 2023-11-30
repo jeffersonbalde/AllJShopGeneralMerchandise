@@ -47,8 +47,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -96,8 +94,6 @@
             // metroTabControl1
             // 
             this.metroTabControl1.Controls.Add(this.tabPage1);
-            this.metroTabControl1.Controls.Add(this.tabPage2);
-            this.metroTabControl1.Controls.Add(this.tabPage3);
             this.metroTabControl1.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.metroTabControl1.Location = new System.Drawing.Point(0, 54);
             this.metroTabControl1.Name = "metroTabControl1";
@@ -105,6 +101,7 @@
             this.metroTabControl1.Size = new System.Drawing.Size(1072, 578);
             this.metroTabControl1.TabIndex = 3;
             this.metroTabControl1.UseSelectable = true;
+            this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
             this.metroTabControl1.Resize += new System.EventHandler(this.metroTabControl1_Resize);
             // 
             // tabPage1
@@ -261,26 +258,6 @@
             this.label2.Text = "Username:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.White;
-            this.tabPage2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.tabPage2.Location = new System.Drawing.Point(4, 38);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1064, 536);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "CHANGE PASSWORD";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.White;
-            this.tabPage3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.tabPage3.Location = new System.Drawing.Point(4, 38);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1064, 536);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "DELETE ACCOUNT";
-            // 
             // frmUserAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -312,8 +289,6 @@
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;

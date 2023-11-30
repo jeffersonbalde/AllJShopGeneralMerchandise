@@ -560,8 +560,8 @@ namespace OOP_System
 
         private void btnChangePass_Click(object sender, EventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword(this);
-            frm.ShowDialog();
+            //frmChangePassword frm = new frmChangePassword(this);
+            //frm.ShowDialog();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -576,6 +576,11 @@ namespace OOP_System
                 MessageBox.Show("Items Removed!", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadCart();
             }
+        }
+
+        private void txtQty_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -97,9 +97,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(171)))), ((int)(((byte)(227)))));
             this.label1.Location = new System.Drawing.Point(12, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 28);
+            this.label1.Size = new System.Drawing.Size(182, 28);
             this.label1.TabIndex = 0;
-            this.label1.Text = "VOID DETAILS";
+            this.label1.Text = "RETURN PRODUCT";
             // 
             // label2
             // 
@@ -119,9 +119,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(255)))), ((int)(((byte)(190)))));
             this.label3.Location = new System.Drawing.Point(32, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 25);
+            this.label3.Size = new System.Drawing.Size(146, 25);
             this.label3.TabIndex = 5;
-            this.label3.Text = "SOLD ITEM";
+            this.label3.Text = "SOLD PRODUCT";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtID
@@ -254,6 +254,7 @@
             this.txtVoid.Name = "txtVoid";
             this.txtVoid.Size = new System.Drawing.Size(346, 22);
             this.txtVoid.TabIndex = 21;
+            this.txtVoid.Visible = false;
             // 
             // label10
             // 
@@ -262,9 +263,9 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(255)))), ((int)(((byte)(190)))));
             this.label10.Location = new System.Drawing.Point(32, 306);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(122, 25);
+            this.label10.Size = new System.Drawing.Size(168, 25);
             this.label10.TabIndex = 20;
-            this.label10.Text = "VOID ITEM(s)";
+            this.label10.Text = "RETURN PRODUCT";
             // 
             // label11
             // 
@@ -276,6 +277,7 @@
             this.label11.Size = new System.Drawing.Size(75, 25);
             this.label11.TabIndex = 19;
             this.label11.Text = "Void By";
+            this.label11.Visible = false;
             // 
             // txtCancel
             // 
@@ -292,9 +294,9 @@
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
             this.label12.Location = new System.Drawing.Point(32, 386);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(117, 25);
+            this.label12.Size = new System.Drawing.Size(123, 25);
             this.label12.TabIndex = 22;
-            this.label12.Text = "Cancelled By";
+            this.label12.Text = "Return Name";
             // 
             // txtReason
             // 

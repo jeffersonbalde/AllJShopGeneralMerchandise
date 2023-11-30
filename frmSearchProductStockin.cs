@@ -38,10 +38,10 @@ namespace OOP_System
 
             if (colName == "colSelect")
             {
-                if (slist.txtRefNo.Text == string.Empty) { MessageBox.Show("Please enter reference no", "Add Item", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtRefNo.Focus(); return; }
-                if (slist.txtBy.Text == string.Empty) { MessageBox.Show("Please enter stock in by", "Add Item", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtBy.Focus(); return; }
+                //if (slist.txtRefNo.Text == string.Empty) { MessageBox.Show("Please enter reference no", "Add Item", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtRefNo.Focus(); return; }
+                if (slist.txtBy.Text == string.Empty) { MessageBox.Show("Please enter stock in name", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtBy.Focus(); return; }
 
-                if (MessageBox.Show("Add this item?", "Add Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Add this item?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     string query = "INSERT INTO tblstockin (refno, pcode, sdate, stockinby)VALUES(@refno, @pcode, @sdate, @stockinby)";
@@ -53,7 +53,7 @@ namespace OOP_System
                     cm.ExecuteNonQuery();
                     cn.Close();
 
-                    MessageBox.Show("Successfully Added!", "Add Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Successfully Added!", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     slist.LoadStockIn();
                 }
             }

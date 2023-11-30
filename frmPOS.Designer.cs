@@ -46,7 +46,6 @@
             this.lblDate1 = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
-            this.btnChangePass = new System.Windows.Forms.Button();
             this.btnSale = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
@@ -66,7 +65,6 @@
             this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtQty = new MetroFramework.Controls.MetroTextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblDisplayTotal = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -85,10 +83,8 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtQty = new MetroFramework.Controls.MetroTextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -97,8 +93,6 @@
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -110,7 +104,6 @@
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.panel8);
             this.panel2.Controls.Add(this.button11);
-            this.panel2.Controls.Add(this.btnChangePass);
             this.panel2.Controls.Add(this.btnSale);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnPayment);
@@ -118,9 +111,9 @@
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.btnNew);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 29);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(266, 761);
+            this.panel2.Size = new System.Drawing.Size(296, 790);
             this.panel2.TabIndex = 1;
             // 
             // pictureBox3
@@ -132,7 +125,7 @@
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(34, 135);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(39, 44);
+            this.pictureBox3.Size = new System.Drawing.Size(69, 73);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 17;
             this.pictureBox3.TabStop = false;
@@ -174,9 +167,9 @@
             this.panel8.Controls.Add(this.lblDate1);
             this.panel8.Controls.Add(this.lblTime);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 648);
+            this.panel8.Location = new System.Drawing.Point(0, 677);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(266, 113);
+            this.panel8.Size = new System.Drawing.Size(296, 113);
             this.panel8.TabIndex = 16;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
@@ -227,28 +220,6 @@
             this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
-            // btnChangePass
-            // 
-            this.btnChangePass.BackColor = System.Drawing.Color.Transparent;
-            this.btnChangePass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangePass.FlatAppearance.BorderSize = 0;
-            this.btnChangePass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnChangePass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnChangePass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangePass.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePass.ForeColor = System.Drawing.Color.Black;
-            this.btnChangePass.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePass.Image")));
-            this.btnChangePass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChangePass.Location = new System.Drawing.Point(0, 530);
-            this.btnChangePass.Name = "btnChangePass";
-            this.btnChangePass.Size = new System.Drawing.Size(266, 55);
-            this.btnChangePass.TabIndex = 11;
-            this.btnChangePass.Text = "  [ F7 ] CHANGE PASSWORD";
-            this.btnChangePass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChangePass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnChangePass.UseVisualStyleBackColor = false;
-            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
-            // 
             // btnSale
             // 
             this.btnSale.BackColor = System.Drawing.Color.Transparent;
@@ -265,7 +236,7 @@
             this.btnSale.Name = "btnSale";
             this.btnSale.Size = new System.Drawing.Size(266, 55);
             this.btnSale.TabIndex = 10;
-            this.btnSale.Text = "  [ F6 ] DAILY SALES";
+            this.btnSale.Text = "  [ F6 ] PRODUCT SALES";
             this.btnSale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSale.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSale.UseVisualStyleBackColor = false;
@@ -288,7 +259,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(266, 55);
             this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "  [ F5 ] CLEAR CART";
+            this.btnCancel.Text = "  [ F5 ] CLEAR PRODUCT";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -389,6 +360,9 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
@@ -425,7 +399,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(212)))), ((int)(((byte)(255)))));
-            this.dataGridView1.Location = new System.Drawing.Point(276, 164);
+            this.dataGridView1.Location = new System.Drawing.Point(369, 164);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -434,7 +408,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1156, 474);
+            this.dataGridView1.Size = new System.Drawing.Size(1063, 474);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView12_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -546,56 +520,17 @@
             this.panel4.Controls.Add(this.lblTransno);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(266, 29);
+            this.panel4.Location = new System.Drawing.Point(296, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1178, 132);
+            this.panel4.Size = new System.Drawing.Size(1148, 132);
             this.panel4.TabIndex = 5;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // txtQty
-            // 
-            // 
-            // 
-            // 
-            this.txtQty.CustomButton.Image = null;
-            this.txtQty.CustomButton.Location = new System.Drawing.Point(67, 1);
-            this.txtQty.CustomButton.Name = "";
-            this.txtQty.CustomButton.Size = new System.Drawing.Size(29, 29);
-            this.txtQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtQty.CustomButton.TabIndex = 1;
-            this.txtQty.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtQty.CustomButton.UseSelectable = true;
-            this.txtQty.CustomButton.Visible = false;
-            this.txtQty.Enabled = false;
-            this.txtQty.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtQty.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
-            this.txtQty.Icon = ((System.Drawing.Image)(resources.GetObject("txtQty.Icon")));
-            this.txtQty.Lines = new string[] {
-        "1"};
-            this.txtQty.Location = new System.Drawing.Point(527, 93);
-            this.txtQty.MaxLength = 32767;
-            this.txtQty.Name = "txtQty";
-            this.txtQty.PasswordChar = '\0';
-            this.txtQty.PromptText = "Qty";
-            this.txtQty.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtQty.SelectedText = "";
-            this.txtQty.SelectionLength = 0;
-            this.txtQty.SelectionStart = 0;
-            this.txtQty.ShortcutsEnabled = true;
-            this.txtQty.Size = new System.Drawing.Size(97, 31);
-            this.txtQty.TabIndex = 9;
-            this.txtQty.Text = "1";
-            this.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtQty.UseSelectable = true;
-            this.txtQty.WaterMark = "Qty";
-            this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.lblDisplayTotal);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(734, 0);
+            this.panel6.Location = new System.Drawing.Point(704, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(444, 132);
             this.panel6.TabIndex = 6;
@@ -628,7 +563,7 @@
             // 
             // 
             this.txtSearch.CustomButton.Image = null;
-            this.txtSearch.CustomButton.Location = new System.Drawing.Point(301, 1);
+            this.txtSearch.CustomButton.Location = new System.Drawing.Point(508, 1);
             this.txtSearch.CustomButton.Name = "";
             this.txtSearch.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txtSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -650,7 +585,7 @@
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.ShortcutsEnabled = true;
-            this.txtSearch.Size = new System.Drawing.Size(331, 31);
+            this.txtSearch.Size = new System.Drawing.Size(538, 31);
             this.txtSearch.TabIndex = 7;
             this.txtSearch.UseSelectable = true;
             this.txtSearch.WaterMark = "Scan Barcode";
@@ -712,9 +647,9 @@
             this.panel7.Controls.Add(this.lblTotal);
             this.panel7.Controls.Add(this.label9);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(266, 647);
+            this.panel7.Location = new System.Drawing.Point(296, 647);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1178, 143);
+            this.panel7.Size = new System.Drawing.Size(1148, 143);
             this.panel7.TabIndex = 7;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
@@ -804,40 +739,6 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(301, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ALL J SHOP GENERAL MERCHANDISE";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1444, 29);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1411, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 29);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -846,6 +747,46 @@
             this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 125;
+            // 
+            // txtQty
+            // 
+            // 
+            // 
+            // 
+            this.txtQty.CustomButton.Image = null;
+            this.txtQty.CustomButton.Location = new System.Drawing.Point(67, 1);
+            this.txtQty.CustomButton.Name = "";
+            this.txtQty.CustomButton.Size = new System.Drawing.Size(29, 29);
+            this.txtQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtQty.CustomButton.TabIndex = 1;
+            this.txtQty.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtQty.CustomButton.UseSelectable = true;
+            this.txtQty.CustomButton.Visible = false;
+            this.txtQty.Enabled = false;
+            this.txtQty.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtQty.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
+            this.txtQty.Icon = ((System.Drawing.Image)(resources.GetObject("txtQty.Icon")));
+            this.txtQty.Lines = new string[] {
+        "1"};
+            this.txtQty.Location = new System.Drawing.Point(481, 54);
+            this.txtQty.MaxLength = 32767;
+            this.txtQty.Name = "txtQty";
+            this.txtQty.PasswordChar = '\0';
+            this.txtQty.PromptText = "Qty";
+            this.txtQty.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtQty.SelectedText = "";
+            this.txtQty.SelectionLength = 0;
+            this.txtQty.SelectionStart = 0;
+            this.txtQty.ShortcutsEnabled = true;
+            this.txtQty.Size = new System.Drawing.Size(97, 31);
+            this.txtQty.TabIndex = 9;
+            this.txtQty.Text = "1";
+            this.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQty.UseSelectable = true;
+            this.txtQty.Visible = false;
+            this.txtQty.WaterMark = "Qty";
+            this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // frmPOS
             // 
@@ -857,9 +798,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmPOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmPOS_Load);
@@ -875,9 +815,6 @@
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -890,7 +827,6 @@
         public System.Windows.Forms.Button btnDiscount;
         public System.Windows.Forms.Button btnCancel;
         public System.Windows.Forms.Button btnSale;
-        public System.Windows.Forms.Button btnChangePass;
         public System.Windows.Forms.Button button11;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblDate;
@@ -920,10 +856,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label lblUser;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
-        public MetroFramework.Controls.MetroTextBox txtQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
@@ -935,5 +867,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn colAdd;
         private System.Windows.Forms.DataGridViewButtonColumn colRemove;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        public MetroFramework.Controls.MetroTextBox txtQty;
     }
 }

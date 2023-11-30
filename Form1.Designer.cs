@@ -188,7 +188,7 @@
             this.btnSalesHistory.Name = "btnSalesHistory";
             this.btnSalesHistory.Size = new System.Drawing.Size(257, 72);
             this.btnSalesHistory.TabIndex = 8;
-            this.btnSalesHistory.Text = "Sales";
+            this.btnSalesHistory.Text = "Product Sales";
             this.btnSalesHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalesHistory.UseVisualStyleBackColor = true;
             this.btnSalesHistory.Click += new System.EventHandler(this.btnSalesHistory_Click);
@@ -207,7 +207,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(257, 72);
             this.button6.TabIndex = 7;
-            this.button6.Text = "Records";
+            this.button6.Text = "Product Records";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -226,7 +226,7 @@
             this.btnBrand.Name = "btnBrand";
             this.btnBrand.Size = new System.Drawing.Size(257, 72);
             this.btnBrand.TabIndex = 6;
-            this.btnBrand.Text = "Brand";
+            this.btnBrand.Text = "Product Brand";
             this.btnBrand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBrand.UseVisualStyleBackColor = true;
             this.btnBrand.Click += new System.EventHandler(this.button7_Click);
@@ -245,7 +245,7 @@
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Size = new System.Drawing.Size(257, 72);
             this.btnCategory.TabIndex = 5;
-            this.btnCategory.Text = "Category";
+            this.btnCategory.Text = "Product Category";
             this.btnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCategory.UseVisualStyleBackColor = true;
             this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
@@ -283,7 +283,7 @@
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(257, 72);
             this.btnProduct.TabIndex = 1;
-            this.btnProduct.Text = "Product";
+            this.btnProduct.Text = "Product List";
             this.btnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProduct.UseVisualStyleBackColor = true;
             this.btnProduct.Click += new System.EventHandler(this.button3_Click_2);
