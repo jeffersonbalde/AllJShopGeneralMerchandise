@@ -316,6 +316,7 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="rptSold.rdlc" />
     <EmbeddedResource Include="rptTop.rdlc" />
     <EmbeddedResource Include="StoreName.resx">
       <DependentUpon>StoreName.cs</DependentUpon>

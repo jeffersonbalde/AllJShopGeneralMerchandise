@@ -76,6 +76,42 @@ namespace OOP_System
             }
         }
 
+        public void LoadSoldItems(string sql, string param)
+        {
+            try
+            {
+
+                ReportDataSource rptDS;
+                this.reportViewer1.LocalReport.ReportPath = Application.StartupPath + @"\Reports\rptSold.rdlc";
+                this.reportViewer1.LocalReport.DataSources.Clear();
+
+                DataSet1 ds = new DataSet1();
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                cn.Open();
+                da.SelectCommand = new SqlCommand(sql, cn);
+                da.Fill(ds.Tables["dtSoldItems"]);
+                cn.Close();
+
+                ReportParameter pDate = new ReportParameter("pDate", param);
+
+                reportViewer1.LocalReport.SetParameters(pDate);
+
+                rptDS = new ReportDataSource("DataSet1", ds.Tables["dtSoldItems"]);
+                reportViewer1.LocalReport.DataSources.Add(rptDS);
+                reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                reportViewer1.ZoomMode = ZoomMode.Percent;
+                reportViewer1.ZoomPercent = 100;
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "ALL SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         public void LoadReport()
         {
             ReportDataSource rptDS;
