@@ -569,6 +569,17 @@
         kuzu7xTFHXhkBR3OvWSHAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACIAAAAgCAYAAAB3j6rJAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAS1JREFUWEftlNEJwjAQhh2oC3SBdoB2ARfoAl3ABewCXaALdAE7g4hIQUSKFOyL
+        SOSPSY2hSu4U8SEfBMql9D5yfzoTf4IXsfEiNl7ExovYkESufS8ubSvXK/T+u3emIIng45swFOsgEIc8
+        V9UH2MceVlcUquoGeTSnshybDU2jqne2USTr2zhWFXdYGdmlqWy4SxJVEaKvqlHwXNeq6g5LZFitxqY4
+        IYxEn8bUyFxgiYDjYiEbIzP7LJPPGAk1pBq2CG4QGuuTwcJ4uLBFQLdcPol8AlvEzIVe1CtrwhZBKNEc
+        49HPyMtPM2JeVTwjL/pH187n6i0aZBEZUjWSV/8RTmjJImZA7THgNFDH6UCYAkkEjbXEVDDNffxnKLDD
+        +m28iI0XsfEiNl7kGSFumnd5p3CYuJwAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>26</value>
   </metadata>

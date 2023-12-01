@@ -36,6 +36,7 @@
             this.lblRole = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.StoreNameBtn = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.btnSalesHistory = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -140,6 +141,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.CausesValidation = false;
+            this.panel2.Controls.Add(this.StoreNameBtn);
             this.panel2.Controls.Add(this.button11);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnSalesHistory);
@@ -154,6 +156,25 @@
             this.panel2.Size = new System.Drawing.Size(261, 742);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // StoreNameBtn
+            // 
+            this.StoreNameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StoreNameBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.StoreNameBtn.FlatAppearance.BorderSize = 0;
+            this.StoreNameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StoreNameBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StoreNameBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+            this.StoreNameBtn.Image = ((System.Drawing.Image)(resources.GetObject("StoreNameBtn.Image")));
+            this.StoreNameBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StoreNameBtn.Location = new System.Drawing.Point(0, 504);
+            this.StoreNameBtn.Name = "StoreNameBtn";
+            this.StoreNameBtn.Size = new System.Drawing.Size(257, 72);
+            this.StoreNameBtn.TabIndex = 10;
+            this.StoreNameBtn.Text = "Store Name";
+            this.StoreNameBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.StoreNameBtn.UseVisualStyleBackColor = true;
+            this.StoreNameBtn.Click += new System.EventHandler(this.StoreNameBtn_Click);
             // 
             // button11
             // 
@@ -343,6 +364,7 @@
         private System.Windows.Forms.Button btnCategory;
         public System.Windows.Forms.Label lblName;
         public System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.Button StoreNameBtn;
     }
 }
 

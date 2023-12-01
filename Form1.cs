@@ -176,5 +176,12 @@ namespace OOP_System
             frm.BringToFront();
             frm.Show();
         }
+
+        private void StoreNameBtn_Click(object sender, EventArgs e)
+        {
+            StoreName storeName = new StoreName();
+            storeName.LoadRecords();
+            storeName.ShowDialog();
+        }   
     }
 }

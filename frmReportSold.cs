@@ -40,10 +40,6 @@ namespace OOP_System
             
         }
 
-        private void reportViewer1_Load(object sender, EventArgs e)
-        {
-             
-        }
 
         public void LoadReport()
         {
