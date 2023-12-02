@@ -36,7 +36,6 @@
             this.lblRole = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.StoreNameBtn = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.btnSalesHistory = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@
             this.btnStockIn = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -159,24 +159,6 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 576);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(257, 72);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "TEST TEST";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // StoreNameBtn
             // 
             this.StoreNameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -191,7 +173,7 @@
             this.StoreNameBtn.Name = "StoreNameBtn";
             this.StoreNameBtn.Size = new System.Drawing.Size(257, 72);
             this.StoreNameBtn.TabIndex = 10;
-            this.StoreNameBtn.Text = "Amira test";
+            this.StoreNameBtn.Text = "Store Name";
             this.StoreNameBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.StoreNameBtn.UseVisualStyleBackColor = true;
             this.StoreNameBtn.Click += new System.EventHandler(this.StoreNameBtn_Click);
@@ -340,6 +322,24 @@
             this.panel4.Size = new System.Drawing.Size(1150, 712);
             this.panel4.TabIndex = 3;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 576);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(257, 72);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "TEST TEST";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
