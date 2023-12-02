@@ -38,6 +38,17 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(462, 22);
             this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "Added text here";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(259, 148);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "And label here";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label1
             // 
