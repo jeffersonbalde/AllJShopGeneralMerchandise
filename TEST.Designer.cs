@@ -50,8 +50,6 @@
             this.label1.Size = new System.Drawing.Size(243, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "bisan usa ang e add. Test form. -mayee";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -81,7 +79,6 @@
             this.Controls.Add(this.textBox1);
             this.Name = "TEST";
             this.Text = "TEST";
-            this.Load += new System.EventHandler(this.TEST_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

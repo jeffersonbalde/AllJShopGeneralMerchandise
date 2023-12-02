@@ -16,10 +16,6 @@ namespace OOP_System
         {
             InitializeComponent();
         }
-
-
-        private void TEST_Load(object sender, EventArgs e)
-=======
         private void label1_Click(object sender, EventArgs e)
 
         {
