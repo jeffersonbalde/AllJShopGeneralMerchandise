@@ -17,7 +17,7 @@ namespace OOP_System
 
         public string MyConnection()
         {
-            string con = @"Data Source=LAPTOP-6ODBNAGM\SQLEXPRESS01;Initial Catalog=OOP;Integrated Security=True";
+            string con = @"Data Source=LAPTOP-ABN9A2NK\SQLEXPRESS01;Initial Catalog=OOP;Integrated Security=True";
             return con;
         }
 

@@ -192,7 +192,7 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(257, 72);
             this.button11.TabIndex = 9;
-            this.button11.Text = "Account Settings";
+            this.button11.Text = "MJ";
             this.button11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
