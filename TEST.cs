@@ -16,5 +16,10 @@ namespace OOP_System
         {
             InitializeComponent();
         }
+
+        private void TEST_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
