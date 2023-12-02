@@ -43,21 +43,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(259, 148);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "And label here";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(135, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(243, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "bisan usa ang e add. Test form. -mayee";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // TEST
             // 
