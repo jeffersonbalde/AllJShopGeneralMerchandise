@@ -115,7 +115,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(760, 55);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 528);
+            this.button2.Size = new System.Drawing.Size(180, 245);
             this.button2.TabIndex = 8;
             this.button2.Text = "save";
             this.button2.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(1001, 55);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(180, 528);
+            this.button3.Size = new System.Drawing.Size(180, 245);
             this.button3.TabIndex = 9;
             this.button3.Text = "save";
             this.button3.UseVisualStyleBackColor = true;
