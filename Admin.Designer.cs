@@ -29,21 +29,26 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,15 +62,6 @@
             this.panel1.Size = new System.Drawing.Size(1426, 743);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1426, 67);
-            this.panel2.TabIndex = 0;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel8);
@@ -77,9 +73,51 @@
             this.panel3.Size = new System.Drawing.Size(269, 676);
             this.panel3.TabIndex = 1;
             // 
+            // panel8
+            // 
+            this.panel8.Location = new System.Drawing.Point(2, 512);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(266, 153);
+            this.panel8.TabIndex = 2;
+            // 
+            // panel7
+            // 
+            this.panel7.Location = new System.Drawing.Point(2, 343);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(267, 153);
+            this.panel7.TabIndex = 2;
+            // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(0, 176);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(269, 153);
+            this.panel6.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(0, 10);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(269, 153);
+            this.panel5.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1426, 67);
+            this.panel2.TabIndex = 0;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
@@ -91,43 +129,35 @@
             this.panel4.Size = new System.Drawing.Size(1426, 31);
             this.panel4.TabIndex = 0;
             // 
-            // panel5
+            // label5
             // 
-            this.panel5.Location = new System.Drawing.Point(0, 10);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(269, 153);
-            this.panel5.TabIndex = 0;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(572, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 32);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "F5";
             // 
-            // panel6
+            // label4
             // 
-            this.panel6.Location = new System.Drawing.Point(0, 176);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(269, 153);
-            this.panel6.TabIndex = 1;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(427, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 32);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "F4";
             // 
-            // panel7
+            // label3
             // 
-            this.panel7.Location = new System.Drawing.Point(2, 343);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(267, 153);
-            this.panel7.TabIndex = 2;
-            // 
-            // panel8
-            // 
-            this.panel8.Location = new System.Drawing.Point(2, 512);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(266, 153);
-            this.panel8.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "F1";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(280, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 32);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "F3";
             // 
             // label2
             // 
@@ -139,35 +169,64 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "F2";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(280, -1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 32);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "F1";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(35, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "F1";
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(386, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 32);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "F1";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(725, 4);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 32);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "F6";
             // 
-            // label5
+            // label7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(550, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 32);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "F1";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(899, 4);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 32);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "F7";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(1087, 4);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 32);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "F8";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Sans Serif Collection", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(1297, 4);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(39, 32);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "F9";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 35);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 29);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "ITEMS";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Admin
             // 
@@ -178,8 +237,8 @@
             this.Name = "Admin";
             this.Text = "Admin";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -201,5 +260,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
