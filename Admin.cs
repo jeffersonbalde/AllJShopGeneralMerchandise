@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace OOP_System
 {
-    public partial class TEST : Form
+    public partial class Admin : Form
     {
-        public TEST()
+        public Admin()
         {
             InitializeComponent();
-        }
-        private void label1_Click(object sender, EventArgs e)
-
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
