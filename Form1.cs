@@ -28,12 +28,12 @@ namespace OOP_System
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            PrivateFontCollection pfc = new PrivateFontCollection();
-            pfc.AddFontFile(@"C:\Users\USER\Documents\Fonts\inter\inter-Regular.ttf");
-            foreach (Control c in this.Controls)
-            {
-                c.Font = new Font(pfc.Families[0], 15, FontStyle.Regular);
-            }
+            //PrivateFontCollection pfc = new PrivateFontCollection();
+            //pfc.AddFontFile(@"C:\Users\jeffe\OneDrive\Documents\inter font\inter\inter-Regular.ttf");
+            //foreach (Control c in this.Controls)
+            //{
+            //    c.Font = new Font(pfc.Families[0], 15, FontStyle.Regular);
+            //}
 
 
         }
