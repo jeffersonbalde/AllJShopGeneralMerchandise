@@ -383,10 +383,16 @@
     <None Include="Resources\x.png" />
   </ItemGroup>
   <ItemGroup>
+
+    <None Include="Resources\icons8-cashier-60 1.png" />
+    <None Include="Resources\background-sky.png" />
+    <None Include="Resources\background-pink.png" />
+
     <Content Include="Resources\decrease.png" />
     <Content Include="Resources\peso.png" />
     <Content Include="Resources\prod.png" />
     <Content Include="Resources\stock.png" />
+
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
