@@ -206,7 +206,7 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(127, 32);
             this.button11.TabIndex = 9;
-            this.button11.Text = "USER";
+            this.button11.Text = "ACCOUNTS";
             this.button11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
@@ -340,9 +340,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.label13);
-            this.panel4.Location = new System.Drawing.Point(264, 130);
+            this.panel4.Location = new System.Drawing.Point(273, 130);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1166, 648);
+            this.panel4.Size = new System.Drawing.Size(1086, 610);
             this.panel4.TabIndex = 3;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 

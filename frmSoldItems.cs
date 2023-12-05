@@ -170,5 +170,25 @@ namespace OOP_System
         {
             this.Dispose();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
