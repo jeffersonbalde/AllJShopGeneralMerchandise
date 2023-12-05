@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace OOP_System
 {
@@ -32,11 +33,59 @@ namespace OOP_System
             cn = new SqlConnection(dbcon.MyConnection());
             this.KeyPreview = true;
             f = frm;
+
+            NotifyCriticalItems();
+        }
+
+        public void NotifyCriticalItems()
+        {
+            string critical = "";
+            int i = 0;
+
+            cn.Open();
+            cm = new SqlCommand("SELECT COUNT(*) FROM vwCriticalItems", cn);
+            string count = cm.ExecuteScalar().ToString();
+            cn.Close();
+
+            cn.Open();
+            string query = "SELECT * FROM vwCriticalItems";
+            cm = new SqlCommand(query, cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                critical += i + ". " + dr["pdesc"].ToString() + Environment.NewLine;
+            }
+            dr.Close();
+            cn.Close();
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Properties.Resources.x;
+            popup.TitleText = count + " LOW STOCK ITEMS";
+            popup.ContentText = critical;
+            popup.Popup();
         }
 
         private void frmPOS_Load(object sender, EventArgs e)
         {
+            LoadRecords();
+        }
 
+        public void LoadRecords()
+        {
+            int i = 0;
+            dataGridView2.Rows.Clear();
+            cn.Open();
+            string query = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty FROM tblProduct as p INNER JOIN tblBrand AS b ON b.id = p.bid INNER JOIN tblCategory AS c ON c.id = p.cid WHERE p.pdesc LIKE '" + txtSearchProduct.Text + "%' ORDER BY p.pdesc";
+            cm = new SqlCommand(query, cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridView2.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+            }
+            dr.Close();
+            cn.Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -293,25 +342,6 @@ namespace OOP_System
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
-
-            if(colName == "Delete")
-            {
-                if(MessageBox.Show("Remove this item?", "ALL J GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    cn.Open();
-                    string query = "DELETE FROM tblcart WHERE id LIKE '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'";
-                    cm = new SqlCommand(query, cn);
-                    cm.ExecuteNonQuery();
-                    cn.Close();
-                    MessageBox.Show("Item has been removed", "ALL J GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadCart();
-                }
-            }
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if(lblTransno.Text == "000000000000000")
@@ -525,29 +555,21 @@ namespace OOP_System
             }
             else if (e.KeyCode == Keys.F2)
             {
-                btnSearch_Click(sender, e);
+                btnDiscount_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F3)
             {
-                btnDiscount_Click(sender, e);
+                btnPayment_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F4)
             {
-                btnPayment_Click(sender, e);
+                btnCancel_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F5)
             {
-                btnCancel_Click(sender, e);
-            }
-            else if (e.KeyCode == Keys.F6)
-            {
                 btnSale_Click(sender, e);
             }
-            else if (e.KeyCode == Keys.F7)
-            {
-                btnChangePass_Click(sender, e);
-            }
-            else if (e.KeyCode == Keys.F8)
+            else if(e.KeyCode == Keys.F6)
             {
                 button11_Click(sender, e);
             }
@@ -616,6 +638,32 @@ namespace OOP_System
         private void txtQty_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+                string colName = dataGridView2.Columns[e.ColumnIndex].Name;
+
+                if (colName == "Select")
+                {
+                    frmQty frm = new frmQty(this);
+                    frm.ProductDetails(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString(), Double.Parse(dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString()), lblTransno.Text, int.Parse(dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString()));
+                    frm.ShowDialog();
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void metroTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            LoadRecords();
         }
     }
 }

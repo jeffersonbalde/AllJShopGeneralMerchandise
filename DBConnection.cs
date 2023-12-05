@@ -15,12 +15,72 @@ namespace OOP_System
         SqlCommand cm = new SqlCommand(); 
         SqlDataReader dr;
 
+        private string con;
+        private double sales;
+        private int items;
+        private int stocks;
+        private int lowStocks;
+
         public string MyConnection()
         {
 
-            string con = @"Data Source=LAPTOP-6ODBNAGM\SQLEXPRESS01;Initial Catalog=OOP;Integrated Security=True";
+            con = @"Data Source=LAPTOP-6ODBNAGM\SQLEXPRESS01;Initial Catalog=OOP;Integrated Security=True";
 
             return con;
+        }
+
+        public double GetSales()
+        {
+            string sdate = DateTime.Now.ToString("yyyy-MM-dd");
+
+            cn = new SqlConnection();
+            cn.ConnectionString = con;
+
+            cn.Open();
+            string query = "SELECT ISNULL(SUM(total), 0) AS total FROM tblcart WHERE sdate BETWEEN '" + sdate + "' AND '" + sdate + "' AND status LIKE 'sold'";
+            cm = new SqlCommand(query, cn);
+            sales = double.Parse(cm.ExecuteScalar().ToString());
+            cn.Close();
+            return sales;
+        }
+
+        public double GetItems()
+        {
+            cn = new SqlConnection();
+            cn.ConnectionString = con;
+
+            cn.Open();
+            string query = "SELECT COUNT(*) FROM tblproduct";
+            cm = new SqlCommand(query, cn);
+            items = int.Parse(cm.ExecuteScalar().ToString());
+            cn.Close();
+            return items;
+        }
+
+        public double GetStocks()
+        {
+            cn = new SqlConnection();
+            cn.ConnectionString = con;
+
+            cn.Open();
+            string query = "SELECT ISNULL(SUM(qty), 0) AS qty FROM tblproduct";
+            cm = new SqlCommand(query, cn);
+            stocks = int.Parse(cm.ExecuteScalar().ToString());
+            cn.Close();
+            return stocks;
+        }
+
+        public double GetLowStocks()
+        {
+            cn = new SqlConnection();
+            cn.ConnectionString = con;
+
+            cn.Open();
+            string query = "SELECT COUNT(*) FROM vwCriticalItems";
+            cm = new SqlCommand(query, cn);
+            lowStocks = int.Parse(cm.ExecuteScalar().ToString());
+            cn.Close();
+            return lowStocks;
         }
 
         public double GetVal()

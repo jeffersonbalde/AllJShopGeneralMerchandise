@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 using System.Drawing.Text;
 
 namespace OOP_System
@@ -16,14 +17,21 @@ namespace OOP_System
     {
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
+        SqlDataReader dr;
 
         DBConnection dbcon = new DBConnection();
         public Form1()
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+            NotifyCriticalItems();
             //cn.Open();
             //MessageBox.Show("Connected");
+
+            lblSales.Text = dbcon.GetSales().ToString("#,##0.00");
+            lblItems.Text = dbcon.GetItems().ToString("#,##0");
+            lblStocks.Text = dbcon.GetStocks().ToString("#,##0");
+            lblLowStocks.Text = dbcon.GetLowStocks().ToString("#,##0");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,8 +42,35 @@ namespace OOP_System
             //{
             //    c.Font = new Font(pfc.Families[0], 15, FontStyle.Regular);
             //}
+        }
 
+        public void NotifyCriticalItems()
+        {
+            string critical = "";
+            int i = 0;
 
+            cn.Open();
+            cm = new SqlCommand("SELECT COUNT(*) FROM vwCriticalItems", cn);
+            string count = cm.ExecuteScalar().ToString();
+            cn.Close();
+
+            cn.Open();
+            string query = "SELECT * FROM vwCriticalItems";
+            cm = new SqlCommand(query, cn);
+            dr = cm.ExecuteReader();
+            while(dr.Read())
+            {
+                i++;
+                critical += i + ". " +  dr["pdesc"].ToString() + Environment.NewLine;
+            }
+            dr.Close();
+            cn.Close();
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Properties.Resources.x;
+            popup.TitleText = count + " LOW STOCK ITEMS";   
+            popup.ContentText = critical;
+            popup.Popup();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -193,6 +228,11 @@ namespace OOP_System
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblItem_Click(object sender, EventArgs e)
         {
 
         }
