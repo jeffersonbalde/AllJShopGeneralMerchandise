@@ -23,6 +23,8 @@ namespace OOP_System
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+
+            this.KeyPreview = true;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -122,6 +124,14 @@ namespace OOP_System
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmSecurity_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
         }
     }
 }
