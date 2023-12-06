@@ -32,6 +32,8 @@ namespace OOP_System
             lblItems.Text = dbcon.GetItems().ToString("#,##0");
             lblStocks.Text = dbcon.GetStocks().ToString("#,##0");
             lblLowStocks.Text = dbcon.GetLowStocks().ToString("#,##0");
+
+            this.KeyPreview = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -236,5 +238,51 @@ namespace OOP_System
         {
 
         }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                button3_Click_2(sender, e);
+            }
+            else if (e.KeyCode == Keys.F2)
+            {
+                btnStockIn_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F3)
+            {
+                button7_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F4)
+            {
+                btnCategory_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F5)
+            {
+                button6_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F6)
+            {
+                btnSalesHistory_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F7)
+            {
+                button11_Click(sender, e);
+            } else if (e.KeyCode == Keys.F8)
+            {
+                StoreNameBtn_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F9) {
+                button1_Click(sender, e);
+            }
+        }
+
+
+
+
+
+
+
+
     }
 }
