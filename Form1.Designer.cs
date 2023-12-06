@@ -312,9 +312,15 @@
             this.btnStockIn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStockIn.ForeColor = System.Drawing.Color.Black;
             this.btnStockIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnStockIn.Location = new System.Drawing.Point(160, 0);
             this.btnStockIn.Name = "btnStockIn";
             this.btnStockIn.Size = new System.Drawing.Size(154, 40);
+
+            this.btnStockIn.Location = new System.Drawing.Point(111, 0);
+            this.btnStockIn.Name = "btnStockIn";
+            this.btnStockIn.Size = new System.Drawing.Size(114, 40);
+
             this.btnStockIn.TabIndex = 3;
             this.btnStockIn.Text = "STOCK";
             this.btnStockIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -332,7 +338,11 @@
             this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProduct.Location = new System.Drawing.Point(0, 0);
             this.btnProduct.Name = "btnProduct";
+
             this.btnProduct.Size = new System.Drawing.Size(160, 40);
+
+            this.btnProduct.Size = new System.Drawing.Size(111, 40);
+
             this.btnProduct.TabIndex = 1;
             this.btnProduct.Text = "ITEMS";
             this.btnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

@@ -217,6 +217,7 @@ namespace OOP_System
             frm.LoadInventory();
             frm.VoidItems();
             frm.LoadStockInHistory();
+            frm.LoadRecords();
             panel4.Controls.Add(frm);
             frm.BringToFront();
             frm.Show();

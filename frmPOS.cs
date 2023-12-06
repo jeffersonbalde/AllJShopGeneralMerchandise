@@ -573,6 +573,10 @@ namespace OOP_System
             {
                 button11_Click(sender, e);
             }
+            else if(e.KeyCode == Keys.F7)
+            {
+                txtSearchProduct.Focus();
+            }
             else if (e.KeyCode == Keys.F9)
             {
                 txtSearch.SelectionStart = 0;
@@ -664,6 +668,11 @@ namespace OOP_System
         private void metroTextBox1_TextChanged(object sender, EventArgs e)
         {
             LoadRecords();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

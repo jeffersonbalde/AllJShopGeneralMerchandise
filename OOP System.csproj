@@ -239,6 +239,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="StockAdjust.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockAdjust.Designer.cs">
+      <DependentUpon>StockAdjust.cs</DependentUpon>
+    </Compile>
     <Compile Include="StoreName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -333,6 +339,9 @@
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="rptSold.rdlc" />
     <EmbeddedResource Include="rptTop.rdlc" />
+    <EmbeddedResource Include="StockAdjust.resx">
+      <DependentUpon>StockAdjust.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StoreName.resx">
       <DependentUpon>StoreName.cs</DependentUpon>
     </EmbeddedResource>

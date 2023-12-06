@@ -21,6 +21,8 @@ namespace OOP_System
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
 
+        int _qty = 0;
+
         public frmRecords()
         {
             InitializeComponent();
@@ -277,6 +279,97 @@ namespace OOP_System
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        public void LoadRecords()
+        {
+            int i = 0;
+            dataGridView7.Rows.Clear();
+            cn.Open();
+            string query = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty FROM tblProduct as p INNER JOIN tblBrand AS b ON b.id = p.bid INNER JOIN tblCategory AS c ON c.id = p.cid WHERE p.pdesc LIKE '" + txtSearch.Text + "%' ORDER BY p.pdesc";
+            cm = new SqlCommand(query, cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridView7.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+            }
+            dr.Close();
+            cn.Close();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadRecords();
+        }
+
+        private void dataGridView7_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dataGridView7.Columns[e.ColumnIndex].Name;
+            if(colName == "Select")
+            {
+                txtProductCode.Text = dataGridView7.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtDescription.Text = dataGridView7.Rows[e.RowIndex].Cells[3].Value.ToString() + " " + dataGridView7.Rows[e.RowIndex].Cells[4].Value.ToString() + " " + dataGridView7.Rows[e.RowIndex].Cells[5].Value.ToString();
+
+                _qty = int.Parse(dataGridView7.Rows[e.RowIndex].Cells[7].Value.ToString());
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if ((txtQuantity.Text != String.Empty) && (txtAction.Text != String.Empty))
+                {
+                    if (int.Parse(txtQuantity.Text) > _qty)
+                    {
+                        MessageBox.Show("Quantity should be less than the stock quantity", "QUANTITY INVALID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if(txtAction.Text == "REMOVE QUANTITY")
+                    {
+                        SqlStatement("UPDATE tblproduct SET qty = (qty - " + int.Parse(txtQuantity.Text) + ") WHERE pcode LIKE '" + txtProductCode.Text + "'");
+                    }
+                    else
+                    {
+                        SqlStatement("UPDATE tblproduct SET qty = (qty + " + int.Parse(txtQuantity.Text) + ") WHERE pcode LIKE '" + txtProductCode.Text + "'");
+                    }
+                    
+                    SqlStatement("INSERT INTO tbladjustment(pcode, qty, action, sdate) VALUES('" + txtProductCode.Text + "', '" + int.Parse(txtQuantity.Text) + "', '" + txtAction.Text + "', '" + DateTime.Now.ToShortDateString() + "')");
+
+                    MessageBox.Show("Stock has been successfully adjusted.", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadRecords();
+                    Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Please fill the form", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            }
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void SqlStatement(string query)
+        {
+            cn.Open();
+            cm = new SqlCommand(query, cn);
+            cm.ExecuteNonQuery();
+            cn.Close();
+        }
+
+        public void Clear()
+        {
+            txtProductCode.Clear();
+            txtDescription.Clear();
+            txtQuantity.Clear();
+            txtAction.Text = "";
         }
     }
 }
