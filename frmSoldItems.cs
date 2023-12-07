@@ -29,6 +29,8 @@ namespace OOP_System
             dt2.Value = DateTime.Now;
             LoadRecord();
             LoadCashier();
+
+            this.KeyPreview = true;
         }
 
         public void LoadCashier()
@@ -189,6 +191,18 @@ namespace OOP_System
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void frmSoldItems_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnPrint_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
         }
     }
 }

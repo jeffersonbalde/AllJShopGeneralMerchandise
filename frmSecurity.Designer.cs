@@ -198,9 +198,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.TextBox txtUser;
         public System.Windows.Forms.Button btnCancel;
         public System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox txtUser;
     }
 }

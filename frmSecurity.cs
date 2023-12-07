@@ -34,7 +34,8 @@ namespace OOP_System
 
         private void frmSecurity_Load(object sender, EventArgs e)
         {
-
+            //txtUser.Focus();
+            this.ActiveControl = txtUser;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -131,6 +132,10 @@ namespace OOP_System
             if(e.KeyCode == Keys.Enter)
             {
                 btnLogin_Click(sender, e);
+            }
+            else if(e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
             }
         }
     }

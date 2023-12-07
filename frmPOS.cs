@@ -555,15 +555,36 @@ namespace OOP_System
             }
             else if (e.KeyCode == Keys.F2)
             {
-                btnDiscount_Click(sender, e);
+                if(btnDiscount.Enabled == true)
+                {
+                    btnDiscount_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("You have no transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else if (e.KeyCode == Keys.F3)
             {
-                btnPayment_Click(sender, e);
+                if (btnPayment.Enabled == true)
+                {
+                    btnPayment_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("You have no transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else if (e.KeyCode == Keys.F4)
             {
-                btnCancel_Click(sender, e);
+                if (btnCancel.Enabled == true)
+                {
+                    btnCancel_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("You have no transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else if (e.KeyCode == Keys.F5)
             {
