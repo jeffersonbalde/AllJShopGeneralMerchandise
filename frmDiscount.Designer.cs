@@ -113,7 +113,7 @@
             this.txtPercent.Location = new System.Drawing.Point(195, 93);
             this.txtPercent.Name = "txtPercent";
             this.txtPercent.Size = new System.Drawing.Size(335, 30);
-            this.txtPercent.TabIndex = 6;
+            this.txtPercent.TabIndex = 0;
             this.txtPercent.TextChanged += new System.EventHandler(this.txtPercent_TextChanged);
             // 
             // label3

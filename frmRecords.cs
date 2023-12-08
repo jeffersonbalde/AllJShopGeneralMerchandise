@@ -338,54 +338,6 @@ namespace OOP_System
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                if ((txtQuantity.Text != String.Empty) && (txtAction.Text != String.Empty))
-                {
-                    if (int.Parse(txtQuantity.Text) > _qty)
-                    {
-                        MessageBox.Show("Quantity should be less than the stock quantity", "QUANTITY INVALID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    if(txtAction.Text == "REMOVE QUANTITY")
-                    {
-                        SqlStatement("UPDATE tblproduct SET qty = (qty - " + int.Parse(txtQuantity.Text) + ") WHERE pcode LIKE '" + txtProductCode.Text + "'");
-                    }
-                    else
-                    {
-                        SqlStatement("UPDATE tblproduct SET qty = (qty + " + int.Parse(txtQuantity.Text) + ") WHERE pcode LIKE '" + txtProductCode.Text + "'");
-                    }
-                    
-                    SqlStatement("INSERT INTO tbladjustment(pcode, qty, action, sdate) VALUES('" + txtProductCode.Text + "', '" + int.Parse(txtQuantity.Text) + "', '" + txtAction.Text + "', '" + DateTime.Now.ToShortDateString() + "')");
-
-                    MessageBox.Show("Stock has been successfully adjusted.", "ITEM ADJUSTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadRecords();
-                    LoadCriticalItems();
-                    Clear();
-
-                    Form1 frm = new Form1();
-                    frm.lblStocks.Text = dbcon.GetStocks().ToString("#,##0");
-                    frm.lblLowStocks.Text = dbcon.GetLowStocks().ToString("#,##0");
-
-                    frm.GetDashboard();
-                }
-                else
-                {
-                    MessageBox.Show("Please fill up all form", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-            }
-            catch(Exception ex)
-            {
-                cn.Close();
-                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         public void SqlStatement(string query)
         {
             try
@@ -411,5 +363,68 @@ namespace OOP_System
             txtQuantity.Clear();
             txtAction.Text = "";
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if ((txtQuantity.Text != String.Empty) && (txtAction.Text != String.Empty))
+                {
+                    if (int.Parse(txtQuantity.Text) > _qty)
+                    {
+                        MessageBox.Show("Quantity should be less than the stock quantity", "QUANTITY INVALID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (txtAction.Text == "REMOVE QUANTITY")
+                    {
+                        SqlStatement("UPDATE tblproduct SET qty = (qty - " + int.Parse(txtQuantity.Text) + ") WHERE pcode LIKE '" + txtProductCode.Text + "'");
+                    }
+                    else
+                    {
+                        SqlStatement("UPDATE tblproduct SET qty = (qty + " + int.Parse(txtQuantity.Text) + ") WHERE pcode LIKE '" + txtProductCode.Text + "'");
+                    }
+
+                    SqlStatement("INSERT INTO tbladjustment(pcode, qty, action, sdate) VALUES('" + txtProductCode.Text + "', '" + int.Parse(txtQuantity.Text) + "', '" + txtAction.Text + "', '" + DateTime.Now.ToShortDateString() + "')");
+
+                    MessageBox.Show("Stock has been successfully adjusted.", "ITEM ADJUSTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadRecords();
+                    LoadCriticalItems();
+                    Clear();
+
+                    Form1 frm = new Form1();
+                    frm.lblStocks.Text = dbcon.GetStocks().ToString("#,##0");
+                    frm.lblLowStocks.Text = dbcon.GetLowStocks().ToString("#,##0");
+
+                    frm.GetDashboard();
+                }
+                else
+                {
+                    MessageBox.Show("Please fill up all form", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void frmRecords_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                button1_Click_1(sender, e);
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                btnSave_Click(sender, e);
+            }
+        }
+
+
+
     }
 }

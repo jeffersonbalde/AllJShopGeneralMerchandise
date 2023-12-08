@@ -88,7 +88,10 @@ namespace OOP_System
             if(e.KeyCode == Keys.Escape)
             {
                 this.Dispose();
-            }    
+            }    else if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender, e);
+            }
         }
     }
 }

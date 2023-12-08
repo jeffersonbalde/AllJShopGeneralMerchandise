@@ -270,6 +270,9 @@ namespace OOP_System
             else if (e.KeyCode == Keys.F5)
             {
                 button6_Click(sender, e);
+
+                
+
             }
             else if (e.KeyCode == Keys.F6)
             {
@@ -282,7 +285,7 @@ namespace OOP_System
             {
                 StoreNameBtn_Click(sender, e);
             }
-            else if (e.KeyCode == Keys.F9) {
+            else if (e.KeyCode == Keys.Escape) {
                 button1_Click(sender, e);
             }
         }
