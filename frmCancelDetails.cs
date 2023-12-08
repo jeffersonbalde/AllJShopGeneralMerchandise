@@ -70,7 +70,7 @@ namespace OOP_System
             try
             {
 
-                if ((cboAction.Text != String.Empty) && (txtQty.Text != String.Empty) && (txtReason.Text != String.Empty))
+                if ((cboAction.Text != String.Empty) && (txtCancelQty.Text != String.Empty))
                 {
                     if(int.Parse(txtQty.Text ) >= int.Parse(txtCancelQty.Text))
                     {
