@@ -86,7 +86,7 @@ namespace OOP_System
                 while (dr.Read())
                 {
                     i++;
-                    dataGridView5.Rows.Add(i, dr["transno"].ToString(), int.Parse(dr["pcode"].ToString()), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["total"].ToString(), dr["sdate"].ToString(), dr["cancelledby"].ToString(), dr["reason"].ToString(), dr["action"].ToString());
+                    dataGridView5.Rows.Add(i, dr["transno"].ToString(), int.Parse(dr["pcode"].ToString()), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["total"].ToString(), dr["sdate"].ToString(), dr["cancelledby"].ToString(), dr["action"].ToString());
                 }
                 dr.Close();
                 cn.Close();
@@ -245,14 +245,13 @@ namespace OOP_System
                 dataGridView6.Rows.Clear();
                 cn.Open();
                 //string query = "SELECT * FROM vwStockin WHERE cast(sdate as date) between '" + date1.Value.ToShortDateString() + "' and '" + date2.Value.ToShortDateString() + "' and status LIKE 'Done'";
-                //string query = "SELECT ";
                 cm = new SqlCommand("Select * from vwStockin where cast(sdate as date) between '" + date1.Value.ToString("yyyy-MM-dd") + "' and '" + date2.Value.ToString("yyyy-MM-dd") + "' and status like 'Done'", cn);
                 //cm = new SqlCommand(query, cn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
                     i++;
-                    dataGridView6.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), DateTime.Parse(dr[5].ToString()).ToShortDateString(), dr[6].ToString());
+                    dataGridView6.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), DateTime.Parse(dr[5].ToString()).ToShortDateString());
                 }
                 dr.Close();
                 cn.Close();

@@ -38,7 +38,7 @@ namespace OOP_System
 
             if (colName == "colSelect")
             {
-                //if (slist.txtRefNo.Text == string.Empty) { MessageBox.Show("Please enter reference no", "Add Item", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtRefNo.Focus(); return; }
+                if (slist.txtRefNo.Text == string.Empty) { MessageBox.Show("Please enter reference no", "Add Item", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtRefNo.Focus(); return; }
                 //if (slist.txtBy.Text == string.Empty) { MessageBox.Show("Please enter stock in name", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtBy.Focus(); return; }
 
                 if (MessageBox.Show("Add this item?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

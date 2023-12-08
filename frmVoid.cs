@@ -21,6 +21,9 @@ namespace OOP_System
 
         frmCancelDetails f;
 
+        string adminUsername = "";
+        string adminPassword = "";
+
         public frmVoid(frmCancelDetails frm)
         {
             InitializeComponent();
@@ -40,68 +43,74 @@ namespace OOP_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            try
+            if ((txtUser.Text != String.Empty) && (txtPass.Text != String.Empty))
             {
-                if(txtPass.Text != String.Empty)
+                try
                 {
-                    string user;
                     cn.Open();
-                    string query = "SELECT * from tbluser WHERE username = @username AND password = @password";
-                    cm = new SqlCommand(query, cn);
-                    cm.Parameters.AddWithValue("@username", txtUser.Text);
-                    cm.Parameters.AddWithValue("@password", txtPass.Text);
+                    string query1 = "SELECT * FROM tblUser WHERE role LIKE 'System Administrator'";
+                    cm = new SqlCommand(query1, cn);
                     dr = cm.ExecuteReader();
-
                     dr.Read();
-                    if(dr.HasRows)
+                    if (dr.HasRows)
                     {
-                        user = dr["username"].ToString();
-                        dr.Close();
-                        cn.Close();
-
-                        SaveCancelOrder(user);
-                        if(f.cboAction.Text == "Yes")
-                        {
-                            UpdateData("UPDATE tblproduct SET qty = qty + " + int.Parse(f.txtCancelQty.Text) + " WHERE pcode = '" + f.txtPCode.Text + "'");
-                        }
-
-                        UpdateData("UPDATE tblcart SET qty = qty - " + int.Parse(f.txtCancelQty.Text) + " WHERE id LIKE '" + f.txtID.Text + "'");
-
-                        MessageBox.Show("Void Successfully", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Dispose();
-                        f.RefreshList();    
-                        f.Dispose();
+                        adminUsername = dr["username"].ToString();
+                        adminPassword = dr["password"].ToString();
                     }
                     dr.Close();
                     cn.Close();
                 }
-                //else
-                //{
-                //    MessageBox.Show("Username and password do not match", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
+                catch (Exception ex)
+                {
+                    cn.Close();
+                    MessageBox.Show(ex.Message);
+                }
 
-            }catch(Exception ex)
+                if(adminUsername != txtUser.Text)
+                {
+                    MessageBox.Show("Incorrect username");
+                    return;
+                }
+
+                if (adminPassword != txtPass.Text)
+                {
+                    MessageBox.Show("Incorrect password");
+                    return;
+                }
+
+                SaveCancelOrder();
+                if (f.cboAction.Text == "Yes")
+                {
+                    UpdateData("UPDATE tblproduct SET qty = qty + " + int.Parse(f.txtCancelQty.Text) + " WHERE pcode = '" + f.txtPCode.Text + "'");
+                }
+
+                UpdateData("UPDATE tblcart SET qty = qty - " + int.Parse(f.txtCancelQty.Text) + " WHERE id LIKE '" + f.txtID.Text + "'");
+
+                MessageBox.Show("Void Successfully", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
+                f.RefreshList();
+                f.Dispose();
+
+            }
+            else
             {
-                cn.Close();
-                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Fill up all form");
             }
         }
 
-        public void SaveCancelOrder(string user)
+        public void SaveCancelOrder()
         {
             try
             {
                 cn.Open();
-                string query1 = "INSERT INTO tblcancel (transno, pcode, price, qty, sdate, voidby, cancelledby, reason, action) VALUES (@transno, @pcode, @price, @qty, @sdate, @voidby, @cancelledby, @reason, @action)";
+                string query1 = "INSERT INTO tblcancel (transno, pcode, price, qty, sdate, cancelledby, action) VALUES (@transno, @pcode, @price, @qty, @sdate, @cancelledby, @action)";
                 cm = new SqlCommand(query1, cn);
                 cm.Parameters.AddWithValue("@transno", f.txtTransnoNo.Text);
                 cm.Parameters.AddWithValue("@pcode", f.txtPCode.Text);
                 cm.Parameters.AddWithValue("@price", double.Parse(f.txtPrice.Text));
                 cm.Parameters.AddWithValue("@qty", int.Parse(f.txtCancelQty.Text));
                 cm.Parameters.AddWithValue("@sdate", DateTime.Now);
-                cm.Parameters.AddWithValue("@voidby", user);
                 cm.Parameters.AddWithValue("@cancelledby", f.txtCancel.Text);
-                cm.Parameters.AddWithValue("@reason", f.txtReason.Text);
                 cm.Parameters.AddWithValue("@action", f.cboAction.Text);
                 cm.ExecuteNonQuery();
                 cn.Close();

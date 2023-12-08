@@ -504,6 +504,7 @@ namespace OOP_System
             frm.dt2.Enabled = false;
             frm.cboCashier.Enabled = false;
             frm.cboCashier.Text = lblUser.Text;
+            frm.LoadRecord();
             frm.ShowDialog();
         }
 
@@ -672,7 +673,14 @@ namespace OOP_System
             try
             {
 
+                if (lblTransno.Text == "000000000000000")
+                {
+                    MessageBox.Show("Generate transaction number first", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 string colName = dataGridView2.Columns[e.ColumnIndex].Name;
+
 
                 if (colName == "Select")
                 {

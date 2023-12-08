@@ -110,6 +110,24 @@ namespace OOP_System
             txtCash.Text += btn00.Text;
         }
 
+        public void UpdateQuantity()
+        {
+            for (int i = 0; i < fpos.dataGridView1.Rows.Count; i++)
+            {
+                cn.Open();
+                string query = "UPDATE tblproduct SET qty = qty - " + int.Parse(fpos.dataGridView1.Rows[i].Cells[5].Value.ToString()) + " WHERE pcode = '" + fpos.dataGridView1.Rows[i].Cells[2].Value.ToString() + "'";
+                cm = new SqlCommand(query, cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+
+                cn.Open();
+                string query1 = "UPDATE tblcart SET status = 'Sold' WHERE id = '" + fpos.dataGridView1.Rows[i].Cells[1].Value.ToString() + "'";
+                cm = new SqlCommand(query1, cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+            }
+        }
+
         private void btnEnter_Click(object sender, EventArgs e)
         {
             try
@@ -121,20 +139,7 @@ namespace OOP_System
                     return;
                 }else
                 {
-                    for (int i = 0; i < fpos.dataGridView1.Rows.Count; i++)
-                    {
-                        cn.Open();
-                        string query = "UPDATE tblproduct SET qty = qty - " + int.Parse(fpos.dataGridView1.Rows[i].Cells[5].Value.ToString()) + " WHERE pcode = '" + fpos.dataGridView1.Rows[i].Cells[2].Value.ToString() + "'";
-                        cm = new SqlCommand(query, cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-
-                        cn.Open();
-                        string query1 = "UPDATE tblcart SET status = 'Sold' WHERE id = '" + fpos.dataGridView1.Rows[i].Cells[1].Value.ToString() + "'";
-                        cm = new SqlCommand(query1, cn);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-                    }
+                    UpdateQuantity();
 
                     frmReceipt frm = new frmReceipt(fpos);
                     frm.LoadReport(txtCash.Text, txtChange.Text);   
@@ -143,6 +148,7 @@ namespace OOP_System
                     MessageBox.Show("Payment successfully saved!", "ALL J GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     fpos.GetTransNo();
                     fpos.LoadCart();
+                    fpos.LoadRecords();
                     this.Dispose();
                 }
 

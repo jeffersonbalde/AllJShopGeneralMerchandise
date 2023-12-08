@@ -46,13 +46,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtVoid = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtCancel = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtReason = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.cboAction = new System.Windows.Forms.ComboBox();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -71,7 +67,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1157, 48);
+            this.panel1.Size = new System.Drawing.Size(1165, 48);
             this.panel1.TabIndex = 3;
             // 
             // button1
@@ -83,7 +79,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1107, 0);
+            this.button1.Location = new System.Drawing.Point(1115, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 48);
             this.button1.TabIndex = 5;
@@ -247,15 +243,6 @@
             this.label9.Text = "Total";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // txtVoid
-            // 
-            this.txtVoid.Enabled = false;
-            this.txtVoid.Location = new System.Drawing.Point(215, 346);
-            this.txtVoid.Name = "txtVoid";
-            this.txtVoid.Size = new System.Drawing.Size(346, 22);
-            this.txtVoid.TabIndex = 21;
-            this.txtVoid.Visible = false;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -267,22 +254,10 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "RETURN PRODUCT";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.label11.Location = new System.Drawing.Point(32, 346);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 25);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "Void By";
-            this.label11.Visible = false;
-            // 
             // txtCancel
             // 
             this.txtCancel.Enabled = false;
-            this.txtCancel.Location = new System.Drawing.Point(215, 386);
+            this.txtCancel.Location = new System.Drawing.Point(215, 349);
             this.txtCancel.Name = "txtCancel";
             this.txtCancel.Size = new System.Drawing.Size(346, 22);
             this.txtCancel.TabIndex = 23;
@@ -292,37 +267,18 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.label12.Location = new System.Drawing.Point(32, 386);
+            this.label12.Location = new System.Drawing.Point(32, 349);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(123, 25);
             this.label12.TabIndex = 22;
             this.label12.Text = "Return Name";
-            // 
-            // txtReason
-            // 
-            this.txtReason.Location = new System.Drawing.Point(774, 390);
-            this.txtReason.Multiline = true;
-            this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(346, 62);
-            this.txtReason.TabIndex = 25;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.label13.Location = new System.Drawing.Point(617, 390);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(92, 25);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "Reason(s)";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.label14.Location = new System.Drawing.Point(32, 426);
+            this.label14.Location = new System.Drawing.Point(594, 346);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(156, 25);
             this.label14.TabIndex = 26;
@@ -334,7 +290,7 @@
             this.cboAction.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.cboAction.Location = new System.Drawing.Point(215, 427);
+            this.cboAction.Location = new System.Drawing.Point(777, 347);
             this.cboAction.Name = "cboAction";
             this.cboAction.Size = new System.Drawing.Size(346, 24);
             this.cboAction.TabIndex = 27;
@@ -348,7 +304,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(962, 486);
+            this.btnUpdate.Location = new System.Drawing.Point(965, 415);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(158, 44);
             this.btnUpdate.TabIndex = 28;
@@ -358,7 +314,7 @@
             // 
             // txtCancelQty
             // 
-            this.txtCancelQty.Location = new System.Drawing.Point(774, 346);
+            this.txtCancelQty.Location = new System.Drawing.Point(215, 386);
             this.txtCancelQty.Name = "txtCancelQty";
             this.txtCancelQty.Size = new System.Drawing.Size(346, 22);
             this.txtCancelQty.TabIndex = 30;
@@ -369,7 +325,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.label15.Location = new System.Drawing.Point(617, 346);
+            this.label15.Location = new System.Drawing.Point(35, 386);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(128, 25);
             this.label15.TabIndex = 29;
@@ -398,7 +354,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1157, 565);
+            this.ClientSize = new System.Drawing.Size(1165, 483);
             this.ControlBox = false;
             this.Controls.Add(this.txtDiscount);
             this.Controls.Add(this.txtDescription);
@@ -407,13 +363,9 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.cboAction);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.txtReason);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.txtCancel);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtVoid);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtQty);
@@ -458,13 +410,9 @@
         public System.Windows.Forms.TextBox txtPrice;
         public System.Windows.Forms.TextBox txtQty;
         public System.Windows.Forms.TextBox txtTotal;
-        public System.Windows.Forms.TextBox txtVoid;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         public System.Windows.Forms.TextBox txtCancel;
         private System.Windows.Forms.Label label12;
-        public System.Windows.Forms.TextBox txtReason;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Button btnUpdate;
         public System.Windows.Forms.TextBox txtCancelQty;

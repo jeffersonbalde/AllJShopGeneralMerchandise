@@ -73,7 +73,7 @@
             this.txtPdesc.Location = new System.Drawing.Point(169, 195);
             this.txtPdesc.Name = "txtPdesc";
             this.txtPdesc.Size = new System.Drawing.Size(385, 30);
-            this.txtPdesc.TabIndex = 6;
+            this.txtPdesc.TabIndex = 1;
             this.txtPdesc.TextChanged += new System.EventHandler(this.txtPdesc_TextChanged);
             // 
             // label3
@@ -93,7 +93,7 @@
             this.txtPrice.Location = new System.Drawing.Point(169, 247);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(385, 30);
-            this.txtPrice.TabIndex = 12;
+            this.txtPrice.TabIndex = 2;
             this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
@@ -120,7 +120,7 @@
             this.button1.Location = new System.Drawing.Point(428, 356);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 44);
-            this.button1.TabIndex = 17;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Clear";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -136,7 +136,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(299, 356);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(105, 44);
-            this.btnUpdate.TabIndex = 16;
+            this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -152,7 +152,7 @@
             this.btnSave.Location = new System.Drawing.Point(169, 356);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(105, 44);
-            this.btnSave.TabIndex = 15;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -162,7 +162,7 @@
             this.txtBarcode.Location = new System.Drawing.Point(169, 147);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(385, 30);
-            this.txtBarcode.TabIndex = 19;
+            this.txtBarcode.TabIndex = 0;
             // 
             // label7
             // 
@@ -202,7 +202,7 @@
             this.txtReorder.Location = new System.Drawing.Point(169, 297);
             this.txtReorder.Name = "txtReorder";
             this.txtReorder.Size = new System.Drawing.Size(385, 30);
-            this.txtReorder.TabIndex = 22;
+            this.txtReorder.TabIndex = 3;
             this.txtReorder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReorder_KeyPress);
             // 
             // label8

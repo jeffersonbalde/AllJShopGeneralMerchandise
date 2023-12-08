@@ -198,5 +198,12 @@ namespace OOP_System
         {
             this.Dispose();
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Random random = new Random();
+            txtRefNo.Clear();
+            txtRefNo.Text += random.Next();
+        }
     }
 }

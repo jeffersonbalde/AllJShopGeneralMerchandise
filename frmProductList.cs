@@ -44,7 +44,7 @@ namespace OOP_System
             dataGridView1.Rows.Clear();
             cn.Open();
             string query = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.reorder FROM tblProduct as p INNER JOIN tblBrand AS b ON b.id = p.bid INNER JOIN tblCategory AS c ON c.id = p.cid WHERE p.pdesc LIKE '" + txtSearch.Text + "%' ORDER BY p.pdesc";
-            string query1 = "SELECT pcode, barcode, pdesc, price, reorder FROM tblproduct";
+            string query1 = "SELECT pcode, barcode, pdesc, price, reorder FROM tblproduct WHERE pdesc LIKE '" + txtSearch.Text + "%' ORDER BY pdesc";
             cm = new SqlCommand(query1, cn);
             dr = cm.ExecuteReader();
             while(dr.Read())
