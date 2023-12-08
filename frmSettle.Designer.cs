@@ -106,7 +106,7 @@
             this.txtCash.Location = new System.Drawing.Point(17, 113);
             this.txtCash.Name = "txtCash";
             this.txtCash.Size = new System.Drawing.Size(422, 51);
-            this.txtCash.TabIndex = 3;
+            this.txtCash.TabIndex = 0;
             this.txtCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCash.TextChanged += new System.EventHandler(this.txtCash_TextChanged);
             // 

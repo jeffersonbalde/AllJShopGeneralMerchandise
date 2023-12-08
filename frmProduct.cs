@@ -58,11 +58,6 @@ namespace OOP_System
         //    cn.Close();
         //}
 
-        private void frmProduct_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -283,6 +278,19 @@ namespace OOP_System
             {
                 e.Handled = true;
             }
+        }
+
+        private void frmProduct_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+        }
+
+        private void frmProduct_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
         }
     }
 }

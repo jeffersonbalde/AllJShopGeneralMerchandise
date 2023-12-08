@@ -593,7 +593,7 @@ namespace OOP_System
             {
                 btnSale_Click(sender, e);
             }
-            else if(e.KeyCode == Keys.F6)
+            else if(e.KeyCode == Keys.Escape)
             {
                 button11_Click(sender, e);
             }
