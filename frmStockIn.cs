@@ -18,7 +18,7 @@ namespace OOP_System
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
-
+        
         public frmStockIn()
         {
             InitializeComponent();
@@ -30,14 +30,14 @@ namespace OOP_System
             string colName = dataGridView2.Columns[e.ColumnIndex].Name;
             if(colName == "colDelete")
             {
-                if(MessageBox.Show("Remove this item", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if(MessageBox.Show("Remove this item", "REMOVE ITEM", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     string query = "DELETE FROM tblstockin WHERE id = '" + dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString() +  "'";
                     cm = new SqlCommand(query, cn);
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Item has been successfully removed", "Remove Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Item has been successfully removed");
                     LoadStockIn();
                 }
             }
@@ -58,13 +58,14 @@ namespace OOP_System
             int i = 0;
             dataGridView2.Rows.Clear();
             cn.Open();
-            string query = "SELECT * FROM vwStockin WHERE refno LIKE '" + txtRefNo.Text + "' AND status LIKE 'Pending'";
+            string query = " SELECT * FROM vwStockin WHERE refno LIKE '" + txtRefNo.Text + "' AND status LIKE 'Pending'";
+            string query1 = "SELECT p.pdesc, s.refno, s.pcode, s.qty, s.sdate FROM tblProduct AS p INNER JOIN tblStockIn AS s ON s.pcode = p.pcode WHERE s.refno LIKE '" + txtRefNo.Text  + "' AND status LIKE 'Pending'";
             cm = new SqlCommand(query, cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dataGridView2.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+                dataGridView2.Rows.Add(i, dr["id"].ToString(), dr["refno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["qty"].ToString(), DateTime.Parse(dr["sdate"].ToString()).ToShortDateString());
             }
             dr.Close();
             cn.Close();
@@ -75,14 +76,13 @@ namespace OOP_System
             int i = 0;
             dataGridView1.Rows.Clear();
             cn.Open();
-            //string query = "SELECT * FROM vwStockin WHERE cast(sdate as date) between '" + date1.Value.ToShortDateString() + "' and '" + date2.Value.ToShortDateString() + "' and status LIKE 'Done'";
-            cm = new SqlCommand("Select * from vwStockin where cast(sdate as date) between '" + date1.Value.ToString("yyyy-MM-dd") + "' and '" + date2.Value.ToString("yyyy-MM-dd") + "' and status like 'Done'", cn);
-            //cm = new SqlCommand(query, cn);
+            //string query = "SELECT * FROM vwStockin WHERE cast(sdate as date) between '" + date1.Value.ToShortDateString() + "' and '" + date2.Value.ToShortDateString() + "' and status LIKE 'Done'"
+            cm = new SqlCommand("SELECT * from vwStockin where cast(sdate as date) between '" + date1.Value.ToString("yyyy-MM-dd") + "' and '" + date2.Value.ToString("yyyy-MM-dd") + "' and status like 'Done'", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dataGridView1.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), DateTime.Parse(dr[5].ToString()).ToShortDateString(), dr[6].ToString());
+                dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["refno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["qty"].ToString(), DateTime.Parse(dr["sdate"].ToString()).ToShortDateString());
             }
             dr.Close();
             cn.Close();
@@ -129,7 +129,7 @@ namespace OOP_System
 
                 if(dataGridView2.Rows.Count > 0)
                 {
-                    if(MessageBox.Show("Are you sure you want to save this records?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if(MessageBox.Show("Are you sure you want to save this items?", "SAVE ITEMS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         for (int i = 0; i < dataGridView2.Rows.Count; i++)
                         {
@@ -150,6 +150,10 @@ namespace OOP_System
 
                         Clear();
                         LoadStockIn();
+
+                        Form1 frm = new Form1();
+                        frm.lblStocks.Text = dbcon.GetStocks().ToString("#,##0");
+                        frm.lblLowStocks.Text = dbcon.GetLowStocks().ToString("#,##0");
                     }
                 }
 

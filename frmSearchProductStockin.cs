@@ -39,21 +39,20 @@ namespace OOP_System
             if (colName == "colSelect")
             {
                 //if (slist.txtRefNo.Text == string.Empty) { MessageBox.Show("Please enter reference no", "Add Item", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtRefNo.Focus(); return; }
-                if (slist.txtBy.Text == string.Empty) { MessageBox.Show("Please enter stock in name", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtBy.Focus(); return; }
+                //if (slist.txtBy.Text == string.Empty) { MessageBox.Show("Please enter stock in name", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtBy.Focus(); return; }
 
                 if (MessageBox.Show("Add this item?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    string query = "INSERT INTO tblstockin (refno, pcode, sdate, stockinby)VALUES(@refno, @pcode, @sdate, @stockinby)";
+                    string query = "INSERT INTO tblstockin (refno, pcode, sdate)VALUES(@refno, @pcode, @sdate)";
                     cm = new SqlCommand(query, cn);
                     cm.Parameters.AddWithValue("@refno", slist.txtRefNo.Text);
                     cm.Parameters.AddWithValue("@pcode", dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
                     cm.Parameters.AddWithValue("@sdate", slist.dt1.Value);
-                    cm.Parameters.AddWithValue("@stockinby", slist.txtBy.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
 
-                    MessageBox.Show("Successfully Added!", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Successfully Added!", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     slist.LoadStockIn();
                 }
             }

@@ -35,8 +35,6 @@ namespace OOP_System
             frmProduct frm = new frmProduct(this);
             frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
-            frm.LoadBrand();
-            frm.LoadCategory();
             frm.ShowDialog();
         }
 
@@ -46,12 +44,13 @@ namespace OOP_System
             dataGridView1.Rows.Clear();
             cn.Open();
             string query = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.reorder FROM tblProduct as p INNER JOIN tblBrand AS b ON b.id = p.bid INNER JOIN tblCategory AS c ON c.id = p.cid WHERE p.pdesc LIKE '" + txtSearch.Text + "%' ORDER BY p.pdesc";
-            cm = new SqlCommand(query, cn);
+            string query1 = "SELECT pcode, barcode, pdesc, price, reorder FROM tblproduct";
+            cm = new SqlCommand(query1, cn);
             dr = cm.ExecuteReader();
             while(dr.Read())
             {
                 i++;
-                dataGridView1.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+                dataGridView1.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString());
             }
             dr.Close();
             cn.Close();
@@ -69,15 +68,14 @@ namespace OOP_System
             {
                 frmProduct frm = new frmProduct(this);
                 frm.btnSave.Enabled = false;
-                frm.btnUpdate.Enabled = true; 
+                frm.btnUpdate.Enabled = true;
+                frm.txtPcode.Enabled = false;
 
                 frm.txtPcode.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 frm.txtBarcode.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 frm.txtPdesc.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                frm.txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                frm.cboBrand.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                frm.cboCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                frm.txtReorder.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                frm.txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                frm.txtReorder.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 frm.ShowDialog();
 
                 /*cn.Open();
@@ -87,7 +85,7 @@ namespace OOP_System
                 */
             }else if (colName == "Delete")
             {
-                if(MessageBox.Show("Are you sure you want to delete this record?","Delete Record", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                if(MessageBox.Show("Are you sure you want to delete this item?","DELETE ITEM", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     string query = "DELETE FROM tblproduct WHERE pcode LIKE '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'";
@@ -95,6 +93,7 @@ namespace OOP_System
                     cm.ExecuteNonQuery();   
                     cn.Close();
                     LoadRecords();
+                    MessageBox.Show("Item has been successfully deleted.");
                 }
             }
         }
@@ -119,8 +118,6 @@ namespace OOP_System
             frmProduct frm = new frmProduct(this);
             frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
-            frm.LoadBrand();
-            frm.LoadCategory();
             frm.ShowDialog();
         }
 

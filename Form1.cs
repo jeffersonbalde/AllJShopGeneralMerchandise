@@ -24,16 +24,25 @@ namespace OOP_System
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+            GetDashboard();
             NotifyCriticalItems();
             //cn.Open();
             //MessageBox.Show("Connected");
 
+            //lblSales.Text = dbcon.GetSales().ToString("#,##0.00");
+            //lblItems.Text = dbcon.GetItems().ToString("#,##0");
+            //lblStocks.Text = dbcon.GetStocks().ToString("#,##0");
+            //lblLowStocks.Text = dbcon.GetLowStocks().ToString("#,##0");
+
+            this.KeyPreview = true;
+        }
+
+        public void GetDashboard()
+        {
             lblSales.Text = dbcon.GetSales().ToString("#,##0.00");
             lblItems.Text = dbcon.GetItems().ToString("#,##0");
             lblStocks.Text = dbcon.GetStocks().ToString("#,##0");
             lblLowStocks.Text = dbcon.GetLowStocks().ToString("#,##0");
-
-            this.KeyPreview = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -278,12 +287,9 @@ namespace OOP_System
             }
         }
 
+        private void lblLowStocks_Click(object sender, EventArgs e)
+        {
 
-
-
-
-
-
-
+        }
     }
 }

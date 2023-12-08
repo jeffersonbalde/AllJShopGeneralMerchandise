@@ -22,6 +22,7 @@ namespace OOP_System
         SqlDataReader dr;
 
         int _qty = 0;
+        readonly Form1 form1;
 
         public frmRecords()
         {
@@ -56,7 +57,7 @@ namespace OOP_System
                 while(dr.Read())
                 {
                     i++;
-                    dataGridView1.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["qty"].ToString());
+                    dataGridView1.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr["pdesc"].ToString(), dr["qty"].ToString());
                 }
 
                 dr.Close();
@@ -85,7 +86,7 @@ namespace OOP_System
                 while (dr.Read())
                 {
                     i++;
-                    dataGridView5.Rows.Add(i, dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["total"].ToString(), dr["sdate"].ToString(), dr["cancelledby"].ToString(), dr["reason"].ToString(), dr["action"].ToString());
+                    dataGridView5.Rows.Add(i, dr["transno"].ToString(), int.Parse(dr["pcode"].ToString()), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["total"].ToString(), dr["sdate"].ToString(), dr["cancelledby"].ToString(), dr["reason"].ToString(), dr["action"].ToString());
                 }
                 dr.Close();
                 cn.Close();
@@ -119,7 +120,7 @@ namespace OOP_System
                 while (dr.Read())
                 {
                     i++;
-                    dataGridView2.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), Double.Parse(dr["price"].ToString()).ToString("#,##0.00"), dr["tot_qty"].ToString(), dr["tot_disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
+                    dataGridView2.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr["pdesc"].ToString(), Double.Parse(dr["price"].ToString()).ToString("#,##0.00"), dr["tot_qty"].ToString(), dr["tot_disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
                 }
 
                 dr.Close();
@@ -158,12 +159,13 @@ namespace OOP_System
                 int i = 0;
                 cn.Open();
                 string query3 = "SELECT * FROM vwCriticalItems";
-                cm = new SqlCommand(query3, cn);
-                dr = cm.ExecuteReader();
+                string query = "SELECT pcode, barcode, pdesc, price, reorder, qty FROM vwCriticalItems";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();    
                 while(dr.Read())
                 {
                     i++;
-                    dataGridView3.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString());
+                    dataGridView3.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString());
                 }
                 cn.Close();
 
@@ -189,12 +191,13 @@ namespace OOP_System
                 dataGridView4.Rows.Clear();
                 cn.Open();
                 string query4 = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty, p.reorder FROM tblProduct AS p INNER JOIN tblbrand AS b ON p.bid = b.id INNER JOIN tblcategory AS c ON p.cid = c.id ";
-                cm = new SqlCommand(query4, cn);
+                string query = "SELECT pcode, barcode, pdesc, price, qty, reorder FROM tblproduct";
+                cm = new SqlCommand(query, cn);
                 dr = cm.ExecuteReader();
                 while(dr.Read())
                 {
                     i++;
-                    dataGridView4.Rows.Add(i, dr["pcode"].ToString(), dr["barcode"].ToString(), dr["pdesc"].ToString(), dr["brand"].ToString(), dr["category"].ToString(), dr["price"].ToString(), dr["reorder"].ToString(), dr["qty"].ToString());
+                    dataGridView4.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr["barcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["reorder"].ToString());
                 }
                 dr.Close();
                 cn.Close();
@@ -236,20 +239,29 @@ namespace OOP_System
 
         public void LoadStockInHistory()
         {
-            int i = 0;
-            dataGridView6.Rows.Clear();
-            cn.Open();
-            //string query = "SELECT * FROM vwStockin WHERE cast(sdate as date) between '" + date1.Value.ToShortDateString() + "' and '" + date2.Value.ToShortDateString() + "' and status LIKE 'Done'";
-            cm = new SqlCommand("Select * from vwStockin where cast(sdate as date) between '" + date1.Value.ToString("yyyy-MM-dd") + "' and '" + date2.Value.ToString("yyyy-MM-dd") + "' and status like 'Done'", cn);
-            //cm = new SqlCommand(query, cn);
-            dr = cm.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                i++;
-                dataGridView6.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), DateTime.Parse(dr[5].ToString()).ToShortDateString(), dr[6].ToString());
+                int i = 0;
+                dataGridView6.Rows.Clear();
+                cn.Open();
+                //string query = "SELECT * FROM vwStockin WHERE cast(sdate as date) between '" + date1.Value.ToShortDateString() + "' and '" + date2.Value.ToShortDateString() + "' and status LIKE 'Done'";
+                //string query = "SELECT ";
+                cm = new SqlCommand("Select * from vwStockin where cast(sdate as date) between '" + date1.Value.ToString("yyyy-MM-dd") + "' and '" + date2.Value.ToString("yyyy-MM-dd") + "' and status like 'Done'", cn);
+                //cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    i++;
+                    dataGridView6.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), DateTime.Parse(dr[5].ToString()).ToShortDateString(), dr[6].ToString());
+                }
+                dr.Close();
+                cn.Close();
             }
-            dr.Close();
-            cn.Close();
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -283,19 +295,30 @@ namespace OOP_System
 
         public void LoadRecords()
         {
-            int i = 0;
-            dataGridView7.Rows.Clear();
-            cn.Open();
-            string query = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty FROM tblProduct as p INNER JOIN tblBrand AS b ON b.id = p.bid INNER JOIN tblCategory AS c ON c.id = p.cid WHERE p.pdesc LIKE '" + txtSearch.Text + "%' ORDER BY p.pdesc";
-            cm = new SqlCommand(query, cn);
-            dr = cm.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                i++;
-                dataGridView7.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+
+                int i = 0;
+                dataGridView7.Rows.Clear();
+                cn.Open();
+                string query = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty FROM tblProduct as p INNER JOIN tblBrand AS b ON b.id = p.bid INNER JOIN tblCategory AS c ON c.id = p.cid WHERE p.pdesc LIKE '" + txtSearch.Text + "%' ORDER BY p.pdesc";
+                string query1 = "SELECT pcode, barcode, pdesc, price, qty FROM tblProduct WHERE pdesc LIKE '" + txtSearch.Text + "%' ORDER BY pdesc";
+                cm = new SqlCommand(query1, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    i++;
+                    dataGridView7.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr["barcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString());
+                }
+                dr.Close();
+                cn.Close();
+
             }
-            dr.Close();
-            cn.Close();
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -309,9 +332,9 @@ namespace OOP_System
             if(colName == "Select")
             {
                 txtProductCode.Text = dataGridView7.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtDescription.Text = dataGridView7.Rows[e.RowIndex].Cells[3].Value.ToString() + " " + dataGridView7.Rows[e.RowIndex].Cells[4].Value.ToString() + " " + dataGridView7.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtDescription.Text = dataGridView7.Rows[e.RowIndex].Cells[3].Value.ToString();
 
-                _qty = int.Parse(dataGridView7.Rows[e.RowIndex].Cells[7].Value.ToString());
+                _qty = int.Parse(dataGridView7.Rows[e.RowIndex].Cells[5].Value.ToString());
             }
         }
 
@@ -339,13 +362,20 @@ namespace OOP_System
                     
                     SqlStatement("INSERT INTO tbladjustment(pcode, qty, action, sdate) VALUES('" + txtProductCode.Text + "', '" + int.Parse(txtQuantity.Text) + "', '" + txtAction.Text + "', '" + DateTime.Now.ToShortDateString() + "')");
 
-                    MessageBox.Show("Stock has been successfully adjusted.", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Stock has been successfully adjusted.", "ITEM ADJUSTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadRecords();
+                    LoadCriticalItems();
                     Clear();
+
+                    Form1 frm = new Form1();
+                    frm.lblStocks.Text = dbcon.GetStocks().ToString("#,##0");
+                    frm.lblLowStocks.Text = dbcon.GetLowStocks().ToString("#,##0");
+
+                    frm.GetDashboard();
                 }
                 else
                 {
-                    MessageBox.Show("Please fill the form", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please fill up all form", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }
@@ -358,10 +388,20 @@ namespace OOP_System
 
         public void SqlStatement(string query)
         {
-            cn.Open();
-            cm = new SqlCommand(query, cn);
-            cm.ExecuteNonQuery();
-            cn.Close();
+            try
+            {
+
+                cn.Open();
+                cm = new SqlCommand(query, cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+
+            }
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void Clear()
