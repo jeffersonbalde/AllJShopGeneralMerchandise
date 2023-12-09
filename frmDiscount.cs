@@ -21,6 +21,8 @@ namespace OOP_System
 
         frmPOS f;
 
+        Double discount;
+
         public frmDiscount(frmPOS frm)
         {
             InitializeComponent();
@@ -41,12 +43,26 @@ namespace OOP_System
 
         private void txtPercent_TextChanged(object sender, EventArgs e)
         {
+
+
+            //if (txtPercent.Text == "")
+            //{
+            //    return;
+            //}else if(txtPercent.Text == ".")
+            //{
+            //    return;
+            //}
+
             try
             {
 
-                double discount = Double.Parse(txtPrice.Text) * Double.Parse(txtPercent.Text);
+                //double discount = Double.Parse(txtPrice.Text) * Double.Parse(txtPercent.Text);
+                //txtAmount.Text = discount.ToString("#,##0.00");
+
+                discount = Double.Parse(txtTotal.Text) - Double.Parse(txtPercent.Text);
                 txtAmount.Text = discount.ToString("#,##0.00");
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 txtAmount.Text = "0.00";
                 MessageBox.Show(ex.Message);
@@ -63,7 +79,7 @@ namespace OOP_System
                     cn.Open();
                     string query = "UPDATE tblcart SET disc = @disc WHERE id = @id";
                     cm = new SqlCommand(query, cn);
-                    cm.Parameters.AddWithValue("@disc", Double.Parse(txtAmount.Text));
+                    cm.Parameters.AddWithValue("@disc", Double.Parse(txtPercent.Text));
                     cm.Parameters.AddWithValue("@id", int.Parse(lblID.Text));
                     cm.ExecuteNonQuery();
                     cn.Close();
@@ -91,6 +107,23 @@ namespace OOP_System
             }    else if (e.KeyCode == Keys.Enter)
             {
                 button1_Click(sender, e);
+            }
+        }
+
+        private void txtPercent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //accept only numbers
+            if (e.KeyChar == 46)
+            {
+                //accept . character
+            }
+            else if (e.KeyChar == 8)
+            {
+                //accept backspace
+            }
+            else if ((e.KeyChar < 48) || (e.KeyChar > 57)) //accept code 48-57 between 0-9
+            {
+                e.Handled = true;
             }
         }
     }

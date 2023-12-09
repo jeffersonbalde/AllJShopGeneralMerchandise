@@ -58,8 +58,8 @@ namespace OOP_System
                 da.Fill(ds.Tables["dtSold"]);
                 cn.Close();
 
-                ReportParameter pVatable = new ReportParameter("pVatable", f.lblVatable.Text);
-                ReportParameter pVat = new ReportParameter("pVat", f.lblVat.Text);
+                //ReportParameter pVatable = new ReportParameter("pVatable", f.lblVatable.Text);
+                //ReportParameter pVat = new ReportParameter("pVat", f.lblVat.Text);
                 ReportParameter pDiscount = new ReportParameter("pDiscount", f.lblDiscount.Text);
                 ReportParameter pTotal = new ReportParameter("pTotal", f.lblTotal.Text);
                 ReportParameter pCash = new ReportParameter("pCash", pcash);
@@ -69,8 +69,8 @@ namespace OOP_System
                 ReportParameter pTransaction = new ReportParameter("pTransaction", "Invoice #: " + f.lblTransno.Text);
                 ReportParameter pCashier = new ReportParameter("pCashier", f.lblUser.Text);
 
-                reportViewer1.LocalReport.SetParameters(pVatable);
-                reportViewer1.LocalReport.SetParameters(pVat);
+                //reportViewer1.LocalReport.SetParameters(pVatable);
+                //reportViewer1.LocalReport.SetParameters(pVat);
                 reportViewer1.LocalReport.SetParameters(pDiscount);
                 reportViewer1.LocalReport.SetParameters(pTotal);
                 reportViewer1.LocalReport.SetParameters(pCash);

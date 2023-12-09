@@ -17,6 +17,9 @@ namespace OOP_System
 
         String id;
         String price;
+        String cart_qty;
+        String cart_total;
+
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr; 
@@ -127,11 +130,11 @@ namespace OOP_System
         {
             double discount = Double.Parse(lblDiscount.Text);
             double sales = Double.Parse(lblTotal.Text);
-            double vat = sales * dbcon.GetVal();
-            double vatable = sales - vat;
+            //double vat = sales * dbcon.GetVal();
+            //double vatable = sales - vat;
 
-            lblVat.Text = vat.ToString("#,##0.00");
-            lblVatable.Text = vatable.ToString("#,##0.00");
+            //lblVat.Text = vat.ToString("#,##0.00");
+            //lblVatable.Text = vatable.ToString("#,##0.00");
             lblDisplayTotal.Text = sales.ToString("#,##0.00");
         }
 
@@ -317,7 +320,7 @@ namespace OOP_System
                     i++;
                     total += Double.Parse(dr["total"].ToString());
                     discount += Double.Parse(dr["disc"].ToString());
-                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"), "[ + ]", "[ - ]");
+                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
                     hasrecord = true;
                 }
                 dr.Close(); 
@@ -360,7 +363,9 @@ namespace OOP_System
         {
             int i = dataGridView1.CurrentRow.Index;
             id = dataGridView1[1, i].Value.ToString();
-            price = dataGridView1[4, i].Value.ToString();   
+            price = dataGridView1[4, i].Value.ToString();
+            cart_qty = dataGridView1[5, i].Value.ToString();
+            cart_total = dataGridView1[7, i].Value.ToString();
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
@@ -368,6 +373,8 @@ namespace OOP_System
             frmDiscount frm = new frmDiscount(this);
             frm.lblID.Text = id;
             frm.txtPrice.Text = price;
+            frm.txtQty.Text = cart_qty;
+            frm.txtTotal.Text = cart_total;
             frm.ShowDialog();
         }
 

@@ -226,7 +226,6 @@ namespace OOP_System
             frm.LoadInventory();
             frm.VoidItems();
             frm.LoadStockInHistory();
-            frm.LoadRecords();
             panel4.Controls.Add(frm);
             frm.BringToFront();
             frm.Show();
@@ -293,6 +292,16 @@ namespace OOP_System
         private void lblLowStocks_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            StockAdjust frm = new StockAdjust();
+            frm.TopLevel = false;
+            frm.LoadRecords();
+            panel4.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
         }
     }
 }
