@@ -137,5 +137,16 @@ namespace OOP_System
                 MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void frmVoid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }else if (e.KeyCode == Keys.Escape)
+            {
+                button1_Click(sender, e);
+            }
+        }
     }
 }
