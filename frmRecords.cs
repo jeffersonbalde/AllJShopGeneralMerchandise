@@ -28,6 +28,8 @@ namespace OOP_System
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+
+            cboSort.Text = "QUANTITY";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,20 +46,31 @@ namespace OOP_System
         {
             try
             {
-                dataGridView1.Rows.Clear();
-
                 int i = 0;
                 cn.Open();
+                dataGridView1.Rows.Clear();
+                if(cboSort.Text == "QUANTITY")
+                {
+                    cm = new SqlCommand("SELECT pcode, pdesc, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", cn);
+                }
+                else if(cboSort.Text == "TOTAL")
+                {
+                    cm = new SqlCommand("SELECT pcode, pdesc, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY total DESC", cn);
+                }
+                else
+                {
+                    cm = new SqlCommand("SELECT pcode, pdesc, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", cn);
+                }
                 //Top 10 products only
                 //string query = "SELECT top 10 pcode, pdesc, SUM(qty) AS qty FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC";
-                string query = "SELECT pcode, pdesc, SUM(qty) AS qty FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC";
-                cm = new SqlCommand(query, cn);
+                //cm = new SqlCommand("SELECT pcode, pdesc, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", cn);
+                //cm = new SqlCommand(query, cn);
                 dr = cm.ExecuteReader();
 
                 while(dr.Read())
                 {
                     i++;
-                    dataGridView1.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr["pdesc"].ToString(), dr["qty"].ToString());
+                    dataGridView1.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr["pdesc"].ToString(), dr["qty"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
                 }
 
                 dr.Close();
@@ -276,7 +289,17 @@ namespace OOP_System
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmInventoryReport   f = new frmInventoryReport();
-            f.LoadTopSelling("SELECT top 10 pcode, pdesc, SUM(qty) AS qty FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", "From: " + dt1.Value.ToString("yyyy-MM-dd") + " To: " + dt2.Value.ToString("yyyy-MM-dd"));
+            if(cboSort.Text == "QUANTITY")
+            {
+                f.LoadTopSelling("SELECT top 10 pcode, pdesc, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", "From: " + dt1.Value.ToString("yyyy-MM-dd") + " To: " + dt2.Value.ToString("yyyy-MM-dd"), "TOP SELLING ITEMS SORT BY QUANTITY");
+            }else if(cboSort.Text == "TOTAL")
+            {
+                f.LoadTopSelling("SELECT top 10 pcode, pdesc, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY total DESC", "From: " + dt1.Value.ToString("yyyy-MM-dd") + " To: " + dt2.Value.ToString("yyyy-MM-dd"), "TOP SELLING ITEMS SORT BY TOTAL AMOUNT");
+            }
+            else
+            {
+                f.LoadTopSelling("SELECT top 10 pcode, pdesc, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", "From: " + dt1.Value.ToString("yyyy-MM-dd") + " To: " + dt2.Value.ToString("yyyy-MM-dd"), "TOP SELLING ITEMS SORT BY QUANTITY");
+            }
             f.ShowDialog();
         }
 
@@ -420,7 +443,9 @@ namespace OOP_System
             }
         }
 
-
-
+        private void cboSort_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

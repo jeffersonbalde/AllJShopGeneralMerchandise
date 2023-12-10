@@ -18,11 +18,16 @@ namespace OOP_System
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
+
+        Form1 form1;
         
-        public frmStockIn()
+        public frmStockIn(Form1 frm)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+
+            form1 = frm;
+            frm.GetDashboard();
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -150,10 +155,7 @@ namespace OOP_System
 
                         Clear();
                         LoadStockIn();
-
-                        Form1 frm = new Form1();
-                        frm.lblStocks.Text = dbcon.GetStocks().ToString("#,##0");
-                        frm.lblLowStocks.Text = dbcon.GetLowStocks().ToString("#,##0");
+                        form1.GetDashboard();
                     }
                 }
 

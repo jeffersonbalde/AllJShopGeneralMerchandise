@@ -45,6 +45,25 @@ namespace OOP_System
             lblLowStocks.Text = dbcon.GetLowStocks().ToString("#,##0");
         }
 
+        public void GetItems()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT COUNT(*) FROM tblproduct";
+                cm = new SqlCommand(query, cn);
+                int items = int.Parse(cm.ExecuteScalar().ToString());
+                cn.Close();
+
+                lblItems.Text = items.ToString();
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             //PrivateFontCollection pfc = new PrivateFontCollection();
@@ -177,7 +196,7 @@ namespace OOP_System
 
         private void button3_Click_2(object sender, EventArgs e)
         {
-            frmProductList frm = new frmProductList();
+            frmProductList frm = new frmProductList(this);
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();
@@ -187,7 +206,7 @@ namespace OOP_System
 
         private void btnStockIn_Click(object sender, EventArgs e)
         {
-            frmStockIn frm = new frmStockIn();
+            frmStockIn frm = new frmStockIn(this);
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();
@@ -212,6 +231,7 @@ namespace OOP_System
         private void btnSalesHistory_Click(object sender, EventArgs e)
         {
             frmSoldItems frm = new frmSoldItems();
+            frm.suser = lblName.Text;
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();
@@ -296,7 +316,7 @@ namespace OOP_System
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            StockAdjust frm = new StockAdjust();
+            StockAdjust frm = new StockAdjust(this);
             frm.TopLevel = false;
             frm.LoadRecords();
             panel4.Controls.Add(frm);

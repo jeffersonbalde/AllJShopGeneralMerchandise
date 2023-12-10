@@ -41,7 +41,7 @@ namespace OOP_System
 
         }
 
-        public void LoadTopSelling(string sql, string param)
+        public void LoadTopSelling(string sql, string param, string header) 
         {
             try
             {
@@ -59,8 +59,10 @@ namespace OOP_System
                 cn.Close();
 
                 ReportParameter pDate = new ReportParameter("pDate", param);
+                ReportParameter pHeader = new ReportParameter("pHeader", header);
 
                 reportViewer1.LocalReport.SetParameters(pDate);
+                reportViewer1.LocalReport.SetParameters(pHeader);
 
                 rptDS = new ReportDataSource("DataSet1", ds.Tables["dtTopSelling"]);
                 reportViewer1.LocalReport.DataSources.Add(rptDS);

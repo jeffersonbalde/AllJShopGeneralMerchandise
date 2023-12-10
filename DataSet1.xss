@@ -9,7 +9,7 @@
     <Shape ID="DesignTable:dtSold" ZOrder="5" X="777" Y="232" Height="263" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="259" />
     <Shape ID="DesignTable:dtSoldReport" ZOrder="4" X="988" Y="375" Height="217" Width="164" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="213" />
     <Shape ID="DesignTable:dtInventory" ZOrder="3" X="998" Y="63" Height="217" Width="152" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="213" />
-    <Shape ID="DesignTable:dtTopSelling" ZOrder="2" X="478" Y="389" Height="102" Width="159" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="98" />
+    <Shape ID="DesignTable:dtTopSelling" ZOrder="2" X="478" Y="389" Height="125" Width="159" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:dtSoldItems" ZOrder="1" X="468" Y="157" Height="171" Width="154" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="167" />
   </Shapes>
   <Connectors />

@@ -19,10 +19,14 @@ namespace OOP_System
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
 
-        public frmProductList()
+        Form1 form1;
+
+        public frmProductList(Form1 frm)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+            form1 = frm;
+            frm.GetDashboard();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -32,7 +36,7 @@ namespace OOP_System
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            frmProduct frm = new frmProduct(this);
+            frmProduct frm = new frmProduct(this, form1);
             frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
             frm.ShowDialog();
@@ -66,7 +70,7 @@ namespace OOP_System
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;
             if(colName == "Edit")
             {
-                frmProduct frm = new frmProduct(this);
+                frmProduct frm = new frmProduct(this, form1);
                 frm.btnSave.Enabled = false;
                 frm.btnUpdate.Enabled = true;
                 frm.txtPcode.Enabled = false;
@@ -93,6 +97,7 @@ namespace OOP_System
                     cm.ExecuteNonQuery();   
                     cn.Close();
                     LoadRecords();
+                    form1.GetDashboard();
                     MessageBox.Show("Item has been successfully deleted.");
                 }
             }
@@ -115,7 +120,7 @@ namespace OOP_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmProduct frm = new frmProduct(this);
+            frmProduct frm = new frmProduct(this, form1);
             frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
             frm.ShowDialog();

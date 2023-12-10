@@ -1488,6 +1488,8 @@ namespace OOP_System {
             
             private global::System.Data.DataColumn columnqty;
             
+            private global::System.Data.DataColumn columntotal;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public dtTopSellingDataTable() {
@@ -1547,6 +1549,14 @@ namespace OOP_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn totalColumn {
+                get {
+                    return this.columntotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1582,12 +1592,13 @@ namespace OOP_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtTopSellingRow AdddtTopSellingRow(string pcode, string pdesc, string qty) {
+            public dtTopSellingRow AdddtTopSellingRow(string pcode, string pdesc, string qty, string total) {
                 dtTopSellingRow rowdtTopSellingRow = ((dtTopSellingRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         pcode,
                         pdesc,
-                        qty};
+                        qty,
+                        total};
                 rowdtTopSellingRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtTopSellingRow);
                 return rowdtTopSellingRow;
@@ -1613,6 +1624,7 @@ namespace OOP_System {
                 this.columnpcode = base.Columns["pcode"];
                 this.columnpdesc = base.Columns["pdesc"];
                 this.columnqty = base.Columns["qty"];
+                this.columntotal = base.Columns["total"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1624,6 +1636,8 @@ namespace OOP_System {
                 base.Columns.Add(this.columnpdesc);
                 this.columnqty = new global::System.Data.DataColumn("qty", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnqty);
+                this.columntotal = new global::System.Data.DataColumn("total", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2904,6 +2918,22 @@ namespace OOP_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string total {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtTopSelling.totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'total\' in table \'dtTopSelling\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtTopSelling.totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IspcodeNull() {
                 return this.IsNull(this.tabledtTopSelling.pcodeColumn);
             }
@@ -2936,6 +2966,18 @@ namespace OOP_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetqtyNull() {
                 this[this.tabledtTopSelling.qtyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstotalNull() {
+                return this.IsNull(this.tabledtTopSelling.totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettotalNull() {
+                this[this.tabledtTopSelling.totalColumn] = global::System.Convert.DBNull;
             }
         }
         
