@@ -17,13 +17,17 @@ namespace OOP_System
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
-        frmProductList flist;
 
-        public frmProduct(frmProductList frm)
+        frmProductList flist;
+        Form1 form1;
+
+        public frmProduct(frmProductList frm, Form1 frm1)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             flist = frm;
+            form1 = frm1;
+            form1.GetDashboard();
         }
 
         //public void LoadCategory()
@@ -108,13 +112,17 @@ namespace OOP_System
                     cm.Parameters.AddWithValue("@reorder", int.Parse(txtReorder.Text));
                     cm.ExecuteNonQuery();
                     cn.Close();
-
                     MessageBox.Show("Item has been successfully saved.");
                     Clear();
                     flist.LoadRecords();
+                    if (form1 != null)
+                    {
+                        form1.GetDashboard();
+                    }
                 }
 
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 cn.Close();
                 MessageBox.Show(ex.Message);

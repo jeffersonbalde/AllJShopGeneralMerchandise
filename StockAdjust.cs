@@ -20,11 +20,15 @@ namespace OOP_System
         SqlDataReader dr;
 
         int _qty = 0;
+        Form1 f;
 
-        public StockAdjust()
+        public StockAdjust(Form1 frm)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+            f = frm;
+
+            f.GetDashboard();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -96,14 +100,13 @@ namespace OOP_System
                     Form1 frm = new Form1();
                     frm.lblStocks.Text = dbcon.GetStocks().ToString("#,##0");
                     frm.lblLowStocks.Text = dbcon.GetLowStocks().ToString("#,##0");
-
-                    frm.GetDashboard();
                 }
                 else
                 {
                     MessageBox.Show("Please fill up all form", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
+                f.GetDashboard();
             }
             catch (Exception ex)
             {
