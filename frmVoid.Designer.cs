@@ -110,7 +110,7 @@
             this.txtPass.Margin = new System.Windows.Forms.Padding(10);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(404, 34);
-            this.txtPass.TabIndex = 21;
+            this.txtPass.TabIndex = 1;
             this.txtPass.UseSystemPasswordChar = true;
             // 
             // txtUser
@@ -123,7 +123,7 @@
             this.txtUser.Margin = new System.Windows.Forms.Padding(10);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(404, 34);
-            this.txtUser.TabIndex = 20;
+            this.txtUser.TabIndex = 0;
             // 
             // btnLogin
             // 
@@ -137,7 +137,7 @@
             this.btnLogin.Location = new System.Drawing.Point(198, 302);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(404, 44);
-            this.btnLogin.TabIndex = 19;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Void";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -171,6 +171,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.frmVoid_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmVoid_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
