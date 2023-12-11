@@ -9,7 +9,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+//using System.Windows.Forms.DataVisualization.Charting;
 
 namespace OOP_System
 {
@@ -115,6 +117,68 @@ namespace OOP_System
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadRecord();
+            LoadChartTopItems();
+        }
+
+        public void LoadChartTopItems()
+        {
+            //try
+            //{
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                cn.Open();
+
+                if(cboSort.Text == "QUANTITY")
+                {
+                    da = new SqlDataAdapter("SELECT TOP 10 pcode, pdesc, ISNULL(SUM(qty),0) AS qty FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", cn);
+                }
+                else if(cboSort.Text == "TOTAL")
+                {
+                    da = new SqlDataAdapter("SELECT TOP 10 pcode, pdesc, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY total DESC", cn);
+                }
+
+                DataSet ds = new DataSet();
+                da.Fill(ds, "TOPSELLING");
+                chart1.DataSource = ds.Tables["TOPSELLING"];
+                Series series = chart1.Series[0];
+                //series.ChartType = SeriesChartType.Doughnut;
+                series.ChartType = SeriesChartType.RangeColumn;
+
+                series.Name = "TOP ITEMS";
+                var chart = chart1;
+                chart.Series[0].XValueMember = "pdesc";
+                //chart.Series[0].XValueMember = "pcode";
+
+                if (cboSort.Text == "QUANTITY")
+                {
+                    chart.Series[0].YValueMembers = "qty";
+                }
+
+                if (cboSort.Text == "TOTAL")
+                {
+                    chart.Series[0].YValueMembers = "total";
+                }
+
+                chart.Series[0].IsValueShownAsLabel = true;
+
+                if (cboSort.Text == "TOTAL")
+                {
+                    chart.Series[0].LabelFormat = "{#,##0.00}";
+                }
+
+                if (cboSort.Text == "QUANTITY")
+                {
+                    chart.Series[0].LabelFormat = "{#,##0}";    
+                }
+
+            cn.Close();
+
+            //}
+            //catch(Exception ex)
+            //{
+            //    cn.Close();
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -446,6 +510,37 @@ namespace OOP_System
         private void cboSort_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmChart frm = new frmChart();
+            frm.lblTitle.Text = "ITEM SALES (" + dt3.Value.ToShortDateString() + " -  " + dt4.Value.ToShortDateString() + ")";
+            frm.LoadChartItemSales("SELECT p.pdesc, SUM(c.total) AS total FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt3.Value.ToString("yyyy-MM-dd") + "' AND '" + dt4.Value.ToString("yyyy-MM-dd") + "' GROUP BY p.pdesc ORDER BY total DESC");
+            frm.ShowDialog();
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            frmInventoryReport f = new frmInventoryReport();
+            if (cboSort.Text == "QUANTITY")
+            {
+                f.LoadTopSelling("SELECT top 10 pcode, pdesc, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", "From: " + dt1.Value.ToString("yyyy-MM-dd") + " To: " + dt2.Value.ToString("yyyy-MM-dd"), "TOP SELLING ITEMS SORT BY QUANTITY");
+            }
+            else if (cboSort.Text == "TOTAL")
+            {
+                f.LoadTopSelling("SELECT top 10 pcode, pdesc, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY total DESC", "From: " + dt1.Value.ToString("yyyy-MM-dd") + " To: " + dt2.Value.ToString("yyyy-MM-dd"), "TOP SELLING ITEMS SORT BY TOTAL AMOUNT");
+            }
+            else
+            {
+                f.LoadTopSelling("SELECT top 10 pcode, pdesc, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", "From: " + dt1.Value.ToString("yyyy-MM-dd") + " To: " + dt2.Value.ToString("yyyy-MM-dd"), "TOP SELLING ITEMS SORT BY QUANTITY");
+            }
+            f.ShowDialog();
         }
     }
 }
