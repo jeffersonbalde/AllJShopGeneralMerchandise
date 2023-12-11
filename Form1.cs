@@ -268,6 +268,10 @@ namespace OOP_System
 
         }
 
+
+
+
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F1)
@@ -280,29 +284,20 @@ namespace OOP_System
             }
             else if (e.KeyCode == Keys.F3)
             {
-                button7_Click(sender, e);
+                button2_Click_1(sender, e);
             }
             else if (e.KeyCode == Keys.F4)
             {
-                btnCategory_Click(sender, e);
+                button6_Click(sender, e);
+
             }
             else if (e.KeyCode == Keys.F5)
             {
-                button6_Click(sender, e);
-
-                
-
+                btnSalesHistory_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F6)
             {
-                btnSalesHistory_Click(sender, e);
-            }
-            else if (e.KeyCode == Keys.F7)
-            {
                 button11_Click(sender, e);
-            } else if (e.KeyCode == Keys.F8)
-            {
-                StoreNameBtn_Click(sender, e);
             }
             else if (e.KeyCode == Keys.Escape) {
                 button1_Click(sender, e);

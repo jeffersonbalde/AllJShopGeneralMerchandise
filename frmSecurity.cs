@@ -79,7 +79,7 @@ namespace OOP_System
                     frm.lblName.Text = name;
                     frm.lblRole.Text = role;
                     frm.ShowDialog();
-                    this.Dispose();
+                //    this.Close();
 
                 }else if((found) && (role == "Cashier"))
                 {
@@ -87,13 +87,13 @@ namespace OOP_System
                     frmPOS frm = new frmPOS(this);
                     frm.lblUser.Text = name;
                     frm.ShowDialog();
-                    this.Dispose();
+                 //   this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Username and password do not match", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
+                this.Close();
             }
             catch(Exception ex)
             {
