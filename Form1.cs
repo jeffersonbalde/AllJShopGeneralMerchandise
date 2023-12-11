@@ -242,6 +242,8 @@ namespace OOP_System
         {
             frmRecords frm = new frmRecords();
             frm.TopLevel = false;
+            frm.LoadRecord();
+            frm.LoadChartTopItems();
             frm.LoadCriticalItems();
             frm.LoadInventory();
             frm.VoidItems();

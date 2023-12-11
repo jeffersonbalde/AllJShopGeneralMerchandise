@@ -60,11 +60,6 @@ namespace OOP_System
             cn.Close();
         }
 
-        private void txtSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;
@@ -131,6 +126,11 @@ namespace OOP_System
 
         }
 
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }
