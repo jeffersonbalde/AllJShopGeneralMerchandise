@@ -79,21 +79,21 @@ namespace OOP_System
                     frm.lblName.Text = name;
                     frm.lblRole.Text = role;
                     frm.ShowDialog();
-                //    this.Close();
+                    this.Dispose();
 
-                }else if((found) && (role == "Cashier"))
+                }
+                else if((found) && (role == "Cashier"))
                 {
                     MessageBox.Show("WELCOME " + name + " ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmPOS frm = new frmPOS(this);
                     frm.lblUser.Text = name;
                     frm.ShowDialog();
-                 //   this.Close();
+                    this.Dispose();
                 }
                 else
                 {
                     MessageBox.Show("Username and password do not match", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                this.Close();
             }
             catch(Exception ex)
             {
