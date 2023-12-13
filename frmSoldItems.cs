@@ -39,7 +39,8 @@ namespace OOP_System
             cboCashier.Items.Add("All Cashier");
             cn.Open();  
             string query = "SELECT name from tblUser WHERE role = 'Cashier'";
-            cm = new SqlCommand(query, cn);
+            string query1 = "SELECT name from tblUser";
+            cm = new SqlCommand(query1, cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -203,6 +204,11 @@ namespace OOP_System
             {
                 this.Dispose();
             }
+        }
+
+        private void dt1_Validating(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

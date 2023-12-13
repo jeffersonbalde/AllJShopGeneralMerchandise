@@ -526,64 +526,57 @@ namespace OOP_System
 
         }
 
-        public void CheckForUserType()
-        {
-            try
-            {
-                cn.Open();
-                string query = "SELECT * FROM tblUser WHERE role LIKE 'System Administrator'";
-                cm = new SqlCommand(query, cn);
-                cm.ExecuteNonQuery();
-                dr = cm.ExecuteReader();
-
-                while(dr.Read())
-                {
-                    userType = dr["role"].ToString();
-                }
-                dr.Close();
-                cn.Close();
-
-            }
-            catch(Exception ex)
-            {
-                cn.Close();
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void button11_Click(object sender, EventArgs e)
         {
 
-            if (userType == "System Administrator")
+            if (lblUserType.Text == "System Administrator")
             {
-                Form1 frm = new Form1();
-                this.Dispose();
-                frm.ShowDialog();
-            }
-            else
-            {
-                frmSecurity frm = new frmSecurity();
-                this.Dispose();
-                frm.ShowDialog();
-            }
 
-            //cn.Open();
-            //string = "SELECT * FROM tblUser where role = 
-            //cn.Close();
-
-            if(dataGridView1.Rows.Count > 0)
-            {
-                MessageBox.Show("You have pending items in your current transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }else
-            {
-                if (MessageBox.Show("Are you sure you want to log out and close the application?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dataGridView1.Rows.Count > 0)
                 {
+                    MessageBox.Show("You have pending items in your current transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    Form1 frm = new Form1();
+                    frm.lblName.Text = lblUser.Text;
+
                     this.Dispose();
-                    frmSecurity frm = new frmSecurity();
                     frm.ShowDialog();
                 }
             }
+            else
+            {
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    MessageBox.Show("You have pending items in your current transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    if (MessageBox.Show("Are you sure you want to log out and close the application?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        this.Dispose();
+                        frmSecurity frmLogin = new frmSecurity();
+                        frmLogin.ShowDialog();
+                    }
+                }
+            }
+
+            //if(dataGridView1.Rows.Count > 0)
+            //{
+            //    MessageBox.Show("You have pending items in your current transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}else
+            //{
+            //    if (MessageBox.Show("Are you sure you want to log out and close the application?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //    {
+            //        this.Dispose();
+            //        frmSecurity frm = new frmSecurity();
+            //        frm.ShowDialog();
+            //    }
+            //}
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)

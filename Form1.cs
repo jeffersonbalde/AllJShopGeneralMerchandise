@@ -21,6 +21,7 @@ namespace OOP_System
 
         frmSecurity f;
 
+
         DBConnection dbcon = new DBConnection();
         public Form1()
         {
@@ -326,13 +327,60 @@ namespace OOP_System
             frm.Show();
         }
 
+        public void CheckForUserType()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT * FROM tblUser WHERE role LIKE 'System Administrator'";
+                cm = new SqlCommand(query, cn);
+                cm.ExecuteNonQuery();
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    //userType = dr["role"].ToString();
+                }
+                dr.Close();
+                cn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void button3_Click_3(object sender, EventArgs e)
         {
-            frmPOS frm = new frmPOS(f);
-            frm.lblUser.Text = lblName.Text;
-            frm.ShowDialog();
-            this.Dispose();
+            try
+            {
+                frmPOS frm = new frmPOS(f);
 
+                cn.Open();
+                string query = "SELECT * FROM tblUser WHERE role LIKE 'System Administrator'";
+                cm = new SqlCommand(query, cn);
+                cm.ExecuteNonQuery();
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    frm.lblUserType.Text = dr["role"].ToString();
+                }
+
+                frm.lblUser.Text = lblName.Text;
+                frm.ShowDialog();
+                this.Dispose();
+                dr.Close();
+                cn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

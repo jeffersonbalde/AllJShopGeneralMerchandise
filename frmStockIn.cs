@@ -206,6 +206,8 @@ namespace OOP_System
             Random random = new Random();
             txtRefNo.Clear();
             txtRefNo.Text += random.Next();
+            //string rndm = txtRefNo.Text += random.Next();
+            //txtRefNo.Text = rndm.Substring(0, 5);
         }
     }
 }

@@ -263,6 +263,7 @@
             // 
             // tabPage1
             // 
+
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -273,6 +274,29 @@
             this.tabPage1.Size = new System.Drawing.Size(1076, 605);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "CREATE ACCOUNT";
+
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnCancel);
+            this.panel2.Controls.Add(this.btnSave);
+            this.panel2.Controls.Add(this.txtName);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.cboRole);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.txtRetype);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.txtPass);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.txtUser);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1076, 597);
+            this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+
             // 
             // frmUserAccount
             // 

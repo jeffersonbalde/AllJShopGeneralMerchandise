@@ -190,5 +190,17 @@ namespace OOP_System
         {
             this.Dispose();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnless_Click(object sender, EventArgs e)
+        {
+            int length = txtPercent.Text.Length;
+            txtPercent.Text = txtPercent.Text.Substring(0, length - 1);
+
+        }
     }
 }
