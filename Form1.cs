@@ -19,6 +19,8 @@ namespace OOP_System
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr;
 
+        frmSecurity f;
+
         DBConnection dbcon = new DBConnection();
         public Form1()
         {
@@ -319,6 +321,15 @@ namespace OOP_System
             panel4.Controls.Add(frm);
             frm.BringToFront();
             frm.Show();
+        }
+
+        private void button3_Click_3(object sender, EventArgs e)
+        {
+            frmPOS frm = new frmPOS(f);
+            frm.lblUser.Text = lblName.Text;
+            frm.ShowDialog();
+            this.Dispose();
+
         }
     }
 }

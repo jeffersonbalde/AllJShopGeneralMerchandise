@@ -28,6 +28,7 @@ namespace OOP_System
         frmSecurity f;
 
         int qty;
+        string userType = "";
 
         public frmPOS(frmSecurity frm)
         {
@@ -525,8 +526,51 @@ namespace OOP_System
 
         }
 
+        public void CheckForUserType()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT * FROM tblUser WHERE role LIKE 'System Administrator'";
+                cm = new SqlCommand(query, cn);
+                cm.ExecuteNonQuery();
+                dr = cm.ExecuteReader();
+
+                while(dr.Read())
+                {
+                    userType = dr["role"].ToString();
+                }
+                dr.Close();
+                cn.Close();
+
+            }
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void button11_Click(object sender, EventArgs e)
         {
+
+            if (userType == "System Administrator")
+            {
+                Form1 frm = new Form1();
+                this.Dispose();
+                frm.ShowDialog();
+            }
+            else
+            {
+                frmSecurity frm = new frmSecurity();
+                this.Dispose();
+                frm.ShowDialog();
+            }
+
+            //cn.Open();
+            //string = "SELECT * FROM tblUser where role = 
+            //cn.Close();
+
             if(dataGridView1.Rows.Count > 0)
             {
                 MessageBox.Show("You have pending items in your current transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);

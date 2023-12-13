@@ -126,5 +126,10 @@ namespace OOP_System
                 e.Handled = true;
             }
         }
+
+        private void btn7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

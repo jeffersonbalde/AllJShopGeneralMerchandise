@@ -71,6 +71,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -194,7 +195,6 @@
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,7 +202,7 @@
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(1182, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 40);
+            this.button1.Size = new System.Drawing.Size(62, 40);
             this.button1.TabIndex = 6;
             this.button1.Text = "EXIT";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -288,7 +288,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.label13);
-            this.panel4.Location = new System.Drawing.Point(273, 130);
+            this.panel4.Location = new System.Drawing.Point(273, 127);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1086, 610);
             this.panel4.TabIndex = 1;
@@ -574,6 +574,7 @@
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.button3);
             this.panel5.Controls.Add(this.button1);
             this.panel5.Controls.Add(this.button11);
             this.panel5.Controls.Add(this.btnSalesHistory);
@@ -616,6 +617,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(261, 637);
             this.panel2.TabIndex = 11;
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(1250, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(112, 40);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "SWITCH";
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_3);
             // 
             // Form1
             // 
@@ -707,6 +725,7 @@
         public System.Windows.Forms.Label lblStocks;
         public System.Windows.Forms.Label lblLowStocks;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

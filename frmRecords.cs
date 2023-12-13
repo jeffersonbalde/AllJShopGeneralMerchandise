@@ -542,5 +542,34 @@ namespace OOP_System
             }
             f.ShowDialog();
         }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            frmChart frm = new frmChart();
+            frm.lblTitle.Text = "ITEM SALES (" + dt3.Value.ToShortDateString() + " -  " + dt4.Value.ToShortDateString() + ")";
+            frm.LoadChartItemSales("SELECT p.pdesc, SUM(c.total) AS total FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt3.Value.ToString("yyyy-MM-dd") + "' AND '" + dt4.Value.ToString("yyyy-MM-dd") + "' GROUP BY p.pdesc ORDER BY total DESC");
+            frm.ShowDialog();
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            frmInventoryReport f = new frmInventoryReport();
+            f.LoadSoldItems("SELECT c.pcode, p.pdesc, c.price, SUM(c.qty) AS tot_qty, SUM(c.disc) AS tot_disc, SUM(c.total) AS total FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt3.Value.ToString("yyyy-MM-dd") + "' AND '" + dt4.Value.ToString("yyyy-MM-dd") + "' GROUP BY c.pcode, p.pdesc, c.price", "From: " + dt3.Value.ToString("yyyy-MM-dd") + " To: " + dt4.Value.ToString("yyyy-MM-dd"));
+            f.ShowDialog();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            frmInventoryReport frm = new frmInventoryReport();
+            string date = "DATE: (" + date1.Value.ToString("yyyy-MM-dd") + " - " + date2.Value.ToString("yyyy-MM-dd") + ")";
+            frm.LoadStockInReport("Select * from vwStockin where cast(sdate as date) between '" + date1.Value.ToString("yyyy-MM-dd") + "' AND '" + date2.Value.ToString("yyyy-MM-dd") + "' and status like 'Done'", date);
+            frm.ShowDialog();
+        }
     }
 }

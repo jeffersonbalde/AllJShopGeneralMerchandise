@@ -48,7 +48,7 @@
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            //this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
 
@@ -316,7 +316,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.panel2);
+            //this.panel3.Controls.Add(this.panel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 42);
             this.panel3.Name = "panel3";
@@ -325,12 +325,12 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dataGridView1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 79);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1212, 483);
-            this.panel4.TabIndex = 6;
+            //this.panel4.Controls.Add(this.dataGridView1);
+            //this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.panel4.Location = new System.Drawing.Point(0, 79);
+            //this.panel4.Name = "panel4";
+            //this.panel4.Size = new System.Drawing.Size(1212, 483);
+            //this.panel4.TabIndex = 6;
             // 
             // dataGridViewImageColumn1
             // 
