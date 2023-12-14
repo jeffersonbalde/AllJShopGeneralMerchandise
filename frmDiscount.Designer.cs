@@ -221,7 +221,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "[ESC] CLOSE";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+//            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel2
             // 
@@ -274,7 +274,7 @@
             this.btnc.TabIndex = 44;
             this.btnc.Text = "C";
             this.btnc.UseVisualStyleBackColor = false;
-            this.btnc.Click += new System.EventHandler(this.btnc_Click);
+ //           this.btnc.Click += new System.EventHandler(this.btnc_Click);
             // 
             // btn9
             // 
@@ -493,7 +493,7 @@
             this.button2.Size = new System.Drawing.Size(50, 48);
             this.button2.TabIndex = 6;
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+//            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
