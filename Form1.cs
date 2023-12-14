@@ -164,6 +164,9 @@ namespace OOP_System
         {
             panel4.Controls.Clear();
             frmProductList frm = new frmProductList(this);
+            //frm.comboBoxCategory.Text = "CATEGORY";
+            frm.LoadCategory();
+            frm.GetTotalItem();
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();
@@ -191,6 +194,8 @@ namespace OOP_System
         {
             panel4.Controls.Clear();
             frmUserAccount frm = new frmUserAccount();
+            frm.LoadUsername();
+            frm.LoadUsernameDelete();
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();

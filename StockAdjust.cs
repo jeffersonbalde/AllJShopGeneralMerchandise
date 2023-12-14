@@ -152,5 +152,13 @@ namespace OOP_System
                 _qty = int.Parse(dataGridView7.Rows[e.RowIndex].Cells[5].Value.ToString());
             }
         }
+
+        private void button1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                button1_Click(sender, e);
+            }
+        }
     }
 }
