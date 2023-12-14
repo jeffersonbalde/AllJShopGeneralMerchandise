@@ -571,5 +571,19 @@ namespace OOP_System
             frm.LoadStockInReport("Select * from vwStockin where cast(sdate as date) between '" + date1.Value.ToString("yyyy-MM-dd") + "' AND '" + date2.Value.ToString("yyyy-MM-dd") + "' and status like 'Done'", date);
             frm.ShowDialog();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            frmInventoryReport frm = new frmInventoryReport();
+            string query = "SELECT * FROM vwcancelledorder WHERE sdate BETWEEN '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "' AND '" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'";
+            string date = "DATE: ( " + dateTimePicker2.Value.ToString("yyyy-MM-dd") + " - " + dateTimePicker1.Value.ToString("yyyy-MM-dd") + " )";
+            frm.LoadReturnItems(query, date);
+            frm.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

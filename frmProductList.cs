@@ -132,5 +132,12 @@ namespace OOP_System
 
         }
 
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            frmProduct frm = new frmProduct(this, form1);
+            frm.btnSave.Enabled = true;
+            frm.btnUpdate.Enabled = false;
+            frm.ShowDialog();
+        }
     }
 }

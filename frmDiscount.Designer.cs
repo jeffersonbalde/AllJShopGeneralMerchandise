@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDiscount));
-
+            this.button2 = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -62,21 +59,19 @@
             this.btn4 = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
             this.btn0 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(391, 48);
+            this.panel1.Size = new System.Drawing.Size(847, 48);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -90,7 +85,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "DISCOUNT";
             // 
-
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(797, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(50, 48);
+            this.button2.TabIndex = 6;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // lblID
             // 
             this.lblID.AutoSize = true;
@@ -274,7 +282,9 @@
             this.btnc.TabIndex = 44;
             this.btnc.Text = "C";
             this.btnc.UseVisualStyleBackColor = false;
+
  //           this.btnc.Click += new System.EventHandler(this.btnc_Click);
+
             // 
             // btn9
             // 
@@ -468,6 +478,7 @@
             this.btn0.UseVisualStyleBackColor = false;
             this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
+
             // label1
             // 
             this.label1.AutoSize = true;
@@ -506,6 +517,7 @@
             this.panel1.Size = new System.Drawing.Size(737, 48);
             this.panel1.TabIndex = 1;
             // 
+
             // frmDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -536,9 +548,9 @@
             this.Text = "  ";
             this.Load += new System.EventHandler(this.frmDiscount_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmDiscount_KeyDown);
-            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
