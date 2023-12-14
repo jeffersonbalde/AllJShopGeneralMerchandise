@@ -229,7 +229,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "[ESC] CLOSE";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+//            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel2
             // 
@@ -282,6 +282,9 @@
             this.btnc.TabIndex = 44;
             this.btnc.Text = "C";
             this.btnc.UseVisualStyleBackColor = false;
+
+ //           this.btnc.Click += new System.EventHandler(this.btnc_Click);
+
             // 
             // btn9
             // 
@@ -475,6 +478,46 @@
             this.btn0.UseVisualStyleBackColor = false;
             this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
+
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(171)))), ((int)(((byte)(227)))));
+            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "DISCOUNT";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(687, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(50, 48);
+            this.button2.TabIndex = 6;
+            this.button2.UseVisualStyleBackColor = false;
+//            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(737, 48);
+            this.panel1.TabIndex = 1;
+            // 
+
             // frmDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);

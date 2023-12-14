@@ -131,30 +131,7 @@ namespace OOP_System
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
 
 
@@ -163,21 +140,7 @@ namespace OOP_System
 
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        //not in use brand
         private void button7_Click(object sender, EventArgs e)
         {
             frmBrandList frm = new frmBrandList();
@@ -186,7 +149,7 @@ namespace OOP_System
             frm.BringToFront();
             frm.Show();
         }
-
+        //not in use category
         private void btnCategory_Click(object sender, EventArgs e)
         {
             frmCategoryList frm = new frmCategoryList();
@@ -199,6 +162,7 @@ namespace OOP_System
 
         private void button3_Click_2(object sender, EventArgs e)
         {
+            panel4.Controls.Clear();
             frmProductList frm = new frmProductList(this);
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
@@ -209,6 +173,7 @@ namespace OOP_System
 
         private void btnStockIn_Click(object sender, EventArgs e)
         {
+            panel4.Controls.Clear();
             frmStockIn frm = new frmStockIn(this);
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
@@ -224,6 +189,7 @@ namespace OOP_System
 
         private void button11_Click(object sender, EventArgs e)
         {
+            panel4.Controls.Clear();
             frmUserAccount frm = new frmUserAccount();
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
@@ -233,6 +199,7 @@ namespace OOP_System
 
         private void btnSalesHistory_Click(object sender, EventArgs e)
         {
+            panel4.Controls.Clear();
             frmSoldItems frm = new frmSoldItems();
             frm.suser = lblName.Text;
             frm.TopLevel = false;
@@ -243,6 +210,7 @@ namespace OOP_System
 
         private void button6_Click(object sender, EventArgs e)
         {
+            panel4.Controls.Clear();
             frmRecords frm = new frmRecords();
             frm.TopLevel = false;
             frm.LoadRecord();
@@ -256,6 +224,20 @@ namespace OOP_System
             frm.Show();
         }
 
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            panel4.Controls.Clear();
+            StockAdjust frm = new StockAdjust(this);
+            frm.TopLevel = false;
+            frm.LoadRecords();
+            panel4.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
+        }
+
+
+        //storename not in use
         private void StoreNameBtn_Click(object sender, EventArgs e)
         {
             StoreName storeName = new StoreName();
@@ -317,15 +299,7 @@ namespace OOP_System
 
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            StockAdjust frm = new StockAdjust(this);
-            frm.TopLevel = false;
-            frm.LoadRecords();
-            panel4.Controls.Add(frm);
-            frm.BringToFront();
-            frm.Show();
-        }
+       
 
         public void CheckForUserType()
         {
