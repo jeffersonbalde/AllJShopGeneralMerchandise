@@ -355,6 +355,7 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="rptReturnItems.rdlc" />
     <EmbeddedResource Include="rptStockIn.rdlc" />
     <EmbeddedResource Include="rptSold.rdlc" />
     <EmbeddedResource Include="rptTop.rdlc" />

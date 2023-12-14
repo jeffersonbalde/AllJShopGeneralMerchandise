@@ -180,6 +180,40 @@ namespace OOP_System
             }
         }
 
+        public void LoadReturnItems(string query, string date)
+        {
+            ReportDataSource rptDS;
+            try
+            {
+
+                reportViewer1.LocalReport.ReportPath = Application.StartupPath + @"\Reports\rptReturnItems.rdlc";
+                reportViewer1.LocalReport.DataSources.Clear();
+
+                DataSet1 ds = new DataSet1();
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                ReportParameter pDate = new ReportParameter("PDate", date);
+                reportViewer1.LocalReport.SetParameters(pDate);
+
+                cn.Open();
+                da.SelectCommand = new SqlCommand(query, cn);
+                da.Fill(ds.Tables["dtReturnItems"]);
+                cn.Close();
+
+                rptDS = new ReportDataSource("DataSet1", ds.Tables["dtReturnItems"]);
+                reportViewer1.LocalReport.DataSources.Add(rptDS);
+                reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                reportViewer1.ZoomMode = ZoomMode.Percent;
+                reportViewer1.ZoomPercent = 100;
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Dispose();

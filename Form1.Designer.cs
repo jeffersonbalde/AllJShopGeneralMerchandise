@@ -68,13 +68,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-
-            this.label11 = new System.Windows.Forms.Label();
-
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -204,11 +202,7 @@
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-            this.button1.Location = new System.Drawing.Point(1248, 0);
-
-            this.button1.Location = new System.Drawing.Point(1303, -3);
-
+            this.button1.Location = new System.Drawing.Point(1233, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 40);
             this.button1.TabIndex = 6;
@@ -318,7 +312,7 @@
             this.panel6.Controls.Add(this.pictureBox2);
             this.panel6.Controls.Add(this.lblSales);
             this.panel6.Controls.Add(this.label14);
-            this.panel6.Location = new System.Drawing.Point(3, 6);
+            this.panel6.Location = new System.Drawing.Point(11, 13);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(250, 148);
             this.panel6.TabIndex = 0;
@@ -361,7 +355,7 @@
             this.panel7.Controls.Add(this.lblItems);
             this.panel7.Controls.Add(this.pictureBox3);
             this.panel7.Controls.Add(this.label15);
-            this.panel7.Location = new System.Drawing.Point(3, 160);
+            this.panel7.Location = new System.Drawing.Point(11, 167);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(250, 148);
             this.panel7.TabIndex = 1;
@@ -405,7 +399,7 @@
             this.panel8.Controls.Add(this.lblStocks);
             this.panel8.Controls.Add(this.pictureBox4);
             this.panel8.Controls.Add(this.label16);
-            this.panel8.Location = new System.Drawing.Point(3, 314);
+            this.panel8.Location = new System.Drawing.Point(11, 321);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(250, 148);
             this.panel8.TabIndex = 1;
@@ -448,7 +442,7 @@
             this.panel9.Controls.Add(this.lblLowStocks);
             this.panel9.Controls.Add(this.pictureBox5);
             this.panel9.Controls.Add(this.label17);
-            this.panel9.Location = new System.Drawing.Point(3, 468);
+            this.panel9.Location = new System.Drawing.Point(11, 475);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(250, 148);
             this.panel9.TabIndex = 2;
@@ -580,6 +574,17 @@
             this.panel3.Size = new System.Drawing.Size(1370, 25);
             this.panel3.TabIndex = 9;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Sans Serif Collection", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(1169, 4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(34, 29);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "F7";
+            // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -600,23 +605,15 @@
             // button3
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-
             this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
             this.button3.Location = new System.Drawing.Point(1121, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 40);
-
-            this.button3.Location = new System.Drawing.Point(1185, 0);
-            this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 40);
-
             this.button3.TabIndex = 7;
             this.button3.Text = "SWITCH";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -653,19 +650,6 @@
             this.panel2.Size = new System.Drawing.Size(261, 637);
             this.panel2.TabIndex = 11;
             // 
-
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Sans Serif Collection", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(1169, 4);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 29);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "F7";
-            // 
-
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);

@@ -191,11 +191,6 @@ namespace OOP_System
             this.Dispose();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
         private void btnless_Click(object sender, EventArgs e)
         {
             int length = txtPercent.Text.Length;
