@@ -136,7 +136,11 @@
             this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
+            this.dataGridView2.Size = new System.Drawing.Size(1109, 468);
+
             this.dataGridView2.Size = new System.Drawing.Size(928, 329);
+
             this.dataGridView2.TabIndex = 5;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -284,7 +288,7 @@
             this.tabControl1.Location = new System.Drawing.Point(17, 60);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(942, 510);
+            this.tabControl1.Size = new System.Drawing.Size(1123, 649);
             this.tabControl1.TabIndex = 13;
             // 
             // tabPage1
@@ -295,7 +299,11 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+
+            this.tabPage1.Size = new System.Drawing.Size(1115, 613);
+
             this.tabPage1.Size = new System.Drawing.Size(934, 474);
+
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "STOCK ENTRY";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -306,16 +314,26 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 93);
             this.panel4.Name = "panel4";
+
+            this.panel4.Size = new System.Drawing.Size(1109, 468);
+
             this.panel4.Size = new System.Drawing.Size(928, 329);
+
             this.panel4.TabIndex = 18;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnSaveClick);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+
+            this.panel3.Location = new System.Drawing.Point(3, 561);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1109, 49);
+
             this.panel3.Location = new System.Drawing.Point(3, 422);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(928, 49);
+
             this.panel3.TabIndex = 17;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -346,7 +364,11 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
+
+            this.panel2.Size = new System.Drawing.Size(1109, 90);
+
             this.panel2.Size = new System.Drawing.Size(928, 90);
+
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -566,7 +588,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(972, 42);
+            this.panel1.Size = new System.Drawing.Size(1153, 42);
             this.panel1.TabIndex = 14;
             // 
             // button1
@@ -578,7 +600,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(922, 0);
+            this.button1.Location = new System.Drawing.Point(1103, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 42);
             this.button1.TabIndex = 6;
@@ -623,7 +645,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(972, 582);
+            this.ClientSize = new System.Drawing.Size(1153, 721);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
