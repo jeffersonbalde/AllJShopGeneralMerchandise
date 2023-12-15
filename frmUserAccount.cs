@@ -92,6 +92,9 @@ namespace OOP_System
                 cm.ExecuteNonQuery();
                 cn.Close();
 
+                LoadUsername();
+                LoadUsernameDelete();
+                Clear();
                 MessageBox.Show("Account saved.", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
             }catch(Exception ex)
@@ -114,6 +117,170 @@ namespace OOP_System
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        public void LoadUsername()
+        {
+            try
+            {
+                comboBoxUsername.Items.Clear();
+                cn.Open();
+                string query = "SELECT * FROM tblUser";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    comboBoxUsername.Items.Add(dr["username"].ToString());
+                }
+                dr.Close();
+                cn.Close();
+
+            }
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void LoadUsernameDelete()
+        {
+            try
+            {
+                comboBoxDeleteUsername.Items.Clear();
+                cn.Open();
+                string query = "SELECT * FROM tblUser";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    comboBoxDeleteUsername.Items.Add(dr["username"].ToString());
+                }
+                dr.Close();
+                cn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void DeleteUsername()
+        {
+            try
+            {
+                comboBoxDeleteUsername.Items.Clear();
+                LoadUsernameDelete();
+
+                if (MessageBox.Show("Deleting your account will remove your access to the system. This can’t be undone.", "DELETE ACCOUNT", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    cn.Open();
+                    string query = "DELETE FROM tblUser WHERE username LIKE '" + comboBoxDeleteUsername.Text + "'";
+                    cm = new SqlCommand(query, cn);
+                    cm.ExecuteNonQuery();
+                    dr.Close();
+                    cn.Close();
+
+                    LoadUsernameDelete();
+                    MessageBox.Show("Account " + comboBoxDeleteUsername.Text + " has been deleted.", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    comboBoxDeleteUsername.Text = "";
+                    comboBoxDeleteUsername.Focus();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void ValidateOldPassword()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT password FROM tblUser WHERE username LIKE '" + comboBoxUsername.Text + "'";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    //oldPassword = dr["password"].ToString();
+                }
+                dr.Close();
+                cn.Close();
+
+            }
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void UpdatePassword()
+        {
+            try
+            {
+                string oldPass = "";
+                cn.Open();
+                string query = "SELECT password FROM tblUser WHERE username LIKE '" + comboBoxUsername.Text + "'";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    oldPass = dr["password"].ToString();
+                }
+                dr.Close();
+                cn.Close();
+
+                if (textBoxOldPassword.Text != oldPass)
+                {
+                    MessageBox.Show("Old password don't match.");
+                    return;
+                }
+
+                if (textBoxNewPassword.Text != textBoxConfirmPassword.Text)
+                {
+                    MessageBox.Show("Please make sure your passwords match.", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                comboBoxUsername.Items.Clear();
+                LoadUsername();
+                cn.Open();
+                string query1 = "UPDATE tblUser SET password = '" + textBoxNewPassword.Text + "' WHERE username LIKE '" + comboBoxUsername.Text + "'";
+                cm = new SqlCommand(query1, cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+
+                LoadUsername();
+                MessageBox.Show("Password to " + comboBoxUsername.Text + " has been changed.", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                comboBoxUsername.Text = "";
+                textBoxOldPassword.Text = "";
+                textBoxNewPassword.Text = "";
+                textBoxConfirmPassword.Text = "";
+                comboBoxUsername.Focus();
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DeleteUsername();
+        }
+
+        private void buttonSaveNewPassword_Click(object sender, EventArgs e)
+        {
+            UpdatePassword();
         }
     }
 }

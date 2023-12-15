@@ -20,6 +20,7 @@ namespace OOP_System
         SqlDataReader dr;
 
         Form1 form1;
+        int totalItems = 0;
 
         public frmProductList(Form1 frm)
         {
@@ -27,6 +28,9 @@ namespace OOP_System
             cn = new SqlConnection(dbcon.MyConnection());
             form1 = frm;
             frm.GetDashboard();
+
+            this.KeyPreview = true;
+            GetTotalItem();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -93,6 +97,7 @@ namespace OOP_System
                     cn.Close();
                     LoadRecords();
                     form1.GetDashboard();
+                    GetTotalItem();
                     MessageBox.Show("Item has been successfully deleted.");
                 }
             }
@@ -132,5 +137,80 @@ namespace OOP_System
 
         }
 
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            frmProduct frm = new frmProduct(this, form1);
+            frm.LoadCategoryAddItem();
+            frm.btnSave.Enabled = true;
+            frm.btnUpdate.Enabled = false;
+            frm.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void ButtonSItem_Click(object sender, EventArgs e)
+        {
+            frmStockIn frm = new frmStockIn(form1);
+            frm.ShowDialog();
+        }
+
+        private void ButtonSAdjustment_Click(object sender, EventArgs e)
+        {
+            StockAdjust frm = new StockAdjust(form1);
+            frm.LoadRecords();
+            frm.ShowDialog();
+        }
+
+        private void frmProductList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                btnAddItem_Click(sender, e);
+            }
+        }
+
+        public void LoadCategory()
+        {
+            try
+            {
+                comboBoxCategory.Items.Clear();
+                cn.Open();
+                string query = "SELECT * FROM tblCategory";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    comboBoxCategory.Items.Add(dr["category"].ToString());
+                }
+                dr.Close();
+                cn.Close();
+            }
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void GetTotalItem()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT COUNT(*) FROM tblProduct";
+                cm = new SqlCommand(query, cn);
+                labelTotalItem.Text = cm.ExecuteScalar().ToString();
+                cn.Close();
+               
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

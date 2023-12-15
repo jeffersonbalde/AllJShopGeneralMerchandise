@@ -28,6 +28,7 @@ namespace OOP_System
 
             form1 = frm;
             frm.GetDashboard();
+            this.KeyPreview = true;
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -206,6 +207,21 @@ namespace OOP_System
             Random random = new Random();
             txtRefNo.Clear();
             txtRefNo.Text += random.Next();
+            //string rndm = txtRefNo.Text += random.Next();
+            //txtRefNo.Text = rndm.Substring(0, 5);
+        }
+
+        private void frmStockIn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void frmStockIn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                button1_Click_2(sender, e);
+            }
         }
     }
 }

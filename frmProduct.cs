@@ -104,7 +104,7 @@ namespace OOP_System
                     //cn.Close();
 
                     cn.Open();
-                    string query2 = "INSERT INTO tblProduct (barcode, pdesc, price, reorder) VALUES(@barcode, @pdesc, @price, @reorder)";
+                    string query2 = "INSERT INTO tblProduct (barcode, pdesc, price, reorder, cid) VALUES(@barcode, @pdesc, @price, @reorder)";
                     cm = new SqlCommand(query2, cn);
                     cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
                     cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
@@ -115,6 +115,7 @@ namespace OOP_System
                     MessageBox.Show("Item has been successfully saved.");
                     Clear();
                     flist.LoadRecords();
+                    flist.GetTotalItem();
                     if (form1 != null)
                     {
                         form1.GetDashboard();
@@ -299,6 +300,34 @@ namespace OOP_System
         private void frmProduct_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        public void LoadCategoryAddItem()
+        {
+            try
+            {
+                comboBoxCategoryAddItem.Items.Clear();
+                cn.Open();
+                string query = "SELECT * FROM tblCategory";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    comboBoxCategoryAddItem.Items.Add(dr["category"].ToString());
+                }
+                dr.Close();
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

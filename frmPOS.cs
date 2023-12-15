@@ -28,6 +28,7 @@ namespace OOP_System
         frmSecurity f;
 
         int qty;
+        string userType = "";
 
         public frmPOS(frmSecurity frm)
         {
@@ -527,19 +528,55 @@ namespace OOP_System
 
         private void button11_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.Rows.Count > 0)
+
+            if (lblUserType.Text == "System Administrator")
             {
-                MessageBox.Show("You have pending items in your current transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }else
-            {
-                if (MessageBox.Show("Are you sure you want to log out and close the application?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                if (dataGridView1.Rows.Count > 0)
                 {
+                    MessageBox.Show("You have pending items in your current transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    Form1 frm = new Form1();
+                    frm.lblName.Text = lblUser.Text;
+
                     this.Dispose();
-                    frmSecurity frm = new frmSecurity();
                     frm.ShowDialog();
                 }
             }
+            else
+            {
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    MessageBox.Show("You have pending items in your current transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    if (MessageBox.Show("Are you sure you want to log out and close the application?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        this.Dispose();
+                        frmSecurity frmLogin = new frmSecurity();
+                        frmLogin.ShowDialog();
+                    }
+                }
+            }
+
+            //if(dataGridView1.Rows.Count > 0)
+            //{
+            //    MessageBox.Show("You have pending items in your current transaction", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}else
+            //{
+            //    if (MessageBox.Show("Are you sure you want to log out and close the application?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //    {
+            //        this.Dispose();
+            //        frmSecurity frm = new frmSecurity();
+            //        frm.ShowDialog();
+            //    }
+            //}
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)

@@ -19,6 +19,9 @@ namespace OOP_System
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr;
 
+        frmSecurity f;
+
+
         DBConnection dbcon = new DBConnection();
         public Form1()
         {
@@ -128,30 +131,7 @@ namespace OOP_System
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
 
 
@@ -160,21 +140,7 @@ namespace OOP_System
 
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        //not in use brand
         private void button7_Click(object sender, EventArgs e)
         {
             frmBrandList frm = new frmBrandList();
@@ -183,7 +149,7 @@ namespace OOP_System
             frm.BringToFront();
             frm.Show();
         }
-
+        //not in use category
         private void btnCategory_Click(object sender, EventArgs e)
         {
             frmCategoryList frm = new frmCategoryList();
@@ -196,7 +162,11 @@ namespace OOP_System
 
         private void button3_Click_2(object sender, EventArgs e)
         {
+            panel4.Controls.Clear();
             frmProductList frm = new frmProductList(this);
+            //frm.comboBoxCategory.Text = "CATEGORY";
+            frm.LoadCategory();
+            frm.GetTotalItem();
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();
@@ -206,6 +176,7 @@ namespace OOP_System
 
         private void btnStockIn_Click(object sender, EventArgs e)
         {
+            panel4.Controls.Clear();
             frmStockIn frm = new frmStockIn(this);
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
@@ -221,7 +192,10 @@ namespace OOP_System
 
         private void button11_Click(object sender, EventArgs e)
         {
+            panel4.Controls.Clear();
             frmUserAccount frm = new frmUserAccount();
+            frm.LoadUsername();
+            frm.LoadUsernameDelete();
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();
@@ -230,6 +204,7 @@ namespace OOP_System
 
         private void btnSalesHistory_Click(object sender, EventArgs e)
         {
+            panel4.Controls.Clear();
             frmSoldItems frm = new frmSoldItems();
             frm.suser = lblName.Text;
             frm.TopLevel = false;
@@ -240,6 +215,7 @@ namespace OOP_System
 
         private void button6_Click(object sender, EventArgs e)
         {
+            panel4.Controls.Clear();
             frmRecords frm = new frmRecords();
             frm.TopLevel = false;
             frm.LoadRecord();
@@ -253,6 +229,20 @@ namespace OOP_System
             frm.Show();
         }
 
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            panel4.Controls.Clear();
+            StockAdjust frm = new StockAdjust(this);
+            frm.TopLevel = false;
+            frm.LoadRecords();
+            panel4.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
+        }
+
+
+        //storename not in use
         private void StoreNameBtn_Click(object sender, EventArgs e)
         {
             StoreName storeName = new StoreName();
@@ -291,7 +281,6 @@ namespace OOP_System
             else if (e.KeyCode == Keys.F4)
             {
                 button6_Click(sender, e);
-
             }
             else if (e.KeyCode == Keys.F5)
             {
@@ -300,6 +289,10 @@ namespace OOP_System
             else if (e.KeyCode == Keys.F6)
             {
                 button11_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F7)
+            {
+                button3_Click_3(sender, e);
             }
             else if (e.KeyCode == Keys.Escape) {
                 button1_Click(sender, e);
@@ -311,14 +304,62 @@ namespace OOP_System
 
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+       
+
+        public void CheckForUserType()
         {
-            StockAdjust frm = new StockAdjust(this);
-            frm.TopLevel = false;
-            frm.LoadRecords();
-            panel4.Controls.Add(frm);
-            frm.BringToFront();
-            frm.Show();
+            try
+            {
+                cn.Open();
+                string query = "SELECT * FROM tblUser WHERE role LIKE 'System Administrator'";
+                cm = new SqlCommand(query, cn);
+                cm.ExecuteNonQuery();
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    //userType = dr["role"].ToString();
+                }
+                dr.Close();
+                cn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button3_Click_3(object sender, EventArgs e)
+        {
+            try
+            {
+                frmPOS frm = new frmPOS(f);
+
+                cn.Open();
+                string query = "SELECT * FROM tblUser WHERE role LIKE 'System Administrator'";
+                cm = new SqlCommand(query, cn);
+                cm.ExecuteNonQuery();
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    frm.lblUserType.Text = dr["role"].ToString();
+                }
+
+                frm.lblUser.Text = lblName.Text;
+                frm.ShowDialog();
+                this.Dispose();
+                dr.Close();
+                cn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

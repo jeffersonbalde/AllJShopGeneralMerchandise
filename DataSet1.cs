@@ -4,6 +4,14 @@
 
     partial class DataSet1
     {
+        partial class dtStockInDataTable
+        {
+        }
+
+        partial class dtInventoryDataTable
+        {
+        }
+
         partial class dtSoldItemsDataTable
         {
         }

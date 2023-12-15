@@ -128,7 +128,8 @@ namespace OOP_System
 
                 cn.Open();
                 string query = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty, p.reorder FROM tblProduct AS p INNER JOIN tblbrand AS b ON p.bid = b.id INNER JOIN tblcategory AS c ON p.cid = c.id ";
-                da.SelectCommand = new SqlCommand(query, cn);
+                string query1 = "SELECT pcode, barcode, pdesc, price, qty, reorder FROM tblProduct";
+                da.SelectCommand = new SqlCommand(query1, cn);
                 da.Fill(ds.Tables["dtInventory"]);
                 cn.Close();
 
@@ -139,6 +140,74 @@ namespace OOP_System
                 reportViewer1.ZoomPercent = 100;
 
             }catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void LoadStockInReport(string query, string date)
+        {
+            ReportDataSource rptDS;
+            try
+            {
+
+                reportViewer1.LocalReport.ReportPath = Application.StartupPath + @"\Reports\rptStockIn.rdlc";
+                reportViewer1.LocalReport.DataSources.Clear();
+
+                DataSet1 ds = new DataSet1();
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                ReportParameter pDate = new ReportParameter("pDate", date);
+                reportViewer1.LocalReport.SetParameters(pDate);
+
+                cn.Open();
+                da.SelectCommand = new SqlCommand(query, cn);
+                da.Fill(ds.Tables["dtStockIn"]); 
+                cn.Close();
+
+                rptDS = new ReportDataSource("DataSet1", ds.Tables["dtStockIn"]);
+                reportViewer1.LocalReport.DataSources.Add(rptDS);
+                reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                reportViewer1.ZoomMode = ZoomMode.Percent;
+                reportViewer1.ZoomPercent = 100;
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void LoadReturnItems(string query, string date)
+        {
+            ReportDataSource rptDS;
+            try
+            {
+
+                reportViewer1.LocalReport.ReportPath = Application.StartupPath + @"\Reports\rptReturnItems.rdlc";
+                reportViewer1.LocalReport.DataSources.Clear();
+
+                DataSet1 ds = new DataSet1();
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                ReportParameter pDate = new ReportParameter("PDate", date);
+                reportViewer1.LocalReport.SetParameters(pDate);
+
+                cn.Open();
+                da.SelectCommand = new SqlCommand(query, cn);
+                da.Fill(ds.Tables["dtReturnItems"]);
+                cn.Close();
+
+                rptDS = new ReportDataSource("DataSet1", ds.Tables["dtReturnItems"]);
+                reportViewer1.LocalReport.DataSources.Add(rptDS);
+                reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                reportViewer1.ZoomMode = ZoomMode.Percent;
+                reportViewer1.ZoomPercent = 100;
+
+            }
+            catch (Exception ex)
             {
                 cn.Close();
                 MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
