@@ -136,7 +136,11 @@
             this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+
             this.dataGridView2.Size = new System.Drawing.Size(1109, 468);
+
+            this.dataGridView2.Size = new System.Drawing.Size(928, 329);
+
             this.dataGridView2.TabIndex = 5;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -295,7 +299,11 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+
             this.tabPage1.Size = new System.Drawing.Size(1115, 613);
+
+            this.tabPage1.Size = new System.Drawing.Size(934, 474);
+
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "STOCK ENTRY";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -306,16 +314,26 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 93);
             this.panel4.Name = "panel4";
+
             this.panel4.Size = new System.Drawing.Size(1109, 468);
+
+            this.panel4.Size = new System.Drawing.Size(928, 329);
+
             this.panel4.TabIndex = 18;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnSaveClick);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+
             this.panel3.Location = new System.Drawing.Point(3, 561);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1109, 49);
+
+            this.panel3.Location = new System.Drawing.Point(3, 422);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(928, 49);
+
             this.panel3.TabIndex = 17;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -346,7 +364,11 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
+
             this.panel2.Size = new System.Drawing.Size(1109, 90);
+
+            this.panel2.Size = new System.Drawing.Size(928, 90);
+
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
