@@ -33,41 +33,44 @@ namespace OOP_System
 
         public void LoadCategory()
         {
-            int i = 0;
-            dataGridView1.Rows.Clear();
-            cn.Open();
-            string query = "SELECT * FROM tblCategory ORDER BY category";
-            cm = new SqlCommand(query, cn);
-            dr = cm.ExecuteReader();
+            //int i = 0;
+            //dataGridView1.Rows.Clear();
+            //cn.Open();
+            //string query = "SELECT * FROM tblCategory ORDER BY category";
+            //cm = new SqlCommand(query, cn);
+            //dr = cm.ExecuteReader();
 
-            while(dr.Read())
-            {
-                i++;
-                dataGridView1.Rows.Add(i, dr[0].ToString(), dr[1].ToString());
-            }
+            //while(dr.Read())
+            //{
+            //    i++;
+            //    dataGridView1.Rows.Add(i, dr[0].ToString(), dr[1].ToString());
+            //}
 
-            dr.Close();
-            cn.Close();
+            //dr.Close();
+            //cn.Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             frmCategoryAdd frm = new frmCategoryAdd(this);
-            //frm.btnSave.Enabled = true;
+        //    frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
             frm.ShowDialog();
         }
 
+
+
+        //deleted former grid view
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+            //string colName = dataGridView1.Columns[e.ColumnIndex].Name;
             
             if(colName == "Edit")
             {
                 frmCategoryAdd frm = new frmCategoryAdd(this);
                 frm.txtCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 frm.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                //frm.btnSave.Enabled = false;
+                frm.btnSave.Enabled = false;
                 frm.btnUpdate.Enabled = true;
                 frm.ShowDialog(); 
             }else if (colName == "Delete")
@@ -85,15 +88,12 @@ namespace OOP_System
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
+       
 
         private void button2_Click(object sender, EventArgs e)
         {
             frmCategoryAdd frm = new frmCategoryAdd(this);
-            //frm.btnSave.Enabled = true;
+            frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
             frm.ShowDialog();
         }
@@ -101,6 +101,19 @@ namespace OOP_System
         private void frmCategoryList_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmCategoryList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose(true);
         }
     }
 }

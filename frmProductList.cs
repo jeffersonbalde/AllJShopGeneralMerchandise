@@ -212,5 +212,11 @@ namespace OOP_System
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void ButtonMCategory_Click(object sender, EventArgs e)
+        {
+            frmCategoryList frm = new frmCategoryList();
+            frm.ShowDialog();
+        }
     }
 }
