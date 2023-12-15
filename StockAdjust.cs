@@ -160,5 +160,10 @@ namespace OOP_System
                 button1_Click(sender, e);
             }
         }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

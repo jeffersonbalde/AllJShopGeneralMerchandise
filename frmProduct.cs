@@ -89,7 +89,7 @@ namespace OOP_System
                     //}
                     //dr.Close();
                     //cn.Close();
-
+                        
                     ////category ID
                     //cn.Open();
                     //string query1 = "SELECT id FROM tblCategory WHERE category like '" + cboCategory.Text + "'";

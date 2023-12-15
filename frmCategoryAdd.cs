@@ -63,7 +63,7 @@ namespace OOP_System
 
         public void Clear()
         {
-            btnSave.Enabled = true;
+            //btnSave.Enabled = true;
             btnUpdate.Enabled = false;
             txtCategory.Clear();
             txtCategory.Focus();
@@ -168,6 +168,11 @@ namespace OOP_System
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
