@@ -65,27 +65,28 @@ namespace OOP_System
         {
             //string colName = dataGridView1.Columns[e.ColumnIndex].Name;
             
-            if(colName == "Edit")
-            {
-                frmCategoryAdd frm = new frmCategoryAdd(this);
-                frm.txtCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                frm.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                frm.btnSave.Enabled = false;
-                frm.btnUpdate.Enabled = true;
-                frm.ShowDialog(); 
-            }else if (colName == "Delete")
-            {
-                if(MessageBox.Show("Are you sure you want to delete this category","Delete Category",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    cn.Open();
-                    string query = "DELETE tblCategory WHERE id LIKE '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'";
-                    cm = new SqlCommand(query, cn);
-                    cm.ExecuteNonQuery();
-                    cn.Close();
-                    MessageBox.Show("Record has been successfully deleted!");
-                    LoadCategory();
-                }
-            }
+            //if(colName == "Edit")
+            //{
+            //    frmCategoryAdd frm = new frmCategoryAdd(this);
+            //    frm.txtCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            //    frm.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            //    frm.btnSave.Enabled = false;
+            //    frm.btnUpdate.Enabled = true;
+            //    frm.ShowDialog(); 
+            //}else if (colName == "Delete")
+            //{
+            //    if(MessageBox.Show("Are you sure you want to delete this category","Delete Category",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            //    {
+            //        cn.Open();
+            //        string query = "DELETE tblCategory WHERE id LIKE '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'";
+            //        cm = new SqlCommand(query, cn);
+            //        cm.ExecuteNonQuery();
+            //        cn.Close();
+            //        MessageBox.Show("Record has been successfully deleted!");
+            //        LoadCategory();
+            //    }
+            //}
+
         }
 
        
@@ -93,7 +94,7 @@ namespace OOP_System
         private void button2_Click(object sender, EventArgs e)
         {
             frmCategoryAdd frm = new frmCategoryAdd(this);
-            frm.btnSave.Enabled = true;
+        ///    frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
             frm.ShowDialog();
         }
