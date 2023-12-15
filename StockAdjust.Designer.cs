@@ -71,7 +71,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(990, 42);
+            this.panel1.Size = new System.Drawing.Size(1153, 42);
             this.panel1.TabIndex = 7;
             // 
             // button1
@@ -83,7 +83,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(940, 0);
+            this.button1.Location = new System.Drawing.Point(1103, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 42);
             this.button1.TabIndex = 9;
@@ -223,9 +223,9 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.txtProductCode);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 439);
+            this.panel3.Location = new System.Drawing.Point(0, 560);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(990, 161);
+            this.panel3.Size = new System.Drawing.Size(1153, 161);
             this.panel3.TabIndex = 19;
             // 
             // txtSearch
@@ -234,7 +234,7 @@
             // 
             // 
             this.txtSearch.CustomButton.Image = null;
-            this.txtSearch.CustomButton.Location = new System.Drawing.Point(960, 1);
+            this.txtSearch.CustomButton.Location = new System.Drawing.Point(1123, 1);
             this.txtSearch.CustomButton.Name = "";
             this.txtSearch.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txtSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -256,7 +256,7 @@
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.ShortcutsEnabled = true;
-            this.txtSearch.Size = new System.Drawing.Size(990, 31);
+            this.txtSearch.Size = new System.Drawing.Size(1153, 31);
             this.txtSearch.TabIndex = 20;
             this.txtSearch.UseSelectable = true;
             this.txtSearch.WaterMark = "Search here";
@@ -270,7 +270,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 73);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(990, 366);
+            this.panel2.Size = new System.Drawing.Size(1153, 487);
             this.panel2.TabIndex = 21;
             // 
             // dataGridView7
@@ -318,7 +318,7 @@
             this.dataGridView7.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView7.RowTemplate.Height = 24;
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView7.Size = new System.Drawing.Size(990, 366);
+            this.dataGridView7.Size = new System.Drawing.Size(1153, 487);
             this.dataGridView7.TabIndex = 5;
             this.dataGridView7.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView7_CellContentClick);
             // 
@@ -384,7 +384,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(990, 600);
+            this.ClientSize = new System.Drawing.Size(1153, 721);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtSearch);

@@ -12,14 +12,14 @@ using System.Data.Common;
 
 namespace OOP_System
 {
-    public partial class frmCategory : Form
+    public partial class frmCategoryAdd : Form
     {
 
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         frmCategoryList flist;
-        public frmCategory(frmCategoryList frm)
+        public frmCategoryAdd(frmCategoryList frm)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
