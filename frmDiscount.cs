@@ -98,7 +98,7 @@ namespace OOP_System
         {
             if(e.KeyCode == Keys.Escape)
             {
-                this.Dispose();
+                button3_Click_1(sender, e);   
             }    else if (e.KeyCode == Keys.Enter)
             {
                 button1_Click(sender, e);
@@ -196,6 +196,16 @@ namespace OOP_System
             int length = txtPercent.Text.Length;
             txtPercent.Text = txtPercent.Text.Substring(0, length - 1);
 
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnc_Click(object sender, EventArgs e)
+        {
+            txtPercent.Clear();
         }
     }
 }
