@@ -309,6 +309,11 @@ namespace OOP_System
             {
                 this.Dispose();
             }
+            //else if (e.KeyCode == Keys.Enter)
+            //{
+            //    btnSave_Click(sender, e);
+            //}
+            
         }
 
         private void frmProduct_Load(object sender, EventArgs e)
@@ -350,6 +355,13 @@ namespace OOP_System
         }
 
         private void txtReorder_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }

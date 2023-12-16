@@ -89,5 +89,22 @@ namespace OOP_System
         {
             this.Dispose();
         }
+
+        private void frmCategoryUpdate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnUpdate_Click_1(sender, e);
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                button2_Click(sender, e);
+            }
+        }
+
+        private void frmCategoryUpdate_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+        }
     }
 }

@@ -86,7 +86,6 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(497, 38);
             this.txtPrice.TabIndex = 2;
-            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // label6
@@ -140,7 +139,7 @@
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(497, 38);
             this.txtBarcode.TabIndex = 0;
-            this.txtBarcode.TextChanged += new System.EventHandler(this.txtBarcode_TextChanged);
+            this.txtBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcode_KeyPress);
             // 
             // label7
             // 
