@@ -31,10 +31,10 @@ namespace OOP_System
             f.GetDashboard();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    this.Dispose();
+        //}
 
         public void LoadRecords()
         {
@@ -146,21 +146,31 @@ namespace OOP_System
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Dispose();
+                this.Dispose(true);
             }
         }
 
-        private void button1_KeyDown(object sender, KeyEventArgs e)
+        //private void button1_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Escape)
+        //    {
+        //        button1_Click(sender, e);
+        //    }
+        //}
+
+        //private void txtSearch_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        private void exitbtn_Click(object sender, EventArgs e)
         {
-            if(e.KeyCode == Keys.Escape)
-            {
-                button1_Click(sender, e);
-            }
+            this.Dispose(true);
         }
 
-        private void txtSearch_Click(object sender, EventArgs e)
+        private void StockAdjust_Load(object sender, EventArgs e)
         {
-
+            this.KeyPreview = true;
         }
     }
 }

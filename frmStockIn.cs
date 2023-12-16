@@ -155,10 +155,10 @@ namespace OOP_System
         //    this.Dispose();
         //}
 
-        private void button1_Click_2(object sender, EventArgs e) //exit button up
-        {
-            this.Dispose();
-        }
+        //private void button1_Click_2(object sender, EventArgs e) //exit button up
+        //{
+        //    this.Dispose();
+        //}
 
         //private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         //{
@@ -178,12 +178,24 @@ namespace OOP_System
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Dispose();
+                exitbtn_Click(sender, e);
             }
         }
 
+
+        private void exitbtn_Click(object sender, EventArgs e)
+        {
+            this.Dispose(true);
+        }
+
+        //end of former click actions
+
+
+
+
         private void btnSave_Click(object sender, EventArgs e)
         {
+
 
         }
 

@@ -89,16 +89,24 @@ namespace OOP_System
             //        LoadCategory();
             //    }
             //}
+
         }
 
        
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            frmCategoryAdd frm = new frmCategoryAdd(this);
+        ///    frm.btnSave.Enabled = true;
+            frm.btnUpdate.Enabled = false;
+            frm.ShowDialog();
+
             //frmCategoryAdd frm = new frmCategoryAdd(this);
             //frm.btnSave.Enabled = true;
             //frm.btnUpdate.Enabled = false;
             //frm.ShowDialog();
+
         }
 
         private void frmCategoryList_Load(object sender, EventArgs e)
