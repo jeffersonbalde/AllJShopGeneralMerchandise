@@ -150,21 +150,21 @@ namespace OOP_System
             frm.Show();
         }
         //not in use category
-        private void btnCategory_Click(object sender, EventArgs e)
-        {
-            frmCategoryList frm = new frmCategoryList();
-            frm.TopLevel = false;
-            panel4.Controls.Add(frm);
-            frm.BringToFront();
-            frm.LoadCategory();
-            frm.Show();
-        }
+        //private void btnCategory_Click(object sender, EventArgs e)
+        //{
+        //    frmCategoryList frm = new frmCategoryList();
+        //    frm.TopLevel = false;
+        //    panel4.Controls.Add(frm);
+        //    frm.BringToFront();
+        //    frm.LoadCategory();
+        //    frm.Show();
+        //}
 
         private void button3_Click_2(object sender, EventArgs e)
         {
             panel4.Controls.Clear();
             frmProductList frm = new frmProductList(this);
-            //frm.comboBoxCategory.Text = "CATEGORY";
+            frm.comboBoxCategory.Text = "All";
             frm.LoadCategory();
             frm.GetTotalItem();
             frm.TopLevel = false;
@@ -365,6 +365,11 @@ namespace OOP_System
                 cn.Close();
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void panel3_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

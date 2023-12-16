@@ -35,6 +35,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCategory = new System.Windows.Forms.TextBox();
+            this.categoryID = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +64,7 @@
             this.button2.Size = new System.Drawing.Size(50, 48);
             this.button2.TabIndex = 6;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -89,6 +91,7 @@
             this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "ENTER";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
             // 
             // label2
             // 
@@ -108,6 +111,18 @@
             this.txtCategory.Size = new System.Drawing.Size(365, 22);
             this.txtCategory.TabIndex = 15;
             // 
+            // categoryID
+            // 
+            this.categoryID.AutoSize = true;
+            this.categoryID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
+            this.categoryID.Location = new System.Drawing.Point(12, 216);
+            this.categoryID.Name = "categoryID";
+            this.categoryID.Size = new System.Drawing.Size(149, 28);
+            this.categoryID.TabIndex = 16;
+            this.categoryID.Text = "Category Name";
+            this.categoryID.Visible = false;
+            // 
             // frmCategoryUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -115,11 +130,13 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(511, 270);
             this.ControlBox = false;
+            this.Controls.Add(this.categoryID);
             this.Controls.Add(this.txtCategory);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Name = "frmCategoryUpdate";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -134,6 +151,7 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCategory;
+        public System.Windows.Forms.TextBox txtCategory;
+        public System.Windows.Forms.Label categoryID;
     }
 }

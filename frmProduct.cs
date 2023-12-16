@@ -71,11 +71,16 @@ namespace OOP_System
         {
             try
             {
+                if(comboBoxCategoryAddItem.Text == "" || txtBarcode.Text == "" || txtPdesc.Text == "" || txtPrice.Text == "" || txtReorder.Text == "")
+                {
+                    MessageBox.Show("Please fill up all fields", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 if(MessageBox.Show("Are you sure you want to save this item?","SAVE ITEM",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //string bid = ""; 
-                    //string cid = "";
+                    string cid = "";
 
                     ////brand ID
                     //cn.Open();
@@ -89,27 +94,28 @@ namespace OOP_System
                     //}
                     //dr.Close();
                     //cn.Close();
-                        
-                    ////category ID
-                    //cn.Open();
-                    //string query1 = "SELECT id FROM tblCategory WHERE category like '" + cboCategory.Text + "'";
-                    //cm = new SqlCommand(query1, cn);
-                    //dr = cm.ExecuteReader();
-                    //dr.Read();
-                    //if (dr.HasRows)
-                    //{
-                    //    cid = dr[0].ToString();
-                    //}
-                    //dr.Close();
-                    //cn.Close();
+
+                    //category ID
+                    cn.Open();
+                    string query1 = "SELECT id FROM tblCategory WHERE category like '" + comboBoxCategoryAddItem.Text + "'";
+                    cm = new SqlCommand(query1, cn);
+                    dr = cm.ExecuteReader();
+                    dr.Read();
+                    if (dr.HasRows)
+                    {
+                        cid = dr[0].ToString();
+                    }
+                    dr.Close();
+                    cn.Close();
 
                     cn.Open();
-                    string query2 = "INSERT INTO tblProduct (barcode, pdesc, price, reorder, cid) VALUES(@barcode, @pdesc, @price, @reorder)";
+                    string query2 = "INSERT INTO tblProduct (barcode, pdesc, price, reorder, cid) VALUES(@barcode, @pdesc, @price, @reorder, @cid)";
                     cm = new SqlCommand(query2, cn);
                     cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
                     cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
                     cm.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
                     cm.Parameters.AddWithValue("@reorder", int.Parse(txtReorder.Text));
+                    cm.Parameters.AddWithValue("@cid", cid);
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("Item has been successfully saved.");
@@ -136,6 +142,8 @@ namespace OOP_System
             txtPdesc.Clear();
             txtBarcode.Clear();
             txtPrice.Clear();
+            txtReorder.Clear();
+            comboBoxCategoryAddItem.Text = "";
             txtPcode.Focus();
             btnSave.Enabled = true;
             btnUpdate.Enabled = false;
@@ -150,11 +158,16 @@ namespace OOP_System
         {
             try
             {
+                if (comboBoxCategoryAddItem.Text == "" || txtBarcode.Text == "" || txtPdesc.Text == "" || txtPrice.Text == "" || txtReorder.Text == "")
+                {
+                    MessageBox.Show("Please fill up all fields", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 if (MessageBox.Show("Are you sure you want to update this item?", "UPDATE ITEM", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //string bid = "";
-                    //string cid = "";
+                    string cid = "";
 
                     ////brand ID
                     //cn.Open();
@@ -169,27 +182,28 @@ namespace OOP_System
                     //dr.Close();
                     //cn.Close();
 
-                    ////category ID
-                    //cn.Open();
-                    //string query1 = "SELECT id FROM tblCategory WHERE category like '" + cboCategory.Text + "'";
-                    //cm = new SqlCommand(query1, cn);
-                    //dr = cm.ExecuteReader();
-                    //dr.Read();
-                    //if (dr.HasRows)
-                    //{
-                    //    cid = dr[0].ToString();
-                    //}
-                    //dr.Close();
-                    //cn.Close();
+                    //category ID
+                    cn.Open();
+                    string query1 = "SELECT id FROM tblCategory WHERE category like '" + comboBoxCategoryAddItem.Text + "'";
+                    cm = new SqlCommand(query1, cn);
+                    dr = cm.ExecuteReader();
+                    dr.Read();
+                    if (dr.HasRows)
+                    {
+                        cid = dr[0].ToString();
+                    }
+                    dr.Close();
+                    cn.Close();
 
                     cn.Open();
-                    string query2 = "UPDATE tblProduct SET barcode = @barcode, pdesc=@pdesc, price=@price, reorder=@reorder WHERE pcode LIKE @pcode";
+                    string query2 = "UPDATE tblProduct SET barcode = @barcode, pdesc=@pdesc, price=@price, cid=@cid, reorder=@reorder WHERE pcode LIKE @pcode";
                     cm = new SqlCommand(query2, cn);
                     cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
                     cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
                     cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
                     cm.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
                     cm.Parameters.AddWithValue("@reorder", int.Parse(txtReorder.Text));
+                    cm.Parameters.AddWithValue("@cid", cid);
                     cm.ExecuteNonQuery();
                     cn.Close();
 
@@ -328,6 +342,21 @@ namespace OOP_System
                 cn.Close();
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void comboBoxCategoryAddItem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtReorder_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBarcode_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -63,20 +63,20 @@ namespace OOP_System
 
         public void LoadStockIn()  //did not comment out gi refer ang method sa frmSearchProductStockIn
         {
-            //int i = 0;
-            //dataGridView2.Rows.Clear();
-            //cn.Open();
-            //string query = " SELECT * FROM vwStockin WHERE refno LIKE '" + txtRefNo.Text + "' AND status LIKE 'Pending'";
-            //string query1 = "SELECT p.pdesc, s.refno, s.pcode, s.qty, s.sdate FROM tblProduct AS p INNER JOIN tblStockIn AS s ON s.pcode = p.pcode WHERE s.refno LIKE '" + txtRefNo.Text  + "' AND status LIKE 'Pending'";
-            //cm = new SqlCommand(query, cn);
-            //dr = cm.ExecuteReader();
-            //while (dr.Read())
-            //{
-            //    i++;
-            //    dataGridView2.Rows.Add(i, dr["id"].ToString(), dr["refno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["qty"].ToString(), DateTime.Parse(dr["sdate"].ToString()).ToShortDateString());
-            //}
-            //dr.Close();
-            //cn.Close();
+            int i = 0;
+            dataGridView1.Rows.Clear();
+            cn.Open();
+            string query = "SELECT * FROM vwStockin WHERE refno LIKE '" + textBoxRefNo.Text + "' AND status LIKE 'Pending'";
+            string query1 = "SELECT p.pdesc, s.refno, s.pcode, s.qty, s.sdate FROM tblProduct AS p INNER JOIN tblStockIn AS s ON s.pcode = p.pcode WHERE s.refno LIKE '" + textBoxRefNo.Text + "' AND status LIKE 'Pending'";
+            cm = new SqlCommand(query, cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["refno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["qty"].ToString(), DateTime.Parse(dr["sdate"].ToString()).ToShortDateString());
+            }
+            dr.Close();
+            cn.Close();
         }
 
         //public void LoadStockInHistory()
@@ -182,6 +182,7 @@ namespace OOP_System
             }
         }
 
+
         private void exitbtn_Click(object sender, EventArgs e)
         {
             this.Dispose(true);
@@ -192,7 +193,21 @@ namespace OOP_System
 
 
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
 
 
+        }
+
+        //end of former click actions
+
+        public void GenerateRefNo()
+        {
+            Random random = new Random();
+            textBoxRefNo.Clear();
+            textBoxRefNo.Text += random.Next();
+            //string rndm = txtRefNo.Text += random.Next();
+            //txtRefNo.Text = rndm.Substring(0, 5);
+        }
     }
 }

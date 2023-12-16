@@ -33,7 +33,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -87,21 +87,21 @@
             this.lblID.Visible = false;
             this.lblID.Click += new System.EventHandler(this.lblID_Click);
             // 
-            // btnUpdate
+            // buttonAdd
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(182)))), ((int)(((byte)(114)))));
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(326, 200);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(105, 44);
-            this.btnUpdate.TabIndex = 10;
-            this.btnUpdate.Text = "ENTER";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(182)))), ((int)(((byte)(114)))));
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonAdd.ForeColor = System.Drawing.Color.White;
+            this.buttonAdd.Location = new System.Drawing.Point(326, 200);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(105, 44);
+            this.buttonAdd.TabIndex = 10;
+            this.buttonAdd.Text = "ENTER";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.btnUpdate_Click_1);
             // 
             // txtCategory
             // 
@@ -131,7 +131,7 @@
             this.ClientSize = new System.Drawing.Size(511, 270);
             this.ControlBox = false;
             this.Controls.Add(this.lblID);
-            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.txtCategory);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -152,7 +152,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label lblID;
-        public System.Windows.Forms.Button btnUpdate;
+        public System.Windows.Forms.Button buttonAdd;
         public System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;

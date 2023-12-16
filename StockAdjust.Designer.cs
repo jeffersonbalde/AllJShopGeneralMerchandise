@@ -223,6 +223,45 @@
             this.panel3.Size = new System.Drawing.Size(1317, 61);
             this.panel3.TabIndex = 19;
             // 
+
+            // txtSearch
+            // 
+            // 
+            // 
+            // 
+            //this.txtSearch.CustomButton.Image = null;
+            //this.txtSearch.CustomButton.Location = new System.Drawing.Point(1123, 1);
+            //this.txtSearch.CustomButton.Name = "";
+            //this.txtSearch.CustomButton.Size = new System.Drawing.Size(29, 29);
+            //this.txtSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            //this.txtSearch.CustomButton.TabIndex = 1;
+            //this.txtSearch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            //this.txtSearch.CustomButton.UseSelectable = true;
+            //this.txtSearch.CustomButton.Visible = false;
+            //this.txtSearch.DisplayIcon = true;
+            //this.txtSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            //this.txtSearch.Icon = ((System.Drawing.Image)(resources.GetObject("txtSearch.Icon")));
+            //this.txtSearch.Lines = new string[0];
+            //this.txtSearch.Location = new System.Drawing.Point(0, 42);
+            //this.txtSearch.MaxLength = 32767;
+            //this.txtSearch.Name = "txtSearch";
+            //this.txtSearch.PasswordChar = '\0';
+            //this.txtSearch.PromptText = "Search here";
+            //this.txtSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            //this.txtSearch.SelectedText = "";
+            //this.txtSearch.SelectionLength = 0;
+            //this.txtSearch.SelectionStart = 0;
+            //this.txtSearch.ShortcutsEnabled = true;
+            //this.txtSearch.Size = new System.Drawing.Size(1153, 31);
+            //this.txtSearch.TabIndex = 20;
+            //this.txtSearch.UseSelectable = true;
+            //this.txtSearch.WaterMark = "Search here";
+            //this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            //this.txtSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            //this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            //this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
+            // 
+
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
