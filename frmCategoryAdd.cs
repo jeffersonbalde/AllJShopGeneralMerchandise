@@ -18,12 +18,16 @@ namespace OOP_System
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
+
         frmCategoryList flist;
-        public frmCategoryAdd(frmCategoryList frm)
+        frmProductList frmpl;
+
+        public frmCategoryAdd(frmCategoryList frm, frmProductList frmPL)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             flist = frm;
+            frmpl = frmPL;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -64,7 +68,7 @@ namespace OOP_System
         public void Clear()
         {
             //btnSave.Enabled = true;
-            btnUpdate.Enabled = false;
+            buttonAdd.Enabled = false;
             txtCategory.Clear();
             txtCategory.Focus();
         }
@@ -97,13 +101,13 @@ namespace OOP_System
         {
 
             //handle empty input
-            if (txtCategory.Text == string.Empty) { MessageBox.Show("Please enter category name", "Add Category", MessageBoxButtons.OK, MessageBoxIcon.Warning); txtCategory.Focus(); return; }
+            if (txtCategory.Text == string.Empty) { MessageBox.Show("Please enter category name", "ADD CATEGORY", MessageBoxButtons.OK, MessageBoxIcon.Warning); txtCategory.Focus(); return; }
 
             if (!IsCategoryDuplicate())
             {
                 try
                 {
-                    if (MessageBox.Show("Are you sure you want to save this category?", "Saving Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Are you sure you want to save this category?", "ADD CATEGORY", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         cn.Open();
                         string query = "INSERT INTO tblCategory(category) VALUES(@category)";
@@ -112,7 +116,7 @@ namespace OOP_System
                         cm.ExecuteNonQuery();
                         cn.Close();
 
-                        MessageBox.Show("Category has been successfully saved");
+                        MessageBox.Show("Category has been successfully saved", "ADD CATEGORY", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Clear();
                         flist.LoadCategory();
                     }
@@ -172,7 +176,36 @@ namespace OOP_System
 
         private void btnUpdate_Click_1(object sender, EventArgs e)
         {
+            //handle empty input
+            if (txtCategory.Text == string.Empty) { MessageBox.Show("Please enter category name", "ADD CATEGORY", MessageBoxButtons.OK, MessageBoxIcon.Warning); txtCategory.Focus(); return; }
 
+            if (!IsCategoryDuplicate())
+            {
+                try
+                {
+                    if (MessageBox.Show("Are you sure you want to save this category?", "ADD CATEGORY", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        cn.Open();
+                        string query = "INSERT INTO tblCategory(category) VALUES(@category)";
+                        cm = new SqlCommand(query, cn);
+                        cm.Parameters.AddWithValue("@category", txtCategory.Text);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        MessageBox.Show("Category has been successfully saved", "ADD CATEGORY", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Clear();
+                        if(frmpl != null)
+                        {
+                            frmpl.LoadCategory();
+                        }
+                        flist.LoadCategory();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }
