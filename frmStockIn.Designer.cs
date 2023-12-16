@@ -37,7 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
 
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            //this.textBox1 = new System.Windows.Forms.TextBox();
 
             this.textBoxRefNo = new System.Windows.Forms.TextBox();
 
@@ -115,7 +115,7 @@
             // panel4
             // 
 
-            this.panel4.Controls.Add(this.textBox1);
+            //this.panel4.Controls.Add(this.textBox1);
 
             this.panel4.Controls.Add(this.textBoxRefNo);
 
@@ -131,11 +131,11 @@
 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(254, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(340, 36);
-            this.textBox1.TabIndex = 11;
+            //this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.textBox1.Location = new System.Drawing.Point(254, 7);
+            //this.textBox1.Name = "textBox1";
+            //this.textBox1.Size = new System.Drawing.Size(340, 36);
+            //this.textBox1.TabIndex = 11;
 
             // textBoxRefNo
             // 

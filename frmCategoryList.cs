@@ -97,9 +97,9 @@ namespace OOP_System
         private void button2_Click(object sender, EventArgs e)
         {
 
-            frmCategoryAdd frm = new frmCategoryAdd(this);
+            frmCategoryAdd frm = new frmCategoryAdd(this, frmpl);
         ///    frm.btnSave.Enabled = true;
-            frm.btnUpdate.Enabled = false;
+            //frm.btnUpdate.Enabled = false;
             frm.ShowDialog();
 
             //frmCategoryAdd frm = new frmCategoryAdd(this);
