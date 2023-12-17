@@ -34,28 +34,71 @@ namespace OOP_System
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-//            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
 
-//            if (colName == "colSelect")
-//            {
-// //               if (slist.txtRefNo.Text == string.Empty) { MessageBox.Show("Please enter reference no", "Add Item", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtRefNo.Focus(); return; }
-//                //if (slist.txtBy.Text == string.Empty) { MessageBox.Show("Please enter stock in name", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtBy.Focus(); return; }
+            //if(slist.dataGridView1.Rows.Count > 0)
+            //{
+            //    if (colName == "colSelect")
+            //    {
+            //        //if (slist.txtRefNo.Text == string.Empty) { MessageBox.Show("Please enter reference no", "Add Item", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtRefNo.Focus(); return; }
+            //        //if (slist.txtBy.Text == string.Empty) { MessageBox.Show("Please enter stock in name", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtBy.Focus(); return; }
 
-//                if (MessageBox.Show("Add this item?", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-//                {
-//                    cn.Open();
-//                    string query = "INSERT INTO tblstockin (refno, pcode, sdate)VALUES(@refno, @pcode, @sdate)";
-//                    cm = new SqlCommand(query, cn);
-////                    cm.Parameters.AddWithValue("@refno", slist.txtRefNo.Text);
-//                    cm.Parameters.AddWithValue("@pcode", dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
-//                    cm.Parameters.AddWithValue("@sdate", slist.dt1.Value);
-//                    cm.ExecuteNonQuery();
-//                    cn.Close();
+            //        if (MessageBox.Show("Add this item?", "ADD ITEM", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //        {
+            //            cn.Open();
+            //            string query = "INSERT INTO tblstockin (refno, pcode, sdate)VALUES(@refno, @pcode, @sdate)";
+            //            cm = new SqlCommand(query, cn);
+            //            cm.Parameters.AddWithValue("@refno", slist.textBoxRefNo.Text);
+            //            cm.Parameters.AddWithValue("@pcode", dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
+            //            cm.Parameters.AddWithValue("@sdate", slist.dt2.Value);
+            //            cm.ExecuteNonQuery();
+            //            cn.Close();
 
-//                    MessageBox.Show("Successfully Added!", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
-//                    slist.LoadStockIn();  //note: method called on edit gi delete ang grid
-//                }
-//            }
+            //            MessageBox.Show("Item added.", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            //slist.LoadStockIn();
+            //            return;
+            //        }
+            //    }
+            //}
+
+            try
+            {
+
+                if (colName == "colSelect")
+                {
+                    //if (slist.txtRefNo.Text == string.Empty) { MessageBox.Show("Please enter reference no", "Add Item", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtRefNo.Focus(); return; }
+                    //if (slist.txtBy.Text == string.Empty) { MessageBox.Show("Please enter stock in name", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning); slist.txtBy.Focus(); return; }
+
+                    //string slistColumnName = slist.dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    //string searchColumnName = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                    //if (slistColumnName == searchColumnName)
+                    //{
+                    //    MessageBox.Show("Item " + slistColumnName + " already added.", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    return;
+                    //}
+
+                    if (MessageBox.Show("Add this item?", "ADD ITEM", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        cn.Open();
+                        string query = "INSERT INTO tblstockin (refno, pcode, sdate)VALUES(@refno, @pcode, @sdate)";
+                        cm = new SqlCommand(query, cn);
+                        cm.Parameters.AddWithValue("@refno", slist.textBoxRefNo.Text);
+                        cm.Parameters.AddWithValue("@pcode", dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
+                        cm.Parameters.AddWithValue("@sdate", slist.dt2.Value);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+
+                        MessageBox.Show("Item added.", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        slist.LoadStockIn();
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void LoadProduct()
@@ -86,6 +129,11 @@ namespace OOP_System
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }

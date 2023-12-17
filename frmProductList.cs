@@ -193,14 +193,14 @@ namespace OOP_System
 
         private void ButtonSItem_Click(object sender, EventArgs e)
         {
-            frmStockIn frm = new frmStockIn(form1);
+            frmStockIn frm = new frmStockIn(form1, this);
             frm.GenerateRefNo();
             frm.ShowDialog();
         }
 
         private void ButtonSAdjustment_Click(object sender, EventArgs e)
         {
-            StockAdjust frm = new StockAdjust(form1);
+            StockAdjust frm = new StockAdjust(form1, this);
             frm.LoadRecords();
             frm.ShowDialog();
         }

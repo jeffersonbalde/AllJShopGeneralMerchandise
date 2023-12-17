@@ -174,15 +174,15 @@ namespace OOP_System
             frm.Show();
         }
 
-        private void btnStockIn_Click(object sender, EventArgs e)
-        {
-            panel4.Controls.Clear();
-            frmStockIn frm = new frmStockIn(this);
-            frm.TopLevel = false;
-            panel4.Controls.Add(frm);
-            frm.BringToFront();
-            frm.Show();
-        }
+        //private void btnStockIn_Click(object sender, EventArgs e)
+        //{
+        //    panel4.Controls.Clear();
+        //    frmStockIn frm = new frmStockIn(this);
+        //    frm.TopLevel = false;
+        //    panel4.Controls.Add(frm);
+        //    frm.BringToFront();
+        //    frm.Show();
+        //}
 
         private void button10_Click(object sender, EventArgs e)
         {
@@ -230,16 +230,16 @@ namespace OOP_System
         }
 
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            panel4.Controls.Clear();
-            StockAdjust frm = new StockAdjust(this);
-            frm.TopLevel = false;
-            frm.LoadRecords();
-            panel4.Controls.Add(frm);
-            frm.BringToFront();
-            frm.Show();
-        }
+        //private void button2_Click_1(object sender, EventArgs e)
+        //{
+        //    panel4.Controls.Clear();
+        //    StockAdjust frm = new StockAdjust(this);
+        //    frm.TopLevel = false;
+        //    frm.LoadRecords();
+        //    panel4.Controls.Add(frm);
+        //    frm.BringToFront();
+        //    frm.Show();
+        //}
 
 
         //storename not in use

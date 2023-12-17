@@ -20,13 +20,15 @@ namespace OOP_System
         SqlDataReader dr;
 
         Form1 form1;
+        frmProductList frmpl;
         
-        public frmStockIn(Form1 frm)
+        public frmStockIn(Form1 frm, frmProductList frmPL)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
 
             form1 = frm;
+            frmpl = frmPL;
             frm.GetDashboard();
             this.KeyPreview = true;
         }
@@ -78,6 +80,8 @@ namespace OOP_System
             dr.Close();
             cn.Close();
         }
+
+
 
         //public void LoadStockInHistory()
         //{
@@ -190,13 +194,11 @@ namespace OOP_System
 
         //end of former click actions
 
-
-
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-
+            frmSearchProductStockin frm = new frmSearchProductStockin(this);
+            frm.LoadProduct();
+            frm.ShowDialog();
         }
 
         //end of former click actions
@@ -218,6 +220,64 @@ namespace OOP_System
         private void button1_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    if (MessageBox.Show("Are you sure you want to save this items?", "SAVE ITEMS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                        {
+                            // update tblproduct quantity
+                            cn.Open();
+                            string query = "UPDATE tblproduct SET qty = qty + " + int.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString()) + " WHERE pcode LIKE '" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "'";
+                            cm = new SqlCommand(query, cn);
+                            cm.ExecuteNonQuery();
+                            cn.Close();
+
+                            //update tblstockin quantity
+                            cn.Open();
+                            string query1 = "UPDATE tblstockin SET qty = qty + " + int.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString()) + ", status = 'Done' WHERE id LIKE '" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "'";
+                            cm = new SqlCommand(query1, cn);
+                            cm.ExecuteNonQuery();
+                            cn.Close();
+                        }
+                        LoadStockIn();
+                        form1.GetDashboard();
+                        frmpl.LoadRecords();
+                        MessageBox.Show("Items saved.", "SAVED ITEMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+            if (colName == "Delete")
+            {
+                if (MessageBox.Show("Remove this item?", "REMOVE ITEM", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    cn.Open();
+                    string query = "DELETE FROM tblstockin WHERE id = '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'";
+                    cm = new SqlCommand(query, cn);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Item removed.", "REMOVE ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadStockIn();
+                }
+            }
         }
     }
 }
