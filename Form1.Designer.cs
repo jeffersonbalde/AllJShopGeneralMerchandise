@@ -202,7 +202,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(229, 40);
             this.button1.TabIndex = 6;
-            this.button1.Text = "EXIT";
+            this.button1.Text = "QUIT";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -238,7 +238,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(229, 40);
             this.button6.TabIndex = 3;
-            this.button6.Text = "ITEM INVENTORY";
+            this.button6.Text = "ITEM REPORTS";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -256,7 +256,7 @@
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(229, 40);
             this.btnProduct.TabIndex = 0;
-            this.btnProduct.Text = "ADD ITEMS";
+            this.btnProduct.Text = "ITEM INVENTORY";
             this.btnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProduct.UseVisualStyleBackColor = true;
             this.btnProduct.Click += new System.EventHandler(this.button3_Click_2);
@@ -568,7 +568,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(223, 40);
             this.button3.TabIndex = 7;
-            this.button3.Text = "SWITCH";
+            this.button3.Text = "POS";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_3);
