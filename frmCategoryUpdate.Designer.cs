@@ -88,7 +88,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(326, 200);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(105, 44);
-            this.btnUpdate.TabIndex = 14;
+            this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "ENTER";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
@@ -106,10 +106,11 @@
             // 
             // txtCategory
             // 
+            this.txtCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategory.Location = new System.Drawing.Point(66, 136);
             this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(365, 22);
-            this.txtCategory.TabIndex = 15;
+            this.txtCategory.Size = new System.Drawing.Size(365, 32);
+            this.txtCategory.TabIndex = 0;
             // 
             // categoryID
             // 
@@ -137,6 +138,8 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmCategoryUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmCategoryUpdate_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCategoryUpdate_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -111,7 +111,7 @@ namespace OOP_System
 
         private void frmCategoryList_Load(object sender, EventArgs e)
         {
-
+            this.KeyPreview = true;
         }
 
         private void frmCategoryList_KeyDown(object sender, KeyEventArgs e)
@@ -119,6 +119,10 @@ namespace OOP_System
             if (e.KeyCode == Keys.Escape)
             {
                 this.Dispose();
+            }
+            else if (e.KeyCode == Keys.F1)
+            {
+                btnUpdate_Click(sender, e);
             }
         }
 

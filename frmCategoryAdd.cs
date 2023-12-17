@@ -166,7 +166,7 @@ namespace OOP_System
 
         private void frmCategory_Load(object sender, EventArgs e)
         {
-
+            this.KeyPreview = true; 
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -207,5 +207,20 @@ namespace OOP_System
                 }
             }
         }
+
+        private void frmCategoryAdd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnUpdate_Click_1(sender, e);
+            }
+            else if(e.KeyCode == Keys.Escape)
+            {
+                button2_Click(sender, e);
+            }
+        }
+
+
+
     }
 }

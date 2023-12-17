@@ -98,17 +98,18 @@
             this.buttonAdd.Location = new System.Drawing.Point(326, 200);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(105, 44);
-            this.buttonAdd.TabIndex = 10;
+            this.buttonAdd.TabIndex = 1;
             this.buttonAdd.Text = "ENTER";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.btnUpdate_Click_1);
             // 
             // txtCategory
             // 
+            this.txtCategory.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategory.Location = new System.Drawing.Point(66, 136);
             this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(365, 30);
-            this.txtCategory.TabIndex = 8;
+            this.txtCategory.Size = new System.Drawing.Size(365, 36);
+            this.txtCategory.TabIndex = 0;
             this.txtCategory.TextChanged += new System.EventHandler(this.txtBrand_TextChanged);
             // 
             // label2
@@ -140,6 +141,7 @@
             this.Name = "frmCategoryAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmCategory_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCategoryAdd_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
