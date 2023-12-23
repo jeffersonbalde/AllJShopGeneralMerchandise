@@ -118,7 +118,7 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.LightCyan;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -516,7 +516,7 @@
             this.btnSale.FlatAppearance.BorderSize = 0;
             this.btnSale.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.btnSale.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSale.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnSale.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSale.ForeColor = System.Drawing.Color.Black;
             this.btnSale.Image = ((System.Drawing.Image)(resources.GetObject("btnSale.Image")));
@@ -525,8 +525,7 @@
             this.btnSale.Name = "btnSale";
             this.btnSale.Size = new System.Drawing.Size(222, 52);
             this.btnSale.TabIndex = 10;
-            this.btnSale.Text = "  [ F5 ] PRODUCT SALES";
-            this.btnSale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSale.Text = "  [ F5 ] ITEM SALES";
             this.btnSale.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSale.UseVisualStyleBackColor = false;
             this.btnSale.Click += new System.EventHandler(this.btnSale_Click);
@@ -539,7 +538,7 @@
             this.btnDiscount.FlatAppearance.BorderSize = 0;
             this.btnDiscount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.btnDiscount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiscount.ForeColor = System.Drawing.Color.Black;
             this.btnDiscount.Image = ((System.Drawing.Image)(resources.GetObject("btnDiscount.Image")));
@@ -612,7 +611,7 @@
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button11.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.Black;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
@@ -622,7 +621,6 @@
             this.button11.Size = new System.Drawing.Size(205, 52);
             this.button11.TabIndex = 15;
             this.button11.Text = "  [ ESC ] QUIT";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
@@ -635,7 +633,7 @@
             this.btnPayment.FlatAppearance.BorderSize = 0;
             this.btnPayment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.btnPayment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPayment.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnPayment.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayment.ForeColor = System.Drawing.Color.Black;
             this.btnPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnPayment.Image")));
@@ -644,8 +642,7 @@
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(205, 52);
             this.btnPayment.TabIndex = 8;
-            this.btnPayment.Text = "  [ F3 ] PAYMENT";
-            this.btnPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPayment.Text = "  [ F3 ] PAY";
             this.btnPayment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPayment.UseVisualStyleBackColor = false;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
@@ -658,7 +655,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
@@ -668,7 +665,6 @@
             this.btnCancel.Size = new System.Drawing.Size(222, 52);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "  [ F4 ] CLEAR ITEMS";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -680,7 +676,7 @@
             this.btnNew.FlatAppearance.BorderSize = 0;
             this.btnNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.btnNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.Black;
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
@@ -690,7 +686,6 @@
             this.btnNew.Size = new System.Drawing.Size(222, 52);
             this.btnNew.TabIndex = 5;
             this.btnNew.Text = "  [ F1 ] NEW TRANSACTION";
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.button1_Click);
@@ -708,7 +703,7 @@
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToResizeColumns = false;
             this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.LightCyan;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -958,6 +953,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearchProduct);
             this.Controls.Add(this.panel4);
@@ -966,11 +962,9 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SA JOLLIBEE BIDA AND SAYA";
             this.Load += new System.EventHandler(this.frmPOS_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPOS_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

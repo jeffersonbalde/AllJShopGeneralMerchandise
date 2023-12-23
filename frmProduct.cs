@@ -77,7 +77,7 @@ namespace OOP_System
                     return;
                 }
 
-                if(MessageBox.Show("Are you sure you want to save this item?","SAVE ITEM",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                if(MessageBox.Show("Are you sure you want to save this item?","ADD ITEM",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //string bid = ""; 
                     string cid = "";
@@ -118,7 +118,7 @@ namespace OOP_System
                     cm.Parameters.AddWithValue("@cid", cid);
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Item has been successfully saved.");
+                    MessageBox.Show("Item saved.", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clear();
                     flist.LoadRecords();
                     flist.GetTotalItem();
@@ -319,6 +319,7 @@ namespace OOP_System
         private void frmProduct_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
+            this.ActiveControl = comboBoxCategoryAddItem;
         }
 
         private void label4_Click_1(object sender, EventArgs e)
@@ -369,6 +370,11 @@ namespace OOP_System
         private void txtBarcode_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBoxCategoryAddItem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

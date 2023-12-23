@@ -43,6 +43,7 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtProductCode = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
@@ -54,7 +55,6 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Select = new System.Windows.Forms.DataGridViewImageColumn();
-            this.txtProductCode = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             this.SuspendLayout();
@@ -82,6 +82,7 @@
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(201, 31);
             this.txtQuantity.TabIndex = 21;
+            this.txtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantity_KeyPress);
             // 
             // label4
             // 
@@ -170,6 +171,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(866, 48);
             this.panel1.TabIndex = 23;
+            // 
+            // txtProductCode
+            // 
+            this.txtProductCode.Enabled = false;
+            this.txtProductCode.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductCode.Location = new System.Drawing.Point(333, 9);
+            this.txtProductCode.Name = "txtProductCode";
+            this.txtProductCode.Size = new System.Drawing.Size(23, 31);
+            this.txtProductCode.TabIndex = 18;
+            this.txtProductCode.Visible = false;
             // 
             // button1
             // 
@@ -306,7 +317,7 @@
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
             this.dataGridViewTextBoxColumn28.Visible = false;
-            this.dataGridViewTextBoxColumn28.Width = 93;
+            this.dataGridViewTextBoxColumn28.Width = 94;
             // 
             // Column1
             // 
@@ -315,7 +326,7 @@
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.Visible = false;
-            this.Column1.Width = 114;
+            this.Column1.Width = 115;
             // 
             // dataGridViewTextBoxColumn29
             // 
@@ -349,16 +360,6 @@
             this.Select.MinimumWidth = 6;
             this.Select.Name = "Select";
             this.Select.Width = 6;
-            // 
-            // txtProductCode
-            // 
-            this.txtProductCode.Enabled = false;
-            this.txtProductCode.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductCode.Location = new System.Drawing.Point(333, 9);
-            this.txtProductCode.Name = "txtProductCode";
-            this.txtProductCode.Size = new System.Drawing.Size(23, 31);
-            this.txtProductCode.TabIndex = 18;
-            this.txtProductCode.Visible = false;
             // 
             // StockAdjust
             // 
@@ -395,7 +396,6 @@
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox txtAction;
         private System.Windows.Forms.Panel panel1;
@@ -411,5 +411,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
         private System.Windows.Forms.DataGridViewImageColumn Select;
         private System.Windows.Forms.TextBox txtProductCode;
+        public System.Windows.Forms.TextBox textBoxItem;
     }
 }

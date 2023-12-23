@@ -125,7 +125,7 @@ namespace OOP_System
         {
             if (MessageBox.Show("Are you sure you want to close the application? ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.Hide();
+                this.Dispose();
                 frmSecurity frm = new frmSecurity();
                 frm.ShowDialog();
             }

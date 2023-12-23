@@ -84,7 +84,9 @@ namespace OOP_System
                     UpdateData("UPDATE tblproduct SET qty = qty + " + int.Parse(f.txtCancelQty.Text) + " WHERE pcode = '" + f.txtPCode.Text + "'");
                 }
 
-                UpdateData("UPDATE tblcart SET qty = qty - " + int.Parse(f.txtCancelQty.Text) + " WHERE id LIKE '" + f.txtID.Text + "'");
+                //UpdateData("UPDATE tblcart SET qty = qty - " + int.Parse(f.txtCancelQty.Text) + " WHERE id LIKE '" + f.txtID.Text + "'");
+                UpdateData("UPDATE tblcart SET qty = qty - " + int.Parse(f.txtCancelQty.Text) + " WHERE pcode LIKE '" + f.txtPCode.Text + "'");
+
 
                 MessageBox.Show("Void Successfully", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();

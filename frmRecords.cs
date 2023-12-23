@@ -514,7 +514,7 @@ namespace OOP_System
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmChart frm = new frmChart();
+            frmChart frm = new frmChart(this);
             frm.lblTitle.Text = "ITEM SALES (" + dt3.Value.ToShortDateString() + " -  " + dt4.Value.ToShortDateString() + ")";
             frm.LoadChartItemSales("SELECT p.pdesc, SUM(c.total) AS total FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt3.Value.ToString("yyyy-MM-dd") + "' AND '" + dt4.Value.ToString("yyyy-MM-dd") + "' GROUP BY p.pdesc ORDER BY total DESC");
             frm.ShowDialog();
@@ -550,7 +550,7 @@ namespace OOP_System
 
         private void button7_Click(object sender, EventArgs e)
         {
-            frmChart frm = new frmChart();
+            frmChart frm = new frmChart(this);
             frm.lblTitle.Text = "ITEM SALES (" + dt3.Value.ToShortDateString() + " -  " + dt4.Value.ToShortDateString() + ")";
             frm.LoadChartItemSales("SELECT p.pdesc, SUM(c.total) AS total FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt3.Value.ToString("yyyy-MM-dd") + "' AND '" + dt4.Value.ToString("yyyy-MM-dd") + "' GROUP BY p.pdesc ORDER BY total DESC");
             frm.ShowDialog();
@@ -582,6 +582,19 @@ namespace OOP_System
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            frmChart frm = new frmChart(this);
+            frm.lblTitle.Text = "TOP ITEMS (" + dt1.Value.ToShortDateString() + " -  " + dt2.Value.ToShortDateString() + ")";
+            frm.LoadChartTopItems();
+            frm.ShowDialog();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

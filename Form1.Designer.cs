@@ -176,7 +176,7 @@
             this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button11.Dock = System.Windows.Forms.DockStyle.Left;
             this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button11.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.Black;
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -194,7 +194,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Dock = System.Windows.Forms.DockStyle.Left;
             this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -212,7 +212,7 @@
             this.btnSalesHistory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalesHistory.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnSalesHistory.FlatAppearance.BorderSize = 0;
-            this.btnSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnSalesHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalesHistory.ForeColor = System.Drawing.Color.Black;
             this.btnSalesHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -230,7 +230,7 @@
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6.Dock = System.Windows.Forms.DockStyle.Left;
             this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.Black;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -248,7 +248,7 @@
             this.btnProduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProduct.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnProduct.FlatAppearance.BorderSize = 0;
-            this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnProduct.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProduct.ForeColor = System.Drawing.Color.Black;
             this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -560,7 +560,7 @@
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Dock = System.Windows.Forms.DockStyle.Left;
             this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -568,7 +568,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(223, 40);
             this.button3.TabIndex = 7;
-            this.button3.Text = "POS";
+            this.button3.Text = "POINT OF SALE";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_3);

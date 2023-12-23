@@ -138,7 +138,7 @@ namespace OOP_System
                     LoadRecords();
                     form1.GetDashboard();
                     GetTotalItem();
-                    MessageBox.Show("Item has been successfully deleted.");
+                    MessageBox.Show("Item deleted.", "DELETE ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -168,7 +168,7 @@ namespace OOP_System
 
         private void frmProductList_Load(object sender, EventArgs e)
         {
-
+            this.ActiveControl = txtSearch;
         }
 
 

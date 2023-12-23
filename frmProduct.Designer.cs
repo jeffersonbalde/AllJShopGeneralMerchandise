@@ -232,6 +232,7 @@
             this.comboBoxCategoryAddItem.Size = new System.Drawing.Size(497, 39);
             this.comboBoxCategoryAddItem.TabIndex = 23;
             this.comboBoxCategoryAddItem.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategoryAddItem_SelectedIndexChanged);
+            this.comboBoxCategoryAddItem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxCategoryAddItem_KeyPress);
             // 
             // frmProduct
             // 

@@ -61,14 +61,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.txtUser);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txtPass);
-            this.panel2.Controls.Add(this.txtUser);
             this.panel2.Controls.Add(this.btnLogin);
-            this.panel2.Location = new System.Drawing.Point(160, 277);
+            this.panel2.Location = new System.Drawing.Point(157, 266);
             this.panel2.MaximumSize = new System.Drawing.Size(700, 700);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(430, 351);
@@ -79,7 +80,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Harlow Solid Italic", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(76, 30);
+            this.label4.Location = new System.Drawing.Point(47, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(355, 43);
             this.label4.TabIndex = 20;
@@ -142,8 +143,9 @@
             // txtUser
             // 
             this.txtUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtUser.BackColor = System.Drawing.SystemColors.Window;
             this.txtUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Location = new System.Drawing.Point(36, 111);
+            this.txtUser.Location = new System.Drawing.Point(36, 108);
             this.txtUser.Margin = new System.Windows.Forms.Padding(10);
             this.txtUser.MaximumSize = new System.Drawing.Size(460, 34);
             this.txtUser.Name = "txtUser";
@@ -157,7 +159,6 @@
             this.btnLogin.BackColor = System.Drawing.Color.SeaGreen;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(113, 234);

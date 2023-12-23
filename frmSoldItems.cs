@@ -60,7 +60,7 @@ namespace OOP_System
                 cn.Open();
                 if(cboCashier.Text == "All Cashier")
                 {
-                    string query1 = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "'";
+                    string query1 = "SELECT c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, SUM(c.total) AS total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' GROUP BY c.transno ORDER BY total DESC";
                     cm = new SqlCommand(query1, cn);
                 }else
                 {
@@ -72,8 +72,10 @@ namespace OOP_System
                 while (dr.Read())
                 {
                     i += 1;
-                    _total += double.Parse(dr["total"].ToString()); 
-                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString());
+                    _total += double.Parse(dr["total"].ToString());
+                    //dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString());
+                    dataGridView1.Rows.Add(i, dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString());
+
                 }
                 dr.Close();
                 cn.Close();
@@ -97,7 +99,7 @@ namespace OOP_System
             if(colName == "colCancel")
             {
                 frmCancelDetails f = new frmCancelDetails(this);
-                f.txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                //f.txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 f.txtTransnoNo.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 f.txtPCode.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                 f.txtDescription.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();

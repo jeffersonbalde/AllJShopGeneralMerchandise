@@ -76,6 +76,12 @@ namespace OOP_System
             try
             {
 
+                if(textBoxItem.Text == "")
+                {
+                    MessageBox.Show("Please select an item", "STOCK ADJUSTMENT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if ((txtQuantity.Text != String.Empty) && (txtAction.Text != String.Empty))
                 {
                     if (int.Parse(txtQuantity.Text) > _qty)
@@ -174,6 +180,7 @@ namespace OOP_System
         private void StockAdjust_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
+            this.ActiveControl = txtSearch;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -217,6 +224,23 @@ namespace OOP_System
                 textBoxItem.Text = dataGridView7.Rows[e.RowIndex].Cells[3].Value.ToString();
 
                 _qty = int.Parse(dataGridView7.Rows[e.RowIndex].Cells[5].Value.ToString());
+            }
+        }
+
+        private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //accept only numbers
+            if (e.KeyChar == 46)
+            {
+                //accept . character
+            }
+            else if (e.KeyChar == 8)
+            {
+                //accept backspace
+            }
+            else if ((e.KeyChar < 48) || (e.KeyChar > 57)) //accept code 48-57 between 0-9
+            {
+                e.Handled = true;
             }
         }
     }
