@@ -313,5 +313,13 @@ namespace OOP_System
         {
             e.Handled = true;
         }
+
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            LowStocks frm = new LowStocks();
+            frm.GetLowStocks();
+            frm.ShowDialog();
+        }
     }
 }

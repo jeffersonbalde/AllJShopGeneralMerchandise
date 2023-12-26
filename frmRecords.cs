@@ -114,73 +114,7 @@ namespace OOP_System
             }
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            LoadRecord();
-            LoadChartTopItems();
-        }
-
-        public void LoadChartTopItems()
-        {
-            //try
-            //{
-                SqlDataAdapter da = new SqlDataAdapter();
-
-                cn.Open();
-
-                if(cboSort.Text == "QUANTITY")
-                {
-                    da = new SqlDataAdapter("SELECT TOP 10 pcode, pdesc, ISNULL(SUM(qty),0) AS qty FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", cn);
-                }
-                else if(cboSort.Text == "TOTAL")
-                {
-                    da = new SqlDataAdapter("SELECT TOP 10 pcode, pdesc, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY total DESC", cn);
-                }
-
-                DataSet ds = new DataSet();
-                da.Fill(ds, "TOPSELLING");
-                chart1.DataSource = ds.Tables["TOPSELLING"];
-                Series series = chart1.Series[0];
-                //series.ChartType = SeriesChartType.Doughnut;
-                series.ChartType = SeriesChartType.RangeColumn;
-
-                series.Name = "TOP ITEMS";
-                var chart = chart1;
-                chart.Series[0].XValueMember = "pdesc";
-                //chart.Series[0].XValueMember = "pcode";
-
-                if (cboSort.Text == "QUANTITY")
-                {
-                    chart.Series[0].YValueMembers = "qty";
-                }
-
-                if (cboSort.Text == "TOTAL")
-                {
-                    chart.Series[0].YValueMembers = "total";
-                }
-
-                chart.Series[0].IsValueShownAsLabel = true;
-
-                if (cboSort.Text == "TOTAL")
-                {
-                    chart.Series[0].LabelFormat = "{#,##0.00}";
-                }
-
-                if (cboSort.Text == "QUANTITY")
-                {
-                    chart.Series[0].LabelFormat = "{#,##0}";    
-                }
-
-            cn.Close();
-
-            //}
-            //catch(Exception ex)
-            //{
-            //    cn.Close();
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -225,33 +159,6 @@ namespace OOP_System
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
-        }
-
-        public void LoadCriticalItems()
-        {
-            try
-            {
-
-                dataGridView3.Rows.Clear();
-                int i = 0;
-                cn.Open();
-                string query3 = "SELECT * FROM vwCriticalItems";
-                string query = "SELECT pcode, barcode, pdesc, price, reorder, qty FROM vwCriticalItems";
-                cm = new SqlCommand(query, cn);
-                dr = cm.ExecuteReader();    
-                while(dr.Read())
-                {
-                    i++;
-                    dataGridView3.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString());
-                }
-                cn.Close();
-
-            }
-            catch(Exception ex)
-            {
-                cn.Close();
-                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -595,6 +502,37 @@ namespace OOP_System
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void cboSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadRecord();
+
+        }
+
+        private void dt1_ValueChanged(object sender, EventArgs e)
+        {
+            LoadRecord();
+        }
+
+        private void dt2_VisibleChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dt2_ValueChanged(object sender, EventArgs e)
+        {
+            LoadRecord();
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
         {
 
         }

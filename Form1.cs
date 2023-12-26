@@ -207,6 +207,7 @@ namespace OOP_System
             panel4.Controls.Clear();
             frmSoldItems frm = new frmSoldItems();
             frm.suser = lblName.Text;
+            frm.cboCashier.Text = "All";
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();
@@ -219,8 +220,6 @@ namespace OOP_System
             frmRecords frm = new frmRecords();
             frm.TopLevel = false;
             frm.LoadRecord();
-            frm.LoadChartTopItems();
-            frm.LoadCriticalItems();
             frm.LoadInventory();
             frm.VoidItems();
             frm.LoadStockInHistory();
