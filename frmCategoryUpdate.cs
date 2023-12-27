@@ -34,9 +34,9 @@ namespace OOP_System
                 if (MessageBox.Show("Are you want to update this category?", "Update Category", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    string query = "UPDATE tblcategory SET category = @category WHERE id LIKE '" + lblID.Text + "'";
-                    cm = new SqlCommand(query, cn);
-                    cm.Parameters.AddWithValue("@category", txtCategory.Text);
+                    //string query = "UPDATE tblcategory SET category = @category WHERE id LIKE '" + lblID.Text + "'";
+                    //cm = new SqlCommand(query, cn);
+                    //cm.Parameters.AddWithValue("@category", txtCategory.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("Record has been successfully updated");

@@ -53,7 +53,7 @@ namespace OOP_System
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             frmCategoryAdd frm = new frmCategoryAdd(this);
-            frm.btnSave.Enabled = true;
+            //frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
             frm.ShowDialog();
         }
@@ -67,7 +67,7 @@ namespace OOP_System
                 frmCategoryAdd frm = new frmCategoryAdd(this);
                 frm.txtCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 frm.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                frm.btnSave.Enabled = false;
+                //frm.btnSave.Enabled = false;
                 frm.btnUpdate.Enabled = true;
                 frm.ShowDialog(); 
             }else if (colName == "Delete")
@@ -93,7 +93,7 @@ namespace OOP_System
         private void button2_Click(object sender, EventArgs e)
         {
             frmCategoryAdd frm = new frmCategoryAdd(this);
-            frm.btnSave.Enabled = true;
+           // frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
             frm.ShowDialog();
         }
