@@ -80,6 +80,7 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
@@ -135,8 +136,8 @@
             // txtCash
             // 
             this.txtCash.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtCash.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCash.ForeColor = System.Drawing.Color.Gray;
+            this.txtCash.Font = new System.Drawing.Font("Segoe UI Black", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCash.ForeColor = System.Drawing.Color.White;
             this.txtCash.Location = new System.Drawing.Point(11, 120);
             this.txtCash.Margin = new System.Windows.Forms.Padding(2);
             this.txtCash.Multiline = true;
@@ -518,7 +519,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(76, 68);
             this.button3.TabIndex = 50;
-            this.button3.Text = "le";
+            this.button3.Text = "<";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
@@ -612,6 +613,8 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(157)))), ((int)(((byte)(247)))));
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtSale);
+            this.panel2.Font = new System.Drawing.Font("Segoe UI Black", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(11, 46);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(431, 57);
@@ -622,11 +625,11 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(3, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 31);
+            this.label2.Size = new System.Drawing.Size(122, 40);
             this.label2.TabIndex = 60;
             this.label2.Text = "TOTAL:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -636,18 +639,21 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(157)))), ((int)(((byte)(247)))));
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(14, 199);
+            this.label3.Location = new System.Drawing.Point(3, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 31);
+            this.label3.Size = new System.Drawing.Size(150, 40);
             this.label3.TabIndex = 61;
             this.label3.Text = "CHANGE:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.txtChange);
+            this.panel3.Font = new System.Drawing.Font("Segoe UI Black", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.ForeColor = System.Drawing.Color.White;
             this.panel3.Location = new System.Drawing.Point(11, 193);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(431, 68);
@@ -660,7 +666,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(783, 535);
             this.ControlBox = false;
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCash);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox1);
