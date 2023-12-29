@@ -19,6 +19,7 @@ namespace OOP_System
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr;
 
+        frmRecords frmrecords;
         frmSecurity f;
 
 
@@ -205,7 +206,7 @@ namespace OOP_System
         private void btnSalesHistory_Click(object sender, EventArgs e)
         {
             panel4.Controls.Clear();
-            frmSoldItems frm = new frmSoldItems();
+            frmSoldItems frm = new frmSoldItems(frmrecords);
             frm.suser = lblName.Text;
             frm.cboCashier.Text = "All";
             frm.TopLevel = false;
@@ -216,16 +217,24 @@ namespace OOP_System
 
         private void button6_Click(object sender, EventArgs e)
         {
+            //panel4.Controls.Clear();
+            //frmRecords frm = new frmRecords();
+            //frm.TopLevel = false;
+            //frm.LoadRecord();
+            //frm.LoadInventory();
+            //frm.VoidItems();
+            //frm.LoadStockInHistory();
+            //panel4.Controls.Add(frm);
+            //frm.BringToFront();
+            //frm.Show();
+
             panel4.Controls.Clear();
-            frmRecords frm = new frmRecords();
+            TopItems frm = new TopItems();
             frm.TopLevel = false;
-            frm.LoadRecord();
-            frm.LoadInventory();
-            frm.VoidItems();
-            frm.LoadStockInHistory();
             panel4.Controls.Add(frm);
             frm.BringToFront();
             frm.Show();
+
         }
 
 
@@ -369,6 +378,17 @@ namespace OOP_System
         private void panel3_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel4.Controls.Clear();
+            ReturnItems rt = new ReturnItems();
+            rt.VoidItems();
+            rt.TopLevel = false;
+            panel4.Controls.Add(rt);
+            rt.BringToFront();
+            rt.Show();
         }
     }
 }

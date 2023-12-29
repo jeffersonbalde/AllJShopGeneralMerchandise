@@ -142,7 +142,8 @@ namespace OOP_System
                     UpdateQuantity();
 
                     frmReceipt frm = new frmReceipt(fpos);
-                    frm.LoadReport(txtCash.Text, txtChange.Text);   
+                    frm.LoadReport(txtCash.Text, txtChange.Text);
+                    
                     frm.ShowDialog();
 
                     MessageBox.Show("Payment successfully saved!", "ALL J GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);

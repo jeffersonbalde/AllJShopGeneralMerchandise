@@ -21,6 +21,9 @@ namespace OOP_System
         frmProductList flist;
         Form1 form1;
 
+        string item = "";
+        string barcode = "";
+
         public frmProduct(frmProductList frm, Form1 frm1)
         {
             InitializeComponent();
@@ -77,7 +80,33 @@ namespace OOP_System
                     return;
                 }
 
-                if(MessageBox.Show("Are you sure you want to save this item?","ADD ITEM",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+
+                cn.Open();
+
+                string query = "SELECT * FROM tblProduct";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    item = dr["pdesc"].ToString();
+                    barcode = dr["barcode"].ToString();
+                }
+                dr.Close();
+                cn.Close();
+
+                if(txtBarcode.Text == barcode)
+                {
+                    MessageBox.Show("Barcode already exist", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (txtPdesc.Text == item)
+                {
+                    MessageBox.Show("Item already exist", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (MessageBox.Show("Are you sure you want to save this item?","ADD ITEM",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //string bid = ""; 
                     string cid = "";
@@ -109,6 +138,11 @@ namespace OOP_System
                     cn.Close();
 
                     cn.Open();
+
+
+
+
+
                     string query2 = "INSERT INTO tblProduct (barcode, pdesc, price, reorder, cid) VALUES(@barcode, @pdesc, @price, @reorder, @cid)";
                     cm = new SqlCommand(query2, cn);
                     cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
@@ -122,6 +156,7 @@ namespace OOP_System
                     Clear();
                     flist.LoadRecords();
                     flist.GetTotalItem();
+
                     if (form1 != null)
                     {
                         form1.GetDashboard();
@@ -211,6 +246,12 @@ namespace OOP_System
                     Clear();
                     flist.LoadRecords();
                     this.Dispose();
+
+                    if(form1 != null)
+                    {
+                        form1.GetDashboard();
+                    }
+
                 }
 
             }
