@@ -55,9 +55,15 @@ namespace OOP_System
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+
+            frmCategoryAdd frm = new frmCategoryAdd(this);
+            //frm.btnSave.Enabled = true;
+            frm.btnUpdate.Enabled = false;
+
             frmCategoryAdd frm = new frmCategoryAdd(this, frmpl);
         //    frm.btnSave.Enabled = true;
             frm.buttonAdd.Enabled = false;
+
             frm.ShowDialog();
         }
 
@@ -171,9 +177,17 @@ namespace OOP_System
                 frmCategoryUpdate frm = new frmCategoryUpdate(this, frmpl);
                 frm.categoryID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 frm.txtCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                frm.lblID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                //frm.btnSave.Enabled = false;
+                frm.btnUpdate.Enabled = true;
+                frm.ShowDialog(); 
+            }else if (colName == "Delete")
+
                 frm.ShowDialog();
             }
             else if (colName == "Delete")
+
             {
                 if (MessageBox.Show("Are you sure you want to delete this category", "DELETE CATEGORY", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -196,5 +210,20 @@ namespace OOP_System
         {
             this.Dispose();
         }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmCategoryAdd frm = new frmCategoryAdd(this);
+           // frm.btnSave.Enabled = true;
+            frm.btnUpdate.Enabled = false;
+            frm.ShowDialog();
+        }
+
+        private void frmCategoryList_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

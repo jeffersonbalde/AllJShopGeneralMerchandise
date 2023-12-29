@@ -67,6 +67,10 @@ namespace OOP_System
 
         public void Clear()
         {
+
+            //btnSave.Enabled = true;
+            btnUpdate.Enabled = false;
+
             txtCategory.Clear();
             txtCategory.Focus();
         }
