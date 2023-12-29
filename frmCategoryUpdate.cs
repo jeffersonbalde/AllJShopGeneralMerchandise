@@ -65,14 +65,9 @@ namespace OOP_System
                 {
                     cn.Open();
                     //string query = "UPDATE tblcategory SET category = @category WHERE id LIKE '" + lblID.Text + "'";
-
-                    //cm = new SqlCommand(query, cn);
-                    //cm.Parameters.AddWithValue("@category", txtCategory.Text);
-
                     string query1 = "UPDATE tblcategory SET category = @category WHERE id LIKE '" + categoryID.Text + "'";
                     cm = new SqlCommand(query1, cn);
                     cm.Parameters.AddWithValue("@category", txtCategory.Text);
-
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("Category updated.", "UPDATE CATEGORY", MessageBoxButtons.OK, MessageBoxIcon.Information);
