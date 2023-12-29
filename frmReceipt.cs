@@ -52,6 +52,7 @@ namespace OOP_System
                 DataSet1 ds = new DataSet1();
                 SqlDataAdapter da = new SqlDataAdapter();
 
+
                 cn.Open();
                 string query = "SELECT c.id, c.transno, c.pcode, c.price, c.qty, c.disc, c.total, c.sdate, c.status, pdesc FROM tblcart AS c INNER JOIN tblProduct AS p ON p.pcode = c.pcode WHERE transno LIKE '" + f.lblTransno.Text + "'";
                 da.SelectCommand = new SqlCommand(query, cn);
@@ -86,6 +87,9 @@ namespace OOP_System
                 reportViewer1.ZoomMode = ZoomMode.Percent;
                 reportViewer1.ZoomPercent = 100;
 
+                
+                
+                    
             }
             catch(Exception ex)
             {

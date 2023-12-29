@@ -97,5 +97,34 @@ namespace OOP_System
         {
             f.LoadRecord();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if ((cboAction.Text != String.Empty) && (txtCancelQty.Text != String.Empty))
+                {
+                    if (int.Parse(txtQty.Text) >= int.Parse(txtCancelQty.Text))
+                    {
+                        frmVoid f = new frmVoid(this);
+                        f.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Quantity Invalid", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please fill the form", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

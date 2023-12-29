@@ -19,6 +19,7 @@ namespace OOP_System
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr;
 
+        frmRecords frmrecords;
         frmSecurity f;
 
 
@@ -125,7 +126,7 @@ namespace OOP_System
         {
             if (MessageBox.Show("Are you sure you want to close the application? ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.Hide();
+                this.Dispose();
                 frmSecurity frm = new frmSecurity();
                 frm.ShowDialog();
             }
@@ -150,21 +151,21 @@ namespace OOP_System
             frm.Show();
         }
         //not in use category
-        private void btnCategory_Click(object sender, EventArgs e)
-        {
-            frmCategoryList frm = new frmCategoryList();
-            frm.TopLevel = false;
-            panel4.Controls.Add(frm);
-            frm.BringToFront();
-            frm.LoadCategory();
-            frm.Show();
-        }
+        //private void btnCategory_Click(object sender, EventArgs e)
+        //{
+        //    frmCategoryList frm = new frmCategoryList();
+        //    frm.TopLevel = false;
+        //    panel4.Controls.Add(frm);
+        //    frm.BringToFront();
+        //    frm.LoadCategory();
+        //    frm.Show();
+        //}
 
         private void button3_Click_2(object sender, EventArgs e)
         {
             panel4.Controls.Clear();
             frmProductList frm = new frmProductList(this);
-            //frm.comboBoxCategory.Text = "CATEGORY";
+            frm.comboBoxCategory.Text = "All";
             frm.LoadCategory();
             frm.GetTotalItem();
             frm.TopLevel = false;
@@ -174,15 +175,15 @@ namespace OOP_System
             frm.Show();
         }
 
-        private void btnStockIn_Click(object sender, EventArgs e)
-        {
-            panel4.Controls.Clear();
-            frmStockIn frm = new frmStockIn(this);
-            frm.TopLevel = false;
-            panel4.Controls.Add(frm);
-            frm.BringToFront();
-            frm.Show();
-        }
+        //private void btnStockIn_Click(object sender, EventArgs e)
+        //{
+        //    panel4.Controls.Clear();
+        //    frmStockIn frm = new frmStockIn(this);
+        //    frm.TopLevel = false;
+        //    panel4.Controls.Add(frm);
+        //    frm.BringToFront();
+        //    frm.Show();
+        //}
 
         private void button10_Click(object sender, EventArgs e)
         {
@@ -205,8 +206,9 @@ namespace OOP_System
         private void btnSalesHistory_Click(object sender, EventArgs e)
         {
             panel4.Controls.Clear();
-            frmSoldItems frm = new frmSoldItems();
+            frmSoldItems frm = new frmSoldItems(frmrecords);
             frm.suser = lblName.Text;
+            frm.cboCashier.Text = "All";
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();
@@ -215,31 +217,37 @@ namespace OOP_System
 
         private void button6_Click(object sender, EventArgs e)
         {
+            //panel4.Controls.Clear();
+            //frmRecords frm = new frmRecords();
+            //frm.TopLevel = false;
+            //frm.LoadRecord();
+            //frm.LoadInventory();
+            //frm.VoidItems();
+            //frm.LoadStockInHistory();
+            //panel4.Controls.Add(frm);
+            //frm.BringToFront();
+            //frm.Show();
+
             panel4.Controls.Clear();
-            frmRecords frm = new frmRecords();
+            TopItems frm = new TopItems();
             frm.TopLevel = false;
-            frm.LoadRecord();
-            frm.LoadChartTopItems();
-            frm.LoadCriticalItems();
-            frm.LoadInventory();
-            frm.VoidItems();
-            frm.LoadStockInHistory();
             panel4.Controls.Add(frm);
             frm.BringToFront();
             frm.Show();
+
         }
 
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            panel4.Controls.Clear();
-            StockAdjust frm = new StockAdjust(this);
-            frm.TopLevel = false;
-            frm.LoadRecords();
-            panel4.Controls.Add(frm);
-            frm.BringToFront();
-            frm.Show();
-        }
+        //private void button2_Click_1(object sender, EventArgs e)
+        //{
+        //    panel4.Controls.Clear();
+        //    StockAdjust frm = new StockAdjust(this);
+        //    frm.TopLevel = false;
+        //    frm.LoadRecords();
+        //    panel4.Controls.Add(frm);
+        //    frm.BringToFront();
+        //    frm.Show();
+        //}
 
 
         //storename not in use
@@ -272,29 +280,34 @@ namespace OOP_System
             }
             else if (e.KeyCode == Keys.F2)
             {
-                btnStockIn_Click(sender, e);
+                //btnStockIn_Click(sender, e);
+                button6_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F3)
             {
-                button2_Click_1(sender, e);
+                //button2_Click_1(sender, e);
+                btnSalesHistory_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F4)
             {
-                button6_Click(sender, e);
+                // button6_Click(sender, e);
+                button11_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F5)
             {
-                btnSalesHistory_Click(sender, e);
-            }
-            else if (e.KeyCode == Keys.F6)
-            {
-                button11_Click(sender, e);
-            }
-            else if (e.KeyCode == Keys.F7)
-            {
+                //btnSalesHistory_Click(sender, e);
                 button3_Click_3(sender, e);
             }
-            else if (e.KeyCode == Keys.Escape) {
+            //else if (e.KeyCode == Keys.F6)
+            //{
+            //    button11_Click(sender, e);
+            //}
+            //else if (e.KeyCode == Keys.F7)
+            //{
+            //    button3_Click_3(sender, e);
+            //}
+            else if (e.KeyCode == Keys.Escape)
+            {
                 button1_Click(sender, e);
             }
         }
@@ -360,6 +373,22 @@ namespace OOP_System
                 cn.Close();
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void panel3_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel4.Controls.Clear();
+            ReturnItems rt = new ReturnItems();
+            rt.VoidItems();
+            rt.TopLevel = false;
+            panel4.Controls.Add(rt);
+            rt.BringToFront();
+            rt.Show();
         }
     }
 }

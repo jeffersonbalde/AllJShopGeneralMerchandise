@@ -20,10 +20,14 @@ namespace OOP_System
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
 
-        public frmChart()
+        frmRecords frmR;
+
+        public frmChart(frmRecords frmr)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+
+            frmR = frmr;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,5 +64,66 @@ namespace OOP_System
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void LoadChartTopItems()
+        {
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                cn.Open();
+
+                if (frmR.cboSort.Text == "QUANTITY")
+                {
+                    da = new SqlDataAdapter("SELECT TOP 10 pcode, pdesc, ISNULL(SUM(qty),0) AS qty FROM vwSoldItems WHERE sdate BETWEEN '" + frmR.dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + frmR.dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY qty DESC", cn);
+                }
+                else if (frmR.cboSort.Text == "TOTAL")
+                {
+                    da = new SqlDataAdapter("SELECT TOP 10 pcode, pdesc, ISNULL(SUM(total),0) AS total FROM vwSoldItems WHERE sdate BETWEEN '" + frmR.dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + frmR.dt2.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Sold' GROUP BY pcode, pdesc ORDER BY total DESC", cn);
+                }
+
+                DataSet ds = new DataSet();
+                da.Fill(ds, "TOPSELLING");
+                chart1.DataSource = ds.Tables["TOPSELLING"];
+                Series series = chart1.Series[0];
+                //series.ChartType = SeriesChartType.Doughnut;
+                series.ChartType = SeriesChartType.RangeColumn;
+
+                series.Name = "TOP ITEMS";
+                var chart = chart1;
+                chart.Series[0].XValueMember = "pdesc";
+                //chart.Series[0].XValueMember = "pcode";
+
+                if (frmR.cboSort.Text == "QUANTITY")
+                {
+                    chart.Series[0].YValueMembers = "qty";
+                }
+
+                if (frmR.cboSort.Text == "TOTAL")
+                {
+                    chart.Series[0].YValueMembers = "total";
+                }
+
+                chart.Series[0].IsValueShownAsLabel = true;
+
+                if (frmR.cboSort.Text == "TOTAL")
+                {
+                    chart.Series[0].LabelFormat = "{#,##0.00}";
+                }
+
+                if (frmR.cboSort.Text == "QUANTITY")
+                {
+                    chart.Series[0].LabelFormat = "{#,##0}";
+                }
+
+                cn.Close();
+
+        }
+            catch(Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+}
     }
 }

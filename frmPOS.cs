@@ -29,6 +29,7 @@ namespace OOP_System
 
         int qty;
         string userType = "";
+        frmRecords frmrecords;
 
         public frmPOS(frmSecurity frm)
         {
@@ -506,7 +507,7 @@ namespace OOP_System
 
         private void btnSale_Click(object sender, EventArgs e)
         {
-            frmSoldItems frm = new frmSoldItems();
+            frmSoldItems frm = new frmSoldItems(frmrecords);
             frm.suser = lblUser.Text;
             frm.dt1.Enabled = false;
             frm.dt2.Enabled = false;

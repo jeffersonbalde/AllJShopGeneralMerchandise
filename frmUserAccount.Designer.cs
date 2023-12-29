@@ -123,7 +123,7 @@
             this.metroTabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl2.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl2.Name = "metroTabControl2";
-            this.metroTabControl2.SelectedIndex = 1;
+            this.metroTabControl2.SelectedIndex = 0;
             this.metroTabControl2.Size = new System.Drawing.Size(1076, 597);
             this.metroTabControl2.TabIndex = 13;
             this.metroTabControl2.UseSelectable = true;
@@ -144,7 +144,7 @@
             this.tabPageCreate.Controls.Add(this.label2);
             this.tabPageCreate.HorizontalScrollbarBarColor = true;
             this.tabPageCreate.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabPageCreate.HorizontalScrollbarSize = 7;
+            this.tabPageCreate.HorizontalScrollbarSize = 5;
             this.tabPageCreate.Location = new System.Drawing.Point(4, 38);
             this.tabPageCreate.Name = "tabPageCreate";
             this.tabPageCreate.Size = new System.Drawing.Size(1068, 555);
@@ -152,7 +152,8 @@
             this.tabPageCreate.Text = "CREATE ACCOUNT  ";
             this.tabPageCreate.VerticalScrollbarBarColor = true;
             this.tabPageCreate.VerticalScrollbarHighlightOnWheel = false;
-            this.tabPageCreate.VerticalScrollbarSize = 9;
+            this.tabPageCreate.VerticalScrollbarSize = 8;
+            this.tabPageCreate.Click += new System.EventHandler(this.tabPageCreate_Click);
             // 
             // btnCancel
             // 
@@ -213,6 +214,7 @@
             this.cboRole.Name = "cboRole";
             this.cboRole.Size = new System.Drawing.Size(563, 33);
             this.cboRole.TabIndex = 20;
+            this.cboRole.SelectedIndexChanged += new System.EventHandler(this.cboRole_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -290,7 +292,7 @@
             this.tabPageChange.Controls.Add(this.labelUsername);
             this.tabPageChange.HorizontalScrollbarBarColor = true;
             this.tabPageChange.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabPageChange.HorizontalScrollbarSize = 7;
+            this.tabPageChange.HorizontalScrollbarSize = 5;
             this.tabPageChange.Location = new System.Drawing.Point(4, 38);
             this.tabPageChange.Name = "tabPageChange";
             this.tabPageChange.Size = new System.Drawing.Size(1068, 555);
@@ -298,7 +300,7 @@
             this.tabPageChange.Text = "  CHANGE PASSWORD  ";
             this.tabPageChange.VerticalScrollbarBarColor = true;
             this.tabPageChange.VerticalScrollbarHighlightOnWheel = false;
-            this.tabPageChange.VerticalScrollbarSize = 9;
+            this.tabPageChange.VerticalScrollbarSize = 8;
             // 
             // comboBoxUsername
             // 
@@ -397,7 +399,7 @@
             this.tabPageDelete.Controls.Add(this.labelDeleteUsername);
             this.tabPageDelete.HorizontalScrollbarBarColor = true;
             this.tabPageDelete.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabPageDelete.HorizontalScrollbarSize = 7;
+            this.tabPageDelete.HorizontalScrollbarSize = 5;
             this.tabPageDelete.Location = new System.Drawing.Point(4, 38);
             this.tabPageDelete.Name = "tabPageDelete";
             this.tabPageDelete.Size = new System.Drawing.Size(1068, 555);
@@ -405,7 +407,7 @@
             this.tabPageDelete.Text = "  DELETE ACCOUNT  ";
             this.tabPageDelete.VerticalScrollbarBarColor = true;
             this.tabPageDelete.VerticalScrollbarHighlightOnWheel = false;
-            this.tabPageDelete.VerticalScrollbarSize = 9;
+            this.tabPageDelete.VerticalScrollbarSize = 8;
             // 
             // comboBoxDeleteUsername
             // 

@@ -12,22 +12,18 @@ using System.Data.Common;
 
 namespace OOP_System
 {
-    public partial class frmCategoryAdd : Form
+    public partial class frmCategory : Form
     {
 
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
-
         frmCategoryList flist;
-        frmProductList frmpl;
-
-        public frmCategoryAdd(frmCategoryList frm, frmProductList frmPL)
+        public frmCategory(frmCategoryList frm)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             flist = frm;
-            frmpl = frmPL;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -67,10 +63,8 @@ namespace OOP_System
 
         public void Clear()
         {
-
-            //btnSave.Enabled = true;
+            btnSave.Enabled = true;
             btnUpdate.Enabled = false;
-
             txtCategory.Clear();
             txtCategory.Focus();
         }
@@ -103,13 +97,13 @@ namespace OOP_System
         {
 
             //handle empty input
-            if (txtCategory.Text == string.Empty) { MessageBox.Show("Please enter category name", "ADD CATEGORY", MessageBoxButtons.OK, MessageBoxIcon.Warning); txtCategory.Focus(); return; }
+            if (txtCategory.Text == string.Empty) { MessageBox.Show("Please enter category name", "Add Category", MessageBoxButtons.OK, MessageBoxIcon.Warning); txtCategory.Focus(); return; }
 
             if (!IsCategoryDuplicate())
             {
                 try
                 {
-                    if (MessageBox.Show("Are you sure you want to save this category?", "ADD CATEGORY", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Are you sure you want to save this category?", "Saving Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         cn.Open();
                         string query = "INSERT INTO tblCategory(category) VALUES(@category)";
@@ -118,7 +112,7 @@ namespace OOP_System
                         cm.ExecuteNonQuery();
                         cn.Close();
 
-                        MessageBox.Show("Category has been successfully saved", "ADD CATEGORY", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Category has been successfully saved");
                         Clear();
                         flist.LoadCategory();
                     }
@@ -168,61 +162,12 @@ namespace OOP_System
 
         private void frmCategory_Load(object sender, EventArgs e)
         {
-            this.KeyPreview = true; 
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-
-        private void btnUpdate_Click_1(object sender, EventArgs e)
-        {
-            //handle empty input
-            if (txtCategory.Text == string.Empty) { MessageBox.Show("Please enter category name", "ADD CATEGORY", MessageBoxButtons.OK, MessageBoxIcon.Warning); txtCategory.Focus(); return; }
-
-            if (!IsCategoryDuplicate())
-            {
-                try
-                {
-                    if (MessageBox.Show("Are you sure you want to save this category?", "ADD CATEGORY", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        cn.Open();
-                        string query = "INSERT INTO tblCategory(category) VALUES(@category)";
-                        cm = new SqlCommand(query, cn);
-                        cm.Parameters.AddWithValue("@category", txtCategory.Text);
-                        cm.ExecuteNonQuery();
-                        cn.Close();
-
-                        MessageBox.Show("Category has been successfully saved", "ADD CATEGORY", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Clear();
-                        if(frmpl != null)
-                        {
-                            frmpl.LoadCategory();
-                        }
-                        flist.LoadCategory();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-
-        private void frmCategoryAdd_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
-            {
-                btnUpdate_Click_1(sender, e);
-            }
-            else if(e.KeyCode == Keys.Escape)
-            {
-                button2_Click(sender, e);
-            }
-        }
-
-
-
     }
 }

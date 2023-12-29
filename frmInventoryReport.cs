@@ -78,7 +78,7 @@ namespace OOP_System
             }
         }
 
-        public void LoadSoldItems(string sql, string param)
+        public void LoadSoldItems(string sql, string param, string pcashier)
         {
             try
             {
@@ -96,8 +96,10 @@ namespace OOP_System
                 cn.Close();
 
                 ReportParameter pDate = new ReportParameter("pDate", param);
+                ReportParameter cashier = new ReportParameter("cashier", pcashier);
 
                 reportViewer1.LocalReport.SetParameters(pDate);
+                reportViewer1.LocalReport.SetParameters(cashier);
 
                 rptDS = new ReportDataSource("DataSet1", ds.Tables["dtSoldItems"]);
                 reportViewer1.LocalReport.DataSources.Add(rptDS);

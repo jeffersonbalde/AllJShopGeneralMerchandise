@@ -76,7 +76,13 @@ namespace OOP_System
             try
             {
 
-                if(txtPass.Text != txtRetype.Text)
+                if (txtName.Text == "" || txtPass.Text == "" || txtRetype.Text == "" || txtUser.Text == "" || cboRole.Text == "")
+                {
+                    MessageBox.Show("Please fill up all fields", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (txtPass.Text != txtRetype.Text)
                 {
                     MessageBox.Show("Please make sure your passwords match.", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -275,12 +281,36 @@ namespace OOP_System
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if(comboBoxDeleteUsername.Text == "")
+            {
+                MessageBox.Show("Please select username", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DeleteUsername();
         }
 
         private void buttonSaveNewPassword_Click(object sender, EventArgs e)
         {
+
+            if (textBoxConfirmPassword.Text == "" || textBoxNewPassword.Text == "" || textBoxOldPassword.Text == "" || comboBoxUsername.Text == "")
+            {
+                MessageBox.Show("Please fill up all fields", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             UpdatePassword();
+
+        }
+
+        private void tabPageCreate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
