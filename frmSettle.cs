@@ -198,7 +198,7 @@ namespace OOP_System
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            txtCash.Text = button4.Text;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -213,22 +213,64 @@ namespace OOP_System
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            int length = txtCash.Text.Length;
+            txtCash.Text = txtCash.Text.Substring(0, length - 1);
 
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-
+            txtCash.Text = button10.Text;
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-
+            txtCash.Text = button11.Text;
         }
 
-        private void txtSale_TextChanged(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
+            txtCash.Text = button5.Text;
+        }
 
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            txtCash.Text = button8.Text;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = button9.Text;
+        }
+
+        private void button12_Click_1(object sender, EventArgs e)
+        {
+            txtCash.Text = button12.Text;
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = button13.Text;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = button6.Text;
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            txtCash.Text = button7.Text;
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = button15.Text;
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = button14.Text;
         }
     }
 }

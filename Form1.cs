@@ -281,23 +281,26 @@ namespace OOP_System
             else if (e.KeyCode == Keys.F2)
             {
                 //btnStockIn_Click(sender, e);
-                button6_Click(sender, e);
+                //button6_Click(sender, e);
+                btnSalesHistory_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F3)
             {
                 //button2_Click_1(sender, e);
-                btnSalesHistory_Click(sender, e);
+                //btnSalesHistory_Click(sender, e);
+                button11_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F4)
             {
                 // button6_Click(sender, e);
-                button11_Click(sender, e);
-            }
-            else if (e.KeyCode == Keys.F5)
-            {
-                //btnSalesHistory_Click(sender, e);
+                //  button11_Click(sender, e);
                 button3_Click_3(sender, e);
             }
+            //else if (e.KeyCode == Keys.F5)
+            //{
+            //    //btnSalesHistory_Click(sender, e);
+            //    button3_Click_3(sender, e);
+            //}
             //else if (e.KeyCode == Keys.F6)
             //{
             //    button11_Click(sender, e);
