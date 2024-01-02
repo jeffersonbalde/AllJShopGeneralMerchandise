@@ -79,13 +79,13 @@
                   <Width>0.82783cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.59734cm</Width>
+                  <Width>3.81673cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00627cm</Width>
+                  <Width>1.28144cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.98703cm</Width>
+                  <Width>1.3257cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -427,8 +427,9 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.47272cm</Top>
+            <Left>0cm</Left>
             <Height>1.22116cm</Height>
-            <Width>5.41847cm</Width>
+            <Width>7.25169cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -454,8 +455,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pDiscount</rd:DefaultName>
-            <Top>1.74656in</Top>
-            <Left>1.10276in</Left>
+            <Top>1.49656in</Top>
+            <Left>1.85276in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>1</ZIndex>
@@ -489,8 +490,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pTotal</rd:DefaultName>
-            <Top>0.99934in</Top>
-            <Left>1.09442in</Left>
+            <Top>0.74934in</Top>
+            <Left>1.84442in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>2</ZIndex>
@@ -523,8 +524,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pCash</rd:DefaultName>
-            <Top>1.21878in</Top>
-            <Left>1.10276in</Left>
+            <Top>0.96878in</Top>
+            <Left>1.85276in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>3</ZIndex>
@@ -557,8 +558,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pChange</rd:DefaultName>
-            <Top>1.46878in</Top>
-            <Left>1.10276in</Left>
+            <Top>1.21878in</Top>
+            <Left>1.85276in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>4</ZIndex>
@@ -606,7 +607,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox18</rd:DefaultName>
-            <Top>1.01323in</Top>
+            <Top>0.76323in</Top>
             <Left>0.0635cm</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
@@ -640,7 +641,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox19</rd:DefaultName>
-            <Top>1.24656in</Top>
+            <Top>0.99656in</Top>
             <Left>0.04233cm</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
@@ -674,7 +675,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox20</rd:DefaultName>
-            <Top>1.49656in</Top>
+            <Top>1.24656in</Top>
             <Left>0.06349cm</Left>
             <Height>0.25in</Height>
             <Width>1.00833in</Width>
@@ -708,7 +709,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>1.74656in</Top>
+            <Top>1.49656in</Top>
             <Left>0.03333in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
@@ -723,18 +724,82 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>THANK YOU FOR SHOPPING AT ALL J SHOP GENERAL MERCHANDISE</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>1.95549in</Top>
+            <Height>0.25in</Height>
+            <Width>2.84442in</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox6">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="Date/Time:" + Now</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox6</rd:DefaultName>
+            <Top>5.91946cm</Top>
+            <Height>0.6cm</Height>
+            <Width>7.22483cm</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>2.25554in</Height>
+        <Height>3.00554in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>2.18833in</Width>
+      <Width>2.855in</Width>
       <Page>
         <PageHeader>
-          <Height>1.61678in</Height>
+          <Height>1.31389in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -760,7 +825,7 @@
               <Top>0.635cm</Top>
               <Left>0.0635cm</Left>
               <Height>0.6cm</Height>
-              <Width>5.35498cm</Width>
+              <Width>7.18819cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -793,7 +858,7 @@
               <Top>1.34083cm</Top>
               <Left>0.04233cm</Left>
               <Height>0.6cm</Height>
-              <Width>5.29867cm</Width>
+              <Width>7.20936cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -857,7 +922,7 @@
               <Top>2.73728cm</Top>
               <Left>0.04233cm</Left>
               <Height>0.6cm</Height>
-              <Width>5.2775cm</Width>
+              <Width>7.20936cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -889,7 +954,7 @@
               <Top>0.84145in</Top>
               <Left>0.72166in</Left>
               <Height>0.20844in</Height>
-              <Width>1.36443in</Width>
+              <Width>2.13334in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -908,111 +973,6 @@
             </Border>
           </Style>
         </PageHeader>
-        <PageFooter>
-          <Height>1.525in</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Textbox Name="Textbox2">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>THANK YOU FOR SHOPPING AT ALL J SHOP GENERAL MERCHANDISE</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.19444in</Top>
-              <Height>0.25in</Height>
-              <Width>2.16333in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox6">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>="Date/Time:" + Now</Value>
-                      <Style>
-                        <FontSize>9pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox6</rd:DefaultName>
-              <Top>1.76389cm</Top>
-              <Height>0.6cm</Height>
-              <Width>5.49486cm</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox1">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value />
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.03268in</Top>
-              <Left>0.025in</Left>
-              <Height>0.25in</Height>
-              <Width>2.16333in</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-          </ReportItems>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
-        <PageHeight>8in</PageHeight>
-        <PageWidth>2.7in</PageWidth>
         <ColumnSpacing>0.05118in</ColumnSpacing>
         <Style />
       </Page>

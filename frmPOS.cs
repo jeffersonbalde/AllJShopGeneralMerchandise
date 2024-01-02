@@ -26,18 +26,21 @@ namespace OOP_System
         DBConnection dbcon = new DBConnection();
 
         frmSecurity f;
+        frmSoldItems frmSales;
 
         int qty;
         string userType = "";
         frmRecords frmrecords;
 
-        public frmPOS(frmSecurity frm)
+        public frmPOS(frmSecurity frm, frmSoldItems form)
         {
             InitializeComponent();
             lblDate.Text = DateTime.Now.ToLongDateString();
             cn = new SqlConnection(dbcon.MyConnection());
             this.KeyPreview = true;
+
             f = frm;
+            frmSales = form;
 
             NotifyCriticalItems();
         }
@@ -507,8 +510,7 @@ namespace OOP_System
 
         private void btnSale_Click(object sender, EventArgs e)
         {
-            frmSoldItems frm = new frmSoldItems(frmrecords);
-            frm.suser = lblUser.Text;
+            CashierItemSales frm = new CashierItemSales(frmSales);
             frm.dt1.Enabled = false;
             frm.dt2.Enabled = false;
             frm.cboCashier.Enabled = false;
