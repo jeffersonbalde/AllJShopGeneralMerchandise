@@ -56,5 +56,10 @@ namespace OOP_System
         {
             this.Dispose();
         }
+
+        private void LowStocks_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

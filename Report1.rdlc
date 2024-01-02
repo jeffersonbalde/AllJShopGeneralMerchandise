@@ -79,13 +79,13 @@
                   <Width>0.82783cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.81673cm</Width>
+                  <Width>3.32221cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.28144cm</Width>
+                  <Width>1.01395cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.3257cm</Width>
+                  <Width>0.9447cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -427,9 +427,8 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.47272cm</Top>
-            <Left>0cm</Left>
             <Height>1.22116cm</Height>
-            <Width>7.25169cm</Width>
+            <Width>6.10869cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -456,7 +455,7 @@
             </Paragraphs>
             <rd:DefaultName>pDiscount</rd:DefaultName>
             <Top>1.49656in</Top>
-            <Left>1.85276in</Left>
+            <Left>1.35276in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>1</ZIndex>
@@ -491,7 +490,7 @@
             </Paragraphs>
             <rd:DefaultName>pTotal</rd:DefaultName>
             <Top>0.74934in</Top>
-            <Left>1.84442in</Left>
+            <Left>1.34442in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>2</ZIndex>
@@ -525,7 +524,7 @@
             </Paragraphs>
             <rd:DefaultName>pCash</rd:DefaultName>
             <Top>0.96878in</Top>
-            <Left>1.85276in</Left>
+            <Left>1.35276in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>3</ZIndex>
@@ -559,7 +558,7 @@
             </Paragraphs>
             <rd:DefaultName>pChange</rd:DefaultName>
             <Top>1.21878in</Top>
-            <Left>1.85276in</Left>
+            <Left>1.35276in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>4</ZIndex>
@@ -731,7 +730,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>THANK YOU FOR SHOPPING AT ALL J SHOP GENERAL MERCHANDISE</Value>
+                    <Value>THANK YOU FOR SHOPPING </Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -741,9 +740,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.95549in</Top>
+            <Top>2.12167in</Top>
             <Height>0.25in</Height>
-            <Width>2.84442in</Width>
+            <Width>2.38833in</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -769,14 +768,15 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
-            <Top>5.91946cm</Top>
+            <Top>4.61265cm</Top>
+            <Left>0.08466cm</Left>
             <Height>0.6cm</Height>
-            <Width>7.22483cm</Width>
+            <Width>6.03753cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -789,17 +789,17 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>3.00554in</Height>
+        <Height>2.90554in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>2.855in</Width>
+      <Width>2.41031in</Width>
       <Page>
         <PageHeader>
-          <Height>1.31389in</Height>
+          <Height>1.45044in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -825,7 +825,7 @@
               <Top>0.635cm</Top>
               <Left>0.0635cm</Left>
               <Height>0.6cm</Height>
-              <Width>7.18819cm</Width>
+              <Width>6.04519cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -844,9 +844,7 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Parameters!pAddress.Value</Value>
-                      <Style>
-                        <FontSize>9pt</FontSize>
-                      </Style>
+                      <Style />
                     </TextRun>
                   </TextRuns>
                   <Style>
@@ -855,10 +853,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>pAddress</rd:DefaultName>
-              <Top>1.34083cm</Top>
+              <Top>1.27028cm</Top>
               <Left>0.04233cm</Left>
               <Height>0.6cm</Height>
-              <Width>7.20936cm</Width>
+              <Width>6.06636cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -887,43 +885,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>2.102cm</Top>
-              <Left>0.04233cm</Left>
+              <Top>1.87028cm</Top>
+              <Left>0.0635cm</Left>
               <Height>0.6cm</Height>
               <Width>1.63548cm</Width>
               <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="pTransaction">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Parameters!pTransaction.Value</Value>
-                      <Style>
-                        <FontSize>9pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>pTransaction</rd:DefaultName>
-              <Top>2.73728cm</Top>
-              <Left>0.04233cm</Left>
-              <Height>0.6cm</Height>
-              <Width>7.20936cm</Width>
-              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -951,10 +917,41 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>pCashier</rd:DefaultName>
-              <Top>0.84145in</Top>
+              <Top>0.75022in</Top>
               <Left>0.72166in</Left>
               <Height>0.20844in</Height>
-              <Width>2.13334in</Width>
+              <Width>1.68334in</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="pTransaction">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!pTransaction.Value</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>pTransaction</rd:DefaultName>
+              <Top>2.47027cm</Top>
+              <Height>0.6cm</Height>
+              <Width>6.06636cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -973,6 +970,8 @@
             </Border>
           </Style>
         </PageHeader>
+        <PageHeight>20in</PageHeight>
+        <PageWidth>8in</PageWidth>
         <ColumnSpacing>0.05118in</ColumnSpacing>
         <Style />
       </Page>

@@ -499,6 +499,7 @@ namespace OOP_System
         {
             frmSettle frm = new frmSettle(this);
             frm.txtSale.Text = lblDisplayTotal.Text;
+            frm.txtSale.Text = lblDisplayTotal.Text;
             frm.ShowDialog();
             frm.txtCash.Focus();
         }

@@ -43,7 +43,8 @@ namespace OOP_System
                 double change = cash - sale;
                 txtChange.Text = change.ToString("#,##0.00");
 
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 txtChange.Text = "0.00";
             }
@@ -198,7 +199,7 @@ namespace OOP_System
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            txtCash.Text = button4.Text;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -218,17 +219,72 @@ namespace OOP_System
 
         private void button10_Click(object sender, EventArgs e)
         {
-
+            txtCash.Text = button10.Text;
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-
+            txtCash.Text = button11.Text;
         }
 
         private void txtSale_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = button5.Text;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = button6.Text;
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            txtCash.Text = button7.Text;
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            txtCash.Text = button8.Text;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = button9.Text;
+        }
+
+        private void button12_Click_1(object sender, EventArgs e)
+        {
+            txtCash.Text = button12.Text;
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = button13.Text;
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = button14.Text;
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = button15.Text;
         }
     }
 }
