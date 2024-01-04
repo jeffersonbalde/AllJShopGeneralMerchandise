@@ -99,6 +99,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPaymentDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPaymentDiscount.Designer.cs">
+      <DependentUpon>FormPaymentDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddCustomer.Designer.cs">
+      <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddDebt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddDebt.Designer.cs">
+      <DependentUpon>frmAddDebt.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBrand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +273,12 @@
     <Compile Include="frmUserAccount.Designer.cs">
       <DependentUpon>frmUserAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmViewDebt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewDebt.Designer.cs">
+      <DependentUpon>frmViewDebt.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVoid.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +334,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPaymentDiscount.resx">
+      <DependentUpon>FormPaymentDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddCustomer.resx">
+      <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddDebt.resx">
+      <DependentUpon>frmAddDebt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBrand.resx">
       <DependentUpon>frmBrand.cs</DependentUpon>
@@ -388,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmUserAccount.resx">
       <DependentUpon>frmUserAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewDebt.resx">
+      <DependentUpon>frmViewDebt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVoid.resx">
       <DependentUpon>frmVoid.cs</DependentUpon>

@@ -19,7 +19,8 @@ namespace OOP_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSecurity());
+            //Application.Run(new frmPOS(null, null));
+            Application.Run(new Form1());
         }
     }
 }

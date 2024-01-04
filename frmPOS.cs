@@ -19,6 +19,7 @@ namespace OOP_System
         String price;
         String cart_qty;
         String cart_total;
+        String item;
 
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
@@ -44,6 +45,37 @@ namespace OOP_System
 
             NotifyCriticalItems();
         }
+
+        public double GetTotalItem()
+        {
+            Double totalItem = 0;
+
+            try
+            {
+                cn.Open();
+                string query = "SELECT c.id, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblcart AS c INNER JOIN tblproduct AS p ON c.pcode = p.pcode WHERE transno LIKE '" + lblTransno.Text + "' AND status LIKE 'Pending'";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    totalItem += Double.Parse(dr["total"].ToString());
+                }
+                dr.Close();
+                cn.Close();
+
+                return totalItem;
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+
+            return totalItem;
+        }
+    
 
         public void NotifyCriticalItems()
         {
@@ -139,7 +171,7 @@ namespace OOP_System
             //double vatable = sales - vat;
 
             //lblVat.Text = vat.ToString("#,##0.00");
-            //lblVatable.Text = vatable.ToString("#,##0.00");
+            //lblVatable.Text = vatable.ToString("#,##0.00");z
             lblDisplayTotal.Text = sales.ToString("#,##0.00");
         }
 
@@ -371,6 +403,7 @@ namespace OOP_System
             price = dataGridView1[4, i].Value.ToString();
             cart_qty = dataGridView1[5, i].Value.ToString();
             cart_total = dataGridView1[7, i].Value.ToString();
+            item = dataGridView1[3, i].Value.ToString();
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
@@ -380,6 +413,7 @@ namespace OOP_System
             frm.txtPrice.Text = price;
             frm.txtQty.Text = cart_qty;
             frm.txtTotal.Text = cart_total;
+            frm.txtItem.Text = item;
             frm.ShowDialog();
         }
 
@@ -498,8 +532,9 @@ namespace OOP_System
         private void btnPayment_Click(object sender, EventArgs e)
         {
             frmSettle frm = new frmSettle(this);
-            frm.txtSale.Text = lblDisplayTotal.Text;
-            frm.txtSale.Text = lblDisplayTotal.Text;
+            //frm.txtSale.Text = lblDisplayTotal.Text;
+            frm.lblDiscount.Text = lblDiscount.Text;
+            frm.txtSale.Text = GetTotalItem().ToString("#,##0.00");
             frm.ShowDialog();
             frm.txtCash.Focus();
         }
@@ -735,6 +770,10 @@ namespace OOP_System
                     frmQty frm = new frmQty(this);
                     frm.ProductDetails(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString(), Double.Parse(dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString()), lblTransno.Text, int.Parse(dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString()));
                     frm.ShowDialog();
+
+                    frmAddDebt frmDebt = new frmAddDebt(this, null);
+                    frmDebt.DebtProductDetails(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString(), Double.Parse(dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString()), lblTransno.Text, int.Parse(dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString()), double.Parse(dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString()));
+
                 }
 
             }

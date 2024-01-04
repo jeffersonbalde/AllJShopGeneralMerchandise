@@ -113,5 +113,11 @@ namespace OOP_System
                 f.ShowDialog();
             }
         }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            frmViewDebt frm = new frmViewDebt();
+            frm.ShowDialog();
+        }
     }
 }

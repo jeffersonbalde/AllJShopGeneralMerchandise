@@ -48,6 +48,8 @@ namespace OOP_System
             {
                 txtChange.Text = "0.00";
             }
+
+            
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -129,6 +131,24 @@ namespace OOP_System
             }
         }
 
+        public void DebtUpdateQuantity()
+        {
+            for (int i = 0; i < fpos.dataGridView1.Rows.Count; i++)
+            {
+                cn.Open();
+                string query = "UPDATE tblproduct SET qty = qty - " + int.Parse(fpos.dataGridView1.Rows[i].Cells[5].Value.ToString()) + " WHERE pcode = '" + fpos.dataGridView1.Rows[i].Cells[2].Value.ToString() + "'";
+                cm = new SqlCommand(query, cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+
+                cn.Open();
+                string query1 = "UPDATE tblcart SET status = 'Debt' WHERE id = '" + fpos.dataGridView1.Rows[i].Cells[1].Value.ToString() + "'";
+                cm = new SqlCommand(query1, cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+            }
+        }
+
         private void btnEnter_Click(object sender, EventArgs e)
         {
             try
@@ -136,7 +156,7 @@ namespace OOP_System
                 
                 if((double.Parse(txtChange.Text) < 0) || (txtCash.Text == String.Empty))
                 {
-                    MessageBox.Show("Insufficient Amount!", "ALL J GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Insufficient Amount!", "PAYMENT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }else
                 {
@@ -214,7 +234,17 @@ namespace OOP_System
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            int length = txtCash.Text.Length;
+            
 
+            if(txtCash.Text == "")
+            {
+                return;
+            }
+            else
+            {
+                txtCash.Text = txtCash.Text.Substring(0, length - 1);
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -285,6 +315,57 @@ namespace OOP_System
         private void button15_Click(object sender, EventArgs e)
         {
             txtCash.Text = button15.Text;
+        }
+
+        private void txtCash_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //accept only numbers
+            if (e.KeyChar == 46)
+            {
+                //accept . character
+            }
+            else if (e.KeyChar == 8)
+            {
+                //accept backspace
+            }
+            else if ((e.KeyChar < 48) || (e.KeyChar > 57)) //accept code 48-57 between 0-9
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCash_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void button16_Click_1(object sender, EventArgs e)
+        {
+            FormPaymentDiscount frm = new FormPaymentDiscount(this);
+            frm.ShowDialog();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            txtCash.Text += button2.Text;
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            frmAddDebt frm = new frmAddDebt(fpos, this);
+            frm.LoadCustomer();
+            frm.ShowDialog();
+        }
+
+        private void button16_Click_2(object sender, EventArgs e)
+        {
+            frmAddCustomer frm = new frmAddCustomer(this, fpos);
+            frm.ShowDialog();
         }
     }
 }
