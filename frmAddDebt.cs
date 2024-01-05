@@ -74,13 +74,13 @@ namespace OOP_System
             {
                 //CUSTOMER ID
                 cn.Open();
-                string query1 = "SELECT ID FROM CustomerInformation WHERE Name like '" + comboBoxCustomer.Text + "'";
+                string query1 = "SELECT ID FROM CustomerInformation WHERE Name LIKE '" + comboBoxCustomer.Text + "'";
                 cm = new SqlCommand(query1, cn);
                 dr = cm.ExecuteReader();
                 dr.Read();
                 if (dr.HasRows)
                 {
-                    customerID = int.Parse(dr[0].ToString());
+                    customerID = int.Parse(dr["ID"].ToString());
                 }
                 dr.Close();
                 cn.Close();
@@ -125,17 +125,49 @@ namespace OOP_System
             }
         }
 
+        public void InsertCustomer()
+        {
+
+        }
+
+
         private void btnSave_Click(object sender, EventArgs e)
         {
-            InsertTblCart();
-            frmSettle.DebtUpdateQuantity();
+            try
+            {
+                cn.Open();
+                string query1 = "SELECT ID FROM CustomerInformation WHERE Name LIKE '" + comboBoxCustomer.Text + "'";
+                cm = new SqlCommand(query1, cn);
+                dr = cm.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    customerID = int.Parse(dr["ID"].ToString());
+                }
+                dr.Close();
+                cn.Close();
 
-            frmPOS.GetTransNo();
-            frmPOS.LoadCart();
-            frmPOS.LoadRecords();
+                cn.Open();
+                string query = "UPDATE tblCart SET customerID = @customerID WHERE transno LIKE '" + frmPOS.lblTransno.Text + "'";
+                cm = new SqlCommand(query, cn);
+                cm.Parameters.AddWithValue("@customerID", customerID);
+                cm.ExecuteNonQuery();
+                cn.Close();
 
-            MessageBox.Show("Debt saved to " + comboBoxCustomer.Text + ".", "ADD DEBT", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //InsertCustomer();
+                frmSettle.DebtUpdateQuantity();
 
+                frmPOS.GetTransNo();
+                frmPOS.LoadCart();
+                frmPOS.LoadRecords();
+
+                MessageBox.Show("Debt saved to " + comboBoxCustomer.Text + ".", "ADD DEBT", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

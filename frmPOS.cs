@@ -772,7 +772,7 @@ namespace OOP_System
                     frm.ShowDialog();
 
                     frmAddDebt frmDebt = new frmAddDebt(this, null);
-                    frmDebt.DebtProductDetails(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString(), Double.Parse(dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString()), lblTransno.Text, int.Parse(dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString()), double.Parse(dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString()));
+                    //frmDebt.DebtProductDetails(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString(), Double.Parse(dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString()), lblTransno.Text, int.Parse(dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString()), double.Parse(dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString()));
 
                 }
 
