@@ -364,7 +364,7 @@ namespace OOP_System
 
         private void button16_Click_2(object sender, EventArgs e)
         {
-            frmAddCustomer frm = new frmAddCustomer(this, fpos);
+            frmAddCustomer frm = new frmAddCustomer(this, fpos, null);
             frm.ShowDialog();
         }
     }

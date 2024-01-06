@@ -125,18 +125,13 @@ namespace OOP_System
             }
         }
 
-        public void InsertCustomer()
-        {
-
-        }
-
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
                 cn.Open();
-                string query1 = "SELECT ID FROM CustomerInformation WHERE Name LIKE '" + comboBoxCustomer.Text + "'";
+                string query1 = "SELECT * FROM CustomerInformation WHERE Name LIKE '" + comboBoxCustomer.Text + "'";
                 cm = new SqlCommand(query1, cn);
                 dr = cm.ExecuteReader();
                 dr.Read();
@@ -153,8 +148,6 @@ namespace OOP_System
                 cm.Parameters.AddWithValue("@customerID", customerID);
                 cm.ExecuteNonQuery();
                 cn.Close();
-
-                //InsertCustomer();
                 frmSettle.DebtUpdateQuantity();
 
                 frmPOS.GetTransNo();

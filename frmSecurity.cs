@@ -87,7 +87,7 @@ namespace OOP_System
                 else if((found) && (role == "Cashier"))
                 {
                     MessageBox.Show("WELCOME " + name + " ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmPOS frm = new frmPOS(this, formSales);
+                    frmPOS frm = new frmPOS(formSales);
                     frm.lblUser.Text = name;
                     frm.ShowDialog();
                     this.Dispose();

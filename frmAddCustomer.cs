@@ -22,16 +22,18 @@ namespace OOP_System
 
         frmSettle frm;
         frmPOS frmPOS;
+        frmAddDebt frmAdd;
 
         int customerID;
 
-        public frmAddCustomer(frmSettle form, frmPOS formpos)
+        public frmAddCustomer(frmSettle form, frmPOS formpos, frmAddDebt formAddDebt)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
 
             frm = form;
             frmPOS = formpos;
+            frmAdd = formAddDebt;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -69,10 +71,15 @@ namespace OOP_System
 
                 cn.Close();
 
-                frmAddDebt frmDebt = new frmAddDebt(frmPOS, frm);
-                if(frmDebt != null)
+                //frmAddDebt frmDebt = new frmAddDebt(frmPOS, frm);
+                //if(frmDebt != null)
+                //{
+                //    frmDebt.LoadCustomer();
+                //}
+
+                if(frmAdd != null)
                 {
-                    frmDebt.LoadCustomer();
+                    frmAdd.LoadCustomer();
                 }
 
                 frm.DebtUpdateQuantity();

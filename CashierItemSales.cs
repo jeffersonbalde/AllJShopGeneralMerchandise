@@ -18,7 +18,7 @@ namespace OOP_System
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
 
-        frmSoldItems frm;
+        frmSoldItems frmS;
 
 
         public CashierItemSales(frmSoldItems form)
@@ -26,7 +26,7 @@ namespace OOP_System
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
 
-            frm = form;
+            frmS = form;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace OOP_System
 
             if (colName == "colCancel")
             {
-                frmCancelDetails f = new frmCancelDetails(frm);
+                frmCancelDetails f = new frmCancelDetails(frmS);
                 //f.txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 f.txtTransnoNo.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 f.txtPCode.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -117,6 +117,14 @@ namespace OOP_System
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             frmViewDebt frm = new frmViewDebt();
+
+            frmPOS frmp = new frmPOS(frmS);
+
+            frm.dt1.Enabled = false;
+            frm.dt2.Enabled = false;
+            frm.cboCashier.Enabled = false;
+            frm.cboCashier.Text = frmp.lblUser.Text;
+            frm.LoadCustomer();
             frm.ShowDialog();
         }
     }

@@ -25,22 +25,18 @@ namespace OOP_System
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr; 
         DBConnection dbcon = new DBConnection();
-
-        frmSecurity f;
         frmSoldItems frmSales;
 
         int qty;
         string userType = "";
         frmRecords frmrecords;
 
-        public frmPOS(frmSecurity frm, frmSoldItems form)
+        public frmPOS(frmSoldItems form)
         {
             InitializeComponent();
             lblDate.Text = DateTime.Now.ToLongDateString();
             cn = new SqlConnection(dbcon.MyConnection());
             this.KeyPreview = true;
-
-            f = frm;
             frmSales = form;
 
             NotifyCriticalItems();

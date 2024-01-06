@@ -349,7 +349,7 @@ namespace OOP_System
         {
             try
             {
-                frmPOS frm = new frmPOS(f, formSales);
+                frmPOS frm = new frmPOS(formSales);
 
                 cn.Open();
                 string query = "SELECT * FROM tblUser WHERE role LIKE 'System Administrator'";
