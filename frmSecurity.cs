@@ -20,6 +20,7 @@ namespace OOP_System
         SqlDataReader dr;
 
         frmSoldItems formSales;
+        frmAddDebt frmAdd;
         
         public frmSecurity()
         {
@@ -87,7 +88,7 @@ namespace OOP_System
                 else if((found) && (role == "Cashier"))
                 {
                     MessageBox.Show("WELCOME " + name + " ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmPOS frm = new frmPOS(formSales);
+                    frmPOS frm = new frmPOS(formSales, frmAdd);
                     frm.lblUser.Text = name;
                     frm.ShowDialog();
                     this.Dispose();

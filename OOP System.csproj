@@ -84,6 +84,12 @@
     <Compile Include="CashierItemSales.Designer.cs">
       <DependentUpon>CashierItemSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="CompletePayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompletePayment.Designer.cs">
+      <DependentUpon>CompletePayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomerDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +343,9 @@
     </Compile>
     <EmbeddedResource Include="CashierItemSales.resx">
       <DependentUpon>CashierItemSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompletePayment.resx">
+      <DependentUpon>CompletePayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerDetails.resx">
       <DependentUpon>CustomerDetails.cs</DependentUpon>

@@ -58,8 +58,8 @@
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtSale = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtChange = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,9 +68,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button17 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -523,6 +522,18 @@
             this.panel2.Size = new System.Drawing.Size(992, 131);
             this.panel2.TabIndex = 60;
             // 
+            // txtSale
+            // 
+            this.txtSale.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSale.Font = new System.Drawing.Font("Segoe UI Black", 40F, System.Drawing.FontStyle.Bold);
+            this.txtSale.ForeColor = System.Drawing.Color.White;
+            this.txtSale.Location = new System.Drawing.Point(380, 21);
+            this.txtSale.Name = "txtSale";
+            this.txtSale.Size = new System.Drawing.Size(597, 78);
+            this.txtSale.TabIndex = 1;
+            this.txtSale.Text = "0.00";
+            this.txtSale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -535,18 +546,6 @@
             this.label2.Size = new System.Drawing.Size(261, 89);
             this.label2.TabIndex = 0;
             this.label2.Text = "TOTAL";
-            // 
-            // txtSale
-            // 
-            this.txtSale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSale.Font = new System.Drawing.Font("Segoe UI Black", 40F, System.Drawing.FontStyle.Bold);
-            this.txtSale.ForeColor = System.Drawing.Color.White;
-            this.txtSale.Location = new System.Drawing.Point(380, 21);
-            this.txtSale.Name = "txtSale";
-            this.txtSale.Size = new System.Drawing.Size(597, 78);
-            this.txtSale.TabIndex = 1;
-            this.txtSale.Text = "0.00";
-            this.txtSale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel3
             // 
@@ -646,17 +645,6 @@
             this.panel1.Size = new System.Drawing.Size(1502, 48);
             this.panel1.TabIndex = 66;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(171)))), ((int)(((byte)(227)))));
-            this.label1.Location = new System.Drawing.Point(10, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 38);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "PAYMENT";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
@@ -673,22 +661,16 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // button16
+            // label1
             // 
-            this.button16.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button16.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button16.FlatAppearance.BorderSize = 0;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button16.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
-            this.button16.ForeColor = System.Drawing.Color.White;
-            this.button16.Location = new System.Drawing.Point(311, 710);
-            this.button16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(288, 61);
-            this.button16.TabIndex = 67;
-            this.button16.Text = "F2 - ADD CUSTOMER";
-            this.button16.UseVisualStyleBackColor = false;
-            this.button16.Click += new System.EventHandler(this.button16_Click_2);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(171)))), ((int)(((byte)(227)))));
+            this.label1.Location = new System.Drawing.Point(10, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 38);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "PAYMENT";
             // 
             // frmSettle
             // 
@@ -697,7 +679,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1502, 777);
             this.ControlBox = false;
-            this.Controls.Add(this.button16);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.panel4);
@@ -790,6 +771,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Button button16;
     }
 }

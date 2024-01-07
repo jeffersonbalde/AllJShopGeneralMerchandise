@@ -29,15 +29,19 @@ namespace OOP_System
 
         int qty;
         string userType = "";
-        frmRecords frmrecords;
 
-        public frmPOS(frmSoldItems form)
+        frmRecords frmrecords;
+        frmAddDebt frmAdd;
+        frmAddCustomer frmAddC;
+
+        public frmPOS(frmSoldItems form, frmAddDebt frm)
         {
             InitializeComponent();
             lblDate.Text = DateTime.Now.ToLongDateString();
             cn = new SqlConnection(dbcon.MyConnection());
             this.KeyPreview = true;
             frmSales = form;
+            frmAdd = frm;
 
             NotifyCriticalItems();
         }
@@ -527,7 +531,7 @@ namespace OOP_System
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            frmSettle frm = new frmSettle(this);
+            frmSettle frm = new frmSettle(this, frmAdd);
             //frm.txtSale.Text = lblDisplayTotal.Text;
             frm.lblDiscount.Text = lblDiscount.Text;
             frm.txtSale.Text = GetTotalItem().ToString("#,##0.00");
@@ -767,7 +771,7 @@ namespace OOP_System
                     frm.ProductDetails(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString(), Double.Parse(dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString()), lblTransno.Text, int.Parse(dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString()));
                     frm.ShowDialog();
 
-                    frmAddDebt frmDebt = new frmAddDebt(this, null);
+                    frmAddDebt frmDebt = new frmAddDebt(this, null, frmAddC);
                     //frmDebt.DebtProductDetails(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString(), Double.Parse(dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString()), lblTransno.Text, int.Parse(dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString()), double.Parse(dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString()));
 
                 }

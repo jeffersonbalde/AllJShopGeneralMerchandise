@@ -20,11 +20,14 @@ namespace OOP_System
         SqlDataReader dr;
 
         frmPOS fpos;
+        frmAddDebt frmAdd;
+        frmAddCustomer frmAddC;
 
-        public frmSettle(frmPOS fp)
+        public frmSettle(frmPOS fp, frmAddDebt frm)
         {   
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+            frmAdd = frm;
             fpos = fp;
             this.KeyPreview = true;
         }
@@ -357,15 +360,15 @@ namespace OOP_System
 
         private void button17_Click(object sender, EventArgs e)
         {
-            frmAddDebt frm = new frmAddDebt(fpos, this);
+            frmAddDebt frm = new frmAddDebt(fpos, this, frmAddC);
             frm.LoadCustomer();
             frm.ShowDialog();
         }
 
         private void button16_Click_2(object sender, EventArgs e)
         {
-            frmAddCustomer frm = new frmAddCustomer(this, fpos, null);
-            frm.ShowDialog();
+            //frmAddCustomer frm = new frmAddCustomer(this, fpos, frmAdd);
+            //frm.ShowDialog();
         }
     }
 }

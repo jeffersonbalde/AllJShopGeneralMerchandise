@@ -22,6 +22,7 @@ namespace OOP_System
         frmRecords frmrecords;
         frmSecurity f;
         frmSoldItems formSales;
+        frmAddDebt frmAdd;
 
 
         DBConnection dbcon = new DBConnection();
@@ -349,7 +350,7 @@ namespace OOP_System
         {
             try
             {
-                frmPOS frm = new frmPOS(formSales);
+                frmPOS frm = new frmPOS(formSales, frmAdd);
 
                 cn.Open();
                 string query = "SELECT * FROM tblUser WHERE role LIKE 'System Administrator'";

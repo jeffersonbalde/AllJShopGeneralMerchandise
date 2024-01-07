@@ -20,19 +20,15 @@ namespace OOP_System
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
 
-        frmSettle frm;
-        frmPOS frmPOS;
         frmAddDebt frmAdd;
 
         int customerID;
 
-        public frmAddCustomer(frmSettle form, frmPOS formpos, frmAddDebt formAddDebt)
+        public frmAddCustomer(frmAddDebt formAddDebt)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
 
-            frm = form;
-            frmPOS = formpos;
             frmAdd = formAddDebt;
         }
 
@@ -71,29 +67,18 @@ namespace OOP_System
 
                 cn.Close();
 
-                //frmAddDebt frmDebt = new frmAddDebt(frmPOS, frm);
-                //if(frmDebt != null)
-                //{
-                //    frmDebt.LoadCustomer();
-                //}
+                frmAdd.LoadCustomer();
 
-                if(frmAdd != null)
-                {
-                    frmAdd.LoadCustomer();
-                }
-
-                frm.DebtUpdateQuantity();
-                frmPOS.GetTransNo();
-                frmPOS.LoadCart();
-                frmPOS.LoadRecords();
-
+                this.Dispose();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 cn.Close();
                 MessageBox.Show(ex.Message);
             }
         }
+
+
 
         //public void InsertCustomerDebt()
         //{

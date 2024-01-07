@@ -24,6 +24,7 @@ namespace OOP_System
 
         frmPOS frmPOS;
         frmSettle frmSettle;
+        frmAddCustomer frmAddC;
 
         private String pcode;
         private double price;
@@ -31,13 +32,14 @@ namespace OOP_System
         private int qty;
         private double total;
 
-        public frmAddDebt(frmPOS form, frmSettle form2)
+        public frmAddDebt(frmPOS form, frmSettle form2, frmAddCustomer frm)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
 
             frmPOS = form;
             frmSettle = form2;
+            frmAddC = frm;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -131,36 +133,46 @@ namespace OOP_System
             try
             {
                 cn.Open();
-                string query1 = "SELECT * FROM CustomerInformation WHERE Name LIKE '" + comboBoxCustomer.Text + "'";
+                string query1 = "SELECT ID FROM CustomerInformation WHERE Name = @CustomerName";
                 cm = new SqlCommand(query1, cn);
+                cm.Parameters.AddWithValue("@CustomerName", comboBoxCustomer.Text);
                 dr = cm.ExecuteReader();
-                dr.Read();
-                if (dr.HasRows)
+
+                if (dr.Read())
                 {
-                    customerID = int.Parse(dr["ID"].ToString());
+                    customerID = Convert.ToInt32(dr["ID"]);
                 }
+
                 dr.Close();
                 cn.Close();
 
                 cn.Open();
-                string query = "UPDATE tblCart SET customerID = @customerID WHERE transno LIKE '" + frmPOS.lblTransno.Text + "'";
+                string query = "UPDATE tblCart SET customerID = @customerID WHERE transno = @Transno";
                 cm = new SqlCommand(query, cn);
                 cm.Parameters.AddWithValue("@customerID", customerID);
+                cm.Parameters.AddWithValue("@Transno", frmPOS.lblTransno.Text);
                 cm.ExecuteNonQuery();
                 cn.Close();
-                frmSettle.DebtUpdateQuantity();
 
+                frmSettle.DebtUpdateQuantity();
                 frmPOS.GetTransNo();
                 frmPOS.LoadCart();
                 frmPOS.LoadRecords();
 
                 MessageBox.Show("Debt saved to " + comboBoxCustomer.Text + ".", "ADD DEBT", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
             }
             catch (Exception ex)
             {
                 cn.Close();
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            frmAddCustomer frm = new frmAddCustomer(this);
+            frm.ShowDialog();
         }
     }
 }

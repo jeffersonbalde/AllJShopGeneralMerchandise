@@ -39,13 +39,26 @@ namespace OOP_System
         {
             try
             {
-
                 cn.Open();
                 int i = 0;
                 dataGridView1.Rows.Clear();
-                string query = "SELECT p.pdesc, c.transno, c.price, c.qty, c.disc, c.total, c.sdate, d.Name FROM tblCart AS c INNER JOIN tblProduct AS p ON p.pcode = c.pcode INNER JOIN CustomerInformation AS d ON c.customerID = D.ID WHERE c.status = 'Debt' AND d.Name LIKE '" + txtSearchProduct.Text + "%' ORDER BY d.Name";
 
-                cm = new SqlCommand(query, cn);
+                // Initialize SqlCommand with an initial query
+                cm = new SqlCommand("SELECT p.pdesc, c.transno, c.price, c.qty, c.disc, c.total, c.sdate, d.Name FROM tblCart AS c INNER JOIN tblProduct AS p ON p.pcode = c.pcode INNER JOIN CustomerInformation AS d ON c.customerID = D.ID WHERE c.status = 'Debt' ORDER BY d.Name", cn);
+
+                if (cboCashier.Text == "All")
+                {
+                    // Modify the query if needed
+                    cm.CommandText = "SELECT p.pdesc, c.transno, c.price, c.qty, c.disc, c.total, c.sdate, d.Name FROM tblCart AS c INNER JOIN tblProduct AS p ON p.pcode = c.pcode INNER JOIN CustomerInformation AS d ON c.customerID = D.ID WHERE c.status = 'Debt' ORDER BY d.Name";
+                }
+
+                if (cboCashier.Text != "All" && cboCashier.SelectedItem != null)
+                {
+                    // Modify the query if needed
+                    cm.CommandText = "SELECT p.pdesc, c.transno, c.price, c.qty, c.disc, c.total, c.sdate, d.Name FROM tblCart AS c INNER JOIN tblProduct AS p ON p.pcode = c.pcode INNER JOIN CustomerInformation AS d ON c.customerID = D.ID WHERE c.status = 'Debt' AND d.Name LIKE '" + cboCashier.SelectedItem.ToString() + "' ORDER BY d.Name";
+                }
+
+                // Now that cm is initialized, execute the query
                 dr = cm.ExecuteReader();
 
                 while (dr.Read())
@@ -56,13 +69,15 @@ namespace OOP_System
                 dr.Close();
                 cn.Close();
 
+                GetTotalCustomerDebt("SELECT SUM(c.total) AS total, d.Name FROM tblCart AS c INNER JOIN CustomerInformation AS d ON c.customerID = d.ID WHERE d.Name LIKE '" + cboCashier.Text + "' GROUP BY d.Name");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 cn.Close();
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
@@ -78,7 +93,120 @@ namespace OOP_System
 
         private void frmViewDebt_Load(object sender, EventArgs e)
         {
-            this.ActiveControl = txtSearchProduct;
+
+        }
+
+        public void DefaultCustomerDebtTotal()
+        {
+            try
+            {
+                cn.Open();
+
+                string query = "SELECT SUM(total) AS total FROM tblCart WHERE status LIKE 'Debt';";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    labelTotalItem.Text = double.Parse(dr["total"].ToString()).ToString("#,##0.00");
+                }
+                else
+                {
+                    labelTotalItem.Text = "0.00";
+                }
+                dr.Close();
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void GetTotalCustomerDebt(string SQLquery)
+        {
+            try
+            {
+                cn.Open();
+                if(cboCashier.SelectedItem != null)
+                {
+
+                    string query = SQLquery;
+                    cm = new SqlCommand(query, cn);
+                    dr = cm.ExecuteReader();
+
+                    if (cboCashier.Text == "All")
+                    {
+                        cm.CommandText = "SELECT SUM(total) AS total FROM tblCart WHERE status LIKE 'Debt';";
+                        dr.Close();
+                        dr = cm.ExecuteReader();
+                    }
+
+                    if (dr.Read())
+                    {
+                        labelTotalItem.Text = double.Parse(dr["total"].ToString()).ToString("#,##0.00");
+                    }
+                    else
+                    {
+                        labelTotalItem.Text = "0.00";
+                    }
+
+                    dr.Close();
+
+                }
+                cn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void labelTotalItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboCashier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetTotalCustomerDebt("SELECT SUM(c.total) AS total, d.Name FROM tblCart AS c INNER JOIN CustomerInformation AS d ON c.customerID = d.ID WHERE d.Name LIKE '" + cboCashier.Text + "' GROUP BY d.Name");
+            LoadCustomer();
+        }
+
+        private void cboCashier_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        public void LoadCustomerName()
+        {
+            try
+            {
+                cboCashier.Items.Clear();
+                cboCashier.Items.Add("All");
+                cn.Open();
+                string query = "SELECT Name FROM CustomerInformation";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    cboCashier.Items.Add(dr["Name"].ToString());
+                }
+                dr.Close();
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
 
         }
     }

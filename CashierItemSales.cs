@@ -19,6 +19,7 @@ namespace OOP_System
         SqlDataReader dr;
 
         frmSoldItems frmS;
+        frmAddDebt frmAdd;
 
 
         public CashierItemSales(frmSoldItems form)
@@ -118,13 +119,14 @@ namespace OOP_System
         {
             frmViewDebt frm = new frmViewDebt();
 
-            frmPOS frmp = new frmPOS(frmS);
-
-            frm.dt1.Enabled = false;
-            frm.dt2.Enabled = false;
-            frm.cboCashier.Enabled = false;
-            frm.cboCashier.Text = frmp.lblUser.Text;
+            //frm.dt1.Enabled = false;
+            //frm.dt2.Enabled = false;
+            //frm.cboCashier.Enabled = false;
+            //frm.cboCashier.Text = frmp.lblUser.Text;
             frm.LoadCustomer();
+            frm.DefaultCustomerDebtTotal();
+            frm.cboCashier.Text = "All";
+            frm.LoadCustomerName();
             frm.ShowDialog();
         }
     }
