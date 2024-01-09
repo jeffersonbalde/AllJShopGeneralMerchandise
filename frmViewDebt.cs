@@ -69,7 +69,7 @@ namespace OOP_System
                 dr.Close();
                 cn.Close();
 
-                GetTotalCustomerDebt("SELECT SUM(c.total) AS total, d.Name FROM tblCart AS c INNER JOIN CustomerInformation AS d ON c.customerID = d.ID WHERE d.Name LIKE '" + cboCashier.Text + "' GROUP BY d.Name");
+                GetTotalCustomerDebt("SELECT ISNULL(SUM(c.total),0) AS total, d.Name FROM tblCart AS c INNER JOIN CustomerInformation AS d ON c.customerID = d.ID WHERE d.Name LIKE '" + cboCashier.Text + "' AND status = 'Debt' GROUP BY d.Name");
             }
             catch (Exception ex)
             {
@@ -102,7 +102,7 @@ namespace OOP_System
             {
                 cn.Open();
 
-                string query = "SELECT SUM(total) AS total FROM tblCart WHERE status LIKE 'Debt';";
+                string query = "SELECT ISNULL(SUM(total),0.00) AS total FROM tblCart WHERE status LIKE 'Debt';";
                 cm = new SqlCommand(query, cn);
                 dr = cm.ExecuteReader();
 
@@ -138,7 +138,7 @@ namespace OOP_System
 
                     if (cboCashier.Text == "All")
                     {
-                        cm.CommandText = "SELECT SUM(total) AS total FROM tblCart WHERE status LIKE 'Debt';";
+                        cm.CommandText = "SELECT ISNULL(SUM(total), 0.00) AS total FROM tblCart WHERE status LIKE 'Debt';";
                         dr.Close();
                         dr = cm.ExecuteReader();
                     }
@@ -172,7 +172,7 @@ namespace OOP_System
 
         private void cboCashier_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GetTotalCustomerDebt("SELECT SUM(c.total) AS total, d.Name FROM tblCart AS c INNER JOIN CustomerInformation AS d ON c.customerID = d.ID WHERE d.Name LIKE '" + cboCashier.Text + "' GROUP BY d.Name");
+            GetTotalCustomerDebt("SELECT ISNULL(SUM(c.total),0.00) AS total, d.Name FROM tblCart AS c INNER JOIN CustomerInformation AS d ON c.customerID = d.ID WHERE d.Name LIKE '" + cboCashier.Text + "' AND status = 'Debt' GROUP BY d.Name");
             LoadCustomer();
         }
 

@@ -78,6 +78,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAddCustomer.Designer.cs">
+      <DependentUpon>AdminAddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminReturnForm.Designer.cs">
+      <DependentUpon>AdminReturnForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CashierItemSales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +315,12 @@
     <Compile Include="LowStocks.Designer.cs">
       <DependentUpon>LowStocks.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageCustomer.Designer.cs">
+      <DependentUpon>ManageCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -341,6 +359,18 @@
     <Compile Include="TopItems.Designer.cs">
       <DependentUpon>TopItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateCustomer.Designer.cs">
+      <DependentUpon>UpdateCustomer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminAddCustomer.resx">
+      <DependentUpon>AdminAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminReturnForm.resx">
+      <DependentUpon>AdminReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CashierItemSales.resx">
       <DependentUpon>CashierItemSales.cs</DependentUpon>
     </EmbeddedResource>
@@ -449,6 +479,9 @@
     <EmbeddedResource Include="LowStocks.resx">
       <DependentUpon>LowStocks.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageCustomer.resx">
+      <DependentUpon>ManageCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -475,6 +508,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TopItems.resx">
       <DependentUpon>TopItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateCustomer.resx">
+      <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>

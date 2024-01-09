@@ -208,7 +208,7 @@ namespace OOP_System
         private void btnSalesHistory_Click(object sender, EventArgs e)
         {
             panel4.Controls.Clear();
-            frmSoldItems frm = new frmSoldItems(frmrecords);
+            frmSoldItems frm = new frmSoldItems(frmrecords, this);
             frm.suser = lblName.Text;
             frm.cboCashier.Text = "All";
             frm.TopLevel = false;
@@ -283,12 +283,14 @@ namespace OOP_System
             else if (e.KeyCode == Keys.F2)
             {
                 //btnStockIn_Click(sender, e);
-                button6_Click(sender, e);
+                // button6_Click(sender, e);
+                btnSalesHistory_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F3)
             {
                 //button2_Click_1(sender, e);
-                btnSalesHistory_Click(sender, e);
+               // btnSalesHistory_Click(sender, e);
+               button4_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F4)
             {
@@ -391,6 +393,17 @@ namespace OOP_System
             panel4.Controls.Add(rt);
             rt.BringToFront();
             rt.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel4.Controls.Clear();
+            ManageCustomer frm = new ManageCustomer();
+            frm.LoadCustomerName();
+            frm.TopLevel = false;
+            panel4.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
         }
     }
 }

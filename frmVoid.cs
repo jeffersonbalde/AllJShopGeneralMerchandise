@@ -88,8 +88,9 @@ namespace OOP_System
                 UpdateData("UPDATE tblcart SET qty = qty - " + int.Parse(f.txtCancelQty.Text) + " WHERE pcode LIKE '" + f.txtPCode.Text + "'");
 
 
-                MessageBox.Show("Void Successfully", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Return Successfully", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
+
                 f.RefreshList();
                 f.Dispose();
 

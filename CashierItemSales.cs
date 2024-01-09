@@ -99,7 +99,7 @@ namespace OOP_System
 
             if (colName == "colCancel")
             {
-                frmCancelDetails f = new frmCancelDetails(frmS);
+                frmCancelDetails f = new frmCancelDetails(this);
                 //f.txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 f.txtTransnoNo.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 f.txtPCode.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -126,6 +126,20 @@ namespace OOP_System
             frm.LoadCustomer();
             frm.DefaultCustomerDebtTotal();
             frm.cboCashier.Text = "All";
+            frm.LoadCustomerName();
+            frm.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CustomerDetails frm = new CustomerDetails();
+            frm.LoadCustomerInformation();
+            frm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CompletePayment frm = new CompletePayment(this);
             frm.LoadCustomerName();
             frm.ShowDialog();
         }

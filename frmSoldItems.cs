@@ -22,8 +22,9 @@ namespace OOP_System
         public string suser;
 
         frmRecords frmrecords;
+        Form1 form1;
 
-        public frmSoldItems(frmRecords frm)
+        public frmSoldItems(frmRecords frm, Form1 form)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
@@ -35,6 +36,7 @@ namespace OOP_System
             this.KeyPreview = true;
 
             frmrecords = frm;
+            form1 = form;
         }
 
         public void LoadCashier()
@@ -105,8 +107,9 @@ namespace OOP_System
 
             if(colName == "colCancel")
             {
-                frmCancelDetails f = new frmCancelDetails(this);
+                //frmCancelDetails f = new frmCancelDetails(null);
                 //f.txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                AdminReturnForm f = new AdminReturnForm(this, form1);
                 f.txtTransnoNo.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 f.txtPCode.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 f.txtDescription.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -115,8 +118,8 @@ namespace OOP_System
                 f.txtDiscount.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
                 f.txtTotal.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
 
-                f.txtCancel.Text = cboCashier.Text;
-                    
+                f.txtCancel.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+
                 f.ShowDialog(); 
             }
         }

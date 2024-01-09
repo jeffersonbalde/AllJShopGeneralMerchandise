@@ -12,9 +12,9 @@ namespace OOP_System
 {
     public partial class frmCancelDetails : Form
     {
-        frmSoldItems f;
+        CashierItemSales f;
 
-        public frmCancelDetails(frmSoldItems frm)
+        public frmCancelDetails(CashierItemSales frm)
         {
             InitializeComponent();
             f = frm;

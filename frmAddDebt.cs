@@ -132,6 +132,13 @@ namespace OOP_System
         {
             try
             {
+
+                if (comboBoxCustomer.Text == "")
+                {
+                    MessageBox.Show("Please select customer in the combobox", "COMPLETE PAYMENT", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 cn.Open();
                 string query1 = "SELECT ID FROM CustomerInformation WHERE Name = @CustomerName";
                 cm = new SqlCommand(query1, cn);
@@ -160,6 +167,7 @@ namespace OOP_System
                 frmPOS.LoadRecords();
 
                 MessageBox.Show("Debt saved to " + comboBoxCustomer.Text + ".", "ADD DEBT", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmSettle.Dispose();
                 this.Dispose();
             }
             catch (Exception ex)
@@ -173,6 +181,21 @@ namespace OOP_System
         {
             frmAddCustomer frm = new frmAddCustomer(this);
             frm.ShowDialog();
+        }
+
+        private void comboBoxCustomer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxCustomer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void frmAddDebt_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = comboBoxCustomer;
         }
     }
 }
