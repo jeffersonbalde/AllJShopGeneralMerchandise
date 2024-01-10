@@ -30,6 +30,8 @@ namespace OOP_System
             frmAdd = frm;
             fpos = fp;
             this.KeyPreview = true;
+
+            this.KeyPreview = true;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -127,7 +129,7 @@ namespace OOP_System
                 cn.Close();
 
                 cn.Open();
-                string query1 = "UPDATE tblcart SET status = 'Sold' WHERE id = '" + fpos.dataGridView1.Rows[i].Cells[1].Value.ToString() + "'";
+                string query1 = "UPDATE tblcart SET status = 'Sold', MOP = 'CASH' WHERE id = '" + fpos.dataGridView1.Rows[i].Cells[1].Value.ToString() + "'";
                 cm = new SqlCommand(query1, cn);
                 cm.ExecuteNonQuery();
                 cn.Close();
@@ -152,6 +154,24 @@ namespace OOP_System
             }
         }
 
+        public void GCASHUpdateQuantity()
+        {
+            for (int i = 0; i < fpos.dataGridView1.Rows.Count; i++)
+            {
+                cn.Open();
+                string query = "UPDATE tblproduct SET qty = qty - " + int.Parse(fpos.dataGridView1.Rows[i].Cells[5].Value.ToString()) + " WHERE pcode = '" + fpos.dataGridView1.Rows[i].Cells[2].Value.ToString() + "'";
+                cm = new SqlCommand(query, cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+
+                cn.Open();
+                string query1 = "UPDATE tblcart SET MOP = 'GCASH', status = 'Sold' WHERE id = '" + fpos.dataGridView1.Rows[i].Cells[1].Value.ToString() + "'";
+                cm = new SqlCommand(query1, cn);
+                cm.ExecuteNonQuery();
+                cn.Close();
+            }
+        }
+
         private void btnEnter_Click(object sender, EventArgs e)
         {
             try
@@ -163,7 +183,14 @@ namespace OOP_System
                     return;
                 }else
                 {
-                    UpdateQuantity();
+                    if(comboBoxCategory.Text == "CASH")
+                    {
+                        UpdateQuantity();
+                    }
+                    else
+                    {
+                        GCASHUpdateQuantity();
+                    }
 
                     frmReceipt frm = new frmReceipt(fpos);
                     frm.LoadReport(txtCash.Text, txtChange.Text);
@@ -207,7 +234,12 @@ namespace OOP_System
             else if(e.KeyCode == Keys.Enter)
             {
                 btnEnter_Click(sender, e);
+            }else if(e.KeyCode == Keys.F1)
+            {
+                button17_Click(sender, e);
             }
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)

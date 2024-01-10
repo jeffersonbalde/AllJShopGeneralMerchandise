@@ -31,6 +31,8 @@ namespace OOP_System
             frmpl = frmPL;
 
             f.GetDashboard();
+
+            this.KeyPreview = true;
         }
 
         //private void button1_Click(object sender, EventArgs e)
@@ -47,7 +49,7 @@ namespace OOP_System
                 dataGridView7.Rows.Clear();
                 cn.Open();
                 string query = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty FROM tblProduct as p INNER JOIN tblBrand AS b ON b.id = p.bid INNER JOIN tblCategory AS c ON c.id = p.cid WHERE p.pdesc LIKE '" + txtSearch.Text + "%' ORDER BY p.pdesc";
-                string query1 = "SELECT pcode, barcode, pdesc, price, qty FROM tblProduct WHERE pdesc LIKE '" + txtSearch.Text + "%' ORDER BY pdesc";
+                string query1 = "SELECT pcode, barcode, pdesc, price, qty FROM tblProduct WHERE pdesc LIKE '%" + txtSearch.Text + "%' ORDER BY pdesc";
                 cm = new SqlCommand(query1, cn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
@@ -155,7 +157,11 @@ namespace OOP_System
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Dispose(true);
+                button1_Click_1(sender, e);
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                btnSave_Click(sender, e);
             }
         }
 

@@ -207,9 +207,29 @@ namespace OOP_System
 
         private void frmProductList_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.F1)
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+            else if (e.KeyCode == Keys.F1)
             {
                 btnAddItem_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F2)
+            {
+                ButtonMCategory_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F3)
+            {
+                ButtonSItem_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F4)
+            {
+                ButtonSAdjustment_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F5)
+            {
+                button1_Click_2(sender, e);
             }
         }
 
@@ -320,6 +340,16 @@ namespace OOP_System
             LowStocks frm = new LowStocks();
             frm.GetLowStocks();
             frm.ShowDialog();
+        }
+
+        private void labelSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFilterByCategory_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

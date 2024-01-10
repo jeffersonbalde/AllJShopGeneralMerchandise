@@ -75,7 +75,7 @@ namespace OOP_System
                 cn.Close();
                 dr.Close();
 
-                if ((found) && (role == "System Administrator"))
+                if ((found) && (role == "Admin"))
                 {
                     MessageBox.Show("WELCOME " + name + " ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Form1 frm = new Form1();
@@ -137,6 +137,14 @@ namespace OOP_System
                 btnLogin_Click(sender, e);
             }
             else if(e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to close the application? ", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }

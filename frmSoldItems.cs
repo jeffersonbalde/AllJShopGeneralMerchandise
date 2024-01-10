@@ -42,7 +42,7 @@ namespace OOP_System
         public void LoadCashier()
         {
             cboCashier.Items.Clear();
-            cboCashier.Items.Add("All");
+            cboCashier.Items.Add("");
             cn.Open();  
             string query = "SELECT name from tblUser WHERE role = 'Cashier'";
             string query1 = "SELECT name from tblUser";
@@ -64,18 +64,52 @@ namespace OOP_System
                 double _total = 0;
                 dataGridView1.Rows.Clear();
                 cn.Open();
-                if(cboCashier.Text == "All")
+
+                //if(cboCashier.Text == "" && comboBoxCategory.Text == "")
+                //{
+                //    string query2 = "SELECT c.transno, c.pcode, p.pdesc, c.price, SUM(c.qty) AS qty, SUM(c.disc) AS disc, SUM(c.total) AS total, c.cashier, c.MOP FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' GROUP BY c.cashier, c.pcode, p.pdesc, c.price, c.transno, c.MOP ORDER BY c.transno DESC";
+                //    //string query1 = "SELECT c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, SUM(c.total) AS total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' GROUP BY c.transno ORDER BY total DESC";
+                //    cm = new SqlCommand(query2, cn);
+                //}else
+                //{
+                    
+                //    string query = "SELECT c.transno, c.pcode, p.pdesc, c.price, SUM(c.qty) AS qty, SUM(c.disc) AS disc, SUM(c.total) AS total, c.cashier, c.MOP FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + cboCashier.Text + "' AND MOP LIKE '" + comboBoxCategory.Text + "' GROUP BY c.cashier, c.pcode, p.pdesc, c.price, c.transno, c.MOP ORDER BY c.transno DESC";
+                //    //string query = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + cboCashier.Text + "'";
+                //    cm = new SqlCommand(query, cn);
+                //}
+
+                if(comboBoxCategory.Text == "")
                 {
-                    string query2 = "SELECT c.transno, c.pcode, p.pdesc, c.price, SUM(c.qty) AS qty, SUM(c.disc) AS disc, SUM(c.total) AS total, c.cashier FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' GROUP BY c.cashier, c.pcode, p.pdesc, c.price, c.transno ORDER BY c.transno DESC";
+                    string query2 = "SELECT c.transno, c.pcode, p.pdesc, c.price, SUM(c.qty) AS qty, SUM(c.disc) AS disc, SUM(c.total) AS total, c.cashier, c.MOP FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' GROUP BY c.cashier, c.pcode, p.pdesc, c.price, c.transno, c.MOP ORDER BY c.transno DESC";
                     //string query1 = "SELECT c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, SUM(c.total) AS total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' GROUP BY c.transno ORDER BY total DESC";
                     cm = new SqlCommand(query2, cn);
-                }else
+                }
+
+                if (comboBoxCategory.SelectedIndex != -1 && comboBoxCategory.Text != "")
                 {
-                    
-                    string query = "SELECT c.transno, c.pcode, p.pdesc, c.price, SUM(c.qty) AS qty, SUM(c.disc) AS disc, SUM(c.total) AS total, c.cashier FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + cboCashier.Text + "' GROUP BY c.cashier, c.pcode, p.pdesc, c.price, c.transno ORDER BY c.transno DESC";
+                    string query = "SELECT c.transno, c.pcode, p.pdesc, c.price, SUM(c.qty) AS qty, SUM(c.disc) AS disc, SUM(c.total) AS total, c.cashier, c.MOP FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND MOP LIKE '" + comboBoxCategory.Text + "' GROUP BY c.cashier, c.pcode, p.pdesc, c.price, c.transno, c.MOP ORDER BY c.transno DESC";
                     //string query = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + cboCashier.Text + "'";
                     cm = new SqlCommand(query, cn);
                 }
+
+                if (cboCashier.Text != "")
+                {
+
+                    if (comboBoxCategory.SelectedIndex != -1 && comboBoxCategory.Text != "")
+                    {
+                        string query = "SELECT c.transno, c.pcode, p.pdesc, c.price, SUM(c.qty) AS qty, SUM(c.disc) AS disc, SUM(c.total) AS total, c.cashier, c.MOP FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + cboCashier.Text + "' AND MOP LIKE '" + comboBoxCategory.Text + "' GROUP BY c.cashier, c.pcode, p.pdesc, c.price, c.transno, c.MOP ORDER BY c.transno DESC";
+                        //string query = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + cboCashier.Text + "'";
+                        cm = new SqlCommand(query, cn);
+                    }
+                    else
+                    {
+                        string query = "SELECT c.transno, c.pcode, p.pdesc, c.price, SUM(c.qty) AS qty, SUM(c.disc) AS disc, SUM(c.total) AS total, c.cashier, c.MOP FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + cboCashier.Text + "' GROUP BY c.cashier, c.pcode, p.pdesc, c.price, c.transno, c.MOP ORDER BY c.transno DESC";
+                        //string query = "SELECT c.id, c.transno, c.pcode, p.pdesc, c.price, c.qty, c.disc, c.total FROM tblCart as c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' AND cashier LIKE '" + cboCashier.Text + "'";
+                        cm = new SqlCommand(query, cn);
+                    }
+                }
+
+
                 dr = cm.ExecuteReader();
 
                 while (dr.Read())
@@ -83,7 +117,7 @@ namespace OOP_System
                     i += 1;
                     _total += double.Parse(dr["total"].ToString());
                     //dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString());
-                    dataGridView1.Rows.Add(i, dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString(), dr["cashier"].ToString());
+                    dataGridView1.Rows.Add(i, dr["transno"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), dr["total"].ToString(), dr["cashier"].ToString(), dr["MOP"].ToString());
 
                 }
                 dr.Close();
@@ -208,13 +242,25 @@ namespace OOP_System
 
         private void frmSoldItems_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if(e.KeyCode == Keys.F1)
             {
-                btnPrint_Click(sender, e);
+                btnAddItem_Click(sender, e);
             }
             else if (e.KeyCode == Keys.Escape)
             {
-                this.Dispose();
+                buttonClose_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F2)
+            {
+                ButtonMCategory_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F3)
+            {
+                button2_Click_2(sender, e);
+            }
+            else if (e.KeyCode == Keys.F4)
+            {
+                button1_Click_2(sender, e);
             }
         }
 
@@ -232,7 +278,7 @@ namespace OOP_System
         {
             frmChart frm = new frmChart(frmrecords);
             frm.lblTitle.Text = "ITEM SALES (" + dt1.Value.ToShortDateString() + " -  " + dt2.Value.ToShortDateString() + ")";
-            if(cboCashier.Text == "All")
+            if(cboCashier.Text == "")
             {
                 frm.LoadChartItemSales("SELECT p.pdesc, SUM(c.total) AS total FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' GROUP BY p.pdesc ORDER BY total DESC");
             }
@@ -246,7 +292,7 @@ namespace OOP_System
         private void button2_Click_2(object sender, EventArgs e)
         {
             frmInventoryReport frm = new frmInventoryReport();
-            if(cboCashier.Text == "All")
+            if(cboCashier.Text == "")
             {
                 frm.LoadSoldItems("SELECT c.pcode, p.pdesc, c.price, SUM(c.qty) AS tot_qty, SUM(c.disc) AS tot_disc, SUM(c.total) AS total FROM tblcart AS c INNER JOIN tblProduct as p ON c.pcode = p.pcode WHERE status LIKE 'Sold' AND sdate BETWEEN '" + dt1.Value.ToString("yyyy-MM-dd") + "' AND '" + dt2.Value.ToString("yyyy-MM-dd") + "' GROUP BY c.pcode, p.pdesc, c.price", "From: " + dt1.Value.ToString("yyyy-MM-dd") + " To: " + dt2.Value.ToString("yyyy-MM-dd"), cboCashier.Text);
             }
@@ -269,6 +315,16 @@ namespace OOP_System
             frmReturnItems frm = new frmReturnItems();
             frm.VoidItems();
             frm.ShowDialog();
+        }
+
+        private void lblFilterByCategory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadRecord();
         }
     }
 }

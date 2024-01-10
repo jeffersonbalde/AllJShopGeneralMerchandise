@@ -23,6 +23,8 @@ namespace OOP_System
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+
+            this.KeyPreview = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,6 +69,14 @@ namespace OOP_System
         private void txtSearchProduct_TextChanged(object sender, EventArgs e)
         {
             LoadCustomerInformation();
+        }
+
+        private void CustomerDetails_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
         }
     }
 }

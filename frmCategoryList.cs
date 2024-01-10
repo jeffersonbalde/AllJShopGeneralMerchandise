@@ -27,6 +27,8 @@ namespace OOP_System
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
             frmpl = frm;
+
+            this.KeyPreview = true;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -118,7 +120,7 @@ namespace OOP_System
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Dispose();
+                button2_Click_1(sender, e);
             }
             else if (e.KeyCode == Keys.F1)
             {

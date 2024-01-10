@@ -30,6 +30,8 @@ namespace OOP_System
             cn = new SqlConnection(dbcon.MyConnection());
 
             frmAdd = formAddDebt;
+
+            this.KeyPreview = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -159,6 +161,18 @@ namespace OOP_System
             {
                 e.Handled = true;
             }   
+        }
+
+        private void frmAddCustomer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                btnEnter_Click(sender, e);
+            }
         }
     }
 }

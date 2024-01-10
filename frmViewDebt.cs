@@ -23,6 +23,8 @@ namespace OOP_System
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+
+            this.KeyPreview = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -208,6 +210,14 @@ namespace OOP_System
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmViewDebt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
         }
     }
 }

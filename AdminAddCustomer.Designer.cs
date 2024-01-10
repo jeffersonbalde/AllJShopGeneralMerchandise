@@ -45,7 +45,8 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
-            this.txtName.Location = new System.Drawing.Point(184, 78);
+            this.txtName.Location = new System.Drawing.Point(178, 84);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(497, 41);
             this.txtName.TabIndex = 39;
@@ -55,11 +56,12 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.label7.Location = new System.Drawing.Point(21, 83);
+            this.label7.Location = new System.Drawing.Point(15, 89);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 35);
             this.label7.TabIndex = 45;
             this.label7.Text = "Name";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // btnUpdate
             // 
@@ -69,17 +71,20 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(509, 253);
+            this.btnUpdate.Location = new System.Drawing.Point(503, 259);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(172, 44);
             this.btnUpdate.TabIndex = 42;
             this.btnUpdate.Text = "ADD";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
-            this.txtAddress.Location = new System.Drawing.Point(184, 178);
+            this.txtAddress.Location = new System.Drawing.Point(178, 183);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(497, 41);
             this.txtAddress.TabIndex = 41;
@@ -89,30 +94,34 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.label6.Location = new System.Drawing.Point(21, 183);
+            this.label6.Location = new System.Drawing.Point(15, 189);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 35);
             this.label6.TabIndex = 44;
             this.label6.Text = "Address";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtContactNo
             // 
             this.txtContactNo.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
-            this.txtContactNo.Location = new System.Drawing.Point(184, 126);
+            this.txtContactNo.Location = new System.Drawing.Point(178, 132);
+            this.txtContactNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(497, 41);
             this.txtContactNo.TabIndex = 40;
+            this.txtContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContactNo_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(69)))));
-            this.label3.Location = new System.Drawing.Point(21, 131);
+            this.label3.Location = new System.Drawing.Point(15, 137);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 35);
             this.label3.TabIndex = 43;
             this.label3.Text = "Contact No.";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel1
             // 
@@ -121,8 +130,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(702, 48);
+            this.panel1.Size = new System.Drawing.Size(702, 69);
             this.panel1.TabIndex = 46;
             // 
             // label1
@@ -130,7 +140,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(171)))), ((int)(((byte)(227)))));
-            this.label1.Location = new System.Drawing.Point(10, 5);
+            this.label1.Location = new System.Drawing.Point(11, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(229, 38);
             this.label1.TabIndex = 0;
@@ -145,16 +155,17 @@
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(652, 0);
+            this.button2.Location = new System.Drawing.Point(646, 0);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 48);
+            this.button2.Size = new System.Drawing.Size(56, 69);
             this.button2.TabIndex = 5;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // AdminAddCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(702, 322);
@@ -167,9 +178,12 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtContactNo);
             this.Controls.Add(this.label3);
+            this.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AdminAddCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.AdminAddCustomer_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AdminAddCustomer_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

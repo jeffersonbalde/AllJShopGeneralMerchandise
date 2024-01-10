@@ -117,7 +117,7 @@ namespace OOP_System
             dataGridView2.Rows.Clear();
             cn.Open();
             string query = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty FROM tblProduct as p INNER JOIN tblBrand AS b ON b.id = p.bid INNER JOIN tblCategory AS c ON c.id = p.cid WHERE p.pdesc LIKE '" + txtSearchProduct.Text + "%' ORDER BY p.pdesc";
-            string query1 = "SELECT pcode, barcode, pdesc, price, qty FROM tblProduct WHERE pdesc LIKE '" + txtSearchProduct.Text + "%' ORDER BY pdesc";
+            string query1 = "SELECT pcode, barcode, pdesc, price, qty FROM tblProduct WHERE pdesc LIKE '%" + txtSearchProduct.Text + "%' ORDER BY pdesc";
             cm = new SqlCommand(query1, cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -533,7 +533,8 @@ namespace OOP_System
         {
             frmSettle frm = new frmSettle(this, frmAdd);
             //frm.txtSale.Text = lblDisplayTotal.Text;
-            frm.lblDiscount.Text = lblDiscount.Text;
+            frm.lblDiscount.Text = lblDiscount.Text;    
+            frm.comboBoxCategory.Text = "CASH";
             frm.txtSale.Text = GetTotalItem().ToString("#,##0.00");
             frm.ShowDialog();
             frm.txtCash.Focus();
@@ -568,7 +569,7 @@ namespace OOP_System
         private void button11_Click(object sender, EventArgs e)
         {
 
-            if (lblUserType.Text == "System Administrator")
+            if (lblUserType.Text == "Admin")
             {
 
                 if (dataGridView1.Rows.Count > 0)
@@ -680,9 +681,10 @@ namespace OOP_System
             {
                 button11_Click(sender, e);
             }
-            else if(e.KeyCode == Keys.F7)
+            else if(e.KeyCode == Keys.F6)
             {
                 txtSearchProduct.Focus();
+
             }
             else if (e.KeyCode == Keys.F9)
             {

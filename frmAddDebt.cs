@@ -40,6 +40,8 @@ namespace OOP_System
             frmPOS = form;
             frmSettle = form2;
             frmAddC = frm;
+
+            this.KeyPreview = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -196,6 +198,22 @@ namespace OOP_System
         private void frmAddDebt_Load(object sender, EventArgs e)
         {
             this.ActiveControl = comboBoxCustomer;
+        }
+
+        private void frmAddDebt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                btnSave_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F1)
+            {
+                button16_Click(sender, e);
+            }
         }
     }
 }

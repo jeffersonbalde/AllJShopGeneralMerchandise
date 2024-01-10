@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblRole = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
@@ -42,16 +43,20 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblSales = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lblItems = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblStocks = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblLowStocks = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,30 +64,25 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -133,6 +133,21 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "|";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(11, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(0, 38);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // lblName
             // 
             this.lblName.BackColor = System.Drawing.Color.Transparent;
@@ -154,7 +169,7 @@
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(224, 25);
             this.lblRole.TabIndex = 2;
-            this.lblRole.Text = "System Administrator";
+            this.lblRole.Text = "Admin";
             // 
             // button11
             // 
@@ -262,16 +277,26 @@
             this.panel6.Size = new System.Drawing.Size(250, 148);
             this.panel6.TabIndex = 0;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::OOP_System.Properties.Resources.peso;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Location = new System.Drawing.Point(76, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(91, 76);
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
             // lblSales
             // 
-            this.lblSales.AutoSize = true;
             this.lblSales.Font = new System.Drawing.Font("Sans Serif Collection", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(46)))), ((int)(((byte)(68)))));
-            this.lblSales.Location = new System.Drawing.Point(67, 94);
+            this.lblSales.Location = new System.Drawing.Point(3, 94);
             this.lblSales.Name = "lblSales";
-            this.lblSales.Size = new System.Drawing.Size(74, 42);
+            this.lblSales.Size = new System.Drawing.Size(244, 42);
             this.lblSales.TabIndex = 10;
             this.lblSales.Text = "0.00";
+            this.lblSales.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label14
             // 
@@ -297,15 +322,25 @@
             // 
             // lblItems
             // 
-            this.lblItems.AutoSize = true;
             this.lblItems.Font = new System.Drawing.Font("Sans Serif Collection", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(46)))), ((int)(((byte)(68)))));
-            this.lblItems.Location = new System.Drawing.Point(84, 101);
+            this.lblItems.Location = new System.Drawing.Point(5, 101);
             this.lblItems.Name = "lblItems";
-            this.lblItems.Size = new System.Drawing.Size(35, 42);
+            this.lblItems.Size = new System.Drawing.Size(242, 42);
             this.lblItems.TabIndex = 12;
             this.lblItems.Text = "0";
+            this.lblItems.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblItems.Click += new System.EventHandler(this.lblItem_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::OOP_System.Properties.Resources.prod;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Location = new System.Drawing.Point(79, 21);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(91, 76);
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
             // 
             // label15
             // 
@@ -331,14 +366,24 @@
             // 
             // lblStocks
             // 
-            this.lblStocks.AutoSize = true;
             this.lblStocks.Font = new System.Drawing.Font("Sans Serif Collection", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStocks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(46)))), ((int)(((byte)(68)))));
-            this.lblStocks.Location = new System.Drawing.Point(74, 95);
+            this.lblStocks.Location = new System.Drawing.Point(5, 95);
             this.lblStocks.Name = "lblStocks";
-            this.lblStocks.Size = new System.Drawing.Size(35, 42);
+            this.lblStocks.Size = new System.Drawing.Size(242, 42);
             this.lblStocks.TabIndex = 14;
             this.lblStocks.Text = "0";
+            this.lblStocks.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::OOP_System.Properties.Resources.stock;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox4.Location = new System.Drawing.Point(76, 16);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(91, 76);
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
             // 
             // label16
             // 
@@ -364,15 +409,25 @@
             // 
             // lblLowStocks
             // 
-            this.lblLowStocks.AutoSize = true;
             this.lblLowStocks.Font = new System.Drawing.Font("Sans Serif Collection", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLowStocks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(46)))), ((int)(((byte)(68)))));
-            this.lblLowStocks.Location = new System.Drawing.Point(94, 97);
+            this.lblLowStocks.Location = new System.Drawing.Point(7, 97);
             this.lblLowStocks.Name = "lblLowStocks";
-            this.lblLowStocks.Size = new System.Drawing.Size(35, 42);
+            this.lblLowStocks.Size = new System.Drawing.Size(240, 42);
             this.lblLowStocks.TabIndex = 15;
             this.lblLowStocks.Text = "0";
+            this.lblLowStocks.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblLowStocks.Click += new System.EventHandler(this.lblLowStocks_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::OOP_System.Properties.Resources.decrease;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox5.Location = new System.Drawing.Point(77, 24);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(91, 76);
+            this.pictureBox5.TabIndex = 14;
+            this.pictureBox5.TabStop = false;
             // 
             // label17
             // 
@@ -456,6 +511,17 @@
             this.panel3.TabIndex = 9;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint_1);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Sans Serif Collection", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(1006, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 29);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "F5";
+            // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -489,18 +555,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_3);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel9);
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel7);
-            this.panel2.Controls.Add(this.panel8);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 112);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(261, 637);
-            this.panel2.TabIndex = 11;
-            // 
             // button4
             // 
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -519,71 +573,17 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label8
+            // panel2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Sans Serif Collection", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(1006, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 29);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "F5";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::OOP_System.Properties.Resources.decrease;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.Location = new System.Drawing.Point(74, 24);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(91, 76);
-            this.pictureBox5.TabIndex = 14;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::OOP_System.Properties.Resources.peso;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(74, 15);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(91, 76);
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::OOP_System.Properties.Resources.prod;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Location = new System.Drawing.Point(74, 21);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(91, 76);
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::OOP_System.Properties.Resources.stock;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(74, 16);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(91, 76);
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(11, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(0, 38);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.panel2.Controls.Add(this.panel9);
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel7);
+            this.panel2.Controls.Add(this.panel8);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 112);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(261, 637);
+            this.panel2.TabIndex = 11;
             // 
             // Form1
             // 
@@ -608,25 +608,25 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

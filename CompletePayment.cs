@@ -20,15 +20,19 @@ namespace OOP_System
         SqlDataReader dr;
 
         CashierItemSales frmCashierSales;
+        ManageCustomer frmManageCustomer;
 
         int CustomerID;
 
-        public CompletePayment(CashierItemSales frm)
+        public CompletePayment(CashierItemSales frm, ManageCustomer form)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
 
             frmCashierSales = frm;
+            frmManageCustomer = form;
+
+            this.KeyPreview = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -81,7 +85,15 @@ namespace OOP_System
 
                 MessageBox.Show("Customer " + comboBoxCustomer.Text + " paid", "COMPLETE PAYMENT", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                frmCashierSales.LoadRecord();
+                if(frmCashierSales != null)
+                {
+                    frmCashierSales.LoadRecord();
+                }
+
+                if(frmManageCustomer != null)
+                {
+                    frmManageCustomer.LoadCustomerName();
+                }
                 this.Dispose();
 
             }catch(Exception ex)
@@ -127,6 +139,18 @@ namespace OOP_System
         private void CompletePayment_Load(object sender, EventArgs e)
         {
             this.ActiveControl = comboBoxCustomer;
+        }
+
+        private void CompletePayment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                btnSave_Click(sender, e);
+            }
         }
     }
 }

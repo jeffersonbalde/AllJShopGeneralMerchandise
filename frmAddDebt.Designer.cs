@@ -146,6 +146,7 @@
             this.Name = "frmAddDebt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmAddDebt_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAddDebt_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

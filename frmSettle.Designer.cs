@@ -70,6 +70,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
+            this.lblFilterByCategory = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -672,6 +674,30 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "PAYMENT";
             // 
+            // comboBoxCategory
+            // 
+            this.comboBoxCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold);
+            this.comboBoxCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(46)))), ((int)(((byte)(68)))));
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Items.AddRange(new object[] {
+            "CASH",
+            "GCASH"});
+            this.comboBoxCategory.Location = new System.Drawing.Point(692, 715);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(317, 49);
+            this.comboBoxCategory.TabIndex = 68;
+            // 
+            // lblFilterByCategory
+            // 
+            this.lblFilterByCategory.AutoSize = true;
+            this.lblFilterByCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFilterByCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(46)))), ((int)(((byte)(68)))));
+            this.lblFilterByCategory.Location = new System.Drawing.Point(378, 719);
+            this.lblFilterByCategory.Name = "lblFilterByCategory";
+            this.lblFilterByCategory.Size = new System.Drawing.Size(296, 41);
+            this.lblFilterByCategory.TabIndex = 67;
+            this.lblFilterByCategory.Text = "MODE OF PAYMENT";
+            // 
             // frmSettle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -679,6 +705,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1502, 777);
             this.ControlBox = false;
+            this.Controls.Add(this.comboBoxCategory);
+            this.Controls.Add(this.lblFilterByCategory);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.panel4);
@@ -771,5 +799,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ComboBox comboBoxCategory;
+        private System.Windows.Forms.Label lblFilterByCategory;
     }
 }

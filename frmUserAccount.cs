@@ -23,6 +23,8 @@ namespace OOP_System
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+
+            this.KeyPreview = true;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -47,8 +49,8 @@ namespace OOP_System
 
         private void frmUserAccount_Resize(object sender, EventArgs e)
         {
-            metroTabControl1.Left = (this.Width - metroTabControl1.Width) / 2;
-            metroTabControl1.Top = (this.Height - metroTabControl1.Height) / 2;
+            //metroTabControl1.Left = (this.Width - metroTabControl1.Width) / 2;
+            //metroTabControl1.Top = (this.Height - metroTabControl1.Height) / 2;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -311,6 +313,159 @@ namespace OOP_System
         private void cboRole_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmUserAccount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                button1_Click(sender, e);
+            }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (txtName.Text == "" || txtPass.Text == "" || txtRetype.Text == "" || txtUser.Text == "" || cboRole.Text == "")
+                {
+                    MessageBox.Show("Please fill up all fields", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (txtPass.Text != txtRetype.Text)
+                {
+                    MessageBox.Show("Please make sure your passwords match.", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                cn.Open();
+                string query = "INSERT INTO tblUser(username, password, role, name) VALUES(@username, @password, @role, @name)";
+                cm = new SqlCommand(query, cn);
+                cm.Parameters.AddWithValue("@username", txtUser.Text);
+                cm.Parameters.AddWithValue("@password", txtPass.Text);
+                cm.Parameters.AddWithValue("@role", cboRole.Text);
+                cm.Parameters.AddWithValue("@name", txtName.Text);
+                cm.ExecuteNonQuery();
+                cn.Close();
+
+                LoadUsername();
+                LoadUsernameDelete();
+                Clear();
+                LoadAccounts();
+                MessageBox.Show("Account saved.", "ALL J SHOP GENERAL MERCHANDISE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void frmUserAccount_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = txtUser;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBoxConfirmPassword.Text == "" || textBoxNewPassword.Text == "" || textBoxOldPassword.Text == "" || comboBoxUsername.Text == "")
+            {
+                MessageBox.Show("Please fill up all fields", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            LoadAccounts();
+            UpdatePassword();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (comboBoxDeleteUsername.Text == "")
+            {
+                MessageBox.Show("Please select username", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DeleteUsername();
+            LoadAccounts();
+            LoadUsernameDelete();
+            LoadUsername();
+        }
+
+        private void cboRole_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void comboBoxUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void comboBoxDeleteUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        public void LoadAccounts()
+        {
+            try
+            {
+
+                cn.Open();
+                int i = 0;
+                dataGridView1.Rows.Clear();
+                string query = "SELECT * FROM tblUser";
+
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    i++;
+                    dataGridView1.Rows.Add(i, dr["name"].ToString(), dr["username"].ToString(), dr["password"].ToString(), dr["role"].ToString());
+                }
+                dr.Close();
+                cn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (comboBoxDeleteUsername.Text == "")
+            {
+                MessageBox.Show("Please select username", "ADD ITEM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DeleteUsername();
+            LoadAccounts();
+            LoadUsernameDelete();
+            LoadUsername();
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

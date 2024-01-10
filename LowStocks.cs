@@ -34,13 +34,13 @@ namespace OOP_System
                 int i = 0;
                 cn.Open();
                 string query3 = "SELECT * FROM vwCriticalItems";
-                string query = "SELECT pcode, barcode, pdesc, price, reorder, qty FROM vwCriticalItems";
+                string query = "SELECT pcode, barcode, pdesc, price, reorder, qty FROM vwCriticalItems WHERE pdesc LIKE '%" + txtSearch.Text + "%'";
                 cm = new SqlCommand(query, cn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
                     i++;
-                    dataGridView3.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString());
+                    dataGridView3.Rows.Add(i, int.Parse(dr["pcode"].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[5].ToString(), dr[4].ToString());
                 }
                 cn.Close();
 
@@ -59,7 +59,12 @@ namespace OOP_System
 
         private void LowStocks_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = txtSearch;
+        }
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            GetLowStocks();
         }
     }
 }

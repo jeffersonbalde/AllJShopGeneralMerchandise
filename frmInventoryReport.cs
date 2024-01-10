@@ -23,6 +23,8 @@ namespace OOP_System
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+
+            this.KeyPreview = true;
         }
 
         private void frmInventoryReport_Load(object sender, EventArgs e)
@@ -219,6 +221,14 @@ namespace OOP_System
         private void button1_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void frmInventoryReport_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                button1_Click(sender, e);
+            }
         }
     }
 }

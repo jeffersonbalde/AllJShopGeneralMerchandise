@@ -184,12 +184,20 @@ namespace OOP_System
             {
                 exitbtn_Click(sender, e);
             }
+            else if (e.KeyCode == Keys.F1)
+            {
+                btnSave_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                button2_Click(sender, e);
+            }
         }
 
 
         private void exitbtn_Click(object sender, EventArgs e)
         {
-            this.Dispose(true);
+            this.Dispose();
         }
 
         //end of former click actions

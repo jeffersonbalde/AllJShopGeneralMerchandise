@@ -23,6 +23,8 @@ namespace OOP_System
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+
+            this.KeyPreview = true;
         }
 
         private void frmReturnItems_Load(object sender, EventArgs e)
@@ -71,6 +73,14 @@ namespace OOP_System
         private void dt2_ValueChanged(object sender, EventArgs e)
         {
             VoidItems();
+        }
+
+        private void frmReturnItems_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                button1_Click(sender, e);
+            }
         }
     }
 }

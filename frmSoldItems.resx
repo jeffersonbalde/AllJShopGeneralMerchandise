@@ -144,6 +144,9 @@
   <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="colCancel.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -151,7 +154,7 @@
   <data name="colCancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAOtJREFUSEvtlc0NgkAQhSmBEiyBUiyBCz/xxEWzcIESLMEOtANKsARKGKlAZ5PH
+        DQAACw0B7QfALAAAAOtJREFUSEvtlc0NgkAQhSmBEiyBUiyBCz/xxEWzcIESLMEOtANKsARKGKlAZ5PH
         RWbZWTDxwpe8A2HeC7AvQ7TzU1518WT1uAyHqiomUx7Gpmw5aBD0hmb3xiZvrRdRMhieQtZqQNwcfoKU
         TN5tUp0fEfcnhFcOEmLc8NCWc3B//wkeun+ZQuSvMB/UTTCqRKa4IsYNt6CSzBrZFiHGDZkslcwa0UVR
         UWpOiWTWiM5Zghg31KWxZNbIrhrELMPDa6pKsPvhYbs1pZAl6bfsmqpyRR+w+7F1k0KWpKrohN3rbAo5

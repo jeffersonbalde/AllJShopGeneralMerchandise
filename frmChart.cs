@@ -28,6 +28,8 @@ namespace OOP_System
             cn = new SqlConnection(dbcon.MyConnection());
 
             frmR = frmr;
+
+            this.KeyPreview = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -125,5 +127,13 @@ namespace OOP_System
                 MessageBox.Show(ex.Message);
             }
 }
+
+        private void frmChart_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                button1_Click(sender, e);
+            }
+        }
     }
 }

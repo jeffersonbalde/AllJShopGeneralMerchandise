@@ -78,6 +78,8 @@ namespace OOP_System
             //{
             //    c.Font = new Font(pfc.Families[0], 15, FontStyle.Regular);
             //}
+            panel4.Controls.Clear();
+            OpenProductList();
         }
 
         public void NotifyCriticalItems()
@@ -177,6 +179,20 @@ namespace OOP_System
             frm.Show();
         }
 
+        private void OpenProductList()
+        {
+            panel4.Controls.Clear();
+            frmProductList frm = new frmProductList(this);
+            frm.comboBoxCategory.Text = "All";
+            frm.LoadCategory();
+            frm.GetTotalItem();
+            frm.TopLevel = false;
+            panel4.Controls.Add(frm);
+            frm.BringToFront();
+            frm.LoadRecords();
+            frm.Show();
+        }
+
         //private void btnStockIn_Click(object sender, EventArgs e)
         //{
         //    panel4.Controls.Clear();
@@ -199,6 +215,7 @@ namespace OOP_System
             frmUserAccount frm = new frmUserAccount();
             frm.LoadUsername();
             frm.LoadUsernameDelete();
+            frm.LoadAccounts();
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();
@@ -210,7 +227,6 @@ namespace OOP_System
             panel4.Controls.Clear();
             frmSoldItems frm = new frmSoldItems(frmrecords, this);
             frm.suser = lblName.Text;
-            frm.cboCashier.Text = "All";
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();
@@ -355,7 +371,7 @@ namespace OOP_System
                 frmPOS frm = new frmPOS(formSales, frmAdd);
 
                 cn.Open();
-                string query = "SELECT * FROM tblUser WHERE role LIKE 'System Administrator'";
+                string query = "SELECT * FROM tblUser WHERE role LIKE 'Admin'";
                 cm = new SqlCommand(query, cn);
                 cm.ExecuteNonQuery();
                 dr = cm.ExecuteReader();
@@ -366,6 +382,7 @@ namespace OOP_System
                 }
 
                 frm.lblUser.Text = lblName.Text;
+
                 frm.ShowDialog();
                 this.Dispose();
                 dr.Close();
@@ -400,6 +417,7 @@ namespace OOP_System
             panel4.Controls.Clear();
             ManageCustomer frm = new ManageCustomer();
             frm.LoadCustomerName();
+            frm.LoadTotalCustomer();
             frm.TopLevel = false;
             panel4.Controls.Add(frm);
             frm.BringToFront();

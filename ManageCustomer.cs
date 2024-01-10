@@ -22,6 +22,8 @@ namespace OOP_System
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+
+            this.KeyPreview = true;
         }
 
         public void LoadCustomerName()
@@ -94,15 +96,81 @@ namespace OOP_System
                     cm.ExecuteNonQuery();
                     cn.Close();
                     LoadCustomerName();
-                    MessageBox.Show("Item  deleted.", "DELETE ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTotalCustomer();
+                    MessageBox.Show("Customer deleted.", "DELETE ITEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            AdminAddCustomer frm = new AdminAddCustomer();
+            AdminAddCustomer frm = new AdminAddCustomer(this);
             frm.ShowDialog();
+        }
+
+        private void ButtonMCategory_Click(object sender, EventArgs e)
+        {
+            frmViewDebt frm = new frmViewDebt();
+            frm.LoadCustomer();
+            frm.DefaultCustomerDebtTotal();
+            frm.cboCashier.Text = "All";
+            frm.LoadCustomerName();
+            frm.ShowDialog();
+        }
+
+        private void ButtonSItem_Click(object sender, EventArgs e)
+        {
+            CompletePayment frm = new CompletePayment(null, this);
+            frm.LoadCustomerName();
+            frm.ShowDialog();
+        }
+
+        public void LoadTotalCustomer()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT ISNULL(COUNT(*), 0) AS total FROM CustomerInformation;";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    labelTotalItem.Text = dr["total"].ToString();
+                }
+                else
+                {
+                    labelTotalItem.Text = "0";
+                }
+                dr.Close();
+                cn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ManageCustomer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+            else if (e.KeyCode == Keys.F1)
+            {
+                btnAddItem_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F2)
+            {
+                ButtonMCategory_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.F3)
+            {
+                ButtonSItem_Click(sender, e);
+            }
         }
     }
 }

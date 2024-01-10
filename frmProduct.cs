@@ -350,11 +350,11 @@ namespace OOP_System
             {
                 this.Dispose();
             }
-            //else if (e.KeyCode == Keys.Enter)
-            //{
-            //    btnSave_Click(sender, e);
-            //}
-            
+            else if (e.KeyCode == Keys.Enter)
+            {
+                btnSave_Click(sender, e);
+            }
+
         }
 
         private void frmProduct_Load(object sender, EventArgs e)
