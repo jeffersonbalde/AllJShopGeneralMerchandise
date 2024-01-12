@@ -116,9 +116,32 @@ namespace OOP_System
             int i = 0;
             dataGridView2.Rows.Clear();
             cn.Open();
-            string query = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty FROM tblProduct as p INNER JOIN tblBrand AS b ON b.id = p.bid INNER JOIN tblCategory AS c ON c.id = p.cid WHERE p.pdesc LIKE '" + txtSearchProduct.Text + "%' ORDER BY p.pdesc";
-            string query1 = "SELECT pcode, barcode, pdesc, price, qty FROM tblProduct WHERE pdesc LIKE '%" + txtSearchProduct.Text + "%' ORDER BY pdesc";
-            cm = new SqlCommand(query1, cn);
+            //string query = "SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty FROM tblProduct as p INNER JOIN tblBrand AS b ON b.id = p.bid INNER JOIN tblCategory AS c ON c.id = p.cid WHERE p.pdesc LIKE '" + txtSearchProduct.Text + "%' ORDER BY p.pdesc";
+            //string query1 = "SELECT pcode, barcode, pdesc, price, qty FROM tblProduct WHERE pdesc LIKE '%" + txtSearchProduct.Text + "%' ORDER BY pdesc";
+
+            if(txtSearch.Text == "")
+            {
+                cm = new SqlCommand("SELECT pcode, barcode, pdesc, price, qty FROM tblProduct WHERE pdesc LIKE '%" + txtSearchProduct.Text + "%' ORDER BY pdesc", cn);
+            }
+
+            if(txtSearch.Text != "")
+            {
+                cm = new SqlCommand("SELECT pcode, barcode, pdesc, price, qty FROM tblProduct WHERE barcode LIKE '%" + txtSearch.Text + "%' ORDER BY pdesc", cn);
+            }
+
+            if(txtSearchProduct.Text != "")
+            {
+                if(txtSearch.Text != "")
+                {
+                    cm = new SqlCommand("SELECT pcode, barcode, pdesc, price, qty FROM tblProduct WHERE pdesc LIKE '%" + txtSearchProduct.Text + "%' AND barcode LIKE '" + txtSearch.Text + "' ORDER BY pdesc", cn);
+                }
+                else
+                {
+                    cm = new SqlCommand("SELECT pcode, barcode, pdesc, price, qty FROM tblProduct WHERE pdesc LIKE '%" + txtSearchProduct.Text + "%' ORDER BY pdesc", cn);
+                }
+            }
+
+            //cm = new SqlCommand(query1, cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -214,6 +237,7 @@ namespace OOP_System
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            LoadRecords();
             try
             {
                 if(txtSearch.Text == String.Empty) { return; }

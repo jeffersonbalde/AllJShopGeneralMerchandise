@@ -31,7 +31,7 @@ namespace OOP_System
         private String transno;
         private int qty;
         private double total;
-
+        
         public frmAddDebt(frmPOS form, frmSettle form2, frmAddCustomer frm)
         {
             InitializeComponent();
@@ -117,7 +117,7 @@ namespace OOP_System
                 cm.Parameters.AddWithValue("@price", price);
                 cm.Parameters.AddWithValue("@qty", qty);
                 cm.Parameters.AddWithValue("@sdate", DateTime.Now);
-                cm.Parameters.AddWithValue("@cashier", frmPOS.lblUser.Text);
+                cm.Parameters.AddWithValue("@cashier", frmPOS.lblUser.Text); 
                 cm.ExecuteNonQuery();
                 cn.Close();
 

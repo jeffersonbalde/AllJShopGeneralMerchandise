@@ -75,6 +75,12 @@ namespace OOP_System
 
                 }
 
+                if(txtContactNo.Text.Length != 11)
+                {
+                    MessageBox.Show("Invalid contact number", "ADD DEBT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 cn.Open();
 
                 string query = "INSERT INTO CustomerInformation (Name, ContactNo, Address) VALUES(@name, @contactno, @address)";
