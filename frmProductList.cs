@@ -67,7 +67,7 @@ namespace OOP_System
                 }
 
                 if (comboBoxCategory.SelectedIndex != -1 && comboBoxCategory.Text != "All")
-                {
+                {   
                     cm = new SqlCommand("SELECT p.pcode, p.barcode, p.pdesc, c.category, p.price, p.qty, p.reorder FROM tblProduct as p INNER JOIN tblCategory AS c ON c.id = p.cid WHERE c.category = '" + comboBoxCategory.SelectedItem.ToString() + "' ORDER BY p.pdesc", cn);
 
                 }
