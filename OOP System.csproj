@@ -309,6 +309,12 @@
     <Compile Include="frmVoid.Designer.cs">
       <DependentUpon>frmVoid.cs</DependentUpon>
     </Compile>
+    <Compile Include="JJAM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JJAM.Designer.cs">
+      <DependentUpon>JJAM.cs</DependentUpon>
+    </Compile>
     <Compile Include="LowStocks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -475,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVoid.resx">
       <DependentUpon>frmVoid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JJAM.resx">
+      <DependentUpon>JJAM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LowStocks.resx">
       <DependentUpon>LowStocks.cs</DependentUpon>

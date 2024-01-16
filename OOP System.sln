@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP System", "OOP System.csproj", "{6D12F393-60CF-4FB0-A3BB-5060DB2AB027}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ALL_J_SHOP_GENERAL_MERCHANDISE", "ALL_J_SHOP_GENERAL_MERCHANDISE\ALL_J_SHOP_GENERAL_MERCHANDISE.vdproj", "{9EC5CFE2-BE71-4945-99D5-589C841C4525}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{6D12F393-60CF-4FB0-A3BB-5060DB2AB027}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D12F393-60CF-4FB0-A3BB-5060DB2AB027}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D12F393-60CF-4FB0-A3BB-5060DB2AB027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EC5CFE2-BE71-4945-99D5-589C841C4525}.Debug|Any CPU.ActiveCfg = Debug
+		{9EC5CFE2-BE71-4945-99D5-589C841C4525}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
