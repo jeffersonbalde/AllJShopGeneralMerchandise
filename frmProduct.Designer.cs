@@ -34,17 +34,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtReorder = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtReorder = new System.Windows.Forms.TextBox();
             this.comboBoxCategoryAddItem = new System.Windows.Forms.ComboBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,22 +99,6 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Price";
             this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(182)))), ((int)(((byte)(114)))));
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(323, 358);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(172, 44);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "UPDATE";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSave
             // 
@@ -190,16 +174,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ADD / UPDATE ITEM";
             // 
-            // txtReorder
-            // 
-            this.txtReorder.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReorder.Location = new System.Drawing.Point(176, 297);
-            this.txtReorder.Name = "txtReorder";
-            this.txtReorder.Size = new System.Drawing.Size(497, 38);
-            this.txtReorder.TabIndex = 3;
-            this.txtReorder.TextChanged += new System.EventHandler(this.txtReorder_TextChanged);
-            this.txtReorder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReorder_KeyPress);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -223,6 +197,16 @@
             this.label4.Text = "Category";
             this.label4.Click += new System.EventHandler(this.label4_Click_1);
             // 
+            // txtReorder
+            // 
+            this.txtReorder.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReorder.Location = new System.Drawing.Point(176, 297);
+            this.txtReorder.Name = "txtReorder";
+            this.txtReorder.Size = new System.Drawing.Size(497, 38);
+            this.txtReorder.TabIndex = 3;
+            this.txtReorder.TextChanged += new System.EventHandler(this.txtReorder_TextChanged);
+            this.txtReorder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReorder_KeyPress);
+            // 
             // comboBoxCategoryAddItem
             // 
             this.comboBoxCategoryAddItem.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -233,6 +217,22 @@
             this.comboBoxCategoryAddItem.TabIndex = 23;
             this.comboBoxCategoryAddItem.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategoryAddItem_SelectedIndexChanged);
             this.comboBoxCategoryAddItem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxCategoryAddItem_KeyPress);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(182)))), ((int)(((byte)(114)))));
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(323, 358);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(172, 44);
+            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.Text = "UPDATE";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // frmProduct
             // 
@@ -275,16 +275,16 @@
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.Button btnUpdate;
         public System.Windows.Forms.Button btnSave;
         public System.Windows.Forms.TextBox txtBarcode;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox txtReorder;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox txtReorder;
         public System.Windows.Forms.ComboBox comboBoxCategoryAddItem;
+        public System.Windows.Forms.Button btnUpdate;
     }
 }

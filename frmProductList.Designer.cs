@@ -326,6 +326,7 @@
             this.labelTotalItem.TabIndex = 11;
             this.labelTotalItem.Text = "00";
             this.labelTotalItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelTotalItem.Click += new System.EventHandler(this.labelTotalItem_Click);
             // 
             // label1
             // 
