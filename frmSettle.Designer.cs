@@ -104,7 +104,7 @@
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(208, 61);
             this.btnEnter.TabIndex = 33;
-            this.btnEnter.Text = "SAVE";
+            this.btnEnter.Text = "PAY";
             this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
