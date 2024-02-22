@@ -24,7 +24,7 @@ namespace OOP_System
         public string MyConnection()
         {
 
-            con = @"Data Source=LAPTOP-6ODBNAGM\SQLEXPRESS01;Initial Catalog=OOP;Integrated Security=True";
+            con = @"Data Source=LAPTOP-6ODBNAGM\SQLEXPRESS03;Initial Catalog=OOP;Integrated Security=True";
 
             return con;
         }
@@ -67,6 +67,7 @@ namespace OOP_System
             cm = new SqlCommand(query, cn);
             stocks = int.Parse(cm.ExecuteScalar().ToString());
             cn.Close();
+
             return stocks;
         }
 
